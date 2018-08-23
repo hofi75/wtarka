@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Name="" Version="3.19" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="2047" PreviewOptions.Zoom="1" PrintOptions.Printer="Alap�rtelmezett" ReportOptions.CreateDate="38838,5194621875" ReportOptions.Description.Text="" ReportOptions.LastChange="41050,4788093171" ScriptLanguage="PascalScript" ScriptText.Text="var&#13;&#10;  KonnyuElles : integer;&#13;&#10;&#13;&#10;procedure MasterData2OnBeforePrint(Sender: TfrxComponent);&#13;&#10;begin&#13;&#10;&#13;&#10;end;&#13;&#10;&#13;&#10;procedure Memo7OnBeforePrint(Sender: TfrxComponent);&#13;&#10;var&#13;&#10;  s : string;&#13;&#10;begin&#13;&#10;    s:= Trim(&#60;frxDBLista.&#34;ENAR&#34;&#62;);&#13;&#10;    if ((Copy(s,1,1) = '3') And (Length(s) = 10)) Then&#13;&#10;      memo7.text := Copy(s,1,5) + '-' + Copy(s,6,4) + '-' + Copy(s,10,1)&#13;&#10;    Else&#13;&#10;     If ((Copy(s,1,3) = 'HU3') And (Length(s) = 12)) Then&#13;&#10;       memo7.text := Copy(s,1,7) + '-' + Copy(s,8,4) + '-' + Copy(s,12,1)&#13;&#10;     else&#13;&#10;       memo7.text := &#60;frxDBLista.&#34;ENAR&#34;&#62;;&#13;&#10;end;&#13;&#10;&#13;&#10;procedure MasterData1OnBeforePrint(Sender: TfrxComponent);&#13;&#10;begin&#13;&#10;&#13;&#10;&#13;&#10;end;&#13;&#10;&#13;&#10;procedure Memo149OnBeforePrint(Sender: TfrxComponent);&#13;&#10;begin&#13;&#10;  if &#60;COUNT(MasterData2)&#62; &#62; 0 then&#13;&#10;    Memo149.text := FormatFloat('#.#', 100 * KonnyuElles / &#60;COUNT(MasterData2)&#62;) + ' %'&#13;&#10;  else&#13;&#10;    Memo149.text := '0' ;&#13;&#10;end;&#13;&#10;&#13;&#10;procedure ReportTitle1OnBeforePrint(Sender: TfrxComponent);&#13;&#10;begin&#13;&#10;  KonnyuElles := 0;&#13;&#10;end;&#13;&#10;&#13;&#10;procedure MasterData2OnAfterPrint(Sender: TfrxComponent);&#13;&#10;begin&#13;&#10;  if (&#60;frxDBEgyElles.&#34;ELLES_LEF&#34;&#62; = '1') or  (&#60;frxDBEgyElles.&#34;ELLES_LEF&#34;&#62; = '2') then&#13;&#10;    KonnyuElles := KonnyuElles + 1;&#13;&#10;&#13;&#10;&#13;&#10;end;&#13;&#10;&#13;&#10;procedure Memo7OnAfterData(Sender: TfrxComponent);&#13;&#10;var&#13;&#10;  s : string;&#13;&#10;begin&#13;&#10;    s:= Trim(&#60;frxDBLista.&#34;ENAR&#34;&#62;);&#13;&#10;    if ((Copy(s,1,1) = '3') And (Length(s) = 10)) Then&#13;&#10;      memo7.text := Copy(s,1,5) + '-' + Copy(s,6,4) + '-' + Copy(s,10,1)&#13;&#10;    Else&#13;&#10;     If ((Copy(s,1,3) = 'HU3') And (Length(s) = 12)) Then&#13;&#10;       memo7.text := Copy(s,1,7) + '-' + Copy(s,8,4) + '-' + Copy(s,12,1)&#13;&#10;     else&#13;&#10;       memo7.text := &#60;frxDBLista.&#34;ENAR&#34;&#62;;&#13;&#10;end;&#13;&#10;&#13;&#10;procedure Memo84OnAfterData(Sender: TfrxComponent);&#13;&#10;var&#13;&#10;  s : string;&#13;&#10;begin&#13;&#10;    s := Trim(&#60;frxDBLista.&#34;ANYA_ENAR&#34;&#62;);&#13;&#10;    if ((Copy(s,1,1) = '3') And (Length(s) = 10)) Then&#13;&#10;      memo84.text := Copy(s,1,5) + '-' + Copy(s,6,4) + '-' + Copy(s,10,1)&#13;&#10;    Else&#13;&#10;     If ((Copy(s,1,3) = 'HU3') And (Length(s) = 12)) Then&#13;&#10;       memo84.text := Copy(s,1,7) + '-' + Copy(s,8,4) + '-' + Copy(s,12,1)&#13;&#10;     else&#13;&#10;       memo84.text := &#60;frxDBLista.&#34;ANYA_ENAR&#34;&#62;;&#13;&#10;end;&#13;&#10;&#13;&#10;&#13;&#10;procedure Memo83OnAfterData(Sender: TfrxComponent);&#13;&#10;var&#13;&#10;  s : string;&#13;&#10;begin&#13;&#10;    s := Trim(&#60;frxDBLista.&#34;APA_ANYA&#34;&#62;);&#13;&#10;    if ((Copy(s,1,1) = '3') And (Length(s) = 10)) Then&#13;&#10;      memo83.text := Copy(s,1,5) + '-' + Copy(s,6,4) + '-' + Copy(s,10,1)&#13;&#10;    Else&#13;&#10;     If ((Copy(s,1,3) = 'HU3') And (Length(s) = 12)) Then&#13;&#10;       memo83.text := Copy(s,1,7) + '-' + Copy(s,8,4) + '-' + Copy(s,12,1)&#13;&#10;     else&#13;&#10;       memo83.text := &#60;frxDBLista.&#34;APA_ANYA&#34;&#62;;&#13;&#10;end;&#13;&#10;&#13;&#10;procedure Memo106OnAfterData(Sender: TfrxComponent);&#13;&#10;var&#13;&#10;  s : string;&#13;&#10;begin&#13;&#10;    s := Trim(&#60;frxDBLista.&#34;ANA_ANYA_ENAR&#34;&#62;);&#13;&#10;    if ((Copy(s,1,1) = '3') And (Length(s) = 10)) Then&#13;&#10;      memo106.text := Copy(s,1,5) + '-' + Copy(s,6,4) + '-' + Copy(s,10,1)&#13;&#10;    Else&#13;&#10;     If ((Copy(s,1,3) = 'HU3') And (Length(s) = 12)) Then&#13;&#10;       memo106.text := Copy(s,1,7) + '-' + Copy(s,8,4) + '-' + Copy(s,12,1)&#13;&#10;     else&#13;&#10;       memo106.text := &#60;frxDBLista.&#34;ANA_ANYA_ENAR&#34;&#62;;&#13;&#10;end;&#13;&#10;&#13;&#10;begin&#13;&#10;&#13;&#10;end." PropData="044C65667403480103546F70027808446174617365747301010C4F00000020446174615365743D2266726D5469626F722E66727844426474735469626F7254656E7965737A65742220446174615365744E616D653D2266727844426474735469626F7254656E7965737A65742200010C3100000020446174615365743D22647473456C6C6573656B2220446174615365744E616D653D226672784442456779456C6C65732200010C3100000020446174615365743D226672784442444B756C6C656D2220446174615365744E616D653D2266727844424B756C6C656D2200010C2E00000020446174615365743D2266727844424C697374612220446174615365744E616D653D2266727844424C69737461220000095661726961626C657301010C16000000204E616D653D22204E65772043617465676F7279312200010C17000000204E616D653D22537A75726F46656C746574656C656B2200010C14000000204E616D653D2252656E64657A657474736567220000055374796C650100">
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" Height="94,48825" Left="0" Top="18,89765" Width="718,1107" OnBeforePrint="ReportTitle1OnBeforePrint" Stretched="True">
+      <TfrxMemoView Name="Memo4" Left="204,09468102" Top="52,91342" Width="309,92133795" Height="22,67718" Font.Charset="1" Font.Color="0" Font.Height="-19" Font.Name="Arial" Font.Style="5" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Tehén (üsző) egyedi lap"/>
+      <TfrxMemoView Name="Memo5" Align="baCenter" Left="185,197011495" Top="0" Width="347,71667701" Height="15,11811024" AutoWidth="True" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" WordWrap="False" VAlign="vaCenter" Text="WinTarka - Húshasznú szarvasmarha nyilvántartó program "/>
+      <TfrxMemoView Name="Memo8" Left="514,01576268" Top="22,67718" Width="43,46456693" Height="15,11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haRight" ParentFont="False" Text="Készült:"/>
+      <TfrxSysMemoView Name="SysMemo1" Left="563,14997" Top="22,67718" Width="62,36220472" Height="15,11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[DATE]"/>
+      <TfrxSysMemoView Name="SysMemo2" Left="631,18111457" Top="22,67718" Width="45,35433071" Height="15,11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[TIME]"/>
+      <TfrxLineView Name="Line3" Align="baWidth" Left="0" Top="45,35431118" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo1" Left="11,33859" Top="22,67718" Width="56,69295" Height="18,89765" DataField="ATKOD" DataSet="frmTibor.frxDBdtsTiborTenyeszet" DataSetName="frxDBdtsTiborTenyeszet" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[frxDBdtsTiborTenyeszet.&#34;ATKOD&#34;]"/>
+      <TfrxMemoView Name="Memo6" Left="71,81107" Top="22,67718" Width="177,63791" Height="18,8976378" DataField="TELEP_NEV" DataSet="frmTibor.frxDBdtsTiborTenyeszet" DataSetName="frxDBdtsTiborTenyeszet" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[frxDBdtsTiborTenyeszet.&#34;TELEP_NEV&#34;]"/>
+      <TfrxMemoView Name="Memo29" Left="264,5671" Top="22,67718" Width="56,69295" Height="18,89765" DataField="ENAR_KOD" DataSet="frmTibor.frxDBdtsTiborTenyeszet" DataSetName="frxDBdtsTiborTenyeszet" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[frxDBdtsTiborTenyeszet.&#34;ENAR_KOD&#34;]"/>
+    </TfrxReportTitle>
+    <TfrxMasterData Name="MasterData1" Height="525,35467" Left="0" Top="173,85838" Width="718,1107" OnBeforePrint="MasterData1OnBeforePrint" ColumnWidth="0" ColumnGap="0" DataSet="frxDBLista" DataSetName="frxDBLista" RowCount="0">
+      <TfrxMemoView Name="Memo3" Left="3,77953" Top="3,77952999999999" Width="351,49629" Height="18,89765" AutoWidth="True" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Tenyészet : [frxDBLista.&#34;TENYESZET&#34;] [frxDBLista.&#34;TNEV2&#34;]"/>
+      <TfrxMemoView Name="Memo7" Left="52,91342" Top="26,45671" Width="120,94496" Height="18,89765" OnAfterData="Memo7OnAfterData" OnBeforePrint="Memo7OnBeforePrint" DataField="ENAR" DataSet="frxDBLista" DataSetName="frxDBLista" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" ParentFont="False" Text="[frxDBLista.&#34;ENAR&#34;]"/>
+      <TfrxMemoView Name="Memo10" Left="3,77953" Top="26,45671" Width="45,35436" Height="18,89765" Text="ENAR:"/>
+      <TfrxMemoView Name="Memo11" Left="177,63791" Top="26,45671" Width="158,74026" Height="18,89765" AutoWidth="True" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Fülszám: [frxDBLista.&#34;FULSZAM&#34;]"/>
+      <TfrxMemoView Name="Memo12" Left="340,1577" Top="26,45671" Width="177,63791" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Tehénszám. [frxDBLista.&#34;TEHENSZAM&#34;]"/>
+      <TfrxMemoView Name="Memo14" Left="525,35467" Top="26,45671" Width="120,94496" Height="18,89765" AutoWidth="True" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Külf.ENAR : [frxDBLista.&#34;ID_ENAR&#34;]"/>
+      <TfrxMemoView Name="Memo17" Left="3,77953" Top="79,37013" Width="56,69295" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="TKV : [frxDBLista.&#34;TKV&#34;]"/>
+      <TfrxMemoView Name="Memo18" Left="71,81107" Top="79,37013" Width="272,12616" Height="18,89765" AutoWidth="True" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Szín : [frxDBLista.&#34;SZIN&#34;][frxDBLista.&#34;SZINNEV&#34;]"/>
+      <TfrxMemoView Name="Memo15" Left="3,77953" Top="52,91342" Width="249,44898" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Születési dátum: [frxDBLista.&#34;SZULDAT&#34;]"/>
+      <TfrxMemoView Name="Memo16" Left="275,90569" Top="52,91342" Width="264,5671" Height="18,89765" AutoWidth="True" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Marhalevél száma: [frxDBLista.&#34;MLEVEL1&#34;] [frxDBLista.&#34;MLEVEL2&#34;]"/>
+      <TfrxLineView Name="Line1" Align="baWidth" Left="0" Top="26,45671" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line4" Align="baWidth" Left="0" Top="0" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line5" Align="baWidth" Left="0" Top="49,13389" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line6" Align="baWidth" Left="0" Top="75,5906" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line7" Align="baWidth" Left="0" Top="102,04731" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line8" Left="351,49629" Top="75,5906" Width="0" Height="26,45671" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo19" Left="355,27582" Top="79,37013" Width="355,27582" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Fajta :[frxDBLista.&#34;FAJTAKOD&#34;] [frxDBLista.&#34;FNEV&#34;]"/>
+      <TfrxMemoView Name="Memo20" Left="79,37013" Top="105,82684" Width="22,6771653543307" Height="18,89765" DataField="VER1" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;VER1&#34;]"/>
+      <TfrxMemoView Name="Memo21" Left="3,77953" Top="105,82684" Width="71,81107" Height="18,89765" Text="Vérhányad: "/>
+      <TfrxMemoView Name="Memo22" Left="105,82684" Top="105,82684" Width="45,35433803" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;VSZ1&#34;] %"/>
+      <TfrxMemoView Name="Memo23" Left="158,74026" Top="105,82684" Width="22,6771653543307" Height="18,89765" DataField="VER2" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;VER2&#34;]"/>
+      <TfrxMemoView Name="Memo24" Left="185,19697" Top="105,82684" Width="45,35433803" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;VSZ2&#34;] %"/>
+      <TfrxMemoView Name="Memo25" Left="245,66945" Top="105,82684" Width="22,6771653543307" Height="18,89765" DataField="VER3" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;VER3&#34;]"/>
+      <TfrxMemoView Name="Memo26" Left="272,12616" Top="105,82684" Width="45,35433803" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;VSZ3&#34;] %"/>
+      <TfrxMemoView Name="Memo27" Left="325,03958" Top="105,82684" Width="22,6771653543307" Height="18,89765" DataField="VER4" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;VER4&#34;]"/>
+      <TfrxMemoView Name="Memo28" Left="351,49629" Top="105,82684" Width="45,35433803" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;VSZ4&#34;] %"/>
+      <TfrxLineView Name="Line9" Align="baWidth" Left="0" Top="128,50402" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line10" Left="449,76407" Top="102,04731" Width="0" Height="26,45671" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo30" Left="434,64595" Top="151,1812" Width="0" Height="0" DataField="KKOD" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;KKOD&#34;]"/>
+      <TfrxMemoView Name="Memo31" Left="453,5436" Top="105,82684" Width="257,00804" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Konstrukciós kód: [frxDBLista.&#34;KKOD&#34;]"/>
+      <TfrxSubreport Name="Subreport1" Left="0" Top="234,33086" Width="105,82684" Height="45,35433071" Page="Page3" PrintOnParent="True"/>
+      <TfrxLineView Name="Line11" Align="baWidth" Left="0" Top="154,96073" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo33" Left="3,77953" Top="132,28355" Width="204,09462" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Választás dátuma: [frxDBLista.&#34;VALDAT&#34;]"/>
+      <TfrxMemoView Name="Memo34" Left="262,33086" Top="132,28355" Width="27,91342" Height="18,89765" DataField="VALKOR" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;VALKOR&#34;]"/>
+      <TfrxMemoView Name="Memo35" Left="302,3624" Top="132,28355" Width="79,37013" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Tömeg: [frxDBLista.&#34;VALTOM&#34;]"/>
+      <TfrxMemoView Name="Memo36" Left="389,29159" Top="132,28355" Width="71,81107" Height="18,89765" Text="Étgy:[frxDBLista.&#34;TGYVAL&#34;]"/>
+      <TfrxMemoView Name="Memo37" Left="483,77984" Top="132,28355" Width="79,37013" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="205.n: [frxDBLista.&#34;TOM205&#34;]"/>
+      <TfrxMemoView Name="Memo41" Left="574,48856" Top="132,28355" Width="128,50402" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="SV: [frxDBLista.&#34;SV&#34;]"/>
+      <TfrxMemoView Name="Memo13" Left="3,77953" Top="158,74026" Width="336,37817" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Szármaazási ország: [frxDBLista.&#34;SZORSZ&#34;] [frxDBLista.&#34;ORSZAGNEV&#34;]"/>
+      <TfrxLineView Name="Line2" Align="baWidth" Left="0" Top="181,41744" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line12" Left="343,93723" Top="154,96073" Width="0" Height="26,45671" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo43" Left="347,71676" Top="158,74026" Width="136,06308" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Szarvaltság: [frxDBLista.&#34;SZARVALTSAG&#34;]"/>
+      <TfrxLineView Name="Line13" Left="487,55937" Top="154,96073" Width="0" Height="26,45671" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo44" Left="495,11843" Top="158,74026" Width="204,09462" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Bikanevelő : [frxDBLista.&#34;BIKANEVELO&#34;]"/>
+      <TfrxMemoView Name="Memo45" Left="3,77953" Top="185,19697" Width="302,3624" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="Tömege tenyésztésbe állításkor: [frxDBLista.&#34;TENYTOM&#34;]"/>
+      <TfrxLineView Name="Line17" Left="343,93723" Top="181,41744" Width="0" Height="26,45671" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo46" Left="347,71676" Top="185,19697" Width="362,83488" Height="18,89765" Text="Kombinált minősítő index: [frxDBLista.&#34;KMI&#34;]"/>
+      <TfrxLineView Name="Line18" Align="baWidth" Left="0" Top="234,33086" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line19" Left="0" Top="0" Width="0" Height="517,79561" Frame.Typ="1"/>
+      <TfrxLineView Name="Line20" Left="718,1107" Top="0" Width="0" Height="517,79561" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo47" Left="49,13389" Top="287,24428" Width="79,37013" Height="18,89765" DataField="APAKLSZ" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APAKLSZ&#34;]"/>
+      <TfrxMemoView Name="Memo48" Left="49,13389" Top="309,92146" Width="120,94496" Height="18,89765" DataField="APA_FSZ" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APA_FSZ&#34;]"/>
+      <TfrxMemoView Name="Memo63" Left="3,77953" Top="287,24428" Width="37,7953" Height="18,89765" AutoWidth="True" Text="Apja:"/>
+      <TfrxLineView Name="Line21" Align="baWidth" Left="0" Top="400,63018" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo64" Left="3,77953" Top="377,953" Width="109,60637" Height="18,89765" AutoWidth="True" Text="Születés dátuma:"/>
+      <TfrxMemoView Name="Memo65" Left="117,16543" Top="377,953" Width="94,48825" Height="18,89765" DataField="APA_SZULDAT" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APA_SZULDAT&#34;]"/>
+      <TfrxMemoView Name="Memo66" Left="49,13389" Top="332,59864" Width="173,85838" Height="18,89765" DataField="APANEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APANEV&#34;]"/>
+      <TfrxMemoView Name="Memo67" Left="3,77953" Top="332,59864" Width="37,7953" Height="18,89765" AutoWidth="True" Text="Név:"/>
+      <TfrxMemoView Name="Memo68" Left="49,13389" Top="355,27582" Width="249,44898" Height="18,89765" DataField="APA_FAJTANEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APA_FAJTANEV&#34;]"/>
+      <TfrxMemoView Name="Memo69" Left="3,77953" Top="355,27582" Width="37,7953" Height="18,89765" AutoWidth="True" Text="Fajta:"/>
+      <TfrxMemoView Name="Memo70" Left="306,14193" Top="287,24428" Width="83,14966" Height="18,89765" AutoWidth="True" Text="Vérhányada:"/>
+      <TfrxMemoView Name="Memo71" Left="306,14193" Top="309,92146" Width="49,13389" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" DisplayFormat.DecimalSeparator="," DisplayFormat.FormatStr="%2.1f" DisplayFormat.Kind="fkNumeric" HAlign="haRight" HideZeros="True" Text="[frxDBLista.&#34;APA_VSZ1&#34;] %"/>
+      <TfrxMemoView Name="Memo72" Left="359,05535" Top="309,92146" Width="128,50402" Height="18,89765" DataField="APA_V1NEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APA_V1NEV&#34;]"/>
+      <TfrxMemoView Name="Memo73" Left="306,14193" Top="332,59864" Width="49,13389" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" DisplayFormat.DecimalSeparator="," DisplayFormat.FormatStr="%2.1f" DisplayFormat.Kind="fkNumeric" HAlign="haRight" HideZeros="True" Text="[frxDBLista.&#34;APA_VSZ2&#34;] %"/>
+      <TfrxMemoView Name="Memo74" Left="359,05535" Top="332,59864" Width="128,50402" Height="18,89765" DataField="APA_V2NEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APA_V2NEV&#34;]"/>
+      <TfrxMemoView Name="Memo75" Left="306,14193" Top="355,27582" Width="49,13389" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" DisplayFormat.DecimalSeparator="," DisplayFormat.FormatStr="%2.1f" DisplayFormat.Kind="fkNumeric" HAlign="haRight" HideZeros="True" Text="[frxDBLista.&#34;APA_VSZ3&#34;] %"/>
+      <TfrxMemoView Name="Memo76" Left="359,05535" Top="355,27582" Width="128,50402" Height="18,89765" DataField="APA_V3NEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APA_V3NEV&#34;]"/>
+      <TfrxMemoView Name="Memo77" Left="306,14193" Top="377,953" Width="49,13389" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" DisplayFormat.DecimalSeparator="," DisplayFormat.FormatStr="%2.1f" DisplayFormat.Kind="fkNumeric" HAlign="haRight" HideZeros="True" Text="[frxDBLista.&#34;APA_VSZ4&#34;] %"/>
+      <TfrxMemoView Name="Memo78" Left="359,05535" Top="377,953" Width="128,50402" Height="18,89765" DataField="APA_V4NEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APA_V4NEV&#34;]"/>
+      <TfrxLineView Name="Line22" Left="495,11843" Top="283,46458646" Width="0" Height="117,16543" Frame.Typ="1"/>
+      <TfrxLineView Name="Line23" Left="495,11843" Top="338,26772386" Width="222,99227" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo79" Left="498,89796" Top="287,24428" Width="37,7953" Height="18,89765" AutoWidth="True" Text="Apja:"/>
+      <TfrxMemoView Name="Memo80" Left="544,25232" Top="287,24428" Width="79,37013" Height="18,89765" DataField="APA_APAKLSZ" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APA_APAKLSZ&#34;]"/>
+      <TfrxMemoView Name="Memo81" Left="498,89796" Top="309,92146" Width="120,94496" Height="18,89765" DataField="APA_APAFSZ" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APA_APAFSZ&#34;]"/>
+      <TfrxMemoView Name="Memo82" Left="498,89796" Top="347,71676" Width="37,7953" Height="18,89765" AutoWidth="True" Text="Anyja:"/>
+      <TfrxMemoView Name="Memo83" Left="544,25232" Top="347,71676" Width="120,94496" Height="18,89765" OnAfterData="Memo83OnAfterData" DataField="APA_ANYA" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;APA_ANYA&#34;]"/>
+      <TfrxMemoView Name="Memo84" Left="49,13389" Top="404,40987354" Width="120,94496" Height="18,89765" OnAfterData="Memo84OnAfterData" DataField="ANYA_ENAR" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANYA_ENAR&#34;]"/>
+      <TfrxMemoView Name="Memo86" Left="3,77953" Top="404,40987354" Width="37,7953" Height="18,89765" AutoWidth="True" Text="Anyja:"/>
+      <TfrxMemoView Name="Memo87" Left="3,77953" Top="472,44141354" Width="109,60637" Height="18,89765" AutoWidth="True" Text="Születés dátuma:"/>
+      <TfrxMemoView Name="Memo88" Left="117,16543" Top="472,44141354" Width="94,48825" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANYA_SZULDAT&#34;]"/>
+      <TfrxMemoView Name="Memo89" Left="49,13389" Top="427,08705354" Width="173,85838" Height="18,89765" DataField="ANYA_NEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANYA_NEV&#34;]"/>
+      <TfrxMemoView Name="Memo90" Left="3,77953" Top="427,08705354" Width="37,7953" Height="18,89765" AutoWidth="True" Text="Név:"/>
+      <TfrxMemoView Name="Memo91" Left="49,13389" Top="449,76423354" Width="249,44898" Height="18,89765" DataField="ANYA_FAJTANEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANYA_FAJTANEV&#34;]"/>
+      <TfrxMemoView Name="Memo92" Left="3,77953" Top="449,76423354" Width="37,7953" Height="18,89765" AutoWidth="True" Text="Fajta:"/>
+      <TfrxMemoView Name="Memo93" Left="306,14193" Top="404,40987354" Width="83,14966" Height="18,89765" AutoWidth="True" Text="Vérhányada:"/>
+      <TfrxMemoView Name="Memo94" Left="306,14193" Top="427,08705354" Width="49,13389" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" DisplayFormat.DecimalSeparator="," DisplayFormat.FormatStr="%2.1f" DisplayFormat.Kind="fkNumeric" HAlign="haRight" HideZeros="True" Text="[frxDBLista.&#34;ANYA_VSZ1&#34;] %"/>
+      <TfrxMemoView Name="Memo95" Left="359,05535" Top="427,08705354" Width="128,50402" Height="18,89765" DataField="ANYA_V1NEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANYA_V1NEV&#34;]"/>
+      <TfrxMemoView Name="Memo96" Left="306,14193" Top="449,76423354" Width="49,13389" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" DisplayFormat.DecimalSeparator="," DisplayFormat.FormatStr="%2.1f" DisplayFormat.Kind="fkNumeric" HAlign="haRight" HideZeros="True" Text="[frxDBLista.&#34;ANYA_VSZ2&#34;] %"/>
+      <TfrxMemoView Name="Memo97" Left="359,05535" Top="449,76423354" Width="128,50402" Height="18,89765" DataField="ANYA_V2NEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANYA_V2NEV&#34;]"/>
+      <TfrxMemoView Name="Memo98" Left="306,14193" Top="472,44141354" Width="49,13389" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" DisplayFormat.DecimalSeparator="," DisplayFormat.FormatStr="%2.1f" DisplayFormat.Kind="fkNumeric" HAlign="haRight" HideZeros="True" Text="[frxDBLista.&#34;ANYA_VSZ3&#34;] %"/>
+      <TfrxMemoView Name="Memo99" Left="359,05535" Top="472,44141354" Width="128,50402" Height="18,89765" DataField="ANYA_V3NEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANYA_V3NEV&#34;]"/>
+      <TfrxMemoView Name="Memo100" Left="306,14193" Top="495,11859354" Width="49,13389" Height="18,89765" DataSet="frxDBLista" DataSetName="frxDBLista" DisplayFormat.DecimalSeparator="," DisplayFormat.FormatStr="%2.1f" DisplayFormat.Kind="fkNumeric" HAlign="haRight" HideZeros="True" Text="[frxDBLista.&#34;ANYA_VSZ4&#34;] %"/>
+      <TfrxMemoView Name="Memo101" Left="359,05535" Top="495,11859354" Width="128,50402" Height="18,89765" DataField="ANYA_V4NEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANYA_V4NEV&#34;]"/>
+      <TfrxLineView Name="Line24" Left="495,11843" Top="400,63018" Width="0" Height="117,16543" Frame.Typ="1"/>
+      <TfrxLineView Name="Line25" Left="495,11843" Top="455,4333174" Width="222,99227" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo102" Left="498,89796" Top="404,40987354" Width="37,7953" Height="18,89765" AutoWidth="True" Text="Apja:"/>
+      <TfrxMemoView Name="Memo103" Left="544,25232" Top="404,40987354" Width="79,37013" Height="18,89765" DataField="ANYA_APAKLSZ" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANYA_APAKLSZ&#34;]"/>
+      <TfrxMemoView Name="Memo105" Left="498,89796" Top="464,88235354" Width="37,7953" Height="18,89765" AutoWidth="True" Text="Anyja:"/>
+      <TfrxMemoView Name="Memo106" Left="544,25232" Top="464,88235354" Width="128,50402" Height="18,89765" OnAfterData="Memo106OnAfterData" DataField="ANA_ANYA_ENAR" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANA_ANYA_ENAR&#34;]"/>
+      <TfrxLineView Name="Line26" Align="baWidth" Left="0" Top="517,79561" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo85" Left="3,77953" Top="495,11843" Width="162,51979" Height="18,89765" AutoWidth="True" Text="Kombinált minősítő index:"/>
+      <TfrxMemoView Name="Memo104" Left="498,89796" Top="429,86642" Width="120,94496" Height="18,89765" DataField="ANA_APAFSZ" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANA_APAFSZ&#34;]"/>
+      <TfrxMemoView Name="Memo107" Left="498,89796" Top="487,55937" Width="173,85838" Height="18,89765" DataField="ANA_ANYA_FULSZAM" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANA_ANYA_FULSZAM&#34;]"/>
+      <TfrxMemoView Name="Memo148" Left="212,44094" Top="132,92115" Width="45,35436" Height="18,89765" HAlign="haRight" Text="Vál.kor:"/>
+      <TfrxMemoView Name="Memo150" Left="181,41744" Top="404,40971" Width="90,70872" Height="18,89765" DataField="ANYA_ELL" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANYA_ELL&#34;]"/>
+      <TfrxMemoView Name="Memo151" Left="170,07885" Top="495,11843" Width="56,69295" Height="18,89765" DataField="ANYA_MIN" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;ANYA_MIN&#34;]"/>
+      <TfrxMemoView Name="Memo152" Left="3,77953" Top="211,653679999999" Width="117,16543" Height="18,89765" AutoWidth="True" Text="Szaporasági index:"/>
+      <TfrxMemoView Name="Memo154" Left="188,9765" Top="211,653679999999" Width="68,0315400000001" Height="18,89765" AutoWidth="True" Text="BNI index:"/>
+      <TfrxMemoView Name="Memo156" Left="332,59864" Top="211,653679999999" Width="86,9291900000001" Height="18,89765" AutoWidth="True" Text="Küllemi index:"/>
+      <TfrxMemoView Name="Memo153" Left="124,72449" Top="211,653679999999" Width="49,133889999997" Height="18,89765" DataField="SZAPIND" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;SZAPIND&#34;]"/>
+      <TfrxMemoView Name="Memo155" Left="423,30736" Top="211,653679999999" Width="52,9134199999971" Height="18,89765" DataField="KULLEM_IND" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;KULLEM_IND&#34;]"/>
+      <TfrxMemoView Name="Memo157" Left="260,78757" Top="211,65368" Width="45,35436" Height="18,89765" DataField="BNI" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;BNI&#34;]"/>
+      <TfrxLineView Name="Line50" Align="baWidth" Left="0" Top="207,87415" Width="718,1107" Height="0" Frame.Typ="4"/>
+    </TfrxMasterData>
+    <TfrxPageFooter Name="PageFooter1" Height="22,67718" Left="0" Top="759,68553" Width="718,1107">
+      <TfrxMemoView Name="Memo38" Left="695,43352" Top="0" Width="15,11811024" Height="15,11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[Page]"/>
+      <TfrxMemoView Name="Memo39" Left="638,74057" Top="0" Width="30,23624" Height="15,11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="oldal:"/>
+      <TfrxMemoView Name="Memo40" Left="684,09493" Top="0" Width="11,33859" Height="15,11811024" Text="/"/>
+      <TfrxMemoView Name="Memo9" Left="668,97681" Top="0" Width="15,11811024" Height="15,11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[TotalPages#]"/>
+      <TfrxMemoView Name="Memo2" Left="7,55906" Top="0" Width="207,87415" Height="15,11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" VAlign="vaCenter" Text="Listák - Tehén (üsző) egyedi lap"/>
+    </TfrxPageFooter>
+    <TfrxMemoView Name="Memo42" Left="-3,77953" Top="-3,77953" Width="0" Height="0" DataField="SZARVALTSAG" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;SZARVALTSAG&#34;]"/>
+  </TfrxReportPage>
+  <TfrxReportPage Name="Page3" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxMasterData Name="MasterData3" Height="45,35436" Left="0" Top="18,89765" Width="718,1107" ColumnWidth="0" ColumnGap="0" DataSet="frxDBDKullem" DataSetName="frxDBKullem" PrintChildIfInvisible="True" PrintIfDetailEmpty="True" RowCount="0">
+      <TfrxLineView Name="Line14" Align="baWidth" Left="0" Top="0" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo49" Left="15,11812" Top="22,67718" Width="109,60637" Height="18,89765" DataField="BIRDAT" DataSet="frxDBDKullem" DataSetName="frxDBKullem" HAlign="haCenter" Text="[frxDBKullem.&#34;BIRDAT&#34;]"/>
+      <TfrxMemoView Name="Memo50" Left="3,77953" Top="3,77953" Width="128,50402" Height="18,89765" Text="Küllebírálat  dátuma"/>
+      <TfrxMemoView Name="Memo51" Left="139,84261" Top="3,77953" Width="52,91342" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="Farm: [frxDBKullem.&#34;FARMAG&#34;]"/>
+      <TfrxMemoView Name="Memo52" Left="200,31509" Top="3,77953" Width="49,13389" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="Med.: [frxDBKullem.&#34;MED&#34;]"/>
+      <TfrxMemoView Name="Memo53" Left="257,00804" Top="3,77953" Width="60,47248" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="Farsz.: [frxDBKullem.&#34;FARSZEL&#34;]"/>
+      <TfrxMemoView Name="Memo54" Left="325,03958" Top="3,77953" Width="49,13389" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="Mell.: [frxDBKullem.&#34;MELL&#34;]"/>
+      <TfrxMemoView Name="Memo55" Left="377,953" Top="3,77953" Width="49,13389" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="Farl.: [frxDBKullem.&#34;FARLEJT&#34;]"/>
+      <TfrxMemoView Name="Memo56" Left="434,64595" Top="3,77953" Width="60,47248" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="H.láb.: [frxDBKullem.&#34;HATLAB&#34;]"/>
+      <TfrxMemoView Name="Memo57" Left="498,89796" Top="3,77953" Width="60,47248" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="Csánk: [frxDBKullem.&#34;CSANK&#34;]"/>
+      <TfrxMemoView Name="Memo58" Left="566,9295" Top="3,77953" Width="52,91342" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="Csüd: [frxDBKullem.&#34;CSUD&#34;]"/>
+      <TfrxMemoView Name="Memo59" Left="627,40198" Top="3,77953" Width="75,5906" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="Párta: [frxDBKullem.&#34;PARTA&#34;]"/>
+      <TfrxMemoView Name="Memo60" Left="192,75603" Top="22,67718" Width="83,14966" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="Ráma:[frxDBKullem.&#34;RAMA&#34;]"/>
+      <TfrxLineView Name="Line15" Align="baWidth" Left="0" Top="45,35436" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo61" Left="347,71676" Top="22,67718" Width="83,14966" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="Izmoltság:[frxDBKullem.&#34;IZOM&#34;]"/>
+      <TfrxMemoView Name="Memo62" Left="461,10266" Top="22,67718" Width="105,82684" Height="18,89765" DataSet="frxDBDKullem" DataSetName="frxDBKullem" Text="Lábszerkezet: [frxDBKullem.&#34;LAB&#34;]"/>
+      <TfrxLineView Name="Line16" Left="136,06308" Top="0" Width="0" Height="45,35436" Frame.Typ="1"/>
+    </TfrxMasterData>
+  </TfrxReportPage>
+  <TfrxReportPage Name="Page2" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" PrintOnPreviousPage="True" HGuides.Text="" VGuides.Text="">
+    <TfrxMasterData Name="MasterData2" Height="49,13389" Left="0" Top="120,94496" Width="718,1107" OnAfterPrint="MasterData2OnAfterPrint" OnBeforePrint="MasterData2OnBeforePrint" ColumnWidth="0" ColumnGap="0" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" RowCount="0">
+      <TfrxMemoView Name="Memo109" Left="3,77953" Top="3,77952999999991" Width="90,70872" Height="18,89765" DataField="E_TERM_DAT" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" Text="[frxDBEgyElles.&#34;E_TERM_DAT&#34;]"/>
+      <TfrxMemoView Name="Memo110" Left="3,77953" Top="26,45671" Width="90,70872" Height="18,89765" DataField="ELLES_DATUM" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" Text="[frxDBEgyElles.&#34;ELLES_DATUM&#34;]"/>
+      <TfrxMemoView Name="Memo113" Left="102,04731" Top="3,77952999999991" Width="102,04731" Height="18,89765" DataField="BORJU_ENAR" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" Text="[frxDBEgyElles.&#34;BORJU_ENAR&#34;]"/>
+      <TfrxMemoView Name="Memo114" Left="130,393785" Top="26,45671" Width="45,35436" Height="18,89765" DataField="KEK" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;KEK&#34;]"/>
+      <TfrxMemoView Name="Memo117" Left="215,43321" Top="3,77952999999999" Width="41,57483" Height="18,89765" DataField="KEK" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" HideZeros="True" Text="[frxDBEgyElles.&#34;KEK&#34;]"/>
+      <TfrxMemoView Name="Memo120" Left="215,43321" Top="26,45671" Width="41,57483" Height="18,89765" DataField="ELLES_LEF" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;ELLES_LEF&#34;]"/>
+      <TfrxMemoView Name="Memo123" Left="264,5671" Top="3,77952999999999" Width="52,91342" Height="18,89765" DataField="KPLSZ" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;KPLSZ&#34;]"/>
+      <TfrxMemoView Name="Memo124" Left="268,34663" Top="26,45671" Width="49,13389" Height="18,89765" DataField="BORJU_IVAR" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;BORJU_IVAR&#34;]"/>
+      <TfrxMemoView Name="Memo127" Left="328,81911" Top="3,77952999999999" Width="30,23624" Height="18,89765" DataField="SZARVALTSAG" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;SZARVALTSAG&#34;]"/>
+      <TfrxMemoView Name="Memo128" Left="328,81911" Top="26,45671" Width="30,23624" Height="18,89765" DataField="BORJU_SULY" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;BORJU_SULY&#34;]"/>
+      <TfrxMemoView Name="Memo131" Left="379,842765" Top="3,77952999999991" Width="90,70872" Height="18,89765" DataField="VALDAT" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;VALDAT&#34;]"/>
+      <TfrxMemoView Name="Memo132" Left="385,51206" Top="26,45671" Width="79,37013" Height="18,89765" DataField="VALTOM" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;VALTOM&#34;]"/>
+      <TfrxMemoView Name="Memo135" Left="487,55937" Top="3,77952999999999" Width="45,35436" Height="18,89765" DataField="KOR_NAP" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;KOR_NAP&#34;]"/>
+      <TfrxMemoView Name="Memo136" Left="544,25232" Top="3,77952999999991" Width="56,69295" Height="18,89765" DataField="TOM205" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;TOM205&#34;]"/>
+      <TfrxMemoView Name="Memo137" Left="544,25232" Top="26,45671" Width="56,69295" Height="18,89765" DataField="SV" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;SV&#34;]"/>
+      <TfrxMemoView Name="Memo143" Left="608,50433" Top="3,77952999999991" Width="102,04731" Height="18,89765" DataField="KIKDAT" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" Text="[frxDBEgyElles.&#34;KIKDAT&#34;]"/>
+      <TfrxMemoView Name="Memo144" Left="619,84292" Top="26,45671" Width="30,23624" Height="18,89765" DataField="KIKOD" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;KIKOD&#34;]"/>
+      <TfrxMemoView Name="Memo145" Left="665,19728" Top="26,45671" Width="37,7953" Height="18,89765" DataField="KIKOK" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;KIKOK&#34;]"/>
+      <TfrxLineView Name="Line28" Align="baWidth" Left="0" Top="49,1338900000002" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line29" Left="0" Top="0" Width="0" Height="49,13389" Frame.Typ="1"/>
+      <TfrxLineView Name="Line30" Left="98,26778" Top="0" Width="0" Height="49,13389" Frame.Typ="1"/>
+      <TfrxLineView Name="Line31" Left="207,87415" Top="0" Width="0" Height="49,13389" Frame.Typ="1"/>
+      <TfrxLineView Name="Line32" Left="260,78757" Top="0" Width="0" Height="49,13389" Frame.Typ="1"/>
+      <TfrxLineView Name="Line33" Left="321,26005" Top="0" Width="0" Height="49,13389" Frame.Typ="1"/>
+      <TfrxLineView Name="Line34" Left="366,61441" Top="0" Width="0" Height="49,13389" Frame.Typ="1"/>
+      <TfrxLineView Name="Line35" Left="480,00031" Top="0" Width="0" Height="49,13389" Frame.Typ="1"/>
+      <TfrxLineView Name="Line36" Left="540,47279" Top="0" Width="0" Height="49,13389" Frame.Typ="1"/>
+      <TfrxLineView Name="Line37" Left="604,7248" Top="0" Width="0" Height="49,13389" Frame.Typ="1"/>
+      <TfrxLineView Name="Line38" Left="718,1107" Top="0" Width="0" Height="49,13389" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo32" Left="487,55937" Top="26,45671" Width="45,35436" Height="18,89765" DataField="TGYVAL" DataSet="dtsEllesek" DataSetName="frxDBEgyElles" HAlign="haCenter" Text="[frxDBEgyElles.&#34;TGYVAL&#34;]"/>
+    </TfrxMasterData>
+    <TfrxHeader Name="Header1" Height="79,37013" Left="0" Top="18,89765" Width="718,1107" ReprintOnNewPage="True">
+      <TfrxMemoView Name="Memo108" Left="311,76083127" Top="3,77952999999999" Width="94,48825" Height="22,67718" Font.Charset="1" Font.Color="0" Font.Height="-16" Font.Name="Arial" Font.Style="5" HAlign="haCenter" ParentFont="False" Text="Ellések"/>
+      <TfrxMemoView Name="Memo111" Left="3,77953" Top="37,7953" Width="86,92919" Height="18,89765" Text="Term.dátum"/>
+      <TfrxMemoView Name="Memo112" Left="3,77953" Top="56,69295" Width="86,92919" Height="18,89765" Text="Ellés.dátum"/>
+      <TfrxMemoView Name="Memo115" Left="102,04731" Top="37,7953" Width="102,04731" Height="18,89765" Text="Borjú azonosító"/>
+      <TfrxMemoView Name="Memo116" Left="102,04731" Top="56,69295" Width="102,04731" Height="18,89765" Text="Ellések közti idő"/>
+      <TfrxMemoView Name="Memo118" Left="211,65368" Top="37,7953" Width="45,35436" Height="18,89765" HAlign="haCenter" Text="K.E.K"/>
+      <TfrxMemoView Name="Memo119" Left="211,65368" Top="56,69295" Width="45,35436" Height="18,89765" HAlign="haCenter" Text="Lef"/>
+      <TfrxMemoView Name="Memo121" Left="264,5671" Top="37,7953" Width="45,35436" Height="18,89765" HAlign="haCenter" Text="Bika"/>
+      <TfrxMemoView Name="Memo122" Left="264,5671" Top="56,69295" Width="45,35436" Height="18,89765" HAlign="haCenter" Text="Ivar"/>
+      <TfrxMemoView Name="Memo125" Left="328,81911" Top="37,7953" Width="30,23624" Height="18,89765" HAlign="haCenter" Text="Sza."/>
+      <TfrxMemoView Name="Memo126" Left="328,81911" Top="56,69295" Width="30,23624" Height="18,89765" HAlign="haCenter" Text="Szt"/>
+      <TfrxMemoView Name="Memo129" Left="374,17347" Top="37,7953" Width="102,04731" Height="18,89765" Text="Választás dátum"/>
+      <TfrxMemoView Name="Memo130" Left="374,17347" Top="56,69295" Width="102,04731" Height="18,89765" HAlign="haCenter" Text="Választás.tömeg"/>
+      <TfrxMemoView Name="Memo133" Left="487,55937" Top="37,7953" Width="45,35436" Height="18,89765" HAlign="haCenter" Text="Kor"/>
+      <TfrxMemoView Name="Memo134" Left="487,55937" Top="56,69295" Width="45,35436" Height="18,89765" HAlign="haCenter" Text="Ét.gyar."/>
+      <TfrxMemoView Name="Memo138" Left="551,81138" Top="37,7953" Width="45,35436" Height="18,89765" HAlign="haCenter" Text="205 n."/>
+      <TfrxMemoView Name="Memo139" Left="551,81138" Top="56,69295" Width="45,35436" Height="18,89765" HAlign="haCenter" Text="Sv %"/>
+      <TfrxMemoView Name="Memo140" Left="612,28386" Top="37,7953" Width="98,26778" Height="18,89765" HAlign="haCenter" Text="Kikerülés ideje"/>
+      <TfrxMemoView Name="Memo141" Left="612,28386" Top="56,69295" Width="45,35436" Height="18,89765" HAlign="haCenter" Text="mód"/>
+      <TfrxMemoView Name="Memo142" Left="661,41775" Top="56,69295" Width="45,35436" Height="18,89765" HAlign="haCenter" Text="ok"/>
+      <TfrxLineView Name="Line27" Align="baWidth" Left="0" Top="79,37013" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line40" Align="baWidth" Left="0" Top="34,01577" Width="718,1107" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line41" Left="98,26778" Top="34,01577" Width="0" Height="45,35436" Frame.Typ="1"/>
+      <TfrxLineView Name="Line42" Left="207,87415" Top="34,01577" Width="0" Height="45,35436" Frame.Typ="1"/>
+      <TfrxLineView Name="Line43" Left="260,78757" Top="34,01577" Width="0" Height="45,35436" Frame.Typ="1"/>
+      <TfrxLineView Name="Line44" Left="321,26005" Top="34,01577" Width="0" Height="45,35436" Frame.Typ="1"/>
+      <TfrxLineView Name="Line45" Left="366,61441" Top="34,01577" Width="0" Height="45,35436" Frame.Typ="1"/>
+      <TfrxLineView Name="Line46" Left="480,00031" Top="34,01577" Width="0" Height="45,35436" Frame.Typ="1"/>
+      <TfrxLineView Name="Line47" Left="540,47279" Top="34,01577" Width="0" Height="45,35436" Frame.Typ="1"/>
+      <TfrxLineView Name="Line48" Left="604,7248" Top="34,01577" Width="0" Height="45,35436" Frame.Typ="1"/>
+      <TfrxLineView Name="Line39" Left="-4,44E-16" Top="34,01577" Width="0" Height="45,35436" Frame.Typ="1"/>
+      <TfrxLineView Name="Line49" Left="718,1107" Top="34,01577" Width="0" Height="45,35436" Frame.Typ="1"/>
+    </TfrxHeader>
+    <TfrxFooter Name="Footer1" Height="52,91342" Left="0" Top="192,75603" Width="718,1107">
+      <TfrxSysMemoView Name="SysMemo3" Left="185,19697" Top="3,77952999999999" Width="94,48825" Height="18,89765" DisplayFormat.DecimalSeparator="." DisplayFormat.FormatStr="%5.0f" DisplayFormat.Kind="fkNumeric" Text="[SUM(&#60;frxDBEgyElles.&#34;KEK&#34;&#62;,MasterData2)/IIF((count(MasterData2,0)-1)&#62;0, (count(MasterData2,0)-1),1) ]"/>
+      <TfrxMemoView Name="Memo146" Left="3,77953" Top="3,77952999999999" Width="173,85838" Height="18,89765" Text="Két ellés közti napok átlaga:"/>
+      <TfrxMemoView Name="Memo147" Left="3,77953" Top="26,45671" Width="173,85838" Height="18,89765" Text="Könnyű ellések aránya:"/>
+      <TfrxMemoView Name="Memo149" Left="185,19697" Top="26,45671" Width="94,48825" Height="18,89765" OnBeforePrint="Memo149OnBeforePrint" DisplayFormat.DecimalSeparator="." DisplayFormat.FormatStr="%2.2f" DisplayFormat.Kind="fkNumeric" Text="0"/>
+    </TfrxFooter>
+  </TfrxReportPage>
+</TfrxReport>

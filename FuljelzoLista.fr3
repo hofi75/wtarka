@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Name="" Version="3.19" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="2047" PreviewOptions.Zoom="1" PrintOptions.Printer="Alap�rtelmezett" ReportOptions.CreateDate="38838.5194621875" ReportOptions.Description.Text="" ReportOptions.LastChange="40580.777059456" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;&#13;&#10;end." PropData="044C65667403080103546F7003880008446174617365747301010C2E00000020446174615365743D2266727844424C697374612220446174615365744E616D653D2266727844424C69737461220000095661726961626C657301010C16000000204E616D653D22204E65772043617465676F7279312200010C17000000204E616D653D22537A75726F46656C746574656C656B2200010C14000000204E616D653D2252656E64657A6574747365672200010C10000000204E616D653D22454E41525F4B4F442200010C15000000204E616D653D2254454E5945535A45545F4E45762200010C11000000204E616D653D2241545F4B46544B4F44220000055374796C650100">
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" Height="86.92919" Left="0" Top="18.89765" Width="718.1107">
+      <TfrxMemoView Name="Memo4" Left="113.38596102" Top="60.47248" Width="491.33877795" Height="22.67718" Font.Charset="1" Font.Color="0" Font.Height="-19" Font.Name="Arial" Font.Style="5" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Felhasználható füljelzők"/>
+      <TfrxMemoView Name="Memo5" Align="baCenter" Left="185.197011495" Top="0" Width="347.71667701" Height="15.11811024" AutoWidth="True" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" WordWrap="False" VAlign="vaCenter" Text="WinTarka - Húshasznú szarvasmarha nyilvántartó program "/>
+      <TfrxMemoView Name="Memo8" Left="514.01576268" Top="22.67718" Width="43.46456693" Height="15.11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haRight" ParentFont="False" Text="Készült:"/>
+      <TfrxSysMemoView Name="SysMemo1" Left="563.14997" Top="22.67718" Width="62.36220472" Height="15.11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[DATE]"/>
+      <TfrxSysMemoView Name="SysMemo2" Left="631.18111457" Top="22.67718" Width="45.35433071" Height="15.11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[TIME]"/>
+      <TfrxLineView Name="Line3" Align="baWidth" Left="0" Top="49.13384118" Width="718.1107" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo1" Left="22.67718" Top="22.67718" Width="56.69295" Height="18.89765" DataSetName="frxDBList" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" WordBreak="True" WordWrap="False" Text="[ENAR_KOD]"/>
+      <TfrxMemoView Name="Memo6" Left="83.14966" Top="22.67718" Width="177.63791" Height="18.8976378" DataSetName="frxDBList" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" WordBreak="True" WordWrap="False" Text="[TENYESZET_NEv]"/>
+      <TfrxMemoView Name="Memo37" Left="275.90569" Top="22.67718" Width="56.69295" Height="18.89765" DataSetName="frxDBList" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" WordWrap="False" Text="[AT_KFTKOD]"/>
+    </TfrxReportTitle>
+    <TfrxMasterData Name="MasterData1" Height="22.67718" Left="0" Top="230.55133" Width="718.1107" ColumnWidth="0" ColumnGap="0" DataSet="frxDBLista" DataSetName="frxDBLista" RowCount="0">
+      <TfrxMemoView Name="Memo3" Left="7.55906" Top="0" Width="113.3859" Height="18.89765" DataField="FULJ_AZON" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;FULJ_AZON&#34;]"/>
+      <TfrxMemoView Name="Memo9" Left="249.44898" Top="0" Width="83.14966" Height="18.89765" DataField="RENDELES_DATUM" DataSet="frxDBLista" DataSetName="frxDBLista" HAlign="haCenter" Text="[frxDBLista.&#34;RENDELES_DATUM&#34;]"/>
+      <TfrxMemoView Name="Memo11" Left="137.952845" Top="0" Width="105.82684" Height="18.89765" DataField="BEVET_DATUM" DataSet="frxDBLista" DataSetName="frxDBLista" HAlign="haCenter" Text="[frxDBLista.&#34;BEVET_DATUM&#34;]"/>
+      <TfrxMemoView Name="Memo15" Left="347.71676" Top="0" Width="158.74026" Height="18.89765" DataField="REND_NEV" DataSet="frxDBLista" DataSetName="frxDBLista" Text="[frxDBLista.&#34;REND_NEV&#34;]"/>
+    </TfrxMasterData>
+    <TfrxPageFooter Name="PageFooter1" Height="22.67718" Left="0" Top="377.953" Width="718.1107">
+      <TfrxMemoView Name="Memo39" Left="559.37044" Top="3.77953000000002" Width="136.06308" Height="15.11811024" AutoWidth="True" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haRight" ParentFont="False" WordBreak="True" WordWrap="False" Text="[TotalPages#] / [&#60;Page&#62;].oldal"/>
+      <TfrxMemoView Name="Memo14" Left="11.33858268" Top="3.77953000000002" Width="94.48825" Height="18.89765" AutoWidth="True" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" WordBreak="True" WordWrap="False" Text="Lista - Felhasználható füljelzők"/>
+      <TfrxLineView Name="Line4" Align="baWidth" Left="0" Top="0" Width="718.1107" Height="0" Frame.Typ="4"/>
+    </TfrxPageFooter>
+    <TfrxPageHeader Name="PageHeader1" Height="41.57483" Left="0" Top="128.50402" Width="718.1107">
+      <TfrxLineView Name="Line1" Align="baWidth" Left="0" Top="37.7953" Width="718.1107" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo2" Left="3.77953" Top="0" Width="102.04731" Height="18.89765" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="Azonosító"/>
+      <TfrxMemoView Name="Memo10" Left="245.66945" Top="0" Width="90.70872" Height="30.23624" HAlign="haCenter" Text="Rendelés dátuma"/>
+      <TfrxMemoView Name="Memo12" Left="143.62214" Top="0" Width="94.48825" Height="34.01577" HAlign="haCenter" Text="Bevételezés dátuma"/>
+      <TfrxMemoView Name="Memo16" Left="347.71676" Top="0" Width="173.85838" Height="18.89765" Text="Rendelés típusa"/>
+    </TfrxPageHeader>
+    <TfrxReportSummary Name="ReportSummary1" Height="41.5748300000001" Left="0" Top="313.70099" Width="718.1107">
+      <TfrxMemoView Name="Memo13" Left="30.23622047" Top="18.8976378" Width="68.03150339" Height="18.8976378" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="Összesen:"/>
+      <TfrxSysMemoView Name="SysMemo4" Left="105.82684" Top="18.8976378" Width="52.91342" Height="18.8976378" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[COUNT(MasterData1)]"/>
+      <TfrxLineView Name="Line2" Left="7.55927968" Top="7.55905511999998" Width="684.09449063" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo7" Left="162.51979" Top="18.8976378" Width="192.75603" Height="18.8976378" Text="kiadható szabad füljelző"/>
+    </TfrxReportSummary>
+  </TfrxReportPage>
+</TfrxReport>

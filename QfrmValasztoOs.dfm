@@ -1,0 +1,257 @@
+object frmValasztoOs: TfrmValasztoOs
+  Left = 372
+  Top = 262
+  Width = 567
+  Height = 370
+  Caption = 'Kiv'#225'laszt'#225's'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 551
+    Height = 332
+    Align = alClient
+    TabOrder = 0
+    object grdVal: TTalDBGrid
+      Tag = -1
+      Left = 1
+      Top = 34
+      Width = 549
+      Height = 258
+      IniAttributes.Delimiter = ';;'
+      TitleColor = clBtnFace
+      FixedCols = 0
+      ShowHorzScrollBar = True
+      EditControlOptions = [ecoCheckboxSingleClick, ecoSearchOwnerForm]
+      Align = alClient
+      KeyOptions = []
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap, dgNoLimitColSize, dgShowCellHint, dgTabExitsOnLastCol]
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      TitleAlignment = taLeftJustify
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      TitleLines = 1
+      TitleButtons = True
+      OnKeyDown = grdValKeyDown
+      DefaultSet = True
+      SortDir = sdAsc
+      SortType = stGrid
+      SortColumn = 0
+      SortShow = True
+      NotEnabledFieldColor = clMoneyGreen
+      NotEnabledFieldColorize = False
+      FilterColor = clGray
+      FixedColor = clWindow
+      ShowFooter = True
+      SaveIndex = False
+      ShowMaskedNumericValues = False
+      SaveExportParamsFile = False
+      object grdValIButton: TwwIButton
+        Left = 0
+        Top = 0
+        Width = 13
+        Height = 22
+        AllowAllUp = True
+      end
+    end
+    object pnlGombok: TPanel
+      Left = 1
+      Top = 292
+      Width = 549
+      Height = 39
+      Align = alBottom
+      TabOrder = 1
+      TabStop = True
+      DesignSize = (
+        549
+        39)
+      object btnTorol: TBitBtn
+        Left = 311
+        Top = 8
+        Width = 75
+        Height = 25
+        Anchors = [akRight, akBottom]
+        Caption = 'T'#246'r'#246'l'
+        TabOrder = 2
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333000000000
+          3333333777777777F3333330F777777033333337F3F3F3F7F3333330F0808070
+          33333337F7F7F7F7F3333330F080707033333337F7F7F7F7F3333330F0808070
+          33333337F7F7F7F7F3333330F080707033333337F7F7F7F7F3333330F0808070
+          333333F7F7F7F7F7F3F33030F080707030333737F7F7F7F7F7333300F0808070
+          03333377F7F7F7F773333330F080707033333337F7F7F7F7F333333070707070
+          33333337F7F7F7F7FF3333000000000003333377777777777F33330F88877777
+          0333337FFFFFFFFF7F3333000000000003333377777777777333333330777033
+          3333333337FFF7F3333333333000003333333333377777333333}
+        NumGlyphs = 2
+      end
+      object btnOK: TBitBtn
+        Left = 391
+        Top = 8
+        Width = 75
+        Height = 25
+        Anchors = [akRight, akBottom]
+        Caption = 'OK'
+        Default = True
+        ModalResult = 1
+        TabOrder = 3
+        Glyph.Data = {
+          DE010000424DDE01000000000000760000002800000024000000120000000100
+          0400000000006801000000000000000000001000000000000000000000000000
+          80000080000000808000800000008000800080800000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          3333333333333333333333330000333333333333333333333333F33333333333
+          00003333344333333333333333388F3333333333000033334224333333333333
+          338338F3333333330000333422224333333333333833338F3333333300003342
+          222224333333333383333338F3333333000034222A22224333333338F338F333
+          8F33333300003222A3A2224333333338F3838F338F33333300003A2A333A2224
+          33333338F83338F338F33333000033A33333A222433333338333338F338F3333
+          0000333333333A222433333333333338F338F33300003333333333A222433333
+          333333338F338F33000033333333333A222433333333333338F338F300003333
+          33333333A222433333333333338F338F00003333333333333A22433333333333
+          3338F38F000033333333333333A223333333333333338F830000333333333333
+          333A333333333333333338330000333333333333333333333333333333333333
+          0000}
+        NumGlyphs = 2
+      end
+      object btnCancel: TBitBtn
+        Left = 471
+        Top = 8
+        Width = 75
+        Height = 25
+        Anchors = [akRight, akBottom]
+        Caption = 'Kil'#233'p'#233's'
+        TabOrder = 4
+        Kind = bkCancel
+      end
+      object btnModosit: TBitBtn
+        Left = 231
+        Top = 8
+        Width = 75
+        Height = 25
+        Anchors = [akRight, akBottom]
+        Caption = 'M'#243'dos'#237't'
+        TabOrder = 1
+        Glyph.Data = {
+          76010000424D7601000000000000760000002800000020000000100000000100
+          04000000000000010000120B0000120B00001000000000000000000000000000
+          800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00555775777777
+          57705557757777775FF7555555555555000755555555555F777F555555555550
+          87075555555555F7577F5555555555088805555555555F755F75555555555033
+          805555555555F755F75555555555033B05555555555F755F75555555555033B0
+          5555555555F755F75555555555033B05555555555F755F75555555555033B055
+          55555555F755F75555555555033B05555555555F755F75555555555033B05555
+          555555F75FF75555555555030B05555555555F7F7F75555555555000B0555555
+          5555F777F7555555555501900555555555557777755555555555099055555555
+          5555777755555555555550055555555555555775555555555555}
+        NumGlyphs = 2
+      end
+      object btnUj: TBitBtn
+        Left = 151
+        Top = 8
+        Width = 75
+        Height = 25
+        Anchors = [akRight, akBottom]
+        Caption = #218'j'
+        TabOrder = 0
+        Glyph.Data = {
+          DE000000424DDE0000000000000076000000280000000E0000000D0000000100
+          0400000000006800000000000000000000001000000000000000000000000000
+          8000008000000080800080000000800080008080000080808000C0C0C0000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          3300333339993333330033333999333333003333399933333300333339993333
+          3300399999999999330039999999999933003999999999993300333339993333
+          3300333339993333330033333999333333003333399933333300333333333333
+          3300}
+      end
+      object btnNyomtat: TBitBtn
+        Left = 16
+        Top = 8
+        Width = 75
+        Height = 25
+        Anchors = [akLeft, akBottom]
+        Caption = 'Nyomtat'
+        TabOrder = 5
+        Glyph.Data = {
+          06020000424D0602000000000000760000002800000028000000140000000100
+          0400000000009001000000000000000000001000000000000000000000000000
+          80000080000000808000800000008000800080800000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          333333333333333333333333333333333333333333333333333FFF3333333333
+          FFF33300033333333330003333888FFFFFFFFFF888FF30000000000000000003
+          3888888888888888888F30F7777777777777770338F3333333333333338F30F7
+          777777777777770338F3333333333333338F30F7777777777799770338F33333
+          33333333338F30FFFFFFFFFFFFFFFF0338FFFFFFFFFFFFFFFF8F380088888888
+          8888008338888888888888888883333000000000000003333338888888888888
+          8F3333300FFFFFFFFFF0033333388F3FFFFFFFF8833333330F00000000F03333
+          33338F8888888838F33333330FFFFFFFFFF0333333338F3FFFFFFFF8F3333333
+          0F00000000F0333333338F8888888838F33333330FFFFFFFFFF0333333338F3F
+          F3333338F33333330F00FFFFFFF0333333338F8833333338F33333330FFFFFFF
+          FFF0333333338FFFFFFFFFF8F333333300000000000033333333888888888888
+          3333333333333333333333333333333333333333333333333333333333333333
+          33333333333333333333}
+        NumGlyphs = 2
+      end
+    end
+    object pnlKereses: TPanel
+      Left = 1
+      Top = 1
+      Width = 549
+      Height = 33
+      Align = alTop
+      TabOrder = 2
+      TabStop = True
+      object Label1: TLabel
+        Left = 26
+        Top = 8
+        Width = 41
+        Height = 13
+        Caption = 'Keres'#233's:'
+      end
+      object Edit1: TEdit
+        Left = 72
+        Top = 5
+        Width = 172
+        Height = 21
+        TabOrder = 0
+        OnChange = Edit1Change
+        OnKeyDown = Edit1KeyDown
+      end
+    end
+  end
+  object ActionList1: TActionList
+    OnExecute = ActionList1Execute
+    Left = 300
+    Top = 12
+    object actOK: TAction
+      Caption = 'OK'
+      OnExecute = actOKExecute
+    end
+    object actMegsem: TAction
+      Caption = 'M'#233'gsem'
+      OnExecute = actMegsemExecute
+    end
+  end
+end

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Name="" Version="3.19" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="2047" PreviewOptions.Zoom="1" PrintOptions.Printer="Alap�rtelmezett" ReportOptions.CreateDate="39230.8403961574" ReportOptions.Description.Text="" ReportOptions.LastChange="40675.9044431713" ScriptLanguage="PascalScript" ScriptText.Text="&#13;&#10;begin&#13;&#10;&#13;&#10;end." PropData="044C65667403700103546F70021008446174617365747301010C4F00000020446174615365743D2266726D5469626F722E66727844426474735469626F7254656E7965737A65742220446174615365744E616D653D2266727844426474735469626F7254656E7965737A65742200010C2C00000020446174615365743D226672784442476E31342220446174615365744E616D653D226672784442476E3134220000095661726961626C657301010C14000000204E616D653D2220506172616D65746572656B2200010C11000000204E616D653D2254454E5945535A45542200010C0A000000204E616D653D224556220000055374796C650100">
+  <TfrxReportPage Name="Page1" PaperWidth="210" PaperHeight="297" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxReportTitle Name="ReportTitle1" Height="132.28355" Left="0" Top="18.89765" Width="718.1107" Stretched="True">
+      <TfrxMemoView Name="Memo1" Align="baCenter" Left="185.197011495" Top="0" Width="347.71667701" Height="15.11811024" AutoWidth="True" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" WordWrap="False" VAlign="vaCenter" Text="Wtarka  © 2010"/>
+      <TfrxMemoView Name="Memo2" Left="600.94495268" Top="17.00788988" Width="43.46456693" Height="15.11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haRight" ParentFont="False" Text="Készült:"/>
+      <TfrxSysMemoView Name="SysMemo1" Left="650.07916" Top="17.00788988" Width="62.36220472" Height="15.11811024" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" Text="[DATE]"/>
+      <TfrxMemoView Name="Memo6" Left="153.07102602" Top="26.45671" Width="411.96864795" Height="22.67718" Font.Charset="1" Font.Color="0" Font.Height="-19" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="GN15  szerinti korcsoport statisztika"/>
+      <TfrxLineView Name="Line1" Align="baWidth" Left="0" Top="128.50402" Width="718.1107" Height="0" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo12" Left="11.33859" Top="105.82684" Width="94.48825" Height="18.89765" Text="Dátum"/>
+      <TfrxMemoView Name="Memo13" Left="154.96073" Top="105.82684" Width="68.03154" Height="18.89765" AllowExpressions="False" HAlign="haRight" Text="0 - 6 hó"/>
+      <TfrxMemoView Name="Memo14" Left="404.40971" Top="105.82684" Width="83.14966" Height="18.89765" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="2" HAlign="haRight" ParentFont="False" Text="6 - 24 hó"/>
+      <TfrxMemoView Name="Memo15" Left="517.79561" Top="105.82684" Width="83.14966" Height="18.89765" HAlign="haRight" Text="24 hó felett"/>
+      <TfrxMemoView Name="Memo16" Left="627.40198" Top="105.82684" Width="83.14966" Height="18.89765" HAlign="haRight" Text="Összesen"/>
+      <TfrxMemoView Name="Memo19" Left="238.11039" Top="105.82684" Width="68.03154" Height="18.89765" HAlign="haRight" Text="6  - 12 hó"/>
+      <TfrxMemoView Name="Memo20" Left="321.26005" Top="105.82684" Width="68.03154" Height="18.89765" HAlign="haRight" Text="12 - 24 hó"/>
+      <TfrxMemoView Name="Memo3" Left="147.40167" Top="52.91342" Width="419.52783" Height="18.89765" HAlign="haCenter" Text="[TENYESZET]"/>
+      <TfrxMemoView Name="Memo17" Left="198.425325" Top="75.5906" Width="321.26005" Height="18.89765" HAlign="haCenter" Text="[EV]"/>
+    </TfrxReportTitle>
+    <TfrxMasterData Name="MasterData1" Height="28.34644693" Left="0" Top="211.65368" Width="718.1107" ColumnWidth="0" ColumnGap="0" DataSet="frxDBGn14" DataSetName="frxDBGn14" PrintIfDetailEmpty="True" RowCount="0" Stretched="True">
+      <TfrxMemoView Name="Memo7" Left="11.33859" Top="0" Width="113.3859" Height="18.89765" DataField="NAP" DataSet="frxDBGn14" DataSetName="frxDBGn14" DisplayFormat.DecimalSeparator="." DisplayFormat.FormatStr="yyyy.mm" DisplayFormat.Kind="fkDateTime" Text="[frxDBGn14.&#34;NAP&#34;]"/>
+      <TfrxMemoView Name="Memo4" Left="139.84261" Top="0" Width="79.37013" Height="18.89765" DataField="NULLA_HAT" DataSet="frxDBGn14" DataSetName="frxDBGn14" HAlign="haRight" Text="[frxDBGn14.&#34;NULLA_HAT&#34;]"/>
+      <TfrxMemoView Name="Memo5" Left="396.85065" Top="0" Width="86.92919" Height="18.89765" DataField="HAT_HUSZONNEGY" DataSet="frxDBGn14" DataSetName="frxDBGn14" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="2" HAlign="haRight" ParentFont="False" Text="[frxDBGn14.&#34;HAT_HUSZONNEGY&#34;]"/>
+      <TfrxMemoView Name="Memo8" Left="510.23655" Top="0" Width="86.92919" Height="18.89765" DataField="HUSZONEGY_TOL" DataSet="frxDBGn14" DataSetName="frxDBGn14" HAlign="haRight" Text="[frxDBGn14.&#34;HUSZONEGY_TOL&#34;]"/>
+      <TfrxMemoView Name="Memo9" Left="612.28386" Top="0" Width="98.26778" Height="18.89765" DataField="LETSZAM" DataSet="frxDBGn14" DataSetName="frxDBGn14" HAlign="haRight" Text="[frxDBGn14.&#34;LETSZAM&#34;]"/>
+      <TfrxMemoView Name="Memo10" Left="234.33086" Top="0" Width="68.03154" Height="18.89765" DataField="HAT_TIZENKETTO" DataSet="frxDBGn14" DataSetName="frxDBGn14" HAlign="haRight" Text="[frxDBGn14.&#34;HAT_TIZENKETTO&#34;]"/>
+      <TfrxMemoView Name="Memo11" Left="313.70099" Top="0" Width="71.81107" Height="18.89765" DataField="T12_HUSZONNEGY" DataSet="frxDBGn14" DataSetName="frxDBGn14" HAlign="haRight" Text="[frxDBGn14.&#34;T12_HUSZONNEGY&#34;]"/>
+    </TfrxMasterData>
+    <TfrxPageFooter Name="PageFooter1" Height="22.67718" Left="0" Top="302.3624" Width="718.1107">
+      <TfrxMemoView Name="Memo27" Left="582.04762732" Top="0" Width="136.06308" Height="15.11811024" AutoWidth="True" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haRight" ParentFont="False" WordBreak="True" WordWrap="False" Text="[TotalPages#] / [&#60;Page&#62;].oldal"/>
+      <TfrxMemoView Name="Memo28" Left="3.77953" Top="0" Width="343.93723" Height="18.89765" AutoWidth="True" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" ParentFont="False" WordBreak="True" WordWrap="False" Text="Lista - GN15 szerinti korcsoport statisztika"/>
+    </TfrxPageFooter>
+  </TfrxReportPage>
+</TfrxReport>

@@ -1,0 +1,1662 @@
+inherited frmKezelesek: TfrmKezelesek
+  Left = 421
+  Top = 58
+  Width = 972
+  Height = 622
+  Caption = 'Kezel'#233'sek'
+  OldCreateOrder = True
+  Position = poMainFormCenter
+  OnActivate = FormActivate
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnlGombok: TPanel
+    Top = 545
+    Width = 956
+    inherited btnTorol: TBitBtn
+      Left = 718
+      OnClick = btnTorolClick
+    end
+    inherited btnOK: TBitBtn
+      Left = 798
+    end
+    inherited btnCancel: TBitBtn
+      Left = 878
+    end
+    inherited btnModosit: TBitBtn
+      Left = 638
+    end
+    inherited btnUj: TBitBtn
+      Left = 558
+    end
+    inherited btnNyomtat: TBitBtn
+      TabOrder = 6
+      Visible = False
+    end
+    object btnCsopKez: TBitBtn
+      Left = 406
+      Top = 8
+      Width = 121
+      Height = 25
+      Hint = 'CTR-ALT-C gyorsbillenty'#369'vel is el'#233'ri ezt a funkci'#243't'
+      Anchors = [akRight, akBottom]
+      Caption = 'Csoportos felvitel'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 5
+      OnClick = btnCsopKezClick
+      Glyph.Data = {
+        06020000424D0602000000000000760000002800000028000000140000000100
+        0400000000009001000000000000000000001000000000000000000000000000
+        8000008000000080800080000000800080008080000080808000C0C0C0000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        33333333333333333333333333333333333333333333333333FFFFFFFFFFFFFF
+        FFFF300000000000000000033777777777777777777F30262626260FFFFF0603
+        37F33333337F33337F7F30626262620FFFFF020337F3333FFF7F33337F7F3026
+        2600000FFFFF060337F33377777F33337F7F3062620FFF0CCCCC020337F3337F
+        337FFFFF7F7F3026260FFF000000060337F3FF7F33777777737F3060000FFFFF
+        0262620337F7777F33337F33337F3020FF0CCCCC0626260337F7F37FFFFF7F33
+        337F3060FF0000000262620337F7F37777777333337F3020FFFFF02626262603
+        37F7F33337F33333337F3060CCCCC0626262620337F7FFFFF7F33333337F3020
+        000000262626260337F7777777333333337F3062626262626262620337F33333
+        33333333337F308CCCCCCCCCCCCCC8033777777777777777777F308CCCCCCCCC
+        CCCCC80337FFFFFFFFFFFFFFFF7F300000000000000000033777777777777777
+        7773333333333333333333333333333333333333333333333333333333333333
+        33333333333333333333}
+      NumGlyphs = 2
+    end
+  end
+  inherited pnlMod: TTalPanel
+    Left = 505
+    Top = 60
+    Width = 451
+    Height = 485
+    object Label1: TTalLabel
+      Left = 10
+      Top = 64
+      Width = 72
+      Height = 13
+      Caption = 'Kezel'#233's d'#225'tma:'
+      FocusControl = DBEdit1
+    end
+    object Label2: TTalLabel
+      Left = 10
+      Top = 88
+      Width = 64
+      Height = 13
+      Caption = 'Kezel'#337' k'#243'dja:'
+    end
+    object Label3: TTalLabel
+      Left = 10
+      Top = 110
+      Width = 64
+      Height = 13
+      Caption = 'K'#246'v. kezel'#233's:'
+      FocusControl = DBEdit3
+    end
+    object Label4: TTalLabel
+      Left = 10
+      Top = 239
+      Width = 59
+      Height = 13
+      Caption = 'Megjegyz'#233's:'
+    end
+    object Label5: TTalLabel
+      Left = 10
+      Top = 10
+      Width = 81
+      Height = 13
+      Caption = 'Egyed azonosit'#243':'
+      FocusControl = DBEdit5
+    end
+    object Label6: TTalLabel
+      Left = 10
+      Top = 38
+      Width = 60
+      Height = 13
+      Caption = 'Egyed neve:'
+      FocusControl = DBEdit6
+    end
+    object Label7: TTalLabel
+      Left = 10
+      Top = 136
+      Width = 69
+      Height = 13
+      Caption = 'Kezel'#233's k'#243'dja:'
+      FocusControl = DBEdit7
+    end
+    object Label9: TTalLabel
+      Left = 10
+      Top = 163
+      Width = 73
+      Height = 13
+      Caption = 'Gy'#243'gyszer k'#243'd:'
+      FocusControl = edtGyogy1
+    end
+    object btnEgyed: TTalSpeedButton
+      Left = 257
+      Top = 6
+      Width = 23
+      Height = 22
+      Action = actEgyedKer
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00000000000000
+        0000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF000000000000000000000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF00000000000000
+        00000000000000000000000000000000000000000000FF00FF00000000000000
+        00000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000000000000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000C6C6C6000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000C6C6C6000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00FF00FF000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF000000
+        00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF0000000000FFFFFF0000000000FF00FF00FF00FF00FF00FF000000
+        0000FFFFFF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF000000
+        00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+      Visible = False
+    end
+    object btnKezeles: TTalSpeedButton
+      Left = 143
+      Top = 131
+      Width = 23
+      Height = 22
+      Action = actKezelesKodKer
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00000000000000
+        0000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF000000000000000000000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF00000000000000
+        00000000000000000000000000000000000000000000FF00FF00000000000000
+        00000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000000000000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000C6C6C6000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000C6C6C6000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00FF00FF000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF000000
+        00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF0000000000FFFFFF0000000000FF00FF00FF00FF00FF00FF000000
+        0000FFFFFF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF000000
+        00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+    end
+    object btnGyogyszer: TTalSpeedButton
+      Left = 143
+      Top = 159
+      Width = 23
+      Height = 22
+      Action = actGyogyszerKer
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00000000000000
+        0000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF000000000000000000000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF00000000000000
+        00000000000000000000000000000000000000000000FF00FF00000000000000
+        00000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000000000000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000C6C6C6000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000C6C6C6000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00FF00FF000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF000000
+        00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF0000000000FFFFFF0000000000FF00FF00FF00FF00FF00FF000000
+        0000FFFFFF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF000000
+        00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+    end
+    object TalLabel1: TTalLabel
+      Left = 10
+      Top = 187
+      Width = 73
+      Height = 13
+      Caption = 'Gy'#243'gyszer k'#243'd:'
+      FocusControl = edtGyogy2
+    end
+    object btnGyogyszer2: TTalSpeedButton
+      Left = 143
+      Top = 183
+      Width = 23
+      Height = 22
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00000000000000
+        0000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF000000000000000000000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF00000000000000
+        00000000000000000000000000000000000000000000FF00FF00000000000000
+        00000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000000000000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000C6C6C6000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000C6C6C6000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00FF00FF000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF000000
+        00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF0000000000FFFFFF0000000000FF00FF00FF00FF00FF00FF000000
+        0000FFFFFF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF000000
+        00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+      OnClick = btnGyogyszer2Click
+    end
+    object TalLabel2: TTalLabel
+      Left = 10
+      Top = 211
+      Width = 73
+      Height = 13
+      Caption = 'Gy'#243'gyszer k'#243'd:'
+      FocusControl = edtGyogy3
+    end
+    object btnGyogyszer3: TTalSpeedButton
+      Left = 143
+      Top = 207
+      Width = 23
+      Height = 22
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00000000000000
+        0000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF000000000000000000000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF00000000000000
+        00000000000000000000000000000000000000000000FF00FF00000000000000
+        00000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000000000000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000C6C6C6000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000FFFFFF00000000000000000000000000C6C6C6000000000000000000FFFF
+        FF000000000000000000000000000000000000000000FF00FF00FF00FF000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000FFFFFF00000000000000000000000000FF00FF0000000000FFFF
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF000000000000000000000000000000000000000000FF00FF00000000000000
+        0000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF000000
+        00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF0000000000FFFFFF0000000000FF00FF00FF00FF00FF00FF000000
+        0000FFFFFF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF000000
+        00000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+      OnClick = btnGyogyszer3Click
+    end
+    object lblGyMenny: TTalLabel
+      Left = 337
+      Top = 115
+      Width = 106
+      Height = 13
+      Caption = 'Felhaszn'#225'lt mennyis'#233'g'
+    end
+    object TalLabel10: TTalLabel
+      Left = 10
+      Top = 441
+      Width = 126
+      Height = 13
+      Caption = 'Jelenlegi termel'#233'si csoport:'
+      FocusControl = TalDBEdit1
+      Visible = False
+    end
+    object TalLabel11: TTalLabel
+      Left = 10
+      Top = 465
+      Width = 95
+      Height = 13
+      Caption = #218'j termel'#233'si csoport:'
+      Visible = False
+    end
+    object btnCsopTorol: TTalSpeedButton
+      Left = 331
+      Top = 460
+      Width = 23
+      Height = 22
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FF00FF00FF00FF00FF00
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00
+        FF00FF00FF000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00000000000000000000000000FF00FF00FF00
+        FF000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF000000000000000000000000000000
+        000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000000000000000
+        0000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF000000000000000000000000000000
+        000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00000000000000000000000000FF00FF00FF00
+        FF000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF0000000000000000000000000000000000FF00FF00FF00FF00FF00
+        FF00FF00FF000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+      Visible = False
+      OnClick = btnCsopTorolClick
+    end
+    object TalLabel12: TTalLabel
+      Left = 10
+      Top = 388
+      Width = 102
+      Height = 13
+      Caption = 'Utols'#243' term'#233'keny'#237't'#233's:'
+    end
+    object TalLabel13: TTalLabel
+      Left = 10
+      Top = 412
+      Width = 93
+      Height = 13
+      Caption = #218'j vemhess'#233'gi k'#243'd:'
+    end
+    object TalLabel14: TTalLabel
+      Left = 266
+      Top = 388
+      Width = 17
+      Height = 13
+      Caption = 'VK:'
+    end
+    object btnVkTorl: TTalSpeedButton
+      Left = 306
+      Top = 407
+      Width = 23
+      Height = 22
+      Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FF00FF00FF00FF00FF00
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00000000000000000000000000FF00FF00FF00FF00FF00
+        FF00FF00FF000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00000000000000000000000000FF00FF00FF00
+        FF000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF000000000000000000000000000000
+        000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000000000000000
+        0000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF000000000000000000000000000000
+        000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00000000000000000000000000FF00FF00FF00
+        FF000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF0000000000000000000000000000000000FF00FF00FF00FF00FF00
+        FF00FF00FF000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF0000000000000000000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF000000000000000000FF00FF00FF00FF00FF00FF00FF00
+        FF00000000000000000000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
+        FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+      OnClick = btnVkTorlClick
+    end
+    object DBEdit1: TTalDBEdit
+      Left = 95
+      Top = 60
+      Width = 83
+      Height = 22
+      Alignment = taLeftJustify
+      Value = 36526.000000000000000000
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      ValueType = etDate
+      Text = '2000.01.01'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = True
+      MaxLength = 10
+      TabOrder = 2
+      DataField = 'KEZ_DATUM'
+      DataSource = dsKezelesek
+    end
+    object DBEdit3: TTalDBEdit
+      Left = 95
+      Top = 106
+      Width = 83
+      Height = 22
+      Alignment = taLeftJustify
+      Value = 36526.000000000000000000
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      ValueType = etDate
+      Text = '2000.01.01'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = True
+      MaxLength = 10
+      TabOrder = 4
+      DataField = 'KOV_KEZELES_DATUM'
+      DataSource = dsKezelesek
+    end
+    object DBEdit5: TTalDBEdit
+      Left = 95
+      Top = 6
+      Width = 158
+      Height = 22
+      Hint = 'F9-re v'#225'laszthat az egyedek k'#246'z'#252'l'
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Text = 'DBEdit5'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ParentCtl3D = False
+      TabOrder = 0
+      OnExit = DBEdit5Exit
+      DataField = 'ENAR'
+      DataSource = dsKezelesek
+      SpeedButton = btnEgyed
+    end
+    object DBEdit6: TTalDBEdit
+      Left = 95
+      Top = 34
+      Width = 185
+      Height = 22
+      TabStop = False
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      Text = 'DBEdit6'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 1
+      DataField = 'EGYED_NEV'
+      DataSource = dsKezelesek
+    end
+    object DBEdit7: TTalDBEdit
+      Left = 95
+      Top = 131
+      Width = 45
+      Height = 22
+      Hint = 'F9-re v'#225'laszthat a kezel'#233'sek k'#246'z'#252'l'
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Text = 'DBEdit7'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      TabOrder = 5
+      OnExit = DBEdit7Exit
+      DataField = 'KEZ_KOD'
+      DataSource = dsKezelesek
+      SpeedButton = btnKezeles
+    end
+    object DBEdit8: TTalDBEdit
+      Left = 171
+      Top = 131
+      Width = 166
+      Height = 22
+      TabStop = False
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      Text = 'DBEdit8'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 8
+      DataField = 'KEZ_NEV'
+      DataSource = dsKezelesek
+    end
+    object edtGyogy1: TTalDBEdit
+      Left = 95
+      Top = 159
+      Width = 45
+      Height = 22
+      Hint = 'F9-re v'#225'laszthat a gy'#243'gyszerek k'#246'z'#252'l'
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Text = 'edtGyogy1'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      TabOrder = 6
+      OnExit = edtGyogy1Exit
+      DataField = 'GYOGY_KOD'
+      DataSource = dsKezelesek
+      SpeedButton = btnGyogyszer
+    end
+    object DBEdit10: TTalDBEdit
+      Left = 171
+      Top = 159
+      Width = 166
+      Height = 22
+      TabStop = False
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      Text = 'DBEdit10'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 9
+      DataField = 'GYOGY_NEV'
+      DataSource = dsKezelesek
+    end
+    object TalDBMemo1: TTalDBMemo
+      Left = 95
+      Top = 233
+      Width = 330
+      Height = 144
+      DataField = 'MEGJEGYZES'
+      DataSource = dsKezelesek
+      TabOrder = 16
+    end
+    object lucEllLef: TTalDBLookupComboBox
+      Left = 95
+      Top = 84
+      Width = 186
+      Height = 21
+      DataField = 'KEZELO_KOD'
+      DataSource = dsKezelesek
+      KeyField = 'KOD'
+      ListField = 'KOD_NEV'
+      ListSource = dtsKezelok
+      TabOrder = 3
+    end
+    object edtGyogy2: TTalDBEdit
+      Left = 95
+      Top = 183
+      Width = 45
+      Height = 22
+      Hint = 'F9-re v'#225'laszthat a gy'#243'gyszerek k'#246'z'#252'l'
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Text = 'edtGyogy2'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      TabOrder = 10
+      OnExit = edtGyogy2Exit
+      DataField = 'GYOGY2_KOD'
+      DataSource = dsKezelesek
+      SpeedButton = btnGyogyszer2
+    end
+    object TalDBEdit2: TTalDBEdit
+      Left = 171
+      Top = 183
+      Width = 166
+      Height = 22
+      TabStop = False
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      Text = 'DBEdit2'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 12
+      DataField = 'GYOGY2_NEV'
+      DataSource = dsKezelesek
+    end
+    object edtGyogy3: TTalDBEdit
+      Left = 95
+      Top = 207
+      Width = 45
+      Height = 22
+      Hint = 'F9-re v'#225'laszthat a gy'#243'gyszerek k'#246'z'#252'l'
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Text = 'edtGyogy3'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      TabOrder = 13
+      OnExit = edtGyogy3Exit
+      DataField = 'GYOGY3_KOD'
+      DataSource = dsKezelesek
+      SpeedButton = btnGyogyszer3
+    end
+    object TalDBEdit4: TTalDBEdit
+      Left = 171
+      Top = 207
+      Width = 166
+      Height = 22
+      TabStop = False
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      Text = 'DBEdit4'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 15
+      DataField = 'GYOGY3_NEV'
+      DataSource = dsKezelesek
+    end
+    object edtGyMenny1: TTalDBEdit
+      Left = 344
+      Top = 131
+      Width = 53
+      Height = 22
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      ValueMin = '0,00'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      TabOrder = 7
+      OnExit = edtGyMenny1Exit
+      DataField = 'GYMENNY_1'
+      DataSource = dsKezelesek
+    end
+    object edtMe1: TTalDBEdit
+      Left = 398
+      Top = 131
+      Width = 41
+      Height = 22
+      TabStop = False
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 17
+      DataField = 'ME'
+      DataSource = dsKezelesek
+    end
+    object edtGyMenny2: TTalDBEdit
+      Left = 344
+      Top = 159
+      Width = 53
+      Height = 22
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      ValueMin = '0,00'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      TabOrder = 11
+      OnExit = edtGyMenny2Exit
+      DataField = 'GYMENNY_2'
+      DataSource = dsKezelesek
+    end
+    object edtMe2: TTalDBEdit
+      Left = 398
+      Top = 159
+      Width = 41
+      Height = 22
+      TabStop = False
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 18
+      DataField = 'ME2'
+      DataSource = dsKezelesek
+    end
+    object edtGyMenny3: TTalDBEdit
+      Left = 344
+      Top = 183
+      Width = 53
+      Height = 22
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      ValueMin = '0,00'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      TabOrder = 14
+      OnExit = edtGyMenny3Exit
+      DataField = 'GYMENNY_3'
+      DataSource = dsKezelesek
+    end
+    object edtMe3: TTalDBEdit
+      Left = 398
+      Top = 183
+      Width = 41
+      Height = 22
+      TabStop = False
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 19
+      DataField = 'ME3'
+      DataSource = dsKezelesek
+    end
+    object TalDBEdit1: TTalDBEdit
+      Left = 143
+      Top = 436
+      Width = 185
+      Height = 22
+      TabStop = False
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      Text = 'DBEdit6'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 20
+      Visible = False
+      DataSource = dsKezelesek
+    end
+    object lucTcs: TTalComboBox
+      Left = 143
+      Top = 461
+      Width = 187
+      Height = 21
+      Style = csDropDownList
+      ItemHeight = 13
+      TabOrder = 22
+      Visible = False
+      OnKeyPress = lucTcsKeyPress
+    end
+    object TalCheckBox1: TTalCheckBox
+      Left = 352
+      Top = 386
+      Width = 90
+      Height = 17
+      TabStop = False
+      Caption = 'Vemh.m'#243'd.kell'
+      Checked = True
+      State = cbChecked
+      TabOrder = 23
+      OnClick = TalCheckBox1Click
+    end
+    object edtUtTermDatum: TTalDBEdit
+      Left = 143
+      Top = 384
+      Width = 69
+      Height = 22
+      TabStop = False
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      ValueType = etDate
+      Text = 'edtU.  .  '
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = 10
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 24
+      DataField = 'DATUM'
+      DataSource = dsKezelesek
+    end
+    object edtUtTermBika: TTalDBEdit
+      Left = 215
+      Top = 384
+      Width = 42
+      Height = 22
+      TabStop = False
+      Alignment = taRightJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      ValueType = etFloat
+      Text = 'edtUtTermBika'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 25
+      DataField = 'KPLSZ'
+      DataSource = dsKezelesek
+    end
+    object edtUtTermVk: TTalDBEdit
+      Left = 286
+      Top = 384
+      Width = 16
+      Height = 22
+      TabStop = False
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clWindow
+      Text = 'edtUtTermVk'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ParentCtl3D = False
+      ReadOnly = True
+      TabOrder = 26
+      DataField = 'ALLAPOT'
+      DataSource = dsKezelesek
+    end
+    object lucVemhKod: TTalComboBox
+      Left = 143
+      Top = 408
+      Width = 162
+      Height = 21
+      Style = csDropDownList
+      ItemHeight = 13
+      TabOrder = 21
+      OnKeyPress = lucTcsKeyPress
+    end
+    object btnTermekenyitesek: TTalBitBtn
+      Left = 352
+      Top = 407
+      Width = 91
+      Height = 25
+      Caption = 'Term'#233'keny'#237't'#233'sek'
+      TabOrder = 27
+      TabStop = False
+      OnClick = btnTermekenyitesekClick
+    end
+  end
+  inherited grdVal: TTalDBGrid
+    Top = 60
+    Width = 505
+    Height = 485
+    Selected.Strings = (
+      'AZONOSITO'#9'14'#9'Azonos'#237't'#243#9#9
+      'EGYED_NEV'#9'20'#9'N'#233'v'#9#9
+      'KEZ_DATUM'#9'10'#9'Kezel'#233's d'#225'tuma'#9#9
+      'KEZ_SORSZAM'#9'6'#9'Sorsz'#225'm'#9#9
+      'KEZELO_NEV'#9'41'#9'Kezel'#337#9'F'#9
+      'KEZ_KOD'#9'10'#9'Kezel'#233's k'#243'd'#9#9
+      'KEZ_NEV'#9'30'#9'Kezel'#233's'#9#9
+      'GYOGY_KOD'#9'10'#9'Gy'#243'gyszer k'#243'd'#9#9
+      'GYOGY2_KOD'#9'10'#9'2.Gy'#243'gyszerk'#243'd'#9'F'#9
+      'GYOGY3_KOD'#9'10'#9'3.Gy'#243'gyszerk'#243'd'#9'F'#9
+      'GYOGY_NEV'#9'80'#9'Gy'#243'gyszer'#9#9
+      'GYOGY2_NEV'#9'80'#9'2.gy'#243'gyszer neve'#9'F'#9
+      'GYOGY3_NEV'#9'80'#9'3.gy'#243'gyszer neve'#9'F'#9
+      'KOV_KEZELES_DATUM'#9'18'#9'K'#246'vetkez'#337' kezel'#233's'#9#9
+      'MEGJEGYZES'#9'600'#9'Megjyegyz'#233's'#9#9
+      'TIPUS'#9'1'#9'TIPUS'#9'F'#9)
+    IniAttributes.SectionName = 'frmKezelesek'
+    IniAttributes.CheckNewFields = True
+    OnRowChanged = grdValRowChanged
+    DataSource = dsKezelesek
+    TabOrder = 3
+  end
+  object pnlSzures: TTalPanel [3]
+    Left = 0
+    Top = 0
+    Width = 956
+    Height = 60
+    Align = alTop
+    TabOrder = 2
+    object TalLabel3: TTalLabel
+      Left = 260
+      Top = 12
+      Width = 90
+      Height = 13
+      Caption = 'Sz'#369'r'#337'felt'#233'telek:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object TalLabel4: TTalLabel
+      Left = 356
+      Top = 12
+      Width = 82
+      Height = 13
+      Caption = 'Egyed azonos'#237't'#243':'
+    end
+    object TalLabel5: TTalLabel
+      Left = 540
+      Top = 12
+      Width = 78
+      Height = 13
+      Caption = 'Kezel'#233's d'#225'tuma:'
+    end
+    object TalLabel6: TTalLabel
+      Left = 486
+      Top = 36
+      Width = 131
+      Height = 13
+      Caption = 'K'#246'vetkez'#337' kezel'#233's d'#225'tuma:'
+    end
+    object TalLabel7: TTalLabel
+      Left = 703
+      Top = 12
+      Width = 9
+      Height = 13
+      Caption = ' - '
+    end
+    object TalLabel8: TTalLabel
+      Left = 703
+      Top = 35
+      Width = 9
+      Height = 13
+      Caption = ' - '
+    end
+    object TalLabel9: TTalLabel
+      Left = 12
+      Top = 36
+      Width = 66
+      Height = 13
+      Caption = 'Kezel'#233's t'#237'pus:'
+    end
+    object edtAzonosito: TTalEdit
+      Left = 444
+      Top = 7
+      Width = 82
+      Height = 22
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      ReadOnly = False
+      TabOrder = 0
+    end
+    object edtKezDatSzTol: TTalMaskEdit
+      Left = 628
+      Top = 8
+      Width = 72
+      Height = 21
+      Hint = 'Enn'#233'l a napn'#225'l nagyobb d'#225'tum'#250' adatok lesznek a list'#225'n'
+      EditMask = '!9999/99/00;1;_'
+      MaxLength = 10
+      TabOrder = 1
+      Text = '    .  .  '
+    end
+    object edtKovKezDatSzTol: TTalMaskEdit
+      Left = 628
+      Top = 32
+      Width = 72
+      Height = 21
+      Hint = 'Enn'#233'l a napn'#225'l nagyobb d'#225'tum'#250' adatok lesznek a list'#225'n'
+      EditMask = '!9999/99/00;1;_'
+      MaxLength = 10
+      TabOrder = 2
+      Text = '    .  .  '
+    end
+    object btnLeker: TBitBtn
+      Left = 799
+      Top = 7
+      Width = 121
+      Height = 46
+      Hint = 'Adatlek'#233'r'#233's a sz'#369'r'#337'felt'#233'telek figyelembev'#233'tel'#233'vel'
+      Caption = 'Adatlek'#233'r'#233's'
+      TabOrder = 3
+      OnClick = btnLekerClick
+      Glyph.Data = {
+        76010000424D7601000000000000760000002800000020000000100000000100
+        04000000000000010000120B0000120B00001000000000000000000000000000
+        800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        3333333333FFFFF3333333333000003333333333F777773FF333333008877700
+        33333337733FFF773F33330887000777033333733F777FFF73F330880FAFAF07
+        703337F37733377FF7F33080F00000F07033373733777337F73F087F00A2200F
+        77037F3737333737FF7F080A0A2A220A07037F737F3333737F7F0F0F0AAAA20F
+        07037F737F3333737F7F0F0A0FAA2A0A08037F737FF33373737F0F7F00FFA00F
+        780373F737FFF737F3733080F00000F0803337F73377733737F330F80FAFAF08
+        8033373F773337733733330F8700078803333373FF77733F733333300FFF8800
+        3333333773FFFF77333333333000003333333333377777333333}
+      NumGlyphs = 2
+    end
+    object edtKezDatSzIg: TTalMaskEdit
+      Left = 716
+      Top = 8
+      Width = 72
+      Height = 21
+      Hint = 'Enn'#233'l a napn'#225'l kisebb d'#225'tum'#250' adatok lesznek a list'#225'n'
+      EditMask = '!9999/99/00;1;_'
+      MaxLength = 10
+      TabOrder = 4
+      Text = '    .  .  '
+    end
+    object edtKovDezDatSzIg: TTalMaskEdit
+      Left = 716
+      Top = 32
+      Width = 72
+      Height = 21
+      Hint = 'Enn'#233'l a napn'#225'l kisebb d'#225'tum'#250' adatok lesznek a list'#225'n'
+      EditMask = '!9999/99/00;1;_'
+      MaxLength = 10
+      TabOrder = 5
+      Text = '    .  .  '
+    end
+    object BitBtn1: TBitBtn
+      Left = 11
+      Top = 3
+      Width = 121
+      Height = 26
+      Hint = 'Adatlek'#233'r'#233's a sz'#369'r'#337'felt'#233'telek figyelembev'#233'tel'#233'vel'
+      Caption = 'Sz'#369'r'#337'k t'#246'rl'#233'se'
+      TabOrder = 6
+      OnClick = BitBtn1Click
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+        333333333333333333333333000033338833333333333333333F333333333333
+        0000333911833333983333333388F333333F3333000033391118333911833333
+        38F38F333F88F33300003339111183911118333338F338F3F8338F3300003333
+        911118111118333338F3338F833338F3000033333911111111833333338F3338
+        3333F8330000333333911111183333333338F333333F83330000333333311111
+        8333333333338F3333383333000033333339111183333333333338F333833333
+        00003333339111118333333333333833338F3333000033333911181118333333
+        33338333338F333300003333911183911183333333383338F338F33300003333
+        9118333911183333338F33838F338F33000033333913333391113333338FF833
+        38F338F300003333333333333919333333388333338FFF830000333333333333
+        3333333333333333333888330000333333333333333333333333333333333333
+        0000}
+      NumGlyphs = 2
+    end
+    object cbCsoport: TTalComboBox
+      Left = 85
+      Top = 32
+      Width = 196
+      Height = 21
+      Style = csDropDownList
+      ItemHeight = 13
+      ItemIndex = 0
+      TabOrder = 7
+      Text = 'Mind'
+      OnCloseUp = cbCsoportCloseUp
+      Items.Strings = (
+        'Mind')
+    end
+  end
+  inherited ActionList1: TActionList
+    inherited actOK: TAction
+      OnExecute = actOKExecute
+    end
+    inherited actMegsem: TAction
+      OnExecute = actMegsemExecute
+    end
+    object actEgyedKer: TAction
+      OnExecute = actEgyedKerExecute
+    end
+    object actKezelesKodKer: TAction
+      OnExecute = actKezelesKodKerExecute
+    end
+    object actGyogyszerKer: TAction
+      OnExecute = actGyogyszerKerExecute
+    end
+    object actCsopFelv: TAction
+      Caption = 'Csoportos felvitel'
+      ShortCut = 49219
+      OnExecute = actCsopFelvExecute
+    end
+  end
+  object sdsKezelesek: TTalSimpleDataSet
+    Aggregates = <>
+    DataSet.CommandText = 
+      'SELECT'#13#10'  K.ID, K.EGYEDEK_ID,'#13#10'  E.ENAR, E.NEV AS EGYED_NEV,'#13#10'  ' +
+      'K.KEZ_DATUM, K.KEZ_SORSZAM, K.KEZELES_ID,'#13#10'  K.KEZELO_KOD,'#13#10'  K.' +
+      'KEZELO_KOD || '#39'-'#39'  || KODOK.KOD_NEV AS KEZELO_NEV,'#13#10'  P.KOD AS K' +
+      'EZ_KOD, P.NEV AS KEZ_NEV,'#13#10'  G.KOD AS GYOGY_KOD, G.NEV AS GYOGY_' +
+      'NEV,'#13#10'  G2.KOD AS GYOGY2_KOD, G2.NEV AS GYOGY2_NEV,'#13#10'  G3.KOD AS' +
+      ' GYOGY3_KOD, G3.NEV AS GYOGY3_NEV,'#13#10'  K.KOV_KEZELES_DATUM, K.MEG' +
+      'JEGYZES, K.GYOGYSZER_ID, K.GYOGYSZER2_ID, K.GYOGYSZER3_ID,'#13#10'  K.' +
+      'UTMOD_DAT, K.UTMOD_KOD, K.TIPUS,'#13#10'  K.GYMENNY_1, K.GYMENNY_2, K.' +
+      'GYMENNY_3,'#13#10'  Gk.ME as ME, Gk2.ME as ME2, Gk3.ME as ME3,'#13#10'  K.GY' +
+      'KLT1_ID, K.GYKLT2_ID, K.GYKLT3_ID,'#13#10'  TERMEKENYITESEK.ID AS TERM' +
+      '_ID, TERMEKENYITESEK.DATUM, TERMEKENYITESEK.KPLSZ, TERMEKENYITES' +
+      'EK.ALLAPOT,'#13#10'  E.IVAR'#13#10'FROM KEZELESEK K'#13#10'JOIN EGYEDEK E ON K.EGY' +
+      'EDEK_ID = E.ID'#13#10'LEFT JOIN KEZ_PARAM P ON K.KEZELES_ID = P.ID'#13#10'LE' +
+      'FT JOIN GYOGYSZER_KLT Gk ON K.GYKLT1_ID = GK.ID'#13#10'LEFT JOIN GYOGY' +
+      'SZER_KLT Gk2 ON K.GYKLT2_ID = GK2.ID'#13#10'LEFT JOIN GYOGYSZER_KLT Gk' +
+      '3 ON K.GYKLT3_ID = GK3.ID'#13#10'LEFT JOIN GYOGYSZEREK G ON K.GYOGYSZE' +
+      'R_ID = G.ID'#13#10'LEFT JOIN GYOGYSZEREK G2 ON K.GYOGYSZER2_ID = G2.ID' +
+      #13#10'LEFT JOIN GYOGYSZEREK G3 ON K.GYOGYSZER3_ID = G3.ID'#13#10'LEFT JOIN' +
+      ' KODOK ON KODOK.KOD = K.KEZELO_KOD  AND KODOK.KODTIPUSOK_TIPUSKO' +
+      'D='#39'KEZELOK'#39#13#10'LEFT JOIN TERMEKENYITESEK ON TERMEKENYITESEK.ID = U' +
+      'T_TERM(E.ID)'#13#10'WHERE K.TIPUS='#39'E'#39
+    DataSet.Parameters = <>
+    Provider.DataSet.CommandText = 
+      'SELECT'#13#10'  K.ID, K.EGYEDEK_ID,'#13#10'  E.ENAR, E.NEV AS EGYED_NEV,'#13#10'  ' +
+      'K.KEZ_DATUM, K.KEZ_SORSZAM, K.KEZELES_ID,'#13#10'  K.KEZELO_KOD,'#13#10'  K.' +
+      'KEZELO_KOD || '#39'-'#39'  || KODOK.KOD_NEV AS KEZELO_NEV,'#13#10'  P.KOD AS K' +
+      'EZ_KOD, P.NEV AS KEZ_NEV,'#13#10'  G.KOD AS GYOGY_KOD, G.NEV AS GYOGY_' +
+      'NEV,'#13#10'  G2.KOD AS GYOGY2_KOD, G2.NEV AS GYOGY2_NEV,'#13#10'  G3.KOD AS' +
+      ' GYOGY3_KOD, G3.NEV AS GYOGY3_NEV,'#13#10'  K.KOV_KEZELES_DATUM, K.MEG' +
+      'JEGYZES, K.GYOGYSZER_ID, K.GYOGYSZER2_ID, K.GYOGYSZER3_ID,'#13#10'  K.' +
+      'UTMOD_DAT, K.UTMOD_KOD, K.TIPUS,'#13#10'  K.GYMENNY_1, K.GYMENNY_2, K.' +
+      'GYMENNY_3,'#13#10'  Gk.ME as ME, Gk2.ME as ME2, Gk3.ME as ME3,'#13#10'  K.GY' +
+      'KLT1_ID, K.GYKLT2_ID, K.GYKLT3_ID,'#13#10'  TERMEKENYITESEK.ID AS TERM' +
+      '_ID, TERMEKENYITESEK.DATUM, TERMEKENYITESEK.KPLSZ, TERMEKENYITES' +
+      'EK.ALLAPOT,'#13#10'  E.IVAR'#13#10'FROM KEZELESEK K'#13#10'JOIN EGYEDEK E ON K.EGY' +
+      'EDEK_ID = E.ID'#13#10'LEFT JOIN KEZ_PARAM P ON K.KEZELES_ID = P.ID'#13#10'LE' +
+      'FT JOIN GYOGYSZER_KLT Gk ON K.GYKLT1_ID = GK.ID'#13#10'LEFT JOIN GYOGY' +
+      'SZER_KLT Gk2 ON K.GYKLT2_ID = GK2.ID'#13#10'LEFT JOIN GYOGYSZER_KLT Gk' +
+      '3 ON K.GYKLT3_ID = GK3.ID'#13#10'LEFT JOIN GYOGYSZEREK G ON K.GYOGYSZE' +
+      'R_ID = G.ID'#13#10'LEFT JOIN GYOGYSZEREK G2 ON K.GYOGYSZER2_ID = G2.ID' +
+      #13#10'LEFT JOIN GYOGYSZEREK G3 ON K.GYOGYSZER3_ID = G3.ID'#13#10'LEFT JOIN' +
+      ' KODOK ON KODOK.KOD = K.KEZELO_KOD  AND KODOK.KODTIPUSOK_TIPUSKO' +
+      'D='#39'KEZELOK'#39#13#10'LEFT JOIN TERMEKENYITESEK ON TERMEKENYITESEK.ID = U' +
+      'T_TERM(E.ID)'#13#10'WHERE K.TIPUS='#39'E'#39
+    Provider.DataSet.Parameters = <>
+    Provider.ResolveToDataSet = True
+    Provider.Options = [poPropogateChanges]
+    Params = <>
+    Left = 68
+    Top = 88
+    object sdsKezelesekENAR: TWideStringField
+      DisplayLabel = 'EN'#193'R'
+      FieldName = 'ENAR'
+      Size = 14
+    end
+    object sdsKezelesekEGYED_NEV: TWideStringField
+      DisplayLabel = 'N'#233'v'
+      DisplayWidth = 20
+      FieldName = 'EGYED_NEV'
+      ProviderFlags = []
+      Size = 40
+    end
+    object sdsKezelesekKEZ_DATUM: TDateTimeField
+      DisplayLabel = 'Kezel'#233's d'#225'tuma'
+      DisplayWidth = 10
+      FieldName = 'KEZ_DATUM'
+      ProviderFlags = [pfInUpdate]
+      EditMask = '!9999/99/00;1;_'
+    end
+    object sdsKezelesekKEZ_SORSZAM: TBCDField
+      DisplayLabel = 'Sorsz'#225'm'
+      DisplayWidth = 6
+      FieldName = 'KEZ_SORSZAM'
+      Precision = 10
+      Size = 0
+    end
+    object sdsKezelesekKEZ_KOD: TWideStringField
+      DisplayLabel = 'Kezel'#233's k'#243'd'
+      DisplayWidth = 10
+      FieldName = 'KEZ_KOD'
+      ProviderFlags = []
+      Size = 10
+    end
+    object sdsKezelesekKEZELO_NEV: TWideStringField
+      DisplayLabel = 'Kezel'#337
+      DisplayWidth = 41
+      FieldName = 'KEZELO_NEV'
+      ReadOnly = True
+      Size = 41
+    end
+    object sdsKezelesekKEZ_NEV: TWideStringField
+      DisplayLabel = 'Kezel'#233's'
+      DisplayWidth = 30
+      FieldName = 'KEZ_NEV'
+      ProviderFlags = []
+      Size = 30
+    end
+    object sdsKezelesekGYOGY_KOD: TWideStringField
+      DisplayLabel = 'Gy'#243'gyszer k'#243'd'
+      DisplayWidth = 10
+      FieldName = 'GYOGY_KOD'
+      ProviderFlags = []
+      Size = 10
+    end
+    object sdsKezelesekGYOGY2_KOD: TWideStringField
+      DisplayLabel = '2.Gy'#243'gyszerk'#243'd'
+      DisplayWidth = 10
+      FieldName = 'GYOGY2_KOD'
+      ProviderFlags = []
+      Size = 10
+    end
+    object sdsKezelesekGYOGY3_KOD: TWideStringField
+      DisplayLabel = '3.Gy'#243'gyszerk'#243'd'
+      DisplayWidth = 10
+      FieldName = 'GYOGY3_KOD'
+      ProviderFlags = []
+      Size = 10
+    end
+    object sdsKezelesekGYOGY_NEV: TWideStringField
+      DisplayLabel = 'Gy'#243'gyszer'
+      DisplayWidth = 80
+      FieldName = 'GYOGY_NEV'
+      ProviderFlags = []
+      Size = 80
+    end
+    object sdsKezelesekGYOGY2_NEV: TWideStringField
+      DisplayLabel = '2.gy'#243'gyszer neve'
+      DisplayWidth = 80
+      FieldName = 'GYOGY2_NEV'
+      ProviderFlags = []
+      Size = 80
+    end
+    object sdsKezelesekGYOGY3_NEV: TWideStringField
+      DisplayLabel = '3.gy'#243'gyszer neve'
+      DisplayWidth = 80
+      FieldName = 'GYOGY3_NEV'
+      ProviderFlags = []
+      Size = 80
+    end
+    object sdsKezelesekKOV_KEZELES_DATUM: TDateTimeField
+      DisplayLabel = 'K'#246'vetkez'#337' kezel'#233's'
+      DisplayWidth = 18
+      FieldName = 'KOV_KEZELES_DATUM'
+      ProviderFlags = [pfInUpdate]
+      EditMask = '!9999/99/99;1;_'
+    end
+    object sdsKezelesekMEGJEGYZES: TWideStringField
+      DisplayLabel = 'Megjyegyz'#233's'
+      DisplayWidth = 600
+      FieldName = 'MEGJEGYZES'
+      ProviderFlags = [pfInUpdate]
+      Size = 600
+    end
+    object sdsKezelesekID: TBCDField
+      FieldName = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      ReadOnly = True
+      Visible = False
+      Precision = 15
+      Size = 0
+    end
+    object sdsKezelesekEGYEDEK_ID: TBCDField
+      FieldName = 'EGYEDEK_ID'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      Precision = 15
+      Size = 0
+    end
+    object sdsKezelesekKEZELES_ID: TBCDField
+      FieldName = 'KEZELES_ID'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      Precision = 15
+      Size = 0
+    end
+    object sdsKezelesekGYOGYSZER_ID: TBCDField
+      FieldName = 'GYOGYSZER_ID'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      Precision = 15
+      Size = 0
+    end
+    object sdsKezelesekUTMOD_DAT: TDateTimeField
+      FieldName = 'UTMOD_DAT'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+    end
+    object sdsKezelesekUTMOD_KOD: TWideStringField
+      FieldName = 'UTMOD_KOD'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      Size = 3
+    end
+    object sdsKezelesekKEZELO_KOD: TWideStringField
+      FieldName = 'KEZELO_KOD'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      Size = 10
+    end
+    object sdsKezelesekTIPUS: TWideStringField
+      DefaultExpression = #39'E'#39
+      DisplayWidth = 1
+      FieldName = 'TIPUS'
+      ProviderFlags = [pfInUpdate]
+      Size = 1
+    end
+    object sdsKezelesekGYOGYSZER2_ID: TBCDField
+      FieldName = 'GYOGYSZER2_ID'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      Precision = 15
+      Size = 0
+    end
+    object sdsKezelesekGYOGYSZER3_ID: TBCDField
+      FieldName = 'GYOGYSZER3_ID'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      Precision = 15
+      Size = 0
+    end
+    object sdsKezelesekGYMENNY_1: TBCDField
+      FieldName = 'GYMENNY_1'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      EditFormat = '#.##'
+      Precision = 15
+      Size = 2
+    end
+    object sdsKezelesekGYMENNY_2: TBCDField
+      FieldName = 'GYMENNY_2'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      EditFormat = '#.##'
+      Precision = 15
+      Size = 2
+    end
+    object sdsKezelesekGYMENNY_3: TBCDField
+      FieldName = 'GYMENNY_3'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      EditFormat = '#.##'
+      Precision = 15
+      Size = 2
+    end
+    object sdsKezelesekME: TWideStringField
+      FieldName = 'ME'
+      ProviderFlags = []
+      Visible = False
+      Size = 10
+    end
+    object sdsKezelesekME2: TWideStringField
+      FieldName = 'ME2'
+      ProviderFlags = []
+      Visible = False
+      Size = 10
+    end
+    object sdsKezelesekME3: TWideStringField
+      FieldName = 'ME3'
+      ProviderFlags = []
+      Visible = False
+      Size = 10
+    end
+    object sdsKezelesekGYKLT1_ID: TBCDField
+      FieldName = 'GYKLT1_ID'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      Precision = 15
+      Size = 0
+    end
+    object sdsKezelesekGYKLT2_ID: TBCDField
+      FieldName = 'GYKLT2_ID'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      Precision = 15
+      Size = 0
+    end
+    object sdsKezelesekGYKLT3_ID: TBCDField
+      FieldName = 'GYKLT3_ID'
+      ProviderFlags = [pfInUpdate]
+      Visible = False
+      Precision = 15
+      Size = 0
+    end
+    object sdsKezelesekTERM_ID: TBCDField
+      FieldName = 'TERM_ID'
+      ProviderFlags = []
+      Visible = False
+      Precision = 15
+      Size = 0
+    end
+    object sdsKezelesekDATUM: TDateTimeField
+      FieldName = 'DATUM'
+      ProviderFlags = []
+    end
+    object sdsKezelesekALLAPOT: TWideStringField
+      FieldName = 'ALLAPOT'
+      ProviderFlags = []
+      FixedChar = True
+      Size = 1
+    end
+    object sdsKezelesekIVAR: TWideStringField
+      FieldName = 'IVAR'
+      ProviderFlags = []
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+    object sdsKezelesekKPLSZ: TWideStringField
+      FieldName = 'KPLSZ'
+      ProviderFlags = []
+      Size = 5
+    end
+  end
+  object dsKezelesek: TDataSource
+    DataSet = sdsKezelesek
+    Left = 96
+    Top = 88
+  end
+  object qGetSorszam: TTalQuery
+    Connection = dtmTarka.cnTarka
+    Parameters = <
+      item
+        Name = 'egyed_id'
+        Attributes = [paSigned]
+        DataType = ftBCD
+        Precision = 15
+        Size = 19
+        Value = Null
+      end>
+    SQL.Strings = (
+      'select max(kez_sorszam) + 1 as sorszam '
+      'from kezelesek where egyedek_id = :egyed_id ')
+    Left = 128
+    Top = 88
+  end
+  object qryKezelok: TTalQuery
+    Connection = dtmTarka.cnTarka
+    Parameters = <>
+    SQL.Strings = (
+      'select  kk.KOD, '
+      'kk.KOD ||  '#39' - '#39' || kk.KOD_NEV as KOD_NEV'
+      'from kodok kk'
+      'where kk.KODTIPUSOK_TIPUSKOD='#39'KEZELOK'#39)
+    Left = 208
+    Top = 88
+    object qryKezelokKOD: TWideStringField
+      FieldName = 'KOD'
+      Size = 10
+    end
+    object qryKezelokKOD_NEV: TWideStringField
+      FieldName = 'KOD_NEV'
+      ReadOnly = True
+      Size = 43
+    end
+  end
+  object dtsKezelok: TDataSource
+    DataSet = qryKezelok
+    Left = 272
+    Top = 88
+  end
+  object qryCsoport: TTalQuery
+    Connection = dtmTarka.cnTarka
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT KODOK.KOD,KODOK.KOD_NEV'
+      'FROM KODOK'
+      'WHERE  KODOK.KODTIPUSOK_TIPUSKOD='#39'KEZCSOP'#39)
+    Left = 208
+    Top = 152
+    object StringField1: TWideStringField
+      FieldName = 'KOD'
+      Size = 10
+    end
+    object StringField2: TWideStringField
+      FieldName = 'KOD_NEV'
+      ReadOnly = True
+      Size = 43
+    end
+  end
+  object qryTermCsop: TTalQuery
+    Connection = dtmTarka.cnTarka
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT TCS.KOD, TCS.NEV'
+      'FROM TERMELESI_CSOPORT TCS'
+      'WHERE TCS.ERVENYES = 1'
+      'ORDER BY 1')
+    Left = 304
+    Top = 152
+    object qryTermCsopKOD: TWideStringField
+      FieldName = 'KOD'
+      Size = 10
+    end
+    object qryTermCsopNEV: TWideStringField
+      FieldName = 'NEV'
+      Size = 80
+    end
+  end
+  object qryVemhKod: TTalQuery
+    Connection = dtmTarka.cnTarka
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT TCS.KOD, TCS.NEV'
+      'FROM TERMELESI_CSOPORT TCS'
+      'WHERE TCS.ERVENYES = 1'
+      'ORDER BY 1')
+    Left = 304
+    Top = 200
+    object StringField3: TWideStringField
+      FieldName = 'KOD'
+      Size = 10
+    end
+    object StringField4: TWideStringField
+      FieldName = 'NEV'
+      Size = 80
+    end
+  end
+end

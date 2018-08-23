@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TfrxReport Name="" Version="3.19" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="2047" PreviewOptions.Zoom="1" PrintOptions.Printer="Alap�rtelmezett" ReportOptions.CreateDate="40240,4988155324" ReportOptions.Description.Text="" ReportOptions.LastChange="40280,6942750231" ScriptLanguage="PascalScript" ScriptText.Text="&#13;&#10;&#13;&#10;begin&#13;&#10;&#13;&#10;end." PropData="044C65667403000203546F7002080844617461736574730100095661726961626C657301010C13000000204E616D653D2220506172616D65746572732200010C0A000000204E616D653D2270312200010C0A000000204E616D653D2270322200010C0A000000204E616D653D2270332200010C0A000000204E616D653D2270342200010C0A000000204E616D653D227030220000055374796C650100">
+  <TfrxReportPage Name="Page5" PaperWidth="215,9" PaperHeight="279,4" PaperSize="1" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxMemoView Name="Memo30" Left="283,57081" Top="60,47248" Width="173,85838" Height="18,89765" HAlign="haCenter" Text="Ellenőrzések, észrevételek"/>
+    <TfrxShapeView Name="Shape8" Left="37,7953" Top="109,60637" Width="151,1812" Height="34,01574803"/>
+    <TfrxShapeView Name="Shape9" Left="188,9765" Top="109,60637" Width="374,17347" Height="34,01574803"/>
+    <TfrxShapeView Name="Shape10" Left="563,14997" Top="109,60637" Width="154,96073" Height="34,01574803"/>
+    <TfrxShapeView Name="Shape11" Left="37,7953" Top="143,62214" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape12" Left="188,9765" Top="143,62214" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape13" Left="563,14997" Top="143,62214" Width="154,96073" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape14" Left="37,7953" Top="200,31509" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape15" Left="188,9765" Top="200,31509" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape16" Left="563,14997" Top="200,31509" Width="154,96073" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape17" Left="37,7953" Top="257,00804" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape18" Left="188,9765" Top="257,00804" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape19" Left="563,14997" Top="257,00804" Width="154,96073" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape20" Left="37,7953" Top="313,70099" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape21" Left="188,9765" Top="313,70099" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape22" Left="563,14997" Top="313,70099" Width="154,96073" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape23" Left="37,7953" Top="370,39394" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape24" Left="188,9765" Top="370,39394" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape25" Left="563,14997" Top="370,39394" Width="154,96073" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape26" Left="37,7953" Top="427,08689" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape27" Left="188,9765" Top="427,08689" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape28" Left="563,14997" Top="427,08689" Width="154,96073" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape29" Left="37,7953" Top="483,77984" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape30" Left="188,9765" Top="483,77984" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape31" Left="563,14997" Top="483,77984" Width="154,96073" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape32" Left="37,7953" Top="540,47279" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape33" Left="188,9765" Top="540,47279" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape34" Left="563,14997" Top="540,47279" Width="154,96073" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape35" Left="37,7953" Top="597,16574" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape36" Left="188,9765" Top="597,16574" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape37" Left="563,14997" Top="597,16574" Width="154,96073" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape38" Left="37,7953" Top="653,85869" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape39" Left="188,9765" Top="653,85869" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape40" Left="563,14997" Top="653,85869" Width="154,96073" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape41" Left="37,7953" Top="710,55164" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape42" Left="188,9765" Top="710,55164" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape43" Left="563,14997" Top="710,55164" Width="154,96073" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape44" Left="37,7953" Top="767,24459" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape45" Left="188,9765" Top="767,24459" Width="374,17347" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape46" Left="563,14997" Top="767,24459" Width="154,96073" Height="56,69291339"/>
+    <TfrxMemoView Name="Memo31" Left="37,7953" Top="831,4966" Width="196,53556" Height="18,89765" Text="A tenyésztési napló hitelesítése:"/>
+    <TfrxMemoView Name="Memo32" Left="64,25201" Top="117,16543" Width="94,48825" Height="18,89765" Text="Dátum"/>
+    <TfrxMemoView Name="Memo33" Left="204,09462" Top="117,16543" Width="173,85838" Height="18,89765" Text="Ellenőrzések, észrevételek"/>
+    <TfrxMemoView Name="Memo34" Left="570,70903" Top="117,16543" Width="52,91342" Height="18,89765" Text="Aláírás"/>
+    <TfrxMemoView Name="Memo35" Left="684,09493" Top="117,16543" Width="26,45671" Height="18,89765" Text="p.h."/>
+  </TfrxReportPage>
+</TfrxReport>
