@@ -131,12 +131,13 @@ object frmTListak: TfrmTListak
     Width = 33
     Height = 22
     Alignment = taRightJustify
+    Value = 1.000000000000000000
     Required = False
     RequiredColor = clInfoBk
     ReadOnlyColor = clActiveBorder
     ValueType = etInteger
     ValueMin = '0'
-    Text = '0'
+    Text = '1'
     Enabled = True
     SpinVisible = False
     ButtonVisible = False
@@ -5165,7 +5166,6 @@ object frmTListak: TfrmTListak
   end
   object sdsTNaplo: TTalSimpleDataSet
     Aggregates = <>
-    Connection = dtmTarka.cnTarka
     DataSet.Connection = dtmTarka.cnTarka
     DataSet.CursorType = ctStatic
     DataSet.CommandText = 'select t.* from tnaplo t '#13#10'order by t.enar'
@@ -5588,7 +5588,7 @@ object frmTListak: TfrmTListak
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 40240.498815532400000000
-    ReportOptions.LastChange = 43311.372061215280000000
+    ReportOptions.LastChange = 43340.773558564810000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'procedure ENAR_1OnAfterData(Sender: TfrxComponent);'
@@ -15472,13 +15472,13 @@ object frmTListak: TfrmTListak
       end
       object Memo100: TfrxMemoView
         Left = 521.575017960000000000
-        Top = 532.913385826772000000
+        Top = 532.913385830000000000
         Width = 177.637910000000000000
         Height = 18.897650000000000000
         DataSet = frxDBListak
         DataSetName = 'frxDBListak'
         Memo.UTF8 = (
-          '[p3]')
+          '[enar_tenyeszetkod]')
       end
       object Memo101: TfrxMemoView
         Left = 332.598640000000000000
@@ -15523,18 +15523,18 @@ object frmTListak: TfrmTListak
       object M_tenyeszet: TfrxMemoView
         Left = 521.575017960000000000
         Top = 495.118110240000000000
-        Width = 109.606370000000000000
+        Width = 177.637910000000000000
         Height = 18.897650000000000000
         Memo.UTF8 = (
-          '[p6]')
+          '[tenyeszet_azonosito]')
       end
       object M_tenyeszet_cime: TfrxMemoView
         Left = 521.575017960000000000
-        Top = 608.503937007874000000
+        Top = 608.503937010000000000
         Width = 245.669450000000000000
         Height = 18.897650000000000000
         Memo.UTF8 = (
-          '[p4]')
+          '[tenyeszet_cim]')
       end
       object M_tenyeszet_neve: TfrxMemoView
         Left = 521.575017960000000000
@@ -15542,13 +15542,15 @@ object frmTListak: TfrmTListak
         Width = 245.669450000000000000
         Height = 18.897650000000000000
         Memo.UTF8 = (
-          '[p5]')
+          '[tenyeszet_nev]')
       end
       object M_megye: TfrxMemoView
         Left = 521.575017960000000000
-        Top = 646.299212598425000000
+        Top = 646.299212600000000000
         Width = 109.606370000000000000
         Height = 18.897650000000000000
+        Memo.UTF8 = (
+          '[tenyeszet_megye]')
       end
     end
     object Page2: TfrxReportPage
@@ -15600,7 +15602,7 @@ object frmTListak: TfrmTListak
         DataSet = frxDBListak
         DataSetName = 'frxDBListak'
         Memo.UTF8 = (
-          '[p3]')
+          '[enar_tenyeszetkod]')
       end
       object Memo110: TfrxMemoView
         Left = 377.952780320000000000
@@ -15796,7 +15798,7 @@ object frmTListak: TfrmTListak
         Width = 94.488250000000000000
         Height = 18.897650000000000000
         Memo.UTF8 = (
-          '[p6]')
+          '[tenyeszet_azonosito]')
       end
       object Memo144: TfrxMemoView
         Left = 566.929158270000000000
@@ -15804,7 +15806,7 @@ object frmTListak: TfrmTListak
         Width = 279.685220000000000000
         Height = 18.897650000000000000
         Memo.UTF8 = (
-          '[p5]')
+          '[tenyeszet_nev]')
       end
       object Memo145: TfrxMemoView
         Left = 566.929158270000000000
@@ -15812,7 +15814,7 @@ object frmTListak: TfrmTListak
         Width = 283.464750000000000000
         Height = 18.897650000000000000
         Memo.UTF8 = (
-          '[p4]')
+          '[tenyeszet_cim]')
       end
       object Shape7: TfrxShapeView
         Left = 75.590575590000000000
@@ -16065,6 +16067,14 @@ object frmTListak: TfrmTListak
         Top = 668.976441420000000000
         Width = 377.952755910000000000
         Height = 34.015770000000000000
+      end
+      object Memo152: TfrxMemoView
+        Left = 566.929500000000000000
+        Top = 343.937230000000000000
+        Width = 283.464750000000000000
+        Height = 18.897650000000000000
+        Memo.UTF8 = (
+          '[tenyeszet_megye]')
       end
     end
     object Page3: TfrxReportPage

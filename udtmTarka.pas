@@ -422,6 +422,11 @@ type
     procedure EllesekUpdate(tkod : string);
     function GetFajtaKod(enar:string):string;
     function isAdmin:Boolean;
+    function getTenyeszetNev( tkod: string) : string;
+    function getTenyeszetRKOD( tkod: string) : string;
+    function getTenyeszetCim( tkod: string) : string;
+    function getTenyeszetMegye( tkod: string) : string;
+    function getMegyeByKOD( kod: string) : string;
   end;
 
 var
@@ -435,6 +440,80 @@ implementation
 uses QfrmAdatbazisValaszto, QfrmAzonositoValaszto, ufrmMain;
 
 {$R *.dfm}
+
+function TdtmTarka.getTenyeszetNev( tkod: string) : string;
+var
+  SQL : string;
+  tq : Ttalquery;
+begin
+  SQL := 'select * from teny where tkod = ' + quotedStr( tkod);
+  tq := TTalQuery.Create(Self);
+  tq.Connection := cnTarka;
+  tq.SQL.Add(SQL);
+  tq.Open;
+  result := tq.FieldByName('TNEV2').AsString;
+  tq.Close;
+  tq.free;
+end;
+
+function TdtmTarka.getTenyeszetRKOD( tkod: string) : string;
+var
+  SQL : string;
+  tq : Ttalquery;
+begin
+  SQL := 'select * from teny where tkod = ' + quotedStr( tkod);
+  tq := TTalQuery.Create(Self);
+  tq.Connection := cnTarka;
+  tq.SQL.Add(SQL);
+  tq.Open;
+  result := tq.FieldByName('RKOD').AsString;
+  tq.Close;
+  tq.free;
+end;
+
+function TdtmTarka.getTenyeszetCim( tkod: string) : string;
+var
+  SQL : string;
+  tq : Ttalquery;
+begin
+  SQL := 'select * from teny where tkod = ' + quotedStr( tkod);
+  tq := TTalQuery.Create(Self);
+  tq.Connection := cnTarka;
+  tq.SQL.Add(SQL);
+  tq.Open;
+  result := Trim( tq.FieldByName('IRSZ').AsString) + ' ' +
+            Trim( tq.FieldByName('VAROS').AsString) + ', ' +
+            Trim( tq.FieldByName('KTNEV').AsString) + ' ' +
+            Trim( tq.FieldByName('KTJELL').AsString) + ' ' +
+            Trim( tq.FieldByName('HSZ').AsString);
+  tq.Close;
+  tq.free;
+end;
+
+function TdtmTarka.getMegyeByKOD( kod: string) : string;
+var
+  SQL : string;
+  tq : Ttalquery;
+begin
+  SQL := 'select * from megye where kod = ' + quotedStr( kod);
+  tq := TTalQuery.Create(Self);
+  tq.Connection := cnTarka;
+  tq.SQL.Add(SQL);
+  tq.Open;
+  result := tq.FieldByName('NEV').AsString;
+  tq.Close;
+  tq.free;
+end;
+
+function TdtmTarka.getTenyeszetMegye( tkod: string) : string;
+var
+  mkod : string;
+  tq : Ttalquery;
+begin
+  mkod := getTenyeszetRKOD( tkod);
+  result := getMegyeByKOD( copy( mkod, 1, 2));
+end;
+
 
 //------------------------------------------------------------------------------
 function TdtmTarka.JogosultsagEllenorzes(mode: string): Boolean;

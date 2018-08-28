@@ -1547,7 +1547,7 @@ Begin
   frmTListak.tlePeldany.Visible := False;
 
 //        **** egy ürlap x példányban történõ nyomtatása  ************    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  If frmTListak.tlePeldany.Value > 0 Then
+  (* If frmTListak.tlePeldany.Value > 0 Then
    Begin
      frmTListak.frxRepListak.PrintOptions.Clear;
      If frmTListak.frxRepListak.LoadFromFile(dtmTarka.fr3Path + '\' + 'TenyesztesiNaploEllenorzes.fr3') Then
@@ -1556,7 +1556,7 @@ Begin
         frmTListak.frxRepListak.ShowReport();
         frmTListak.frxRepListak.Print;
       End;
-   End;
+   End;  *)
 //        ************************************************************
 
 End;
@@ -1633,17 +1633,19 @@ End;
 Procedure TfrmTListak.TenyesztesiNaploListaNew(Sender: TObject);
 Var
    Datum: String;
+   tkod: String;
 Begin
 
   Try
     Screen.Cursor := crHourGlass;
+    tkod := frmTListak.cbTenyeszet.Text;
 
     frmTListak.frxDBLists.DataSet := sdsListak;
     If frmTListak.sdsTNaplo.Active Then frmTListak.sdsTNaplo.Close;
 
 //     frmTListak.spTNaplo.ProcedureName := 'TNAPLO_CREATE';
     frmTListak.spTNaplo.Connection := dtmTarka.cnTarka;
-    frmTListak.spTNaplo.Parameters.ParamByName('PTENYESZET').Value := frmTListak.cbTenyeszet.Text;
+    frmTListak.spTNaplo.Parameters.ParamByName('PTENYESZET').Value := tkod;
     Datum := TTalEdit(FindComponent('TalEdit1')).Text;
     frmTListak.spTNaplo.Parameters.ParamByName('PTARGYEV').Value := Datum;
     frmTListak.spTNaplo.ExecProc;
@@ -1655,18 +1657,17 @@ Begin
 
   Screen.Cursor := crArrow;
   frmTListak.sdsTNaplo.Close;
-
+                           // comment
+  // frmTListak.frxTNaplo.PrintOptions.Clear;
   if frmTListak.frxTNaplo.LoadFromFile(dtmTarka.fr3Path + '\TenyesztesiNaploNew.fr3') Then
   Begin
-     frmTListak.frxTNaplo.Script.Variables['p0'] := ListaStr1;
-     frmTListak.frxTNaplo.Script.Variables['p1'] := dtmTarka.TenyeszetRKOD + '   ' +
-                                                            param2 + '   ' +
-                                                            param3;
-     frmTListak.frxTNaplo.Script.Variables['p3'] := dtmTarka.TenyeszetTKOD ;
-     frmTListak.frxTNaplo.Script.Variables['p4'] := param2;
-     frmTListak.frxTNaplo.Script.Variables['p5'] := param3;
-     frmTListak.frxTNaplo.Script.Variables['p6'] := dtmTarka.TenyeszetRKOD ;
+     frmTListak.frxTNaplo.Script.Variables['enar_tenyeszetkod'] := tkod;
+     frmTListak.frxTNaplo.Script.Variables['tenyeszet_azonosito'] := dtmTarka.getTenyeszetRKOD( tkod);
+     frmTListak.frxTNaplo.Script.Variables['tenyeszet_nev'] := dtmTarka.getTenyeszetNev( tkod);
+     frmTListak.frxTNaplo.Script.Variables['tenyeszet_cim'] := dtmTarka.getTenyeszetCim( tkod);
+     frmTListak.frxTNaplo.Script.Variables['tenyeszet_megye'] := dtmTarka.getTenyeszetMegye( tkod);
 
+     // frmTListak.frxTNaplo.PrintOptions.Copies := StrToInt( frmTListak.tlePeldany.Text);  // példányszám!
      frmTListak.frxTNaplo.ShowReport();
   End;
 
