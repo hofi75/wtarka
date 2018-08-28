@@ -90,7 +90,7 @@ MaxStackSize=1048576
 ImageBase=4194304
 ExeDescription=
 [Directories]
-OutputDir=C:\wtarka\source
+OutputDir=C:\wtarka-git
 UnitOutputDir=
 PackageDLLOutputDir=
 PackageDCPOutputDir=
@@ -101,10 +101,10 @@ DebugSourceDirs=C:\Talp\keret\new\talp_db\
 UsePackages=1
 [Parameters]
 RunParams=
-HostApplication=C:\wtarka\source\wtarka.exe
+HostApplication=C:\wtarka-git\wtarka.exe
 Launcher=
 UseLauncher=0
-DebugCWD=C:\wtarka\source\
+DebugCWD=C:\wtarka-git\
 [Language]
 ActiveLang=
 ProjectLang=
@@ -115,7 +115,7 @@ AutoIncBuild=1
 MajorVer=1
 MinorVer=2
 Release=1
-Build=493
+Build=496
 Debug=0
 PreRelease=0
 Special=0
@@ -126,7 +126,7 @@ CodePage=1250
 [Version Info Keys]
 CompanyName=
 FileDescription=
-FileVersion=1.2.1.493
+FileVersion=1.2.1.496
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -161,9 +161,10 @@ Item1=C:\talp\keret\new\talp_dbc\
 Count=1
 Item0=WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
 [HistoryLists\hlOutputDirectorry]
-Count=2
-Item0=C:\wtarka\source
-Item1=C:\wtarka
+Count=3
+Item0=C:\wtarka-git
+Item1=C:\wtarka\source
+Item2=C:\wtarka
 [HistoryLists\hlBPLOutput]
 Count=1
 Item0=\SOURCEWORK\prt\Bpl
