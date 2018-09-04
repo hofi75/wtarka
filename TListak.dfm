@@ -1,6 +1,6 @@
 object frmTListak: TfrmTListak
-  Left = 558
-  Top = 258
+  Left = 823
+  Top = 346
   Width = 719
   Height = 407
   Caption = 'List'#225'k'
@@ -5166,6 +5166,7 @@ object frmTListak: TfrmTListak
   end
   object sdsTNaplo: TTalSimpleDataSet
     Aggregates = <>
+    Connection = dtmTarka.cnTarka
     DataSet.Connection = dtmTarka.cnTarka
     DataSet.CursorType = ctStatic
     DataSet.CommandText = 'select t.* from tnaplo t '#13#10'order by t.enar'
@@ -5588,7 +5589,7 @@ object frmTListak: TfrmTListak
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 40240.498815532400000000
-    ReportOptions.LastChange = 43340.773558564810000000
+    ReportOptions.LastChange = 43347.900328379630000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'procedure ENAR_1OnAfterData(Sender: TfrxComponent);'
@@ -5615,6 +5616,10 @@ object frmTListak: TfrmTListak
     Left = 432
     Top = 296
     Datasets = <
+      item
+        DataSet = frxDBSEQ
+        DataSetName = 'frxDBSEQ'
+      end
       item
         DataSet = frxDBTNaplo
         DataSetName = 'frxDBTNaplo'
@@ -18723,7 +18728,1036 @@ object frmTListak: TfrmTListak
         end
       end
     end
+    object EllenorzolLap: TfrxReportPage
+      Orientation = poLandscape
+      PaperWidth = 297.010666666666700000
+      PaperHeight = 210.015666666666700000
+      PaperSize = 9
+      LeftMargin = 8.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      object EllenorzoMasterData: TfrxMasterData
+        Height = 68.031552200000000000
+        Top = 241.889920000000000000
+        Width = 1092.324484986667000000
+        DataSet = frxDBSEQ
+        DataSetName = 'frxDBSEQ'
+        RowCount = 0
+        object Shape134: TfrxShapeView
+          Left = -18.897637800000000000
+          Width = 64.251968500000000000
+          Height = 68.031491180000000000
+        end
+        object Shape135: TfrxShapeView
+          Left = 45.354328270000000000
+          Width = 45.354316060000000000
+          Height = 68.031466770000000000
+        end
+        object Shape136: TfrxShapeView
+          Left = 90.708622360000000000
+          Width = 56.692903620000000000
+          Height = 68.031486300000000000
+        end
+        object Shape137: TfrxShapeView
+          Left = 400.629801650000000000
+          Width = 37.795256060000000000
+          Height = 68.031491180000000000
+        end
+        object Shape138: TfrxShapeView
+          Left = 691.653472520000000000
+          Width = 75.590556060000000000
+          Height = 68.031491180000000000
+        end
+        object Line426: TfrxLineView
+          Left = 219.212740000000000000
+          Width = 34.015770000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line427: TfrxLineView
+          Left = 294.803340000000000000
+          Width = 3.779530000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line429: TfrxLineView
+          Left = 294.803340000000000000
+          Width = 287.244280000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line430: TfrxLineView
+          Left = 328.818829290000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line431: TfrxLineView
+          Left = -18.897637800000000000
+          Top = 34.015770000000000000
+          Width = 347.716535430000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line432: TfrxLineView
+          Left = 400.629848030000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line434: TfrxLineView
+          Left = 400.630180000000000000
+          Top = 34.015770000000000000
+          Width = 366.614410000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line436: TfrxLineView
+          Left = 147.401572360000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+          Frame.Width = 3.000000000000000000
+        end
+        object Line437: TfrxLineView
+          Left = 438.425480000000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+          Frame.Width = 3.000000000000000000
+        end
+        object Line438: TfrxLineView
+          Left = 767.244590000000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+          Frame.Width = 3.000000000000000000
+        end
+        object Line440: TfrxLineView
+          Left = -18.897637800000000000
+          Width = 1099.842519690000000000
+          Frame.Typ = [ftTop]
+          Frame.Width = 3.000000000000000000
+        end
+        object Line441: TfrxLineView
+          Left = -18.897637795275600000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+          Frame.Width = 3.000000000000000000
+        end
+        object Line442: TfrxLineView
+          Left = 1080.944881889760000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+          Frame.Width = 3.000000000000000000
+        end
+        object Line443: TfrxLineView
+          Left = 514.016080000000000000
+          Top = 17.007874020000000000
+          Width = 253.228510000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line444: TfrxLineView
+          Left = 514.016080000000000000
+          Top = 51.023622050000000000
+          Width = 253.228510000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line445: TfrxLineView
+          Left = 90.708720000000000000
+          Top = 34.015770000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line446: TfrxLineView
+          Left = 272.126160000000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line447: TfrxLineView
+          Left = 196.535560000000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line448: TfrxLineView
+          Left = 245.669450000000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line449: TfrxLineView
+          Left = 68.031540000000000000
+          Top = 34.015770000000000000
+          Height = 34.015770000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line450: TfrxLineView
+          Left = 829.984251968504000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line451: TfrxLineView
+          Left = 892.724409448819000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line452: TfrxLineView
+          Left = 955.464566929134000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line453: TfrxLineView
+          Left = 1018.204724410000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line454: TfrxLineView
+          Left = 491.338900000000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line455: TfrxLineView
+          Left = 574.488560000000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line456: TfrxLineView
+          Left = 514.016080000000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line457: TfrxLineView
+          Left = 597.165740000000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line458: TfrxLineView
+          Left = 619.842920000000000000
+          Height = 68.031540000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line459: TfrxLineView
+          Left = 30.236240000000000000
+          Height = 15.118120000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line460: TfrxLineView
+          Left = 30.236240000000000000
+          Top = 15.118110240000000000
+          Width = 15.118120000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line463: TfrxLineView
+          Left = 744.567410000000000000
+          Top = 68.031552200000000000
+          Width = 336.378170000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line464: TfrxLineView
+          Left = 147.401670000000000000
+          Top = 68.031552200000000000
+          Width = 396.850650000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line465: TfrxLineView
+          Left = 532.913730000000000000
+          Top = 68.031552200000000000
+          Width = 90.708720000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line466: TfrxLineView
+          Left = 623.622450000000000000
+          Top = 68.031552200000000000
+          Width = 90.708720000000000000
+          Frame.Typ = [ftTop]
+        end
+      end
+      object PageHeader2: TfrxPageHeader
+        Height = 162.519802200000000000
+        Top = 18.897650000000000000
+        Width = 1092.324484986667000000
+        Stretched = True
+        object Memo271: TfrxMemoView
+          Left = 400.629801650000000000
+          Top = 132.283496290000000000
+          Width = 37.795300000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -7
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'k'#258#169't ell'#258#169's'
+            'k'#258#182'zti'
+            'napok sz.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Shape139: TfrxShapeView
+          Left = -18.897637800000000000
+          Top = 102.047322200000000000
+          Width = 64.251968500000000000
+          Height = 60.472431180000000000
+        end
+        object Shape140: TfrxShapeView
+          Left = 45.354360000000000000
+          Top = 102.047322200000000000
+          Width = 45.354316060000000000
+          Height = 60.472431180000000000
+        end
+        object Shape141: TfrxShapeView
+          Left = 90.708622360000000000
+          Top = 102.047322200000000000
+          Width = 56.692913390000000000
+          Height = 60.472431180000000000
+        end
+        object Shape142: TfrxShapeView
+          Left = 491.338463070000000000
+          Top = 132.283488970000000000
+          Width = 22.677136060000000000
+          Height = 30.236215590000000000
+        end
+        object Shape143: TfrxShapeView
+          Left = 574.488103540000000000
+          Top = 132.283488970000000000
+          Width = 22.677136060000000000
+          Height = 30.236215590000000000
+        end
+        object Shape144: TfrxShapeView
+          Left = 597.165261570000000000
+          Top = 132.283488970000000000
+          Width = 22.677136060000000000
+          Height = 30.236215590000000000
+        end
+        object Shape145: TfrxShapeView
+          Left = 619.842424490000000000
+          Top = 132.283488970000000000
+          Width = 71.811026060000000000
+          Height = 30.236215590000000000
+        end
+        object Shape146: TfrxShapeView
+          Left = 438.425077240000000000
+          Top = 132.283562200000000000
+          Width = 75.590556060000000000
+          Height = 30.236215590000000000
+        end
+        object Memo272: TfrxMemoView
+          Left = -18.897637800000000000
+          Top = 102.047322200000000000
+          Width = 64.251968500000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'ENAR')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo273: TfrxMemoView
+          Left = -18.897637800000000000
+          Top = 117.165442200000000000
+          Width = 64.252010000000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'sz'#258#711'm')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo274: TfrxMemoView
+          Left = 45.354316060000000000
+          Top = 102.047322200000000000
+          Width = 45.354360000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Sz'#258#317'let'#258#169'si'
+            '  ideje')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo275: TfrxMemoView
+          Left = 90.708622360000000000
+          Top = 102.047322200000000000
+          Width = 56.692903620000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Anyja')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo276: TfrxMemoView
+          Left = 90.708622360000000000
+          Top = 132.283562200000000000
+          Width = 56.692903620000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Apja')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo277: TfrxMemoView
+          Left = 45.354215980000000000
+          Top = 132.283562200000000000
+          Width = 22.677160470000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Fajta')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo278: TfrxMemoView
+          Left = 68.031395980000000000
+          Top = 132.283562200000000000
+          Width = 22.677160470000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Sz'#258#173'n')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo279: TfrxMemoView
+          Left = 147.401486930000000000
+          Top = 147.401630940000000000
+          Width = 49.133850940000000000
+          Height = 15.118100470000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'ell'#258#169's d'#258#711'tuma')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo280: TfrxMemoView
+          Left = 328.818778030000000000
+          Top = 132.283510940000000000
+          Width = 71.811070000000000000
+          Height = 30.236220470000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'term'#258#169'keny'#258#173't'#258#169'se')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo281: TfrxMemoView
+          Left = 147.401670000000000000
+          Top = 102.047322200000000000
+          Width = 253.228341570000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'A teh'#258#169'n t'#258#711'rgy'#258#169'vet megel'#313#8216'z'#313#8216' utols'#258#322)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo282: TfrxMemoView
+          Left = 438.425077240000000000
+          Top = 102.047322200000000000
+          Width = 75.590600000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'T'#258#711'rgy'#258#169'vi ell'#258#169's')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo283: TfrxMemoView
+          Left = 438.425077240000000000
+          Top = 132.283562200000000000
+          Width = 52.913420000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'ideje')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo284: TfrxMemoView
+          Left = 491.338463070000000000
+          Top = 132.283562200000000000
+          Width = 22.677165350000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'k'#258#322'd')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo285: TfrxMemoView
+          Left = 514.015623540000000000
+          Top = 102.047322200000000000
+          Width = 253.228510000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'A borj'#258#351)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo286: TfrxMemoView
+          Left = 574.488081570000000000
+          Top = 132.283562200000000000
+          Width = 22.677180000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -7
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'neme')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo287: TfrxMemoView
+          Left = 514.015623540000000000
+          Top = 132.283562200000000000
+          Width = 60.472440944881900000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'ENAR sz.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo288: TfrxMemoView
+          Left = 597.165244490000000000
+          Top = 132.283562200000000000
+          Width = 22.677180000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'sz'#258#317'l.'
+            's'#258#351'ly')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo289: TfrxMemoView
+          Left = 691.653472520000000000
+          Top = 132.283562200000000000
+          Width = 75.590600000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'hova-'
+            'ford.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line425: TfrxLineView
+          Left = -18.897637800000000000
+          Top = 132.283562200000000000
+          Width = 90.708720000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line428: TfrxLineView
+          Left = 68.031540000000000000
+          Top = 132.283562200000000000
+          Width = 86.929190000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line433: TfrxLineView
+          Left = 147.401670000000000000
+          Top = 132.283562200000000000
+          Width = 105.826840000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line435: TfrxLineView
+          Left = 272.125937870000000000
+          Top = 132.283562200000000000
+          Height = 30.236240000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo290: TfrxMemoView
+          Left = 196.535337870000000000
+          Top = 132.283562200000000000
+          Width = 75.590553620000000000
+          Height = 15.118120000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'borja(i)')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line439: TfrxLineView
+          Left = 328.818829290000000000
+          Top = 132.283562200000000000
+          Height = 30.236240000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo291: TfrxMemoView
+          Left = 272.125876850000000000
+          Top = 132.283562200000000000
+          Width = 56.692950000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'borj'#258#351
+            'v'#258#711'laszt'#258#711'sa')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line461: TfrxLineView
+          Left = 438.425148030000000000
+          Top = 132.283562200000000000
+          Height = 30.236240000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line462: TfrxLineView
+          Left = 544.252320000000000000
+          Top = 132.283562200000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo292: TfrxMemoView
+          Left = 400.629801650000000000
+          Top = 102.047270940000000000
+          Width = 37.795300000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Vemh.'
+            ' nap')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line467: TfrxLineView
+          Left = 400.630180000000000000
+          Top = 132.283550000000000000
+          Width = 120.944960000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line468: TfrxLineView
+          Left = 147.401670000000000000
+          Top = 102.047310000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = [ftLeft]
+          Frame.Width = 3.000000000000000000
+        end
+        object Line469: TfrxLineView
+          Left = 219.212740000000000000
+          Top = 132.283550000000000000
+          Width = 185.196896770000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line470: TfrxLineView
+          Left = 147.401670000000000000
+          Top = 132.283550000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = [ftLeft]
+          Frame.Width = 3.000000000000000000
+        end
+        object Line471: TfrxLineView
+          Left = 438.425480000000000000
+          Top = 102.047310000000000000
+          Height = 60.472480000000000000
+          Frame.Typ = [ftLeft]
+          Frame.Width = 3.000000000000000000
+        end
+        object Line472: TfrxLineView
+          Left = 767.244590000000000000
+          Top = 102.047310000000000000
+          Height = 60.472480000000000000
+          Frame.Typ = [ftLeft]
+          Frame.Width = 3.000000000000000000
+        end
+        object Line473: TfrxLineView
+          Left = -18.897637800000000000
+          Top = 102.047310000000000000
+          Width = 1099.842519690000000000
+          Frame.Typ = [ftTop]
+          Frame.Width = 3.000000000000000000
+        end
+        object Line474: TfrxLineView
+          Left = -18.897637795275600000
+          Top = 102.047310000000000000
+          Height = 60.472480000000000000
+          Frame.Typ = [ftLeft]
+          Frame.Width = 3.000000000000000000
+        end
+        object Memo293: TfrxMemoView
+          Left = 147.401506460000000000
+          Top = 132.283510940000000000
+          Width = 49.133870470000000000
+          Height = 15.118102910000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'ell'#258#169's ssz.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line475: TfrxLineView
+          Left = 691.653990000000000000
+          Top = 132.283550000000000000
+          Width = 309.921460000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line476: TfrxLineView
+          Left = 691.653990000000000000
+          Top = 162.519790000000000000
+          Width = 309.921460000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Shape147: TfrxShapeView
+          Left = 829.984251970000000000
+          Top = 132.283550000000000000
+          Width = 62.740157480000000000
+          Height = 30.236215590000000000
+        end
+        object Shape148: TfrxShapeView
+          Left = 892.724409450000000000
+          Top = 132.283550000000000000
+          Width = 62.740157480000000000
+          Height = 30.236215590000000000
+        end
+        object Shape149: TfrxShapeView
+          Left = 955.464566930000000000
+          Top = 132.283550000000000000
+          Width = 62.740157480000000000
+          Height = 30.236215590000000000
+        end
+        object Shape150: TfrxShapeView
+          Left = 1018.204724410000000000
+          Top = 132.283550000000000000
+          Width = 62.740157480000000000
+          Height = 30.236215590000000000
+        end
+        object Line477: TfrxLineView
+          Left = 1080.945580000000000000
+          Top = 102.047310000000000000
+          Height = 60.472480000000000000
+          Frame.Typ = [ftLeft]
+          Frame.Width = 3.000000000000000000
+        end
+        object Memo294: TfrxMemoView
+          Left = 767.244590000000000000
+          Top = 102.047310000000000000
+          Width = 311.811023620000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Term'#258#169'keny'#258#173't'#258#169'sek a t'#258#711'rgy'#258#169'vben')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo295: TfrxMemoView
+          Left = 767.244590000000000000
+          Top = 132.283550000000000000
+          Width = 62.740157480000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '1.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo296: TfrxMemoView
+          Left = 829.984251970000000000
+          Top = 132.283550000000000000
+          Width = 62.740157480000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '2.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo297: TfrxMemoView
+          Left = 892.724409450000000000
+          Top = 132.283550000000000000
+          Width = 62.740157480000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '3.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo298: TfrxMemoView
+          Left = 955.464566930000000000
+          Top = 132.283550000000000000
+          Width = 62.740157480000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '4.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo299: TfrxMemoView
+          Left = 1018.204724410000000000
+          Top = 132.283550000000000000
+          Width = 62.740157480000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '5.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line478: TfrxLineView
+          Left = 90.708720000000000000
+          Top = 132.283550000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line479: TfrxLineView
+          Left = 514.016080000000000000
+          Top = 102.047310000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line480: TfrxLineView
+          Left = 521.575140000000000000
+          Top = 132.283550000000000000
+          Width = 94.488250000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line481: TfrxLineView
+          Left = 585.827150000000000000
+          Top = 162.519790000000000000
+          Width = 11.338590000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line482: TfrxLineView
+          Left = 585.827150000000000000
+          Top = 162.519790000000000000
+          Width = 22.677180000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Memo300: TfrxMemoView
+          Left = 619.842920000000000000
+          Top = 132.283550000000000000
+          Width = 71.811070000000000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'v'#258#711'laszt'#258#711'sa')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line483: TfrxLineView
+          Left = 600.945270000000000000
+          Top = 162.519790000000000000
+          Width = 22.677180000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line484: TfrxLineView
+          Left = 147.401670000000000000
+          Top = 147.401670000000000000
+          Width = 124.724490000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line485: TfrxLineView
+          Left = 245.669450000000000000
+          Top = 147.401670000000000000
+          Height = 15.118120000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo301: TfrxMemoView
+          Left = 196.535560000000000000
+          Top = 147.401670000000000000
+          Width = 49.133850940000000000
+          Height = 15.118100470000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'ENAR sz.')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo302: TfrxMemoView
+          Left = 245.669450000000000000
+          Top = 147.401670000000000000
+          Width = 26.456670940000000000
+          Height = 15.118100470000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'neme')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line486: TfrxLineView
+          Left = 68.031540000000000000
+          Top = 132.283550000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line487: TfrxLineView
+          Left = 400.630180000000000000
+          Top = 102.047310000000000000
+          Height = 60.472480000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line488: TfrxLineView
+          Left = 196.535560000000000000
+          Top = 132.283550000000000000
+          Height = 30.236240000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo303: TfrxMemoView
+          Left = -18.897637795275600000
+          Top = 132.283550000000000000
+          Width = 64.251968503937000000
+          Height = 30.236240000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Hova-'
+            'ford'#258#173't'#258#711'sa')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+      end
+    end
     object Page4: TfrxReportPage
+      Visible = False
       Orientation = poLandscape
       PaperWidth = 297.000000000000000000
       PaperHeight = 210.000000000000000000
@@ -21843,7 +22877,7 @@ object frmTListak: TfrmTListak
       object Memo148: TfrxMemoView
         Left = 29.858267720000000000
         Top = 171.212598430000000000
-        Width = 151.181102362204700000
+        Width = 151.181102362205000000
         Height = 34.015748030000000000
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -26480,5 +27514,36 @@ object frmTListak: TfrmTListak
         end
       end
     end
+  end
+  object sdsSEQ: TTalSimpleDataSet
+    Aggregates = <>
+    Connection = dtmTarka.cnTarka
+    DataSet.Connection = dtmTarka.cnTarka
+    DataSet.CursorType = ctStatic
+    DataSet.CommandText = 'select rownum as pagenr from egyedek where rownum <= 10'
+    DataSet.Parameters = <>
+    Provider.DataSet.Connection = dtmTarka.cnTarka
+    Provider.DataSet.CursorType = ctStatic
+    Provider.DataSet.CommandText = 'select rownum as pagenr from egyedek where rownum <= 10'
+    Provider.DataSet.Parameters = <>
+    Provider.ResolveToDataSet = True
+    Provider.Options = [poPropogateChanges]
+    Params = <>
+    Left = 368
+    Top = 232
+    object sdsSEQPAGENR: TBCDField
+      FieldName = 'PAGENR'
+      ReadOnly = True
+      Precision = 38
+    end
+  end
+  object frxDBSEQ: TfrxDBDataset
+    UserName = 'frxDBSEQ'
+    CloseDataSource = False
+    FieldAliases.Strings = (
+      'PAGENR=PAGENR')
+    DataSet = sdsSEQ
+    Left = 416
+    Top = 232
   end
 end

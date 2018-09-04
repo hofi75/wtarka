@@ -1,50 +1,443 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TfrxReport Name="" Version="3.19" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="2047" PreviewOptions.Zoom="1" PrintOptions.Printer="Alap�rtelmezett" ReportOptions.CreateDate="40240,4988155324" ReportOptions.Description.Text="" ReportOptions.LastChange="40280,6942750231" ScriptLanguage="PascalScript" ScriptText.Text="&#13;&#10;&#13;&#10;begin&#13;&#10;&#13;&#10;end." PropData="044C65667403000203546F7002080844617461736574730100095661726961626C657301010C13000000204E616D653D2220506172616D65746572732200010C0A000000204E616D653D2270312200010C0A000000204E616D653D2270322200010C0A000000204E616D653D2270332200010C0A000000204E616D653D2270342200010C0A000000204E616D653D227030220000055374796C650100">
-  <TfrxReportPage Name="Page5" PaperWidth="215,9" PaperHeight="279,4" PaperSize="1" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
-    <TfrxMemoView Name="Memo30" Left="283,57081" Top="60,47248" Width="173,85838" Height="18,89765" HAlign="haCenter" Text="Ellenőrzések, észrevételek"/>
-    <TfrxShapeView Name="Shape8" Left="37,7953" Top="109,60637" Width="151,1812" Height="34,01574803"/>
-    <TfrxShapeView Name="Shape9" Left="188,9765" Top="109,60637" Width="374,17347" Height="34,01574803"/>
-    <TfrxShapeView Name="Shape10" Left="563,14997" Top="109,60637" Width="154,96073" Height="34,01574803"/>
-    <TfrxShapeView Name="Shape11" Left="37,7953" Top="143,62214" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape12" Left="188,9765" Top="143,62214" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape13" Left="563,14997" Top="143,62214" Width="154,96073" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape14" Left="37,7953" Top="200,31509" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape15" Left="188,9765" Top="200,31509" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape16" Left="563,14997" Top="200,31509" Width="154,96073" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape17" Left="37,7953" Top="257,00804" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape18" Left="188,9765" Top="257,00804" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape19" Left="563,14997" Top="257,00804" Width="154,96073" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape20" Left="37,7953" Top="313,70099" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape21" Left="188,9765" Top="313,70099" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape22" Left="563,14997" Top="313,70099" Width="154,96073" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape23" Left="37,7953" Top="370,39394" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape24" Left="188,9765" Top="370,39394" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape25" Left="563,14997" Top="370,39394" Width="154,96073" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape26" Left="37,7953" Top="427,08689" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape27" Left="188,9765" Top="427,08689" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape28" Left="563,14997" Top="427,08689" Width="154,96073" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape29" Left="37,7953" Top="483,77984" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape30" Left="188,9765" Top="483,77984" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape31" Left="563,14997" Top="483,77984" Width="154,96073" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape32" Left="37,7953" Top="540,47279" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape33" Left="188,9765" Top="540,47279" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape34" Left="563,14997" Top="540,47279" Width="154,96073" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape35" Left="37,7953" Top="597,16574" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape36" Left="188,9765" Top="597,16574" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape37" Left="563,14997" Top="597,16574" Width="154,96073" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape38" Left="37,7953" Top="653,85869" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape39" Left="188,9765" Top="653,85869" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape40" Left="563,14997" Top="653,85869" Width="154,96073" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape41" Left="37,7953" Top="710,55164" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape42" Left="188,9765" Top="710,55164" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape43" Left="563,14997" Top="710,55164" Width="154,96073" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape44" Left="37,7953" Top="767,24459" Width="151,1812" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape45" Left="188,9765" Top="767,24459" Width="374,17347" Height="56,69291339"/>
-    <TfrxShapeView Name="Shape46" Left="563,14997" Top="767,24459" Width="154,96073" Height="56,69291339"/>
-    <TfrxMemoView Name="Memo31" Left="37,7953" Top="831,4966" Width="196,53556" Height="18,89765" Text="A tenyésztési napló hitelesítése:"/>
-    <TfrxMemoView Name="Memo32" Left="64,25201" Top="117,16543" Width="94,48825" Height="18,89765" Text="Dátum"/>
-    <TfrxMemoView Name="Memo33" Left="204,09462" Top="117,16543" Width="173,85838" Height="18,89765" Text="Ellenőrzések, észrevételek"/>
-    <TfrxMemoView Name="Memo34" Left="570,70903" Top="117,16543" Width="52,91342" Height="18,89765" Text="Aláírás"/>
-    <TfrxMemoView Name="Memo35" Left="684,09493" Top="117,16543" Width="26,45671" Height="18,89765" Text="p.h."/>
+<TfrxReport Name="" Version="3.19" DotMatrixReport="False" IniFile="\Software\Fast Reports" PreviewOptions.Buttons="2047" PreviewOptions.Zoom="1" PrintOptions.Printer="Alap�rtelmezett" ReportOptions.CreateDate="40240,4988155324" ReportOptions.Description.Text="" ReportOptions.LastChange="43347,8600904745" ScriptLanguage="PascalScript" ScriptText.Text="begin&#13;&#10;end." PropData="044C65667403B00103546F7003280108446174617365747301010C3000000020446174615365743D226672784442544E61706C6F2220446174615365744E616D653D226672784442544E61706C6F220000095661726961626C657301010C13000000204E616D653D2220506172616D65746572732200010C0A000000204E616D653D2270312200010C0A000000204E616D653D2270322200010C0A000000204E616D653D2270332200010C0A000000204E616D653D2270342200010C0A000000204E616D653D2270302200010C0A000000204E616D653D2270352200010C0A000000204E616D653D227036220000055374796C650100">
+  <TfrxReportPage Name="Ellenorzes" Orientation="poLandscape" PaperWidth="297" PaperHeight="210" PaperSize="9" LeftMargin="8" RightMargin="0" TopMargin="10" BottomMargin="0" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxPageHeader Name="PageHeader3" Height="717,1107" Left="0" Top="18,89765" Width="1092,28417" Stretched="True">
+      <TfrxMemoView Name="Memo179" Left="400,62980165" Top="132,28349629" Width="37,7953" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-7" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="két ellés&#13;&#10;közti&#13;&#10;napok sz."/>
+      <TfrxShapeView Name="Shape70" Left="-18,8976378" Top="102,0473222" Width="64,2519685" Height="60,47243118" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape71" Left="45,35436" Top="102,0473222" Width="45,35431606" Height="60,47243118" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape72" Left="90,70862236" Top="102,0473222" Width="56,69291339" Height="60,47243118" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape73" Left="491,33846307" Top="132,28348897" Width="22,67713606" Height="30,23621559" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape74" Left="574,48810354" Top="132,28348897" Width="22,67713606" Height="30,23621559" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape75" Left="597,16526157" Top="132,28348897" Width="22,67713606" Height="30,23621559" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape76" Left="619,84242449" Top="132,28348897" Width="71,81102606" Height="30,23621559" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape77" Left="438,42507724" Top="132,2835622" Width="75,59055606" Height="30,23621559" GroupIndex="1"/>
+      <TfrxMemoView Name="Memo180" Left="-18,8976378" Top="102,0473222" Width="64,2519685" Height="15,11812" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ENAR"/>
+      <TfrxMemoView Name="Memo181" Left="-18,8976378" Top="117,1654422" Width="64,25201" Height="15,11812" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="szám"/>
+      <TfrxMemoView Name="Memo182" Left="45,35431606" Top="102,0473222" Width="45,35436" Height="30,23624" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Születési&#13;&#10;  ideje"/>
+      <TfrxMemoView Name="Memo183" Left="90,70862236" Top="102,0473222" Width="56,69290362" Height="30,23624" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Anyja"/>
+      <TfrxMemoView Name="Memo184" Left="90,70862236" Top="132,2835622" Width="56,69290362" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Apja"/>
+      <TfrxMemoView Name="Memo185" Left="45,35421598" Top="132,2835622" Width="22,67716047" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Fajta"/>
+      <TfrxMemoView Name="Memo186" Left="68,03139598" Top="132,2835622" Width="22,67716047" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Szín"/>
+      <TfrxMemoView Name="Memo187" Left="147,4015748" Top="147,40163094" Width="49,13385094" Height="15,11810047" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ellés dátuma"/>
+      <TfrxMemoView Name="Memo188" Left="328,81877803" Top="132,28351094" Width="71,81107" Height="30,23622047" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="termékenyítése"/>
+      <TfrxMemoView Name="Memo189" Left="147,40167" Top="102,0473222" Width="253,22834157" Height="30,23624" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="A tehén tárgyévet megelőző utolsó"/>
+      <TfrxMemoView Name="Memo190" Left="438,42507724" Top="102,0473222" Width="75,5906" Height="30,23624" Font.Charset="1" Font.Color="0" Font.Height="-9" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Tárgyévi ellés"/>
+      <TfrxMemoView Name="Memo191" Left="437,92507724" Top="132,2835622" Width="53,71342" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ideje"/>
+      <TfrxMemoView Name="Memo192" Left="491,33846307" Top="132,2835622" Width="22,67716535" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="kód"/>
+      <TfrxMemoView Name="Memo193" Left="514,01562354" Top="102,0473222" Width="253,22851" Height="30,23624" Font.Charset="1" Font.Color="0" Font.Height="-9" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="A borjú"/>
+      <TfrxMemoView Name="Memo194" Left="574,48808157" Top="132,2835622" Width="22,67718" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-7" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="neme"/>
+      <TfrxMemoView Name="Memo195" Left="514,01562354" Top="132,2835622" Width="60,47244094" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ENAR sz."/>
+      <TfrxMemoView Name="Memo196" Left="597,16524449" Top="132,2835622" Width="22,67718" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="szül.&#13;&#10;súly"/>
+      <TfrxMemoView Name="Memo197" Left="691,65347252" Top="132,2835622" Width="75,5906" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="hova-&#13;&#10;ford."/>
+      <TfrxLineView Name="Line139" Left="-18,8976378" Top="132,2835622" Width="90,70872" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line140" Left="68,03154" Top="132,2835622" Width="86,92919" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line141" Left="147,40167" Top="132,2835622" Width="105,82684" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line142" Left="272,12593787" Top="132,2835622" Width="0" Height="30,23624" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo198" Left="196,53533787" Top="132,2835622" Width="75,59055362" Height="15,11812" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="borja(i)"/>
+      <TfrxLineView Name="Line143" Left="328,81882929" Top="132,2835622" Width="0" Height="30,23624" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo199" Left="272,12587685" Top="132,2835622" Width="56,69295" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="borjú&#13;&#10;választása"/>
+      <TfrxLineView Name="Line144" Left="438,42514803" Top="132,2835622" Width="0" Height="30,23624" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line145" Left="544,25232" Top="132,2835622" Width="0" Height="0" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo200" Left="400,62980165" Top="102,04727094" Width="37,7953" Height="30,23624" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Vemh.&#13;&#10; nap"/>
+      <TfrxLineView Name="Line150" Left="400,63018" Top="132,28355" Width="120,94496" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line151" Left="147,40167" Top="102,04731" Width="0" Height="30,23624" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line152" Left="219,21274" Top="132,28355" Width="185,19689677" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line153" Left="147,40167" Top="132,28355" Width="0" Height="29,53624" GroupIndex="1" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line154" Left="438,42548" Top="102,04731" Width="0" Height="59,67248" GroupIndex="1" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line155" Left="767,24459" Top="102,04731" Width="0" Height="59,87248" GroupIndex="1" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line156" Left="-18,8976378" Top="102,04731" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line157" Left="-18,8976378" Top="102,04731" Width="0" Height="60,47248" GroupIndex="1" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxMemoView Name="Memo201" Left="147,40150646" Top="132,28351094" Width="49,13387047" Height="15,11810291" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ellés ssz."/>
+      <TfrxLineView Name="Line158" Left="691,65399" Top="132,28355" Width="309,92146" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line159" Left="691,65399" Top="162,51979" Width="309,92146" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxShapeView Name="Shape78" Left="829,98425197" Top="132,28355" Width="62,74015748" Height="30,23621559" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape79" Left="892,72440945" Top="132,28355" Width="62,74015748" Height="30,23621559" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape80" Left="955,46456693" Top="132,28355" Width="62,74015748" Height="30,23621559" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape81" Left="1018,20472441" Top="132,28355" Width="62,74015748" Height="30,23621559" GroupIndex="1"/>
+      <TfrxLineView Name="Line160" Left="1080,94558" Top="102,04731" Width="0" Height="60,47248" GroupIndex="1" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxMemoView Name="Memo202" Left="767,24459" Top="102,04731" Width="311,81102362" Height="30,23624" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Termékenyítések a tárgyévben"/>
+      <TfrxMemoView Name="Memo203" Left="767,24459" Top="132,28355" Width="62,74015748" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="1."/>
+      <TfrxMemoView Name="Memo204" Left="829,98425197" Top="132,28355" Width="62,74015748" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="2."/>
+      <TfrxMemoView Name="Memo205" Left="892,72440945" Top="132,28355" Width="62,74015748" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="3."/>
+      <TfrxMemoView Name="Memo206" Left="955,46456693" Top="132,28355" Width="62,74015748" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="4."/>
+      <TfrxMemoView Name="Memo207" Left="1018,20472441" Top="132,28355" Width="62,74015748" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-11" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="5."/>
+      <TfrxLineView Name="Line161" Left="90,70872" Top="132,28355" Width="0" Height="30,23624" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line162" Left="514,01608" Top="102,04731" Width="0" Height="30,23624" Frame.Typ="1"/>
+      <TfrxLineView Name="Line163" Left="521,57514" Top="132,28355" Width="94,48825" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line164" Left="585,82715" Top="162,51979" Width="11,33859" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line165" Left="585,82715" Top="162,51979" Width="22,67718" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxMemoView Name="Memo208" Left="619,84292" Top="132,28355" Width="71,81107" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="választása"/>
+      <TfrxLineView Name="Line166" Left="600,94527" Top="162,51979" Width="22,67718" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line167" Left="147,40167" Top="147,40167" Width="124,72449" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line168" Left="245,66945" Top="147,40167" Width="0" Height="15,11812" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo209" Left="196,53556" Top="147,40167" Width="49,13385094" Height="15,11810047" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="ENAR sz."/>
+      <TfrxMemoView Name="Memo210" Left="245,66945" Top="147,40167" Width="26,45667094" Height="15,11810047" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="neme"/>
+      <TfrxLineView Name="Line169" Left="68,03154" Top="132,28355" Width="0" Height="30,23624" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line170" Left="400,63018" Top="102,04731" Width="0" Height="60,47248" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line171" Left="196,53556" Top="132,28355" Width="0" Height="30,23624" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxMemoView Name="Memo211" Left="-18,8976378" Top="132,28355" Width="64,2519685" Height="30,23624" GroupIndex="1" Font.Charset="1" Font.Color="0" Font.Height="-8" Font.Name="Arial" Font.Style="0" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Hova-&#13;&#10;fordítása"/>
+      <TfrxLineView Name="Line176" Left="148,4009778" Top="162,60235" Width="426,54428" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line188" Left="-19" Top="161,10235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxShapeView Name="Shape53" Left="-18,97047245" Top="163,60235" Width="64,2519685" Height="68,03149118" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape54" Left="45,28149362" Top="163,60235" Width="45,35431606" Height="68,03146677" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape55" Left="90,63578771" Top="163,60235" Width="56,69290362" Height="68,0314863" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape56" Left="400,556967" Top="163,60235" Width="37,79525606" Height="68,03149118" GroupIndex="1"/>
+      <TfrxShapeView Name="Shape57" Left="691,58063787" Top="163,60235" Width="75,59055606" Height="68,03149118" GroupIndex="1"/>
+      <TfrxLineView Name="Line50" Left="219,13990535" Top="231,63389" Width="45,35436" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line71" Left="219,13990535" Top="163,60235" Width="34,01577" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line72" Left="294,73050535" Top="163,60235" Width="3,77953" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line73" Left="294,73050535" Top="231,63389" Width="94,48825" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line74" Left="294,73050535" Top="163,60235" Width="287,24428" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line75" Left="328,74599464" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line76" Left="-18,97047245" Top="197,61812" Width="347,71653543" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line77" Left="400,55701338" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line78" Left="411,89593535" Top="231,63389" Width="75,5906" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line79" Left="400,55734535" Top="197,61812" Width="366,61441" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line80" Left="385,43922535" Top="231,63389" Width="68,03154" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line81" Left="147,32873771" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line82" Left="438,35264535" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line83" Left="767,17175535" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line84" Left="-18,97047245" Top="231,63389" Width="1099,84251969" Height="0" GroupIndex="1" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line85" Left="-18,97047245" Top="163,60235" Width="1099,84251969" Height="0" GroupIndex="1" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line86" Left="-18,97047245" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line87" Left="1080,87204724" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line88" Left="513,94324535" Top="180,61022402" Width="253,22851" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line89" Left="513,94324535" Top="214,62597205" Width="253,22851" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxLineView Name="Line90" Left="90,63588535" Top="197,61812" Width="0" Height="34,01577" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line91" Left="272,05332535" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line92" Left="196,46272535" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line93" Left="245,59661535" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line94" Left="67,95870535" Top="197,61812" Width="0" Height="34,01577" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line95" Left="829,91141732" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line96" Left="892,6515748" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line97" Left="955,39173228" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line98" Left="1018,13188976" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line99" Left="491,26606535" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line100" Left="574,41572535" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line101" Left="513,94324535" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line102" Left="597,09290535" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line103" Left="619,77008535" Top="163,60235" Width="0" Height="68,03154" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line104" Left="30,16340535" Top="163,60235" Width="0" Height="15,11812" GroupIndex="1" Frame.Typ="1"/>
+      <TfrxLineView Name="Line105" Left="30,16340535" Top="178,72046024" Width="15,11812" Height="0" GroupIndex="1" Frame.Typ="4"/>
+      <TfrxShapeView Name="Shape58" Left="-19,02047245" Top="231,70235" Width="64,2519685" Height="68,03149118" GroupIndex="2"/>
+      <TfrxShapeView Name="Shape59" Left="45,23149362" Top="231,70235" Width="45,35431606" Height="68,03146677"/>
+      <TfrxShapeView Name="Shape60" Left="90,58578771" Top="231,70235" Width="56,69290362" Height="68,0314863"/>
+      <TfrxShapeView Name="Shape61" Left="400,506967" Top="231,70235" Width="37,79525606" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape62" Left="691,53063787" Top="231,70235" Width="75,59055606" Height="68,03149118"/>
+      <TfrxLineView Name="Line106" Left="219,08990535" Top="299,73389" Width="45,35436" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line107" Left="219,08990535" Top="231,70235" Width="34,01577" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line108" Left="294,68050535" Top="231,70235" Width="3,77953" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line109" Left="294,68050535" Top="299,73389" Width="94,48825" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line110" Left="294,68050535" Top="231,70235" Width="287,24428" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line111" Left="328,69599464" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line112" Left="-19,02047245" Top="265,71812" Width="347,71653543" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line113" Left="400,50701338" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line114" Left="411,84593535" Top="299,73389" Width="75,5906" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line115" Left="400,50734535" Top="265,71812" Width="366,61441" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line116" Left="385,38922535" Top="299,73389" Width="68,03154" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line117" Left="147,27873771" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line118" Left="438,30264535" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line119" Left="767,12175535" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line120" Left="-19,02047245" Top="299,73389" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line121" Left="-19,02047245" Top="231,70235" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line122" Left="-19,02047245" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line123" Left="1080,82204724" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line124" Left="513,89324535" Top="248,71022402" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line125" Left="513,89324535" Top="282,72597205" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line126" Left="90,58588535" Top="265,71812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line127" Left="272,00332535" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line128" Left="196,41272535" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line129" Left="245,54661535" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line130" Left="67,90870535" Top="265,71812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line131" Left="829,86141732" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line132" Left="892,6015748" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line133" Left="955,34173228" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line134" Left="1018,08188976" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line135" Left="491,21606535" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line136" Left="574,36572535" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line137" Left="513,89324535" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line138" Left="597,04290535" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line172" Left="619,72008535" Top="231,70235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line173" Left="30,11340535" Top="231,70235" Width="0" Height="15,11812" Frame.Typ="1"/>
+      <TfrxLineView Name="Line174" Left="30,11340535" Top="246,82046024" Width="15,11812" Height="0" Frame.Typ="4"/>
+      <TfrxShapeView Name="Shape63" Left="-19,02047245" Top="299,50235" Width="64,2519685" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape64" Left="45,23149362" Top="299,50235" Width="45,35431606" Height="68,03146677"/>
+      <TfrxShapeView Name="Shape65" Left="90,58578771" Top="299,50235" Width="56,69290362" Height="68,0314863"/>
+      <TfrxShapeView Name="Shape66" Left="400,506967" Top="299,50235" Width="37,79525606" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape67" Left="691,53063787" Top="299,50235" Width="75,59055606" Height="68,03149118"/>
+      <TfrxLineView Name="Line175" Left="219,08990535" Top="367,53389" Width="45,35436" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line177" Left="219,08990535" Top="299,50235" Width="34,01577" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line178" Left="294,68050535" Top="299,50235" Width="3,77953" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line179" Left="294,68050535" Top="367,53389" Width="94,48825" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line180" Left="294,68050535" Top="299,50235" Width="287,24428" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line181" Left="328,69599464" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line182" Left="-19,02047245" Top="333,51812" Width="347,71653543" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line183" Left="400,50701338" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line184" Left="411,84593535" Top="367,53389" Width="75,5906" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line185" Left="400,50734535" Top="333,51812" Width="366,61441" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line186" Left="385,38922535" Top="367,53389" Width="68,03154" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line187" Left="147,27873771" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line189" Left="438,30264535" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line190" Left="767,12175535" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line191" Left="-19,02047245" Top="367,53389" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line192" Left="-19,02047245" Top="299,50235" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line193" Left="-19,02047245" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line194" Left="1080,82204724" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line195" Left="513,89324535" Top="316,51022402" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line196" Left="513,89324535" Top="350,52597205" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line197" Left="90,58588535" Top="333,51812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line198" Left="272,00332535" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line199" Left="196,41272535" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line200" Left="245,54661535" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line201" Left="67,90870535" Top="333,51812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line202" Left="829,86141732" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line203" Left="892,6015748" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line204" Left="955,34173228" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line205" Left="1018,08188976" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line206" Left="491,21606535" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line207" Left="574,36572535" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line208" Left="513,89324535" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line209" Left="597,04290535" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line210" Left="619,72008535" Top="299,50235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line211" Left="30,11340535" Top="299,50235" Width="0" Height="15,11812" Frame.Typ="1"/>
+      <TfrxLineView Name="Line212" Left="30,11340535" Top="314,62046024" Width="15,11812" Height="0" Frame.Typ="4"/>
+      <TfrxShapeView Name="Shape68" Left="-18,94774518" Top="367,28416818" Width="64,2519685" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape69" Left="45,30422089" Top="367,28416818" Width="45,35431606" Height="68,03146677"/>
+      <TfrxShapeView Name="Shape82" Left="90,65851498" Top="367,28416818" Width="56,69290362" Height="68,0314863"/>
+      <TfrxShapeView Name="Shape83" Left="400,57969427" Top="367,28416818" Width="37,79525606" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape84" Left="691,60336514" Top="367,28416818" Width="75,59055606" Height="68,03149118"/>
+      <TfrxLineView Name="Line146" Left="219,16263262" Top="435,31570818" Width="45,35436" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line147" Left="219,16263262" Top="367,28416818" Width="34,01577" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line148" Left="294,75323262" Top="367,28416818" Width="3,77953" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line149" Left="294,75323262" Top="435,31570818" Width="94,48825" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line213" Left="294,75323262" Top="367,28416818" Width="287,24428" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line214" Left="328,76872191" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line215" Left="-18,94774517" Top="401,29993818" Width="347,71653543" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line216" Left="400,57974065" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line217" Left="411,91866262" Top="435,31570818" Width="75,5906" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line218" Left="400,58007262" Top="401,29993818" Width="366,61441" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line219" Left="385,46195262" Top="435,31570818" Width="68,03154" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line220" Left="147,35146498" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line221" Left="438,37537262" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line222" Left="767,19448262" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line223" Left="-18,94774518" Top="435,31570818" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line224" Left="-18,94774518" Top="367,28416818" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line225" Left="1080,89477451" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line226" Left="513,96597262" Top="384,2920422" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line227" Left="513,96597262" Top="418,30779023" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line228" Left="90,65861262" Top="401,29993818" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line229" Left="272,07605262" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line230" Left="196,48545262" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line231" Left="245,61934262" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line232" Left="67,98143262" Top="401,29993818" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line233" Left="829,93414459" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line234" Left="892,67430207" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line235" Left="955,41445955" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line236" Left="1018,15461703" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line237" Left="491,28879262" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line238" Left="574,43845262" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line239" Left="513,96597262" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line240" Left="597,11563262" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line241" Left="619,79281262" Top="367,28416818" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line242" Left="30,18613262" Top="367,28416818" Width="0" Height="15,11812" Frame.Typ="1"/>
+      <TfrxLineView Name="Line243" Left="30,18613262" Top="382,40227842" Width="15,11812" Height="0" Frame.Typ="4"/>
+      <TfrxShapeView Name="Shape85" Left="-18,94774518" Top="435,10235" Width="64,2519685" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape86" Left="45,30422089" Top="435,10235" Width="45,35431606" Height="68,03146677"/>
+      <TfrxShapeView Name="Shape87" Left="90,65851498" Top="435,10235" Width="56,69290362" Height="68,0314863"/>
+      <TfrxShapeView Name="Shape88" Left="400,57969427" Top="435,10235" Width="37,79525606" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape89" Left="691,60336514" Top="435,10235" Width="75,59055606" Height="68,03149118"/>
+      <TfrxLineView Name="Line244" Left="219,16263262" Top="503,13389" Width="45,35436" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line245" Left="219,16263262" Top="435,10235" Width="34,01577" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line246" Left="294,75323262" Top="435,10235" Width="3,77953" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line247" Left="294,75323262" Top="503,13389" Width="94,48825" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line248" Left="294,75323262" Top="435,10235" Width="287,24428" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line249" Left="328,76872191" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line250" Left="-18,94774517" Top="469,11812" Width="347,71653543" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line251" Left="400,57974065" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line252" Left="411,91866262" Top="503,13389" Width="75,5906" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line253" Left="400,58007262" Top="469,11812" Width="366,61441" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line254" Left="385,46195262" Top="503,13389" Width="68,03154" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line255" Left="147,35146498" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line256" Left="438,37537262" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line257" Left="767,19448262" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line258" Left="-18,94774518" Top="503,13389" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line259" Left="-18,94774518" Top="435,10235" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line260" Left="1080,89477451" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line261" Left="513,96597262" Top="452,11022402" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line262" Left="513,96597262" Top="486,12597205" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line263" Left="90,65861262" Top="469,11812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line264" Left="272,07605262" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line265" Left="196,48545262" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line266" Left="245,61934262" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line267" Left="67,98143262" Top="469,11812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line268" Left="829,93414459" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line269" Left="892,67430207" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line270" Left="955,41445955" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line271" Left="1018,15461703" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line272" Left="491,28879262" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line273" Left="574,43845262" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line274" Left="513,96597262" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line275" Left="597,11563262" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line276" Left="619,79281262" Top="435,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line277" Left="30,18613262" Top="435,10235" Width="0" Height="15,11812" Frame.Typ="1"/>
+      <TfrxLineView Name="Line278" Left="30,18613262" Top="450,22046024" Width="15,11812" Height="0" Frame.Typ="4"/>
+      <TfrxShapeView Name="Shape90" Left="-18,94774518" Top="503,10235" Width="64,2519685" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape91" Left="45,30422089" Top="503,10235" Width="45,35431606" Height="68,03146677"/>
+      <TfrxShapeView Name="Shape92" Left="90,65851498" Top="503,10235" Width="56,69290362" Height="68,0314863"/>
+      <TfrxShapeView Name="Shape93" Left="400,57969427" Top="503,10235" Width="37,79525606" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape94" Left="691,60336514" Top="503,10235" Width="75,59055606" Height="68,03149118"/>
+      <TfrxLineView Name="Line279" Left="219,16263262" Top="571,13389" Width="45,35436" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line280" Left="219,16263262" Top="503,10235" Width="34,01577" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line281" Left="294,75323262" Top="503,10235" Width="3,77953" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line282" Left="294,75323262" Top="571,13389" Width="94,48825" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line283" Left="294,75323262" Top="503,10235" Width="287,24428" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line284" Left="328,76872191" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line285" Left="-18,94774517" Top="537,11812" Width="347,71653543" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line286" Left="400,57974065" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line287" Left="411,91866262" Top="571,13389" Width="75,5906" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line288" Left="400,58007262" Top="537,11812" Width="366,61441" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line289" Left="385,46195262" Top="571,13389" Width="68,03154" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line290" Left="147,35146498" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line291" Left="438,37537262" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line292" Left="767,19448262" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line293" Left="-18,94774518" Top="571,13389" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line294" Left="-18,94774518" Top="503,10235" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line295" Left="1080,89477451" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line296" Left="513,96597262" Top="520,11022402" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line297" Left="513,96597262" Top="554,12597205" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line298" Left="90,65861262" Top="537,11812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line299" Left="272,07605262" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line300" Left="196,48545262" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line301" Left="245,61934262" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line302" Left="67,98143262" Top="537,11812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line303" Left="829,93414459" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line304" Left="892,67430207" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line305" Left="955,41445955" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line306" Left="1018,15461703" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line307" Left="491,28879262" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line308" Left="574,43845262" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line309" Left="513,96597262" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line310" Left="597,11563262" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line311" Left="619,79281262" Top="503,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line312" Left="30,18613262" Top="503,10235" Width="0" Height="15,11812" Frame.Typ="1"/>
+      <TfrxLineView Name="Line313" Left="30,18613262" Top="518,22046024" Width="15,11812" Height="0" Frame.Typ="4"/>
+      <TfrxShapeView Name="Shape95" Left="-19,02047245" Top="571,10235" Width="64,2519685" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape96" Left="45,23149362" Top="571,10235" Width="45,35431606" Height="68,03146677"/>
+      <TfrxShapeView Name="Shape97" Left="90,58578771" Top="571,10235" Width="56,69290362" Height="68,0314863"/>
+      <TfrxShapeView Name="Shape98" Left="400,506967" Top="571,10235" Width="37,79525606" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape99" Left="691,53063787" Top="571,10235" Width="75,59055606" Height="68,03149118"/>
+      <TfrxLineView Name="Line314" Left="219,08990535" Top="639,13389" Width="45,35436" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line315" Left="219,08990535" Top="571,10235" Width="34,01577" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line316" Left="294,68050535" Top="571,10235" Width="3,77953" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line317" Left="294,68050535" Top="639,13389" Width="94,48825" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line318" Left="294,68050535" Top="571,10235" Width="287,24428" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line319" Left="328,69599464" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line320" Left="-19,02047245" Top="605,11812" Width="347,71653543" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line321" Left="400,50701338" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line322" Left="411,84593535" Top="639,13389" Width="75,5906" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line323" Left="400,50734535" Top="605,11812" Width="366,61441" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line324" Left="385,38922535" Top="639,13389" Width="68,03154" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line325" Left="147,27873771" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line326" Left="438,30264535" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line327" Left="767,12175535" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line328" Left="-19,02047245" Top="639,13389" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line329" Left="-19,02047245" Top="571,10235" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line330" Left="1080,82204724" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line331" Left="513,89324535" Top="588,11022402" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line332" Left="513,89324535" Top="622,12597205" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line333" Left="90,58588535" Top="605,11812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line334" Left="272,00332535" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line335" Left="196,41272535" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line336" Left="245,54661535" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line337" Left="67,90870535" Top="605,11812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line338" Left="829,86141732" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line339" Left="892,6015748" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line340" Left="955,34173228" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line341" Left="1018,08188976" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line342" Left="491,21606535" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line343" Left="574,36572535" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line344" Left="513,89324535" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line345" Left="597,04290535" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line346" Left="619,72008535" Top="571,10235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line347" Left="30,11340535" Top="571,10235" Width="0" Height="15,11812" Frame.Typ="1"/>
+      <TfrxLineView Name="Line348" Left="30,11340535" Top="586,22046024" Width="15,11812" Height="0" Frame.Typ="4"/>
+      <TfrxShapeView Name="Shape100" Left="-19,02047245" Top="639,30235" Width="64,2519685" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape101" Left="45,23149362" Top="639,30235" Width="45,35431606" Height="68,03146677"/>
+      <TfrxShapeView Name="Shape102" Left="90,58578771" Top="639,30235" Width="56,69290362" Height="68,0314863"/>
+      <TfrxShapeView Name="Shape103" Left="400,506967" Top="639,30235" Width="37,79525606" Height="68,03149118"/>
+      <TfrxShapeView Name="Shape104" Left="691,53063787" Top="639,30235" Width="75,59055606" Height="68,03149118"/>
+      <TfrxLineView Name="Line349" Left="219,08990535" Top="707,33389" Width="45,35436" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line350" Left="219,08990535" Top="639,30235" Width="34,01577" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line351" Left="294,68050535" Top="639,30235" Width="3,77953" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line352" Left="294,68050535" Top="707,33389" Width="94,48825" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line353" Left="294,68050535" Top="639,30235" Width="287,24428" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line354" Left="328,69599464" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line355" Left="-19,02047245" Top="673,31812" Width="347,71653543" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line356" Left="400,50701338" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line357" Left="411,84593535" Top="707,33389" Width="75,5906" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line358" Left="400,50734535" Top="673,31812" Width="366,61441" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line359" Left="385,38922535" Top="707,33389" Width="68,03154" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line360" Left="147,27873771" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line361" Left="438,30264535" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line362" Left="767,12175535" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line363" Left="-19,02047245" Top="707,33389" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line364" Left="-19,02047245" Top="639,30235" Width="1099,84251969" Height="0" Frame.Typ="4" Frame.Width="3"/>
+      <TfrxLineView Name="Line365" Left="1080,82204724" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line366" Left="513,89324535" Top="656,31022402" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line367" Left="513,89324535" Top="690,32597205" Width="253,22851" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line368" Left="90,58588535" Top="673,31812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line369" Left="272,00332535" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line370" Left="196,41272535" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line371" Left="245,54661535" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line372" Left="67,90870535" Top="673,31812" Width="0" Height="34,01577" Frame.Typ="1"/>
+      <TfrxLineView Name="Line373" Left="829,86141732" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line374" Left="892,6015748" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line375" Left="955,34173228" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line376" Left="1018,08188976" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line377" Left="491,21606535" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line378" Left="574,36572535" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line379" Left="513,89324535" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line380" Left="597,04290535" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line381" Left="619,72008535" Top="639,30235" Width="0" Height="68,03154" Frame.Typ="1"/>
+      <TfrxLineView Name="Line382" Left="30,11340535" Top="639,30235" Width="0" Height="15,11812" Frame.Typ="1"/>
+      <TfrxLineView Name="Line383" Left="30,11340535" Top="654,42046024" Width="15,11812" Height="0" Frame.Typ="4"/>
+      <TfrxLineView Name="Line384" Left="-18,8976377952756" Top="367,370078740158" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line385" Left="-18,8976377952756" Top="435,023622047244" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line386" Left="-18,8976377952756" Top="503,055118110236" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line387" Left="-18,8976377952756" Top="571,086614173228" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+      <TfrxLineView Name="Line388" Left="-18,8976378" Top="639,11811024" Width="0" Height="68,03154" Frame.Typ="1" Frame.Width="3"/>
+    </TfrxPageHeader>
+  </TfrxReportPage>
+  <TfrxReportPage Name="Eszrevetel" Orientation="poLandscape" PaperWidth="297" PaperHeight="210" PaperSize="9" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" ColumnWidth="0" ColumnPositions.Text="" HGuides.Text="" VGuides.Text="">
+    <TfrxMemoView Name="Memo146" Left="0" Top="122" Width="1046,85838" Height="37,79527559" Font.Charset="238" Font.Color="0" Font.Height="-19" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Ellenőrzések, észrevételek"/>
+    <TfrxShapeView Name="Shape105" Left="30" Top="171,13389" Width="151,1812" Height="34,01574803"/>
+    <TfrxShapeView Name="Shape106" Left="181,1812" Top="171,13389" Width="498,8976378" Height="34,01574803"/>
+    <TfrxShapeView Name="Shape107" Left="680,31496063" Top="171,212598425197" Width="340,15748031" Height="34,01574803"/>
+    <TfrxShapeView Name="Shape108" Left="30" Top="205,14966" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape109" Left="181,1812" Top="205,14966" Width="498,8976378" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape110" Left="680,31496063" Top="205,22834646" Width="340,15748031" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape111" Left="30" Top="261,84261" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape112" Left="181,1812" Top="261,84261" Width="498,8976378" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape113" Left="680,31496063" Top="261,92125984252" Width="340,15748031" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape114" Left="30" Top="318,53556" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape115" Left="181,1812" Top="318,53556" Width="498,8976378" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape116" Left="680,31496063" Top="318,614173228346" Width="340,15748031" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape117" Left="30" Top="375,22851" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape118" Left="181,1812" Top="375,22851" Width="498,8976378" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape119" Left="680,31496063" Top="375,307086614173" Width="340,15748031" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape120" Left="30" Top="431,92146" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape121" Left="181,1812" Top="431,92146" Width="498,8976378" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape122" Left="680,31496063" Top="432" Width="340,15748031" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape123" Left="30" Top="488,61441" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape124" Left="181,1812" Top="488,61441" Width="498,8976378" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape125" Left="680,31496063" Top="488,692913385827" Width="340,15748031" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape126" Left="30" Top="545,30736" Width="151,1812" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape127" Left="181,1812" Top="545,30736" Width="498,8976378" Height="56,69291339"/>
+    <TfrxShapeView Name="Shape128" Left="680,31496063" Top="545,30736" Width="340,15748031" Height="56,69291339"/>
+    <TfrxMemoView Name="Memo147" Left="29,85826772" Top="653,02412" Width="207,53556" Height="18,89765" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" Text="A tenyésztési napló hitelesítése:"/>
+    <TfrxMemoView Name="Memo148" Left="29,85826772" Top="171,21259843" Width="151,181102362205" Height="34,01574803" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Dátum"/>
+    <TfrxMemoView Name="Memo149" Left="181,03937008" Top="170,69295" Width="498,8976378" Height="34,01574803" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Ellenőrzések, észrevételek"/>
+    <TfrxMemoView Name="Memo150" Left="680,91373" Top="171,69295" Width="186,91342" Height="33,89765" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="Aláírás"/>
+    <TfrxMemoView Name="Memo151" Left="867,29963" Top="170,69295" Width="153,45671" Height="33,89765" Font.Charset="1" Font.Color="0" Font.Height="-13" Font.Name="Arial" Font.Style="1" HAlign="haCenter" ParentFont="False" VAlign="vaCenter" Text="p.h."/>
   </TfrxReportPage>
 </TfrxReport>

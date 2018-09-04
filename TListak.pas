@@ -124,6 +124,9 @@ type
     frxReport_test: TfrxReport;
     frxRepListak: TfrxReport;
     frxRepLists: TfrxReport;
+    sdsSEQ: TTalSimpleDataSet;
+    frxDBSEQ: TfrxDBDataset;
+    sdsSEQPAGENR: TBCDField;
     frxTNaplo: TfrxReport;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
@@ -1634,6 +1637,7 @@ Procedure TfrmTListak.TenyesztesiNaploListaNew(Sender: TObject);
 Var
    Datum: String;
    tkod: String;
+   i : integer;
 Begin
 
   Try
@@ -1667,11 +1671,24 @@ Begin
      frmTListak.frxTNaplo.Script.Variables['tenyeszet_cim'] := dtmTarka.getTenyeszetCim( tkod);
      frmTListak.frxTNaplo.Script.Variables['tenyeszet_megye'] := dtmTarka.getTenyeszetMegye( tkod);
 
+     i := StrToInt( frmTListak.tlePeldany.Text) * 8;
+     frmTListak.sdsSEQ.DataSet.CommandText :=
+        'select rownum as pagenr from egyedek where rownum <= ' + IntToStr( i);
      // frmTListak.frxTNaplo.PrintOptions.Copies := StrToInt( frmTListak.tlePeldany.Text);  // példányszám!
      frmTListak.frxTNaplo.ShowReport();
   End;
 
   frmTListak.sdsTNaplo.Close;
+
+  (*if tlePeldany.Value > 0 then
+  Begin
+     frmTListak.frxTNaplo.LoadFromFile(dtmTarka.fr3Path + '\TenyesztesiNaploEllenorzes.fr3');
+     frmTListak.frxTNaplo.EngineOptions.DestroyForms := False;
+     frmTListak.frxTNaplo.PrintOptions.Copies := 10; // StrToInt( frmTListak.tlePeldany.Text);  // példányszám!
+     frmTListak.frxTNaplo.ShowReport();
+  End;
+    *)
+
 End;
 
 //**********************************************************************
