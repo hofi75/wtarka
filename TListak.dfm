@@ -5589,7 +5589,7 @@ object frmTListak: TfrmTListak
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 40240.498815532400000000
-    ReportOptions.LastChange = 43347.900328379630000000
+    ReportOptions.LastChange = 43354.875178136570000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'procedure ENAR_1OnAfterData(Sender: TfrxComponent);'
@@ -15454,7 +15454,8 @@ object frmTListak: TfrmTListak
         VAlign = vaCenter
       end
       object Memo98: TfrxMemoView
-        Top = 342.937007870000000000
+        Left = 7.559060000000000000
+        Top = 305.141707870000000000
         Width = 1049.362400000000000000
         Height = 56.692913390000000000
         Font.Charset = DEFAULT_CHARSET
@@ -15468,12 +15469,21 @@ object frmTListak: TfrmTListak
         ParentFont = False
         VAlign = vaCenter
       end
-      object Memo99: TfrxMemoView
-        Left = 376.393915600000000000
-        Top = 419.527559060000000000
-        Width = 298.771800000000000000
-        Height = 18.897650000000000000
+      object tenyesztesi_ev: TfrxMemoView
+        Left = 380.173445600000000000
+        Top = 393.070849060000000000
+        Width = 287.433210000000000000
+        Height = 41.574830000000000000
         OnAfterData = 'Memo5OnAfterData'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -32
+        Font.Name = 'Arial Black'
+        Font.Style = [fsBold]
+        HAlign = haCenter
+        Memo.UTF8 = (
+          '[tenyesztesi_ev]')
+        ParentFont = False
       end
       object Memo100: TfrxMemoView
         Left = 521.575017960000000000
@@ -18730,8 +18740,8 @@ object frmTListak: TfrmTListak
     end
     object EllenorzolLap: TfrxReportPage
       Orientation = poLandscape
-      PaperWidth = 297.010666666666700000
-      PaperHeight = 210.015666666666700000
+      PaperWidth = 297.000000000000000000
+      PaperHeight = 210.000000000000000000
       PaperSize = 9
       LeftMargin = 8.000000000000000000
       TopMargin = 10.000000000000000000
@@ -27534,7 +27544,7 @@ object frmTListak: TfrmTListak
     object sdsSEQPAGENR: TBCDField
       FieldName = 'PAGENR'
       ReadOnly = True
-      Precision = 38
+      Precision = 32
     end
   end
   object frxDBSEQ: TfrxDBDataset

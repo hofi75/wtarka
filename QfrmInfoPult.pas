@@ -576,6 +576,19 @@ begin
     sdsInfo.Edit;
     Self.ControlokBeallitasa(True);
     Self.edtAzonosito.Enabled := false;  // módosításkor nem módosíthatja az azonosítót
+    if not dtmTarka.isAdmin then begin
+       Self.lucKonstr.Enabled := false;
+       Self.lucFajta.Enabled := false;
+       Self.lucSzin.Enabled := false;
+       Self.lucVer1.Enabled := false;
+       Self.lucVer2.Enabled := false;
+       Self.lucVer3.Enabled := false;
+       Self.lucVer4.Enabled := false;
+       Self.edtVer1.Enabled := false;
+       Self.edtVer2.Enabled := false;
+       Self.edtVer3.Enabled := false;
+       Self.edtVer4.Enabled := false;
+    end;
     GombokBeallitasa(false);
     Self.EditMode := 'U';
     Self.btnUj.Enabled := false;

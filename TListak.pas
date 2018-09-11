@@ -1665,6 +1665,7 @@ Begin
   // frmTListak.frxTNaplo.PrintOptions.Clear;
   if frmTListak.frxTNaplo.LoadFromFile(dtmTarka.fr3Path + '\TenyesztesiNaploNew.fr3') Then
   Begin
+     frmTListak.frxTNaplo.Script.Variables['tenyesztesi_ev'] := copy(Datum,1,4);
      frmTListak.frxTNaplo.Script.Variables['enar_tenyeszetkod'] := tkod;
      frmTListak.frxTNaplo.Script.Variables['tenyeszet_azonosito'] := dtmTarka.getTenyeszetRKOD( tkod);
      frmTListak.frxTNaplo.Script.Variables['tenyeszet_nev'] := dtmTarka.getTenyeszetNev( tkod);
