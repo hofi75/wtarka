@@ -1,6 +1,6 @@
 object frmTListak: TfrmTListak
-  Left = 823
-  Top = 346
+  Left = 618
+  Top = 260
   Width = 719
   Height = 407
   Caption = 'List'#225'k'
@@ -5589,7 +5589,7 @@ object frmTListak: TfrmTListak
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 40240.498815532400000000
-    ReportOptions.LastChange = 43354.875178136570000000
+    ReportOptions.LastChange = 43369.402163425930000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'procedure ENAR_1OnAfterData(Sender: TfrxComponent);'
@@ -15567,6 +15567,15 @@ object frmTListak: TfrmTListak
         Memo.UTF8 = (
           '[tenyeszet_megye]')
       end
+      object Memo154: TfrxMemoView
+        Left = 865.512370000000000000
+        Top = 11.338590000000000000
+        Width = 177.637910000000000000
+        Height = 18.897650000000000000
+        HAlign = haRight
+        Memo.UTF8 = (
+          '[Page#] / [TotalPages#]')
+      end
     end
     object Page2: TfrxReportPage
       Orientation = poLandscape
@@ -16090,6 +16099,15 @@ object frmTListak: TfrmTListak
         Height = 18.897650000000000000
         Memo.UTF8 = (
           '[tenyeszet_megye]')
+      end
+      object Memo156: TfrxMemoView
+        Left = 865.511811020000000000
+        Top = 11.338582680000000000
+        Width = 177.637910000000000000
+        Height = 18.897650000000000000
+        HAlign = haRight
+        Memo.UTF8 = (
+          '[Page#] / [TotalPages#]')
       end
     end
     object Page3: TfrxReportPage
@@ -16916,6 +16934,41 @@ object frmTListak: TfrmTListak
             'ford'#258#173't'#258#711'sa')
           ParentFont = False
           VAlign = vaCenter
+        end
+        object Memo99: TfrxMemoView
+          Left = 487.559370000000000000
+          Top = 75.590600000000000000
+          Width = 109.795300000000000000
+          Height = 18.897650000000000000
+          OnAfterData = 'Memo5OnAfterData'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[tenyesztesi_ev]')
+          ParentFont = False
+        end
+        object Memo153: TfrxMemoView
+          Left = -15.118110240000000000
+          Top = 75.590600000000000000
+          Width = 253.228510000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBListak
+          DataSetName = 'frxDBListak'
+          Memo.UTF8 = (
+            '[enar_tenyeszetkod] - [tenyeszet_nev]')
+        end
+        object Memo155: TfrxMemoView
+          Left = 899.528140000000000000
+          Top = 75.590551180000000000
+          Width = 177.637910000000000000
+          Height = 18.897650000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[Page#] / [TotalPages#]')
         end
       end
       object MasterData1: TfrxMasterData
@@ -18749,7 +18802,7 @@ object frmTListak: TfrmTListak
       object EllenorzoMasterData: TfrxMasterData
         Height = 68.031552200000000000
         Top = 241.889920000000000000
-        Width = 1092.324484986667000000
+        Width = 1092.284170000000000000
         DataSet = frxDBSEQ
         DataSetName = 'frxDBSEQ'
         RowCount = 0
@@ -18974,7 +19027,7 @@ object frmTListak: TfrmTListak
       object PageHeader2: TfrxPageHeader
         Height = 162.519802200000000000
         Top = 18.897650000000000000
-        Width = 1092.324484986667000000
+        Width = 1092.284170000000000000
         Stretched = True
         object Memo271: TfrxMemoView
           Left = 400.629801650000000000
@@ -19763,6 +19816,41 @@ object frmTListak: TfrmTListak
             'ford'#258#173't'#258#711'sa')
           ParentFont = False
           VAlign = vaCenter
+        end
+        object Memo157: TfrxMemoView
+          Left = 899.527559055118100000
+          Top = 75.590600000000000000
+          Width = 177.637910000000000000
+          Height = 18.897650000000000000
+          HAlign = haRight
+          Memo.UTF8 = (
+            '[Page#] / [TotalPages#]')
+        end
+        object Memo159: TfrxMemoView
+          Left = -15.118110236220470000
+          Top = 75.590551180000000000
+          Width = 253.228510000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBListak
+          DataSetName = 'frxDBListak'
+          Memo.UTF8 = (
+            '[enar_tenyeszetkod] - [tenyeszet_nev]')
+        end
+        object Memo160: TfrxMemoView
+          Left = 487.559055118110200000
+          Top = 75.590600000000000000
+          Width = 109.795300000000000000
+          Height = 18.897650000000000000
+          OnAfterData = 'Memo5OnAfterData'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[tenyesztesi_ev]')
+          ParentFont = False
         end
       end
     end
@@ -22947,6 +23035,15 @@ object frmTListak: TfrmTListak
           'p.h.')
         ParentFont = False
         VAlign = vaCenter
+      end
+      object Memo158: TfrxMemoView
+        Left = 865.511811020000000000
+        Top = 11.338582677165350000
+        Width = 177.637910000000000000
+        Height = 18.897650000000000000
+        HAlign = haRight
+        Memo.UTF8 = (
+          '[Page#] / [TotalPages#]')
       end
     end
   end
