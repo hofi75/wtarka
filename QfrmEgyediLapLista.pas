@@ -9,7 +9,7 @@ uses
   uValidedit, uTALEdit, uTALLabel, ADODB, uTALConnection;
 
 const
- SQL1 = 'select E.ENAR, E.TENYESZET, TENY.TNEV2' +
+ SQL1 = 'select E.ENAR, E.TENYESZET, TENY.TNEV2, ' +
        ' E.FULSZAM, E.ID_ENAR,E.TEHENSZAM, ' +
        ' E.SZULDAT, ' +
        ' E.MLEVEL1, E.MLEVEL2, ' +
@@ -142,8 +142,6 @@ type
     sdsKullemTENYESZET: TWideStringField;
     sdsKullemBIKANEV: TWideStringField;
     dtsLista: TfrxDBDataset;
-    frxRepLista: TfrxReport;
-    frxEgyedLista: TfrxReport;
     frxDBLista: TfrxDBDataset;
     sdsLista: TTalSimpleDataSet;
     sdsListaENAR: TWideStringField;
@@ -234,6 +232,8 @@ type
     sdsListaBNI: TBCDField;
     sdsListaSZAPIND: TBCDField;
     sdsListaKULLEM_IND: TBCDField;
+    frxEgyedLista: TfrxReport;
+    frxRepLista: TfrxReport;
     procedure actOKExecute(Sender: TObject);
     procedure sdsListaENARGetText(Sender: TField; var Text: String;
       DisplayText: Boolean);

@@ -63,11 +63,11 @@ object frmTListak: TfrmTListak
     Visible = False
   end
   object tlbPeldany: TTalLabel
-    Left = 88
+    Left = 24
     Top = 300
-    Width = 67
+    Width = 90
     Height = 13
-    Caption = 'p'#233'ld'#225'nysz'#225'm :'
+    Caption = #220'res lapok sz'#225'ma :'
     Visible = False
   end
   object lblTol: TTalLabel

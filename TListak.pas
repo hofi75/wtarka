@@ -1675,8 +1675,10 @@ Begin
      i := StrToInt( frmTListak.tlePeldany.Text) * 8;
      frmTListak.sdsSEQ.DataSet.CommandText :=
         'select rownum as pagenr from egyedek where rownum <= ' + IntToStr( i);
+     frmTListak.sdsSEQ.Open;
      // frmTListak.frxTNaplo.PrintOptions.Copies := StrToInt( frmTListak.tlePeldany.Text);  // példányszám!
      frmTListak.frxTNaplo.ShowReport();
+     frmTListak.sdsSEQ.Close;
   End;
 
   frmTListak.sdsTNaplo.Close;
