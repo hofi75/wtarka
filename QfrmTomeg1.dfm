@@ -842,6 +842,8 @@ inherited frmTomeg1: TfrmTomeg1
   end
   object sdsTomeg: TTalSimpleDataSet
     Aggregates = <>
+    Connection = dtmTarka.cnTarka
+    DataSet.Connection = dtmTarka.cnTarka
     DataSet.CommandText = 
       'SELECT'#13#10'TT.ID ,'#13#10'TT.EGYED_ID,'#13#10'EE.ENAR,'#13#10'EE.FULSZAM,'#13#10'EE.TEHENSZ' +
       'AM,'#13#10'TT.DATUM,'#13#10'TT.TOMEG,'#13#10'TT.MOD_DAT,'#13#10'TT.MOD_KOD,'#13#10'TT.MERES_TI' +
@@ -857,6 +859,7 @@ inherited frmTomeg1: TfrmTomeg1
         Size = 15
         Value = Null
       end>
+    Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
       'SELECT'#13#10'TT.ID ,'#13#10'TT.EGYED_ID,'#13#10'EE.ENAR,'#13#10'EE.FULSZAM,'#13#10'EE.TEHENSZ' +
       'AM,'#13#10'TT.DATUM,'#13#10'TT.TOMEG,'#13#10'TT.MOD_DAT,'#13#10'TT.MOD_KOD,'#13#10'TT.MERES_TI' +
