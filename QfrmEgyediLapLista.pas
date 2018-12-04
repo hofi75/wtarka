@@ -9,7 +9,7 @@ uses
   uValidedit, uTALEdit, uTALLabel, ADODB, uTALConnection;
 
 const
- SQL1 = 'select E.ENAR, E.TENYESZET, TENY.TNEV2, ' +
+ SQL2 = 'select E.ENAR, E.TENYESZET, TENY.TNEV2, ' +
        ' E.FULSZAM, E.ID_ENAR,E.TEHENSZAM, ' +
        ' E.SZULDAT, ' +
        ' E.MLEVEL1, E.MLEVEL2, ' +
@@ -76,6 +76,84 @@ const
        ' LEFT JOIN APA AAPA ON AAPA.KPLSZ = ANA.APAKLSZ AND ANA.APAKLSZ IS NOT NULL ' +
        // ' left join EGYEDEK ANA_ANYA on (((ANA_ANYA.ENAR = trim(ANA.ANYA_ENAR)) and (ANA.ANYA_ENAR > '' '')) or ((ANA_ANYA.TEHENSZAM=TRIM(ANA.ANYA_ELL)) and (ANA.ANYA_ELL > '' ''))) ' +
        ' where E.ID  = :ID ';
+SQL1 = 'SELECT E.ENAR, ' +
+      'E.TENYESZET, ' +
+      'TENY.TNEV2, ' +
+      'TENY.VAROS, ' +
+      'E.FULSZAM, ' +
+      'E.ID_ENAR, ' +
+      'E.TEHENSZAM, ' +
+      'E.SZULDAT, ' +
+      'E.MLEVEL1, ' +
+      'E.MLEVEL2, ' +
+      'E.TKV, ' +
+      'E.SZIN, SZIN.NEV AS SZINNEV, ' +
+      'E.FAJTAKOD, EF.FNEV, ' +
+      'E.VER1, E.VSZ1, E.VER2, E.VSZ2, E.VER3, E.VSZ3, E.VER4, E.VSZ4, ' +
+      'E.KKOD, ' +
+      'E.VALDAT, CAST(TRUNC(E.VALDAT - E.SZULDAT) AS NUMBER (5,0)) AS VALKOR, E.VALTOM, E.TOM205, E.SV, ' +
+      'CAST(TOMGYAR(E.SZUL_SULY, E.VALTOM, E.SZULDAT, E.VALDAT) AS INTEGER) AS TGYVAL, ' +
+      'E.SZORSZ, ORSZAG.NEV AS ORSZAGNEV, ' +
+      'E.SZARVALTSAG, ' +
+      'E.BIKANEVELO, ' +
+      'E.TENYTOM, ' +
+      'E.MIN AS KMI, ' +
+      'E.IVAR, ' +
+      'CAST (BNI(E.ID) AS NUMERIC(10,3)) AS BNI, ' +
+      'CAST (SZAPIND(E.ID) AS NUMERIC(10,3)) AS SZAPIND, ' +
+      'CAST (KULLEM_IND(E.ENAR) AS NUMERIC(10,3)) AS KULLEM_IND, ' +
+      'E.NET_PONT, ' +
+      'E.APAKLSZ AS EAP_KLSZ, ' +
+      'EAP.NEV AS EAP_NEV, ' +
+      'EAP.FSZ AS EAP_FSZ, ' +
+      'EAP.FKOD AS EAP_FAJTAKOD, EAPF.FNEV AS EAP_FAJTANEV, ' +
+      'EAP.SZULDAT AS EAP_SZULDAT, ' +
+      'EAP.VER1 AS EAP_V1, EAP.VSZ1 AS EAP_VSZ1, EAPF1.FNEV AS EAP_F1NEV, ' +
+      'EAP.VER2 AS EAP_V2, EAP.VSZ2 AS EAP_VSZ2, EAPF2.FNEV AS EAP_F2NEV, ' +
+      'EAP.VER3 AS EAP_V3, EAP.VSZ3 AS EAP_VSZ3, EAPF3.FNEV AS EAP_F3NEV, ' +
+      'EAP.VER4 AS EAP_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV, ' +
+      'E.ANYA_ENAR AS EAN_ENAR, ' +
+      'E.ANYA_ELL AS EAN_ELL, ' +
+      'EAN.NEV AS EAN_NEV, ' +
+      'EAN.FAJTAKOD AS EAN_FAJTAKOD, EANF.FNEV AS EAN_FAJTANEV, ' +
+      'EAN.SZULDAT AS EAN_SZULDAT, ' +
+      'EAN.MIN AS EAN_KMI, ' +
+      'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, EANF1.FNEV AS EAN_F1NEV, ' +
+      'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, EANF2.FNEV AS EAN_F2NEV, ' +
+      'EAN.VER3 AS EAN_V3, EAN.VSZ3 AS EAN_VSZ3, EANF3.FNEV AS EAN_F3NEV, ' +
+      'EAN.VER4 AS EAN_V4, EAN.VSZ4 AS EAN_VSZ4, EANF4.FNEV AS EAN_F4NEV, ' +
+      'EAPAP.KAZON AS EAPAP_AZON, ' +
+      'EAPAP.NEVEE AS EAPAP_NEV, ' +
+      'EAP.AENAR AS EAPAN_AZON, ' +
+      'EAP.ANYANEV AS EAPAN_NEV, ' +
+      'EANAP.KAZON AS EANAP_AZON, ' +
+      'EANAP.NEVEE AS EANAP_NEV, ' +
+      'EANAN.ENAR AS EANAN_AZON, ' +
+      'EANAN.NEV AS EANAN_NEV ' +
+      'FROM EGYEDEK E  ' +
+      'LEFT JOIN TENY ON TENY.TKOD = E.TENYESZET  ' +
+      'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN  ' +
+      'LEFT JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD  ' +
+      'LEFT JOIN ORSZAG ON ORSZAG.KOD1 = E.SZORSZ  ' +
+      'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.IVAR AND IVARF.KODTIPUSOK_TIPUSKOD = ' + '''IVAR'''  +
+      'LEFT JOIN APA EAP ON TRIM(EAP.KPLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL ' +
+      'LEFT JOIN FAJTA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NOT NULL  ' +
+      'LEFT JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1 ' +
+      'LEFT JOIN FAJTA EAPF2 ON EAPF2.FKOD = EAP.VER2 ' +
+      'LEFT JOIN FAJTA EAPF3 ON EAPF3.FKOD = EAP.VER3 ' +
+      'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = EAP.VER4 ' +
+      'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR)) AND (E.ANYA_ENAR > ' + ''' ''' + ')) OR ((EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > ' + ''' ''' + '))) AND EAN.TENYESZET = E.TENYESZET  ' +
+      'LEFT JOIN FAJTA EANF ON EANF.FKOD = EAN.FAJTAKOD  ' +
+      'LEFT JOIN FAJTA EANF1 ON EANF1.FKOD = EAN.VER1 ' +
+      'LEFT JOIN FAJTA EANF2 ON EANF2.FKOD = EAN.VER2 ' +
+      'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3 ' +
+      'LEFT JOIN FAJTA EANF4 ON EANF4.FKOD = EAN.VER4 ' +
+      'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = ' + '''4''' + ' AND TRIM(EAPAP.KAZON) = TRIM(EAP.APAKPLSZ) ' +
+      'LEFT JOIN BIKTXT EANAP ON ((TRIM(EANAP.KAZON) = TRIM(EAN.APAKLSZ)) OR (TRIM(EANAP.KAZON) = TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZON) = TRIM(EAN.ID_APA))) AND EANAP.KAZON IS NOT NULL ' +
+      'LEFT JOIN EGYEDEK EANAN ON ((TRIM(EANAN.ENAR) = TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_ENAR IS NOT NULL) OR ' +
+                  '(TRIM(EANAN.TEHENSZAM) = TRIM(EAN.ANYA_ELL) AND EAN.ANYA_ELL IS NOT NULL) OR ' +
+                  '(TRIM(EANAN.ID_ENAR) = TRIM(EAN.ANYA_ID_ENAR)) AND EAN.ANYA_ID_ENAR IS NOT NULL) ' +
+      'where E.ID  = :ID ';
 
 type
   TfrmEgyediLapLista = class(TfrmNyomtatoOs)
@@ -144,100 +222,99 @@ type
     dtsLista: TfrxDBDataset;
     frxDBLista: TfrxDBDataset;
     sdsLista: TTalSimpleDataSet;
+    frxRepLista: TfrxReport;
     sdsListaENAR: TWideStringField;
+    sdsListaTENYESZET: TWideStringField;
+    sdsListaTNEV2: TWideStringField;
+    sdsListaVAROS: TWideStringField;
     sdsListaFULSZAM: TWideStringField;
+    sdsListaID_ENAR: TWideStringField;
+    sdsListaTEHENSZAM: TWideStringField;
     sdsListaSZULDAT: TDateTimeField;
     sdsListaMLEVEL1: TWideStringField;
     sdsListaMLEVEL2: TWideStringField;
     sdsListaTKV: TWideStringField;
     sdsListaSZIN: TWideStringField;
-    sdsListaFAJTAKOD: TWideStringField;
     sdsListaSZINNEV: TWideStringField;
+    sdsListaFAJTAKOD: TWideStringField;
     sdsListaFNEV: TWideStringField;
+    sdsListaVER1: TWideStringField;
     sdsListaVSZ1: TBCDField;
+    sdsListaVER2: TWideStringField;
     sdsListaVSZ2: TBCDField;
+    sdsListaVER3: TWideStringField;
     sdsListaVSZ3: TBCDField;
+    sdsListaVER4: TWideStringField;
     sdsListaVSZ4: TBCDField;
     sdsListaKKOD: TWideStringField;
     sdsListaVALDAT: TDateTimeField;
-    sdsListaVALTOM: TSmallintField;
-    sdsListaTOM205: TSmallintField;
-    sdsListaSV: TSmallintField;
+    sdsListaVALKOR: TIntegerField;
+    sdsListaVALTOM: TIntegerField;
+    sdsListaTOM205: TIntegerField;
+    sdsListaSV: TIntegerField;
+    sdsListaTGYVAL: TBCDField;
     sdsListaSZORSZ: TWideStringField;
     sdsListaORSZAGNEV: TWideStringField;
     sdsListaSZARVALTSAG: TWideStringField;
     sdsListaBIKANEVELO: TWideStringField;
-    sdsListaTENYTOM: TSmallintField;
-    sdsListaIVAR: TWideStringField;
-    sdsListaAPANEV: TWideStringField;
-    sdsListaAPA_FSZ: TWideStringField;
-    sdsListaAPA_FAJTANEV: TWideStringField;
-    sdsListaAPA_SZULDAT: TDateTimeField;
-    sdsListaAPA_APAENAR: TWideStringField;
-    sdsListaAPA_APAFSZ: TWideStringField;
-    sdsListaAPA_VSZ1: TBCDField;
-    sdsListaAPA_V1NEV: TWideStringField;
-    sdsListaAPA_VSZ2: TBCDField;
-    sdsListaAPA_V2NEV: TWideStringField;
-    sdsListaAPA_VSZ3: TBCDField;
-    sdsListaAPA_V3NEV: TWideStringField;
-    sdsListaAPA_VSZ4: TBCDField;
-    sdsListaAPA_V4NEV: TWideStringField;
-    sdsListaAPA_ANYA: TWideStringField;
-    sdsListaANYA_ENAR: TWideStringField;
-    sdsListaANYA_NEV: TWideStringField;
-    sdsListaANYA_FAJTANEV: TWideStringField;
-    sdsListaANYA_SZULDAT: TDateTimeField;
-    sdsListaANYA_VSZ1: TBCDField;
-    sdsListaANYA_V1NEV: TWideStringField;
-    sdsListaANYA_VSZ2: TBCDField;
-    sdsListaANYA_V2NEV: TWideStringField;
-    sdsListaANYA_VSZ3: TBCDField;
-    sdsListaANYA_V3NEV: TWideStringField;
-    sdsListaANYA_VSZ4: TBCDField;
-    sdsListaALLDAT: TDateTimeField;
-    sdsListaKIKDAT: TDateTimeField;
-    sdsListaTENYESZET: TWideStringField;
-    sdsListaTNEV2: TWideStringField;
-    sdsListaID_ENAR: TWideStringField;
-    sdsListaTEHENSZAM: TWideStringField;
-    sdsListaANYA_V4NEV: TWideStringField;
-    sdsListaANA_APAFSZ: TWideStringField;
-    sdsListaANA_ANYA_FULSZAM: TWideStringField;
-    sdsListaVER1: TWideStringField;
-    sdsListaVER2: TWideStringField;
-    sdsListaVER3: TWideStringField;
-    sdsListaVER4: TWideStringField;
-    sdsListaAPA_FAJTAKOD: TWideStringField;
-    sdsListaAPA_V1: TWideStringField;
-    sdsListaAPA_V2: TWideStringField;
-    sdsListaAPA_V3: TWideStringField;
-    sdsListaAPA_V4: TWideStringField;
-    sdsListaANYA_FAJTAKOD: TWideStringField;
-    sdsListaANYA_APAKLSZ: TWideStringField;
-    sdsListaANYA_V1: TWideStringField;
-    sdsListaANYA_V2: TWideStringField;
-    sdsListaANYA_V3: TWideStringField;
-    sdsListaANYA_V4: TWideStringField;
-    sdsListaKIKOD: TWideStringField;
-    sdsListaKIKOK: TWideStringField;
-    sdsListaAPAKLSZ: TWideStringField;
-    sdsListaAPA_APAKLSZ: TWideStringField;
+    sdsListaTENYTOM: TIntegerField;
     sdsListaKMI: TBCDField;
-    sdsListaVALKOR: TIntegerField;
-    sdsListaTGYVAL: TBCDField;
-    sdsListaANA_ANYA_ENAR: TWideStringField;
-    sdsListaANYA_ELL: TWideStringField;
-    sdsListaANYA_MIN: TBCDField;
+    sdsListaIVAR: TWideStringField;
     sdsListaBNI: TBCDField;
     sdsListaSZAPIND: TBCDField;
     sdsListaKULLEM_IND: TBCDField;
+    sdsListaNET_PONT: TIntegerField;
+    sdsListaEAP_KLSZ: TWideStringField;
+    sdsListaEAP_NEV: TWideStringField;
+    sdsListaEAP_FSZ: TWideStringField;
+    sdsListaEAP_FAJTAKOD: TWideStringField;
+    sdsListaEAP_FAJTANEV: TWideStringField;
+    sdsListaEAP_SZULDAT: TDateTimeField;
+    sdsListaEAP_V1: TWideStringField;
+    sdsListaEAP_VSZ1: TBCDField;
+    sdsListaEAP_F1NEV: TWideStringField;
+    sdsListaEAP_V2: TWideStringField;
+    sdsListaEAP_VSZ2: TBCDField;
+    sdsListaEAP_F2NEV: TWideStringField;
+    sdsListaEAP_V3: TWideStringField;
+    sdsListaEAP_VSZ3: TBCDField;
+    sdsListaEAP_F3NEV: TWideStringField;
+    sdsListaEAP_V4: TWideStringField;
+    sdsListaEAP_VSZ4: TBCDField;
+    sdsListaEAP_F4NEV: TWideStringField;
+    sdsListaEAN_ENAR: TWideStringField;
+    sdsListaEAN_ELL: TWideStringField;
+    sdsListaEAN_NEV: TWideStringField;
+    sdsListaEAN_FAJTAKOD: TWideStringField;
+    sdsListaEAN_FAJTANEV: TWideStringField;
+    sdsListaEAN_SZULDAT: TDateTimeField;
+    sdsListaEAN_KMI: TBCDField;
+    sdsListaEAN_V1: TWideStringField;
+    sdsListaEAN_VSZ1: TBCDField;
+    sdsListaEAN_F1NEV: TWideStringField;
+    sdsListaEAN_V2: TWideStringField;
+    sdsListaEAN_VSZ2: TBCDField;
+    sdsListaEAN_F2NEV: TWideStringField;
+    sdsListaEAN_V3: TWideStringField;
+    sdsListaEAN_VSZ3: TBCDField;
+    sdsListaEAN_F3NEV: TWideStringField;
+    sdsListaEAN_V4: TWideStringField;
+    sdsListaEAN_VSZ4: TBCDField;
+    sdsListaEAN_F4NEV: TWideStringField;
+    sdsListaEAPAP_AZON: TWideStringField;
+    sdsListaEAPAP_NEV: TWideStringField;
+    sdsListaEAPAN_AZON: TWideStringField;
+    sdsListaEAPAN_NEV: TWideStringField;
+    sdsListaEANAP_AZON: TWideStringField;
+    sdsListaEANAP_NEV: TWideStringField;
+    sdsListaEANAN_AZON: TWideStringField;
+    sdsListaEANAN_NEV: TWideStringField;
     frxEgyedLista: TfrxReport;
-    frxRepLista: TfrxReport;
     procedure actOKExecute(Sender: TObject);
     procedure sdsListaENARGetText(Sender: TField; var Text: String;
       DisplayText: Boolean);
   private
+    egyed_id: Integer;
     { Private declarations }
   public
     { Public declarations }
@@ -264,6 +341,7 @@ begin
 
   with frmEgyediLapLista do
   begin
+    egyed_id := pID;
     sdsLista.Connection := dtmTarka.cnTarka;
     sdsKullem.Connection := dtmTarka.cnTarka;
     sdsEllesek.Connection := dtmTarka.cnTarka;
@@ -312,6 +390,7 @@ begin
      frxRepLista.Script.Variables['ENAR_KOD'] := dtmTarka.sTenyeszetKod;
      frxRepLista.Script.Variables['TENYESZET_NEV'] := dtmTarka.sTenyeszetNev;
      frxRepLista.Script.Variables['SzuroFeltetelek'] := '';
+     frxRepLista.Script.Variables['IvarNev'] := dtmTarka.getIvarName( egyed_id);
      frxRepLista.ShowReport();
   end;
   ModalResult := mrOK;

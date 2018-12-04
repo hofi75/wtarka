@@ -427,6 +427,7 @@ type
     function getTenyeszetCim( tkod: string) : string;
     function getTenyeszetMegye( tkod: string) : string;
     function getMegyeByKOD( kod: string) : string;
+    function getIvarName( pID: integer) : string;
   end;
 
 var
@@ -512,6 +513,40 @@ var
 begin
   mkod := getTenyeszetRKOD( tkod);
   result := getMegyeByKOD( copy( mkod, 1, 2));
+end;
+
+function TdtmTarka.getIvarName( pID: Integer) : string;
+var
+  SQL : string;
+  tq : Ttalquery;
+  ivar: string;
+  darab: integer;
+begin
+  SQL := 'select * from egyedek where id = ' + IntToStr( pID);
+  tq := TTalQuery.Create(Self);
+  tq.Connection := cnTarka;
+  tq.SQL.Add(SQL);
+  tq.Open;
+  ivar := tq.FieldByName('ivar').AsString;
+  tq.Close;
+  tq.free;
+
+  If ivar = '1' then
+     result := 'Bika';
+
+  SQL := 'select count(*) as darab from ellesek where egyed_id = ' + IntToStr( pID);
+  tq := TTalQuery.Create(Self);
+  tq.Connection := cnTarka;
+  tq.SQL.Add(SQL);
+  tq.Open;
+  darab := tq.FieldByName('darab').AsInteger;
+  tq.Close;
+  tq.free;
+  if darab = 0 then
+     result := 'Üszõ'
+  else
+     result := 'Tehén';
+
 end;
 
 

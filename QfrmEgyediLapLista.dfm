@@ -1,6 +1,6 @@
 inherited frmEgyediLapLista: TfrmEgyediLapLista
-  Left = 562
-  Top = 226
+  Left = 847
+  Top = 252
   Width = 701
   Height = 389
   Caption = 'Egyedi lap nyomtat'#225'sa'
@@ -2707,7 +2707,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 38838.519462187500000000
-    ReportOptions.LastChange = 43314.378340856490000000
+    ReportOptions.LastChange = 43438.862102337960000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'var'
@@ -2784,7 +2784,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '     else'
       '       memo7.text := <frxDBLista."ENAR">;'
       'end;'
-      ''
+      '(*'
       'procedure Memo84OnAfterData(Sender: TfrxComponent);'
       'var'
       '  s : string;'
@@ -2839,7 +2839,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '     else'
       '       memo106.text := <frxDBLista."ANA_ANYA_ENAR">;'
       'end;'
-      ''
+      '*)'
       'begin'
       ''
       'end.')
@@ -2857,6 +2857,10 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       item
         DataSet = frxDBDKullem
         DataSetName = 'frxDBKullem'
+      end
+      item
+        DataSet = frxDBLista
+        DataSetName = 'frxDBLista'
       end>
     Variables = <
       item
@@ -2870,6 +2874,10 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       item
         Name = 'Rendezettseg'
         Value = Null
+      end
+      item
+        Name = 'IvarNev'
+        Value = ''
       end>
     Style = <>
     object Page1: TfrxReportPage
@@ -2887,18 +2895,18 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         OnBeforePrint = 'ReportTitle1OnBeforePrint'
         Stretched = True
         object Memo4: TfrxMemoView
-          Left = 199.428014350000000000
-          Top = 12.246753330000000000
-          Width = 309.921337950000000000
+          Left = 192.756091020000000000
+          Top = 52.913420000000000000
+          Width = 321.259927950000000000
           Height = 22.677180000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -19
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = [fsBold, fsUnderline]
           HAlign = haCenter
           Memo.UTF8 = (
-            '   EGYEDI   LAP   ')
+            '[IvarNev] egyedi lap')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -2914,21 +2922,21 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         Top = 173.858380000000000000
         Width = 718.110700000000000000
         OnBeforePrint = 'MasterData1OnBeforePrint'
-        DataSet = frmEgyedLista.frxDBLista
+        DataSet = frxDBLista
         DataSetName = 'frxDBLista'
         RowCount = 0
         object Memo3: TfrxMemoView
           Left = 3.779530000000000000
           Top = 3.779530000000000000
-          Width = 712.162956670000000000
+          Width = 585.827150000000000000
           Height = 18.897650000000000000
           AutoWidth = True
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             
-              'Teny'#258#169'szet :  [frxDBLista."TENYESZET"]   [frxDBLista."TNEV2"]  [' +
-              'frxDBLista."TNEV2"]')
+              'Teny'#258#169'szet :  [frxDBLista."TENYESZET"] - [Trim(<frxDBLista."TNEV' +
+              '2">)], [frxDBLista."VAROS"]')
         end
         object Memo7: TfrxMemoView
           Left = 52.913420000000000000
@@ -2938,7 +2946,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           OnAfterData = 'Memo7OnAfterData'
           OnBeforePrint = 'Memo7OnBeforePrint'
           DataField = 'ENAR'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -2963,7 +2971,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 158.740260000000000000
           Height = 18.897650000000000000
           AutoWidth = True
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             'F'#258#317'lsz'#258#711'm: [frxDBLista."FULSZAM"]')
@@ -2973,7 +2981,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 26.456710000000000000
           Width = 177.637910000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             'Teh'#258#169'nsz'#258#711'm. [frxDBLista."TEHENSZAM"]')
@@ -2981,10 +2989,10 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         object Memo14: TfrxMemoView
           Left = 525.354670000000000000
           Top = 26.456710000000000000
-          Width = 188.944960000000000000
+          Width = 185.196970000000000000
           Height = 18.897650000000000000
           AutoWidth = True
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             'K'#258#317'lf.ENAR : [frxDBLista."ID_ENAR"]')
@@ -2994,7 +3002,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 79.370130000000000000
           Width = 56.692950000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             'TKV : [frxDBLista."TKV"]')
@@ -3005,7 +3013,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 272.126160000000000000
           Height = 18.897650000000000000
           AutoWidth = True
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             'Sz'#258#173'n : [frxDBLista."SZIN"]  [frxDBLista."SZINNEV"]')
@@ -3015,7 +3023,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 52.913420000000000000
           Width = 249.448980000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             'Sz'#258#317'let'#258#169'si d'#258#711'tum: [frxDBLista."SZULDAT"]')
@@ -3023,10 +3031,10 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         object Memo16: TfrxMemoView
           Left = 275.905690000000000000
           Top = 52.913420000000000000
-          Width = 264.567100000000000000
+          Width = 434.645950000000000000
           Height = 18.897650000000000000
           AutoWidth = True
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             
@@ -3073,7 +3081,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 79.370130000000000000
           Width = 355.275820000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             'Fajta : [frxDBLista."FAJTAKOD"]  [frxDBLista."FNEV"]')
@@ -3083,7 +3091,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 105.826840000000000000
           Width = 22.677165350000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             '[frxDBLista."VER1"]')
@@ -3101,7 +3109,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 105.826840000000000000
           Width = 45.354338030000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             '[frxDBLista."VSZ1"] %')
@@ -3112,7 +3120,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 22.677165350000000000
           Height = 18.897650000000000000
           DataField = 'VER2'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3123,7 +3131,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 105.826840000000000000
           Width = 45.354338030000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3135,7 +3143,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 22.677165350000000000
           Height = 18.897650000000000000
           DataField = 'VER3'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3146,7 +3154,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 105.826840000000000000
           Width = 45.354338030000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3158,7 +3166,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 22.677165350000000000
           Height = 18.897650000000000000
           DataField = 'VER4'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3169,7 +3177,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 105.826840000000000000
           Width = 45.354338030000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3191,7 +3199,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Left = 434.645950000000000000
           Top = 151.181200000000000000
           DataField = 'KKOD'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             '[frxDBLista."KKOD"]')
@@ -3201,7 +3209,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 105.826840000000000000
           Width = 257.008040000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             'Konstrukci'#258#322's k'#258#322'd: [frxDBLista."KKOD"]')
@@ -3225,7 +3233,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 132.283550000000000000
           Width = 204.094620000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3237,7 +3245,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 27.913420000000000000
           Height = 18.897650000000000000
           DataField = 'VALKOR'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3248,7 +3256,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 132.283550000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3268,7 +3276,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 132.283550000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3279,7 +3287,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 132.283550000000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3290,7 +3298,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 158.740260000000000000
           Width = 336.378170000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             
@@ -3314,7 +3322,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 158.740260000000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             'Szarvalts'#258#711'g: [frxDBLista."SZARVALTSAG"]')
@@ -3330,7 +3338,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 158.740260000000000000
           Width = 204.094620000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             'Bikanevel'#313#8216' : [frxDBLista."BIKANEVELO"]')
@@ -3340,7 +3348,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 185.196970000000000000
           Width = 302.362400000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -3381,23 +3389,21 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 287.244280000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
-          DataField = 'APAKLSZ'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
-            '[frxDBLista."APAKLSZ"]')
+            '[frxDBLista."EAP_KLSZ"]')
         end
         object Memo48: TfrxMemoView
           Left = 49.133890000000000000
           Top = 309.921460000000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
-          DataField = 'APA_FSZ'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."APA_FSZ"]')
+            '[frxDBLista."EAP_FSZ"]')
         end
         object Memo63: TfrxMemoView
           Left = 3.779530000000000000
@@ -3428,22 +3434,20 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 377.953000000000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
-          DataField = 'APA_SZULDAT'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."APA_SZULDAT"]')
+            '[frxDBLista."EAP_SZULDAT"]')
         end
         object Memo66: TfrxMemoView
           Left = 49.133890000000000000
           Top = 332.598640000000000000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
-          DataField = 'APANEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."APANEV"]')
+            '[frxDBLista."EAP_NEV"]')
         end
         object Memo67: TfrxMemoView
           Left = 3.779530000000000000
@@ -3459,11 +3463,10 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 355.275820000000000000
           Width = 249.448980000000000000
           Height = 18.897650000000000000
-          DataField = 'APA_FAJTANEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."APA_FAJTANEV"]')
+            '[frxDBLista."EAP_FAJTANEV"]')
         end
         object Memo69: TfrxMemoView
           Left = 3.779530000000000000
@@ -3488,7 +3491,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 309.921460000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.1f'
@@ -3496,25 +3499,24 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[frxDBLista."APA_VSZ1"] %')
+            '[frxDBLista."EAP_VSZ1"] %')
         end
         object Memo72: TfrxMemoView
           Left = 359.055350000000000000
           Top = 309.921460000000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
-          DataField = 'APA_V1NEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."APA_V1NEV"]')
+            '[frxDBLista."EAP_F1NEV"]')
         end
         object Memo73: TfrxMemoView
           Left = 306.141930000000000000
           Top = 332.598640000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.1f'
@@ -3522,25 +3524,24 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[frxDBLista."APA_VSZ2"] %')
+            '[frxDBLista."EAP_VSZ2"] %')
         end
         object Memo74: TfrxMemoView
           Left = 359.055350000000000000
           Top = 332.598640000000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
-          DataField = 'APA_V2NEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."APA_V2NEV"]')
+            '[frxDBLista."EAP_F2NEV"]')
         end
         object Memo75: TfrxMemoView
           Left = 306.141930000000000000
           Top = 355.275820000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.1f'
@@ -3548,25 +3549,24 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[frxDBLista."APA_VSZ3"] %')
+            '[frxDBLista."EAP_VSZ3"] %')
         end
         object Memo76: TfrxMemoView
           Left = 359.055350000000000000
           Top = 355.275820000000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
-          DataField = 'APA_V3NEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."APA_V3NEV"]')
+            '[frxDBLista."EAP_F3NEV"]')
         end
         object Memo77: TfrxMemoView
           Left = 306.141930000000000000
           Top = 377.953000000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.1f'
@@ -3574,18 +3574,17 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[frxDBLista."APA_VSZ4"] %')
+            '[frxDBLista."EAP_VSZ4"] %')
         end
         object Memo78: TfrxMemoView
           Left = 359.055350000000000000
           Top = 377.953000000000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
-          DataField = 'APA_V4NEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."APA_V4NEV"]')
+            '[frxDBLista."EAP_F4NEV"]')
         end
         object Line22: TfrxLineView
           Left = 495.118430000000000000
@@ -3611,25 +3610,23 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         object Memo80: TfrxMemoView
           Left = 544.252320000000000000
           Top = 287.244280000000000000
-          Width = 79.370130000000000000
+          Width = 170.078850000000000000
           Height = 18.897650000000000000
-          DataField = 'APA_APAKLSZ'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
-            '[frxDBLista."APA_APAKLSZ"]')
+            '[frxDBLista."EAPAP_AZON"]')
         end
         object Memo81: TfrxMemoView
           Left = 498.897960000000000000
           Top = 309.921460000000000000
-          Width = 120.944960000000000000
+          Width = 215.433210000000000000
           Height = 18.897650000000000000
-          DataField = 'APA_APAFSZ'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."APA_APAFSZ"]')
+            '[frxDBLista."EAPAP_NEV"]')
         end
         object Memo82: TfrxMemoView
           Left = 498.897960000000000000
@@ -3643,14 +3640,13 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         object Memo83: TfrxMemoView
           Left = 544.252320000000000000
           Top = 347.716760000000000000
-          Width = 120.944960000000000000
+          Width = 170.078850000000000000
           Height = 18.897650000000000000
           OnAfterData = 'Memo83OnAfterData'
-          DataField = 'APA_ANYA'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."APA_ANYA"]')
+            '[frxDBLista."EAPAN_AZON"]')
         end
         object Memo84: TfrxMemoView
           Left = 49.133890000000000000
@@ -3658,11 +3654,10 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 120.944960000000000000
           Height = 18.897650000000000000
           OnAfterData = 'Memo84OnAfterData'
-          DataField = 'ANYA_ENAR'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_ENAR"]')
+            '[frxDBLista."EAN_ENAR"]')
         end
         object Memo86: TfrxMemoView
           Left = 3.779530000000000000
@@ -3687,21 +3682,20 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 472.441413540000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_SZULDAT"]')
+            '[frxDBLista."EAN_SZULDAT"]')
         end
         object Memo89: TfrxMemoView
           Left = 49.133890000000000000
           Top = 427.087053540000000000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
-          DataField = 'ANYA_NEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_NEV"]')
+            '[frxDBLista."EAN_NEV"]')
         end
         object Memo90: TfrxMemoView
           Left = 3.779530000000000000
@@ -3717,11 +3711,10 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 449.764233540000000000
           Width = 249.448980000000000000
           Height = 18.897650000000000000
-          DataField = 'ANYA_FAJTANEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_FAJTANEV"]')
+            '[frxDBLista."EAN_FAJTANEV"]')
         end
         object Memo92: TfrxMemoView
           Left = 3.779530000000000000
@@ -3746,7 +3739,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 427.087053540000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.1f'
@@ -3754,25 +3747,24 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_VSZ1"] %')
+            '[frxDBLista."EAN_VSZ1"] %')
         end
         object Memo95: TfrxMemoView
           Left = 359.055350000000000000
           Top = 427.087053540000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
-          DataField = 'ANYA_V1NEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_V1NEV"]')
+            '[frxDBLista."EAN_F1NEV"]')
         end
         object Memo96: TfrxMemoView
           Left = 306.141930000000000000
           Top = 449.764233540000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.1f'
@@ -3780,25 +3772,24 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_VSZ2"] %')
+            '[frxDBLista."EAN_VSZ2"] %')
         end
         object Memo97: TfrxMemoView
           Left = 359.055350000000000000
           Top = 449.764233540000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
-          DataField = 'ANYA_V2NEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_V2NEV"]')
+            '[frxDBLista."EAN_F2NEV"]')
         end
         object Memo98: TfrxMemoView
           Left = 306.141930000000000000
           Top = 472.441413540000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.1f'
@@ -3806,25 +3797,24 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_VSZ3"] %')
+            '[frxDBLista."EAN_VSZ3"] %')
         end
         object Memo99: TfrxMemoView
           Left = 359.055350000000000000
           Top = 472.441413540000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
-          DataField = 'ANYA_V3NEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_V3NEV"]')
+            '[frxDBLista."EAN_F3NEV"]')
         end
         object Memo100: TfrxMemoView
           Left = 306.141930000000000000
           Top = 495.118593540000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           DisplayFormat.DecimalSeparator = ','
           DisplayFormat.FormatStr = '%2.1f'
@@ -3832,18 +3822,17 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           HAlign = haRight
           HideZeros = True
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_VSZ4"] %')
+            '[frxDBLista."EAN_VSZ4"] %')
         end
         object Memo101: TfrxMemoView
           Left = 359.055350000000000000
           Top = 495.118593540000000000
           Width = 128.504020000000000000
           Height = 18.897650000000000000
-          DataField = 'ANYA_V4NEV'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_V4NEV"]')
+            '[frxDBLista."EAN_F4NEV"]')
         end
         object Line24: TfrxLineView
           Left = 495.118430000000000000
@@ -3869,14 +3858,13 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         object Memo103: TfrxMemoView
           Left = 544.252320000000000000
           Top = 404.409873540000000000
-          Width = 79.370130000000000000
+          Width = 170.078850000000000000
           Height = 18.897650000000000000
-          DataField = 'ANYA_APAKLSZ'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_APAKLSZ"]')
+            '[frxDBLista."EANAP_AZON"]')
         end
         object Memo105: TfrxMemoView
           Left = 498.897960000000000000
@@ -3890,14 +3878,13 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         object Memo106: TfrxMemoView
           Left = 544.252320000000000000
           Top = 464.882353540000000000
-          Width = 128.504020000000000000
+          Width = 170.078850000000000000
           Height = 18.897650000000000000
           OnAfterData = 'Memo106OnAfterData'
-          DataField = 'ANA_ANYA_ENAR'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANA_ANYA_ENAR"]')
+            '[frxDBLista."EANAN_AZON"]')
         end
         object Line26: TfrxLineView
           Align = baWidth
@@ -3917,24 +3904,22 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         object Memo104: TfrxMemoView
           Left = 498.897960000000000000
           Top = 429.866420000000000000
-          Width = 120.944960000000000000
+          Width = 215.433210000000000000
           Height = 18.897650000000000000
-          DataField = 'ANA_APAFSZ'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANA_APAFSZ"]')
+            '[frxDBLista."EANAP_NEV"]')
         end
         object Memo107: TfrxMemoView
           Left = 498.897960000000000000
           Top = 487.559370000000000000
-          Width = 173.858380000000000000
+          Width = 215.433210000000000000
           Height = 18.897650000000000000
-          DataField = 'ANA_ANYA_FULSZAM'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANA_ANYA_FULSZAM"]')
+            '[frxDBLista."EANAN_NEV"]')
         end
         object Memo148: TfrxMemoView
           Left = 212.440940000000000000
@@ -3950,26 +3935,25 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 404.409710000000000000
           Width = 90.708720000000000000
           Height = 18.897650000000000000
-          DataField = 'ANYA_ELL'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_ELL"]')
+            '[frxDBLista."EAN_ELL"]')
         end
         object Memo151: TfrxMemoView
           Left = 170.078850000000000000
           Top = 495.118430000000000000
           Width = 56.692950000000000000
           Height = 18.897650000000000000
-          DataField = 'ANYA_MIN'
-          DataSet = frmEgyedLista.frxDBLista
+          DataField = 'EAN_KMI'
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[frxDBLista."ANYA_MIN"]')
+            '[frxDBLista."EAN_KMI"]')
         end
         object Memo152: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 211.653679999999000000
+          Top = 211.653680000000000000
           Width = 117.165430000000000000
           Height = 18.897650000000000000
           AutoWidth = True
@@ -3978,8 +3962,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo154: TfrxMemoView
           Left = 188.976500000000000000
-          Top = 211.653679999999000000
-          Width = 68.031540000000100000
+          Top = 211.653680000000000000
+          Width = 68.031540000000000000
           Height = 18.897650000000000000
           AutoWidth = True
           Memo.UTF8 = (
@@ -3987,8 +3971,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo156: TfrxMemoView
           Left = 332.598640000000000000
-          Top = 211.653679999999000000
-          Width = 86.929190000000100000
+          Top = 211.653680000000000000
+          Width = 86.929190000000000000
           Height = 18.897650000000000000
           AutoWidth = True
           Memo.UTF8 = (
@@ -4000,7 +3984,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 49.133890000000000000
           Height = 18.897650000000000000
           DataField = 'SZAPIND'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -4012,7 +3996,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           DataField = 'KULLEM_IND'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -4024,7 +4008,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 45.354360000000000000
           Height = 18.897650000000000000
           DataField = 'BNI'
-          DataSet = frmEgyedLista.frxDBLista
+          DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
@@ -4036,106 +4020,42 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 718.110700000000000000
           Frame.Typ = [ftTop]
         end
-      end
-      object PageFooter1: TfrxPageFooter
-        Height = 22.677180000000000000
-        Top = 759.685530000000000000
-        Width = 718.110700000000000000
-        object Memo38: TfrxMemoView
-          Left = 695.433520000000000000
-          Width = 15.118110240000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
+        object Memo5: TfrxMemoView
+          Left = 536.693260000000000000
+          Top = 211.653680000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          AutoWidth = True
           Memo.UTF8 = (
-            '[Page]')
-          ParentFont = False
+            'NET:')
         end
-        object Memo39: TfrxMemoView
-          Left = 638.740570000000000000
-          Width = 30.236240000000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
+        object Memo6: TfrxMemoView
+          Left = 582.047620000000000000
+          Top = 211.653680000000000000
+          Width = 98.267780000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          HideZeros = True
           Memo.UTF8 = (
-            'oldal:')
-          ParentFont = False
-        end
-        object Memo40: TfrxMemoView
-          Left = 684.094930000000000000
-          Width = 11.338590000000000000
-          Height = 15.118110240000000000
-          Memo.UTF8 = (
-            '/')
+            '[frxDBLista."NET_PONT"]')
         end
         object Memo9: TfrxMemoView
-          Left = 668.976810000000000000
-          Width = 15.118110240000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
+          Left = 498.897960000000000000
+          Top = 374.173470000000000000
+          Width = 215.433210000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            '[TotalPages#]')
-          ParentFont = False
-        end
-        object Memo1: TfrxMemoView
-          Left = 7.333333330000000000
-          Top = 2.981136670000000000
-          Width = 43.464566930000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8 = (
-            'K'#258#169'sz'#258#317'lt:')
-          ParentFont = False
-        end
-        object SysMemo4: TfrxSysMemoView
-          Left = 60.000000000000000000
-          Top = 2.981136670000000000
-          Width = 62.362204720000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[DATE]')
-          ParentFont = False
-        end
-        object SysMemo5: TfrxSysMemoView
-          Left = 126.000000000000000000
-          Top = 2.981136670000000000
-          Width = 45.354330710000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[TIME]')
-          ParentFont = False
+            '[frxDBLista."EAPAN_NEV"]')
         end
       end
       object Memo42: TfrxMemoView
         Left = -3.779530000000000000
         Top = -3.779530000000000000
         DataField = 'SZARVALTSAG'
-        DataSet = frmEgyedLista.frxDBLista
+        DataSet = frxDBLista
         DataSetName = 'frxDBLista'
         Memo.UTF8 = (
           '[frxDBLista."SZARVALTSAG"]')
@@ -4251,217 +4171,256 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         DataSetName = 'frxDBEgyElles'
         RowCount = 0
         object Memo109: TfrxMemoView
-          Left = 3.779530000000000000
-          Top = 3.779529999999910000
-          Width = 90.708720000000000000
-          Height = 18.897650000000000000
+          Left = 98.267780000000000000
+          Width = 109.606370000000000000
+          Height = 24.566929130000000000
           DataField = 'E_TERM_DAT'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."E_TERM_DAT"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo110: TfrxMemoView
-          Left = 3.779530000000000000
-          Top = 26.456710000000000000
-          Width = 90.708720000000000000
-          Height = 18.897650000000000000
+          Width = 98.267780000000000000
+          Height = 24.566929130000000000
           DataField = 'ELLES_DATUM'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
-          Memo.UTF8 = (
-            '[frxDBEgyElles."ELLES_DATUM"]')
-        end
-        object Memo113: TfrxMemoView
-          Left = 102.047310000000000000
-          Top = 3.779529999999910000
-          Width = 102.047310000000000000
-          Height = 18.897650000000000000
-          DataField = 'BORJU_ENAR'
-          DataSet = dtsEllesek
-          DataSetName = 'frxDBEgyElles'
-          Memo.UTF8 = (
-            '[frxDBEgyElles."BORJU_ENAR"]')
-        end
-        object Memo114: TfrxMemoView
-          Left = 130.393785000000000000
-          Top = 26.456710000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
-          DataField = 'KEK'
-          DataSet = dtsEllesek
-          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxDBEgyElles."KEK"]')
+            '[frxDBEgyElles."ELLES_DATUM"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo117: TfrxMemoView
-          Left = 215.433210000000000000
-          Top = 3.779529999999990000
-          Width = 41.574830000000000000
-          Height = 18.897650000000000000
+          Left = 37.795300000000000000
+          Top = 24.566929130000000000
+          Width = 60.472480000000000000
+          Height = 24.566929130000000000
           DataField = 'KEK'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           HideZeros = True
           Memo.UTF8 = (
             '[frxDBEgyElles."KEK"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo120: TfrxMemoView
-          Left = 215.433210000000000000
-          Top = 26.456710000000000000
-          Width = 41.574830000000000000
-          Height = 18.897650000000000000
+          Top = 24.566929130000000000
+          Width = 37.795275590000000000
+          Height = 24.566929130000000000
           DataField = 'ELLES_LEF'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."ELLES_LEF"]')
-        end
-        object Memo123: TfrxMemoView
-          Left = 264.567100000000000000
-          Top = 3.779529999999990000
-          Width = 52.913420000000000000
-          Height = 18.897650000000000000
-          DataField = 'KPLSZ'
-          DataSet = dtsEllesek
-          DataSetName = 'frxDBEgyElles'
-          HAlign = haCenter
-          Memo.UTF8 = (
-            '[frxDBEgyElles."KPLSZ"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo124: TfrxMemoView
-          Left = 268.346630000000000000
-          Top = 26.456710000000000000
-          Width = 49.133890000000000000
-          Height = 18.897650000000000000
+          Left = 260.787570000000000000
+          Width = 22.677180000000000000
+          Height = 24.566929130000000000
           DataField = 'BORJU_IVAR'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."BORJU_IVAR"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo127: TfrxMemoView
-          Left = 328.819110000000000000
-          Top = 3.779529999999990000
-          Width = 30.236240000000000000
-          Height = 18.897650000000000000
+          Left = 309.921460000000000000
+          Width = 34.015770000000000000
+          Height = 24.566929130000000000
           DataField = 'SZARVALTSAG'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."SZARVALTSAG"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo128: TfrxMemoView
-          Left = 328.819110000000000000
-          Top = 26.456710000000000000
-          Width = 30.236240000000000000
-          Height = 18.897650000000000000
+          Left = 283.464750000000000000
+          Width = 26.456710000000000000
+          Height = 24.566929130000000000
           DataField = 'BORJU_SULY'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."BORJU_SULY"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo131: TfrxMemoView
-          Left = 379.842765000000000000
-          Top = 3.779529999999910000
-          Width = 90.708720000000000000
-          Height = 18.897650000000000000
+          Left = 343.937007870000000000
+          Width = 52.913420000000000000
+          Height = 24.566929130000000000
           DataField = 'VALDAT'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."VALDAT"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo132: TfrxMemoView
-          Left = 385.512060000000000000
-          Top = 26.456710000000000000
-          Width = 79.370130000000000000
-          Height = 18.897650000000000000
+          Left = 396.850650000000000000
+          Width = 52.913420000000000000
+          Height = 24.566929130000000000
           DataField = 'VALTOM'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."VALTOM"]')
-        end
-        object Memo135: TfrxMemoView
-          Left = 487.559370000000000000
-          Top = 3.779529999999990000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
-          DataField = 'KOR_NAP'
-          DataSet = dtsEllesek
-          DataSetName = 'frxDBEgyElles'
-          HAlign = haCenter
-          Memo.UTF8 = (
-            '[frxDBEgyElles."KOR_NAP"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo136: TfrxMemoView
-          Left = 544.252320000000000000
-          Top = 3.779529999999910000
-          Width = 56.692950000000000000
-          Height = 18.897650000000000000
+          Left = 449.764070000000000000
+          Width = 30.236240000000000000
+          Height = 24.566929130000000000
           DataField = 'TOM205'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."TOM205"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo137: TfrxMemoView
-          Left = 544.252320000000000000
-          Top = 26.456710000000000000
-          Width = 56.692950000000000000
-          Height = 18.897650000000000000
+          Left = 529.134200000000000000
+          Width = 30.236240000000000000
+          Height = 24.566929130000000000
           DataField = 'SV'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."SV"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo143: TfrxMemoView
-          Left = 608.504330000000000000
-          Top = 3.779529999999910000
-          Width = 102.047310000000000000
-          Height = 18.897650000000000000
+          Left = 559.370440000000000000
+          Width = 83.149660000000000000
+          Height = 24.566929130000000000
           DataField = 'KIKDAT'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."KIKDAT"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo144: TfrxMemoView
-          Left = 619.842920000000000000
-          Top = 26.456710000000000000
-          Width = 30.236240000000000000
-          Height = 18.897650000000000000
+          Left = 642.520100000000000000
+          Width = 37.795300000000000000
+          Height = 24.566929130000000000
           DataField = 'KIKOD'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."KIKOD"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo145: TfrxMemoView
-          Left = 665.197280000000000000
-          Top = 26.456710000000000000
+          Left = 680.315400000000000000
           Width = 37.795300000000000000
-          Height = 18.897650000000000000
-          DataField = 'KIKOK'
+          Height = 24.566929130000000000
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."KIKOK"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Line28: TfrxLineView
           Align = baWidth
@@ -4489,12 +4448,12 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Frame.Typ = [ftLeft]
         end
         object Line33: TfrxLineView
-          Left = 321.260050000000000000
+          Left = 309.921259842520000000
           Height = 49.133890000000000000
           Frame.Typ = [ftLeft]
         end
         object Line34: TfrxLineView
-          Left = 366.614410000000000000
+          Left = 343.937007870000000000
           Height = 49.133890000000000000
           Frame.Typ = [ftLeft]
         end
@@ -4504,12 +4463,12 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Frame.Typ = [ftLeft]
         end
         object Line36: TfrxLineView
-          Left = 540.472790000000000000
+          Left = 529.133858267717000000
           Height = 49.133890000000000000
           Frame.Typ = [ftLeft]
         end
         object Line37: TfrxLineView
-          Left = 604.724800000000000000
+          Left = 642.520100000000000000
           Height = 49.133890000000000000
           Frame.Typ = [ftLeft]
         end
@@ -4519,16 +4478,337 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Frame.Typ = [ftLeft]
         end
         object Memo32: TfrxMemoView
-          Left = 487.559370000000000000
-          Top = 26.456710000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
+          Left = 480.000310000000000000
+          Width = 49.133890000000000000
+          Height = 24.566929130000000000
           DataField = 'TGYVAL'
           DataSet = dtsEllesek
           DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBEgyElles."TGYVAL"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo39: TfrxMemoView
+          Left = 98.267780000000000000
+          Top = 24.566929130000000000
+          Width = 26.456710000000000000
+          Height = 24.566929130000000000
+          DataField = 'E_TERM_DAT'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."E_TERM_DAT"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line56: TfrxLineView
+          Top = 24.566929130000000000
+          Width = 718.110700000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line57: TfrxLineView
+          Left = 37.795300000000000000
+          Top = 24.566929130000000000
+          Height = 24.566929133858300000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo53: TfrxMemoView
+          Left = 124.724490000000000000
+          Top = 24.566929130000000000
+          Width = 83.149660000000000000
+          Height = 24.566929130000000000
+          DataField = 'E_TERM_DAT'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."E_TERM_DAT"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo55: TfrxMemoView
+          Left = 207.874150000000000000
+          Width = 52.913420000000000000
+          Height = 24.566929130000000000
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."BORJU_ENAR"]')
+          ParentFont = False
+        end
+        object Memo56: TfrxMemoView
+          Left = 207.874150000000000000
+          Top = 24.566929130000000000
+          Width = 52.913420000000000000
+          Height = 24.566929130000000000
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."BORJU_ENAR"]')
+          ParentFont = False
+        end
+        object Line60: TfrxLineView
+          Left = 283.464750000000000000
+          Height = 49.133890000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo57: TfrxMemoView
+          Left = 260.787570000000000000
+          Top = 24.566929133858300000
+          Width = 22.677180000000000000
+          Height = 24.566929130000000000
+          DataField = 'BORJU_IVAR'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."BORJU_IVAR"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo59: TfrxMemoView
+          Left = 283.464750000000000000
+          Top = 24.566929133858300000
+          Width = 26.456710000000000000
+          Height = 24.566929130000000000
+          DataField = 'BORJU_SULY'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."BORJU_SULY"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo118: TfrxMemoView
+          Left = 309.921460000000000000
+          Top = 24.566929133858300000
+          Width = 34.015770000000000000
+          Height = 24.566929130000000000
+          DataField = 'SZARVALTSAG'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."SZARVALTSAG"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line67: TfrxLineView
+          Left = 396.850650000000000000
+          Height = 49.133890000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo121: TfrxMemoView
+          Left = 343.937230000000000000
+          Top = 24.566929133858300000
+          Width = 52.913420000000000000
+          Height = 24.566929130000000000
+          DataField = 'VALDAT'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."VALDAT"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line69: TfrxLineView
+          Left = 449.764070000000000000
+          Height = 49.133890000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo126: TfrxMemoView
+          Left = 396.850650000000000000
+          Top = 24.566929133858300000
+          Width = 52.913420000000000000
+          Height = 24.566929130000000000
+          DataField = 'VALTOM'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."VALTOM"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo159: TfrxMemoView
+          Left = 449.764070000000000000
+          Top = 24.566929133858300000
+          Width = 30.236240000000000000
+          Height = 24.566929130000000000
+          DataField = 'TOM205'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."TOM205"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo133: TfrxMemoView
+          Left = 480.000310000000000000
+          Top = 24.566929133858300000
+          Width = 49.133890000000000000
+          Height = 24.566929130000000000
+          DataField = 'TGYVAL'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."TGYVAL"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line71: TfrxLineView
+          Left = 559.370440000000000000
+          Height = 49.133890000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo135: TfrxMemoView
+          Left = 529.134200000000000000
+          Top = 24.566929130000000000
+          Width = 30.236240000000000000
+          Height = 24.566929130000000000
+          DataField = 'SV'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."SV"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo160: TfrxMemoView
+          Left = 559.370440000000000000
+          Top = 24.566929130000000000
+          Width = 83.149660000000000000
+          Height = 24.566929130000000000
+          DataField = 'KIKDAT'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."KIKDAT"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line75: TfrxLineView
+          Left = 680.315400000000000000
+          Height = 49.133890000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo162: TfrxMemoView
+          Left = 642.520100000000000000
+          Top = 24.566929133858300000
+          Width = 37.795300000000000000
+          Height = 24.566929130000000000
+          DataField = 'KIKOD'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."KIKOD"]')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Memo163: TfrxMemoView
+          Left = 680.315400000000000000
+          Top = 24.566929133858300000
+          Width = 37.795300000000000000
+          Height = 24.566929130000000000
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."KIKOK"]')
+          ParentFont = False
+          VAlign = vaCenter
         end
       end
       object Header1: TfrxHeader
@@ -4552,170 +4832,178 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           ParentFont = False
         end
         object Memo111: TfrxMemoView
-          Left = 3.779530000000000000
-          Top = 37.795300000000000000
-          Width = 86.929190000000000000
-          Height = 18.897650000000000000
+          Left = 98.267780000000000000
+          Top = 34.015770000000000000
+          Width = 109.606370000000000000
+          Height = 22.677180000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
           Memo.UTF8 = (
-            'Term.d'#258#711'tum')
+            'Term'#258#169'keny'#258#173't'#258#169's ideje')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo112: TfrxMemoView
-          Left = 3.779530000000000000
-          Top = 56.692950000000000000
-          Width = 86.929190000000000000
-          Height = 18.897650000000000000
-          Memo.UTF8 = (
-            'Ell'#258#169's.d'#258#711'tum')
-        end
-        object Memo115: TfrxMemoView
-          Left = 102.047310000000000000
-          Top = 37.795300000000000000
-          Width = 102.047310000000000000
-          Height = 18.897650000000000000
-          Memo.UTF8 = (
-            'Borj'#258#351' azonos'#258#173't'#258#322)
-        end
-        object Memo116: TfrxMemoView
-          Left = 102.047310000000000000
-          Top = 56.692950000000000000
-          Width = 102.047310000000000000
-          Height = 18.897650000000000000
-          Memo.UTF8 = (
-            'Ell'#258#169'sek k'#258#182'zti id'#313#8216)
-        end
-        object Memo118: TfrxMemoView
-          Left = 211.653680000000000000
-          Top = 37.795300000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
+          Top = 34.015770000000000000
+          Width = 98.267780000000000000
+          Height = 22.677180000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'K.E.K')
+            'Ell'#258#169's d'#258#711'tuma')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo119: TfrxMemoView
-          Left = 211.653680000000000000
           Top = 56.692950000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
+          Width = 37.795300000000000000
+          Height = 22.677180000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Lef')
-        end
-        object Memo121: TfrxMemoView
-          Left = 264.567100000000000000
-          Top = 37.795300000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'Bika')
+            'Ell'#258#169's lef.')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo122: TfrxMemoView
-          Left = 264.567100000000000000
-          Top = 56.692950000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
+          Left = 260.787570000000000000
+          Top = 34.015770000000000000
+          Width = 22.677180000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             'Ivar')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo125: TfrxMemoView
-          Left = 328.819110000000000000
-          Top = 37.795300000000000000
-          Width = 30.236240000000000000
-          Height = 18.897650000000000000
+          Left = 309.921460000000000000
+          Top = 34.015770000000000000
+          Width = 34.015770000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Sza.')
-        end
-        object Memo126: TfrxMemoView
-          Left = 328.819110000000000000
-          Top = 56.692950000000000000
-          Width = 30.236240000000000000
-          Height = 18.897650000000000000
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'Szt')
+            'Szarv')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo129: TfrxMemoView
-          Left = 374.173470000000000000
-          Top = 37.795300000000000000
-          Width = 102.047310000000000000
-          Height = 18.897650000000000000
-          Memo.UTF8 = (
-            'V'#258#711'laszt'#258#711's d'#258#711'tum')
-        end
-        object Memo130: TfrxMemoView
-          Left = 374.173470000000000000
-          Top = 56.692950000000000000
-          Width = 102.047310000000000000
-          Height = 18.897650000000000000
+          Left = 343.937230000000000000
+          Top = 34.015770000000000000
+          Width = 52.913420000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'V'#258#711'laszt'#258#711's.t'#258#182'meg')
-        end
-        object Memo133: TfrxMemoView
-          Left = 487.559370000000000000
-          Top = 37.795300000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'Kor')
+            'V'#258#711'laszt'#258#711's d'#258#711'tuma')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo134: TfrxMemoView
-          Left = 487.559370000000000000
-          Top = 56.692950000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
+          Left = 480.000310000000000000
+          Top = 34.015770000000000000
+          Width = 49.133890000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            #258#8240't.gyar.')
+            #258#8240'letnapi t'#258#182'm.gyar.')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo138: TfrxMemoView
-          Left = 551.811380000000000000
-          Top = 37.795300000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
+          Left = 449.764070000000000000
+          Top = 34.015770000000000000
+          Width = 30.236240000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '205 n.')
+            '205 napos t'#258#182'meg')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo139: TfrxMemoView
-          Left = 551.811380000000000000
-          Top = 56.692950000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
+          Left = 529.134200000000000000
+          Top = 34.015770000000000000
+          Width = 30.236240000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Sv %')
+            'SV %')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo140: TfrxMemoView
-          Left = 612.283860000000000000
-          Top = 37.795300000000000000
-          Width = 98.267780000000000000
-          Height = 18.897650000000000000
+          Left = 559.370440000000000000
+          Top = 34.015770000000000000
+          Width = 83.149660000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             'Kiker'#258#317'l'#258#169's ideje')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Memo141: TfrxMemoView
-          Left = 612.283860000000000000
-          Top = 56.692950000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
+          Left = 642.520100000000000000
+          Top = 34.015770000000000000
+          Width = 37.795300000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'm'#258#322'd')
-        end
-        object Memo142: TfrxMemoView
-          Left = 661.417750000000000000
-          Top = 56.692950000000000000
-          Width = 45.354360000000000000
-          Height = 18.897650000000000000
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'ok')
+            'Kik. m'#258#322'dja')
+          ParentFont = False
+          VAlign = vaCenter
         end
         object Line27: TfrxLineView
           Align = baWidth
@@ -4748,13 +5036,13 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Frame.Typ = [ftLeft]
         end
         object Line44: TfrxLineView
-          Left = 321.260050000000000000
+          Left = 309.921259842520000000
           Top = 34.015770000000000000
           Height = 45.354360000000000000
           Frame.Typ = [ftLeft]
         end
         object Line45: TfrxLineView
-          Left = 366.614410000000000000
+          Left = 343.937007874016000000
           Top = 34.015770000000000000
           Height = 45.354360000000000000
           Frame.Typ = [ftLeft]
@@ -4766,19 +5054,18 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Frame.Typ = [ftLeft]
         end
         object Line47: TfrxLineView
-          Left = 540.472790000000000000
+          Left = 529.133858267717000000
           Top = 34.015770000000000000
           Height = 45.354360000000000000
           Frame.Typ = [ftLeft]
         end
         object Line48: TfrxLineView
-          Left = 604.724800000000000000
+          Left = 642.520100000000000000
           Top = 34.015770000000000000
           Height = 45.354360000000000000
           Frame.Typ = [ftLeft]
         end
         object Line39: TfrxLineView
-          Left = -0.000000000000000444
           Top = 34.015770000000000000
           Height = 45.354360000000000000
           Frame.Typ = [ftLeft]
@@ -4788,6 +5075,143 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 34.015770000000000000
           Height = 45.354360000000000000
           Frame.Typ = [ftLeft]
+        end
+        object Memo38: TfrxMemoView
+          Left = 98.267780000000000000
+          Top = 56.692950000000000000
+          Width = 109.606370000000000000
+          Height = 22.677180000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Term'#258#169'keny'#258#173't'#313#8216' bika')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line54: TfrxLineView
+          Top = 56.692950000000000000
+          Width = 207.874150000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Memo40: TfrxMemoView
+          Left = 37.795300000000000000
+          Top = 56.692950000000000000
+          Width = 60.472480000000000000
+          Height = 22.677180000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Ell'#258#169'sek k'#258#182'zti id'#313#8216)
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line55: TfrxLineView
+          Left = 37.795300000000000000
+          Top = 56.692950000000000000
+          Height = 22.677180000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo54: TfrxMemoView
+          Left = 207.874150000000000000
+          Top = 34.015770000000000000
+          Width = 52.913420000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Borj'#258#351' ENAR')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line58: TfrxLineView
+          Left = 283.464566929134000000
+          Top = 34.015770000000000000
+          Height = 45.354360000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo58: TfrxMemoView
+          Left = 283.464750000000000000
+          Top = 34.015770000000000000
+          Width = 26.456710000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Sz'#258#317'l. s'#258#351'ly')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line66: TfrxLineView
+          Left = 396.850650000000000000
+          Top = 34.015770000000000000
+          Height = 45.354360000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo123: TfrxMemoView
+          Left = 396.850650000000000000
+          Top = 34.015770000000000000
+          Width = 52.913420000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'V'#258#711'laszt'#258#711'si t'#258#182'meg')
+          ParentFont = False
+          VAlign = vaCenter
+        end
+        object Line68: TfrxLineView
+          Left = 449.764070000000000000
+          Top = 34.015770000000000000
+          Height = 45.354360000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line70: TfrxLineView
+          Left = 559.370440000000000000
+          Top = 34.015770000000000000
+          Height = 45.354360000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line74: TfrxLineView
+          Left = 680.315400000000000000
+          Top = 34.015770000000000000
+          Height = 45.354360000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo161: TfrxMemoView
+          Left = 680.315400000000000000
+          Top = 34.015770000000000000
+          Width = 37.795300000000000000
+          Height = 45.354360000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Kik. oka')
+          ParentFont = False
+          VAlign = vaCenter
         end
       end
       object Footer1: TfrxFooter
@@ -4802,26 +5226,44 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DisplayFormat.DecimalSeparator = '.'
           DisplayFormat.FormatStr = '%5.0f'
           DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
             
               '[SUM(<frxDBEgyElles."KEK">,MasterData2)/IIF((count(MasterData2,0' +
               ')-1)>0, (count(MasterData2,0)-1),1) ]')
+          ParentFont = False
         end
         object Memo146: TfrxMemoView
           Left = 3.779530000000000000
           Top = 3.779530000000000000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
             'K'#258#169't ell'#258#169's k'#258#182'zti napok '#258#711'tlaga:')
+          ParentFont = False
         end
         object Memo147: TfrxMemoView
           Left = 3.779530000000000000
           Top = 26.456710000000000000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
             'K'#258#182'nny'#313#177' ell'#258#169'sek ar'#258#711'nya:')
+          ParentFont = False
         end
         object Memo149: TfrxMemoView
           Left = 185.196970000000000000
@@ -4832,8 +5274,199 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DisplayFormat.DecimalSeparator = '.'
           DisplayFormat.FormatStr = '%2.2f'
           DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Arial'
+          Font.Style = []
           Memo.UTF8 = (
             '0')
+          ParentFont = False
+        end
+      end
+    end
+    object Page4: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      object MasterData4: TfrxMasterData
+        Height = 49.133890000000000000
+        Top = 94.488250000000000000
+        Width = 718.110700000000000000
+        OnAfterPrint = 'MasterData2OnAfterPrint'
+        OnBeforePrint = 'MasterData2OnBeforePrint'
+        DataSet = dtsEllesek
+        DataSetName = 'frxDBEgyElles'
+        RowCount = 0
+        object Memo8: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 3.779530000000000000
+          Width = 162.519790000000000000
+          Height = 18.897650000000000000
+          DataField = 'E_TERM_DAT'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."E_TERM_DAT"]')
+        end
+        object Memo29: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 26.456710000000000000
+          Width = 162.519790000000000000
+          Height = 18.897650000000000000
+          DataField = 'ELLES_DATUM'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."ELLES_DATUM"]')
+        end
+        object Line52: TfrxLineView
+          Height = 49.133890000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line53: TfrxLineView
+          Left = 170.078850000000000000
+          Height = 49.133890000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line59: TfrxLineView
+          Left = 506.457020000000000000
+          Height = 49.133890000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line61: TfrxLineView
+          Left = 718.110700000000000000
+          Height = 49.133890000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo49: TfrxMemoView
+          Left = 173.858380000000000000
+          Top = 3.779530000000000000
+          Width = 328.819110000000000000
+          Height = 18.897650000000000000
+          DataField = 'E_TERM_DAT'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Memo.UTF8 = (
+            '[frxDBEgyElles."E_TERM_DAT"]')
+        end
+        object Memo51: TfrxMemoView
+          Left = 173.858380000000000000
+          Top = 26.456710000000000000
+          Width = 328.819110000000000000
+          Height = 18.897650000000000000
+          DataField = 'E_TERM_DAT'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          Memo.UTF8 = (
+            '[frxDBEgyElles."E_TERM_DAT"]')
+        end
+        object Memo52: TfrxMemoView
+          Left = 514.016080000000000000
+          Top = 15.118120000000000000
+          Width = 196.535560000000000000
+          Height = 18.897650000000000000
+          DataField = 'E_TERM_DAT'
+          DataSet = dtsEllesek
+          DataSetName = 'frxDBEgyElles'
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBEgyElles."E_TERM_DAT"]')
+        end
+        object Line51: TfrxLineView
+          Align = baWidth
+          Top = 49.133890000000000000
+          Width = 718.110700000000000000
+          Frame.Typ = [ftTop]
+        end
+      end
+      object Header2: TfrxHeader
+        Height = 52.913385826771700000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        ReprintOnNewPage = True
+        object Memo166: TfrxMemoView
+          Left = 5.618901270000000000
+          Width = 706.772110000000000000
+          Height = 22.677180000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Font.Style = [fsBold, fsUnderline]
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Utols'#258#322' ell'#258#169's ut'#258#711'ni term'#258#169'keny'#258#173't'#258#169'sek')
+          ParentFont = False
+        end
+        object Memo167: TfrxMemoView
+          Top = 34.015770000000000000
+          Width = 170.078850000000000000
+          Height = 18.897650000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Term.d'#258#711'tum')
+        end
+        object Line63: TfrxLineView
+          Align = baWidth
+          Left = -0.000000000000000444
+          Top = 34.015770000000000000
+          Width = 718.110700000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line64: TfrxLineView
+          Left = 170.078850000000000000
+          Top = 34.015770000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line65: TfrxLineView
+          Left = 506.457020000000000000
+          Top = 34.015770000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line72: TfrxLineView
+          Left = -0.000000000000000444
+          Top = 30.236240000000000000
+          Height = 45.354360000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line73: TfrxLineView
+          Left = 718.110700000000000000
+          Top = 34.015770000000000000
+          Height = 41.574830000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo168: TfrxMemoView
+          Left = 170.078850000000000000
+          Top = 34.015770000000000000
+          Width = 336.378170000000000000
+          Height = 18.897650000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Bika')
+        end
+        object Memo169: TfrxMemoView
+          Left = 506.457020000000000000
+          Top = 34.015770000000000000
+          Width = 211.653680000000000000
+          Height = 18.897650000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Eredm'#258#169'nye')
+        end
+        object Line62: TfrxLineView
+          Align = baWidth
+          Top = 52.913420000000000000
+          Width = 718.110700000000000000
+          Frame.Typ = [ftTop]
         end
       end
     end
@@ -4841,221 +5474,341 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
   object dtsLista: TfrxDBDataset
     UserName = 'frxDBLista'
     CloseDataSource = True
+    FieldAliases.Strings = (
+      'ENAR=ENAR'
+      'TENYESZET=TENYESZET'
+      'TNEV2=TNEV2'
+      'VAROS=VAROS'
+      'FULSZAM=FULSZAM'
+      'ID_ENAR=ID_ENAR'
+      'TEHENSZAM=TEHENSZAM'
+      'SZULDAT=SZULDAT'
+      'MLEVEL1=MLEVEL1'
+      'MLEVEL2=MLEVEL2'
+      'TKV=TKV'
+      'SZIN=SZIN'
+      'SZINNEV=SZINNEV'
+      'FAJTAKOD=FAJTAKOD'
+      'FNEV=FNEV'
+      'VER1=VER1'
+      'VSZ1=VSZ1'
+      'VER2=VER2'
+      'VSZ2=VSZ2'
+      'VER3=VER3'
+      'VSZ3=VSZ3'
+      'VER4=VER4'
+      'VSZ4=VSZ4'
+      'KKOD=KKOD'
+      'VALDAT=VALDAT'
+      'VALKOR=VALKOR'
+      'VALTOM=VALTOM'
+      'TOM205=TOM205'
+      'SV=SV'
+      'TGYVAL=TGYVAL'
+      'SZORSZ=SZORSZ'
+      'ORSZAGNEV=ORSZAGNEV'
+      'SZARVALTSAG=SZARVALTSAG'
+      'BIKANEVELO=BIKANEVELO'
+      'TENYTOM=TENYTOM'
+      'KMI=KMI'
+      'IVAR=IVAR'
+      'BNI=BNI'
+      'SZAPIND=SZAPIND'
+      'KULLEM_IND=KULLEM_IND'
+      'NET_PONT=NET_PONT'
+      'EAP_KLSZ=EAP_KLSZ'
+      'EAP_NEV=EAP_NEV'
+      'EAP_FSZ=EAP_FSZ'
+      'EAP_FAJTAKOD=EAP_FAJTAKOD'
+      'EAP_FAJTANEV=EAP_FAJTANEV'
+      'EAP_SZULDAT=EAP_SZULDAT'
+      'EAP_V1=EAP_V1'
+      'EAP_VSZ1=EAP_VSZ1'
+      'EAP_F1NEV=EAP_F1NEV'
+      'EAP_V2=EAP_V2'
+      'EAP_VSZ2=EAP_VSZ2'
+      'EAP_F2NEV=EAP_F2NEV'
+      'EAP_V3=EAP_V3'
+      'EAP_VSZ3=EAP_VSZ3'
+      'EAP_F3NEV=EAP_F3NEV'
+      'EAP_V4=EAP_V4'
+      'EAP_VSZ4=EAP_VSZ4'
+      'EAP_F4NEV=EAP_F4NEV'
+      'EAN_ENAR=EAN_ENAR'
+      'EAN_ELL=EAN_ELL'
+      'EAN_NEV=EAN_NEV'
+      'EAN_FAJTAKOD=EAN_FAJTAKOD'
+      'EAN_FAJTANEV=EAN_FAJTANEV'
+      'EAN_SZULDAT=EAN_SZULDAT'
+      'EAN_KMI=EAN_KMI'
+      'EAN_V1=EAN_V1'
+      'EAN_VSZ1=EAN_VSZ1'
+      'EAN_F1NEV=EAN_F1NEV'
+      'EAN_V2=EAN_V2'
+      'EAN_VSZ2=EAN_VSZ2'
+      'EAN_F2NEV=EAN_F2NEV'
+      'EAN_V3=EAN_V3'
+      'EAN_VSZ3=EAN_VSZ3'
+      'EAN_F3NEV=EAN_F3NEV'
+      'EAN_V4=EAN_V4'
+      'EAN_VSZ4=EAN_VSZ4'
+      'EAN_F4NEV=EAN_F4NEV'
+      'EAPAP_AZON=EAPAP_AZON'
+      'EAPAP_NEV=EAPAP_NEV'
+      'EAPAN_AZON=EAPAN_AZON'
+      'EAPAN_NEV=EAPAN_NEV'
+      'EANAP_AZON=EANAP_AZON'
+      'EANAP_NEV=EANAP_NEV'
+      'EANAN_AZON=EANAN_AZON'
+      'EANAN_NEV=EANAN_NEV')
     OpenDataSource = False
-    Left = 136
-    Top = 176
+    DataSet = sdsLista
+    Left = 32
+    Top = 144
   end
   object frxDBLista: TfrxDBDataset
     UserName = 'frxDBLista'
     CloseDataSource = True
     FieldAliases.Strings = (
       'ENAR=ENAR'
+      'TENYESZET=TENYESZET'
+      'TNEV2=TNEV2'
+      'VAROS=VAROS'
       'FULSZAM=FULSZAM'
+      'ID_ENAR=ID_ENAR'
+      'TEHENSZAM=TEHENSZAM'
       'SZULDAT=SZULDAT'
       'MLEVEL1=MLEVEL1'
       'MLEVEL2=MLEVEL2'
       'TKV=TKV'
       'SZIN=SZIN'
-      'FAJTAKOD=FAJTAKOD'
       'SZINNEV=SZINNEV'
+      'FAJTAKOD=FAJTAKOD'
       'FNEV=FNEV'
+      'VER1=VER1'
       'VSZ1=VSZ1'
+      'VER2=VER2'
       'VSZ2=VSZ2'
+      'VER3=VER3'
       'VSZ3=VSZ3'
+      'VER4=VER4'
       'VSZ4=VSZ4'
       'KKOD=KKOD'
       'VALDAT=VALDAT'
+      'VALKOR=VALKOR'
       'VALTOM=VALTOM'
       'TOM205=TOM205'
       'SV=SV'
+      'TGYVAL=TGYVAL'
       'SZORSZ=SZORSZ'
       'ORSZAGNEV=ORSZAGNEV'
       'SZARVALTSAG=SZARVALTSAG'
       'BIKANEVELO=BIKANEVELO'
       'TENYTOM=TENYTOM'
-      'IVAR=IVAR'
-      'APANEV=APANEV'
-      'APA_FSZ=APA_FSZ'
-      'APA_FAJTANEV=APA_FAJTANEV'
-      'APA_SZULDAT=APA_SZULDAT'
-      'APA_APAENAR=APA_APAENAR'
-      'APA_APAFSZ=APA_APAFSZ'
-      'APA_VSZ1=APA_VSZ1'
-      'APA_V1NEV=APA_V1NEV'
-      'APA_VSZ2=APA_VSZ2'
-      'APA_V2NEV=APA_V2NEV'
-      'APA_VSZ3=APA_VSZ3'
-      'APA_V3NEV=APA_V3NEV'
-      'APA_VSZ4=APA_VSZ4'
-      'APA_V4NEV=APA_V4NEV'
-      'APA_ANYA=APA_ANYA'
-      'ANYA_ENAR=ANYA_ENAR'
-      'ANYA_NEV=ANYA_NEV'
-      'ANYA_FAJTANEV=ANYA_FAJTANEV'
-      'ANYA_SZULDAT=ANYA_SZULDAT'
-      'ANYA_VSZ1=ANYA_VSZ1'
-      'ANYA_V1NEV=ANYA_V1NEV'
-      'ANYA_VSZ2=ANYA_VSZ2'
-      'ANYA_V2NEV=ANYA_V2NEV'
-      'ANYA_VSZ3=ANYA_VSZ3'
-      'ANYA_V3NEV=ANYA_V3NEV'
-      'ANYA_VSZ4=ANYA_VSZ4'
-      'ALLDAT=ALLDAT'
-      'KIKDAT=KIKDAT'
-      'TENYESZET=TENYESZET'
-      'TNEV2=TNEV2'
-      'ID_ENAR=ID_ENAR'
-      'TEHENSZAM=TEHENSZAM'
-      'ANYA_V4NEV=ANYA_V4NEV'
-      'ANA_APAFSZ=ANA_APAFSZ'
-      'ANA_ANYA_FULSZAM=ANA_ANYA_FULSZAM'
-      'VER1=VER1'
-      'VER2=VER2'
-      'VER3=VER3'
-      'VER4=VER4'
-      'APA_FAJTAKOD=APA_FAJTAKOD'
-      'APA_V1=APA_V1'
-      'APA_V2=APA_V2'
-      'APA_V3=APA_V3'
-      'APA_V4=APA_V4'
-      'ANYA_FAJTAKOD=ANYA_FAJTAKOD'
-      'ANYA_APAKLSZ=ANYA_APAKLSZ'
-      'ANYA_V1=ANYA_V1'
-      'ANYA_V2=ANYA_V2'
-      'ANYA_V3=ANYA_V3'
-      'ANYA_V4=ANYA_V4'
-      'KIKOD=KIKOD'
-      'KIKOK=KIKOK'
-      'APAKLSZ=APAKLSZ'
-      'APA_APAKLSZ=APA_APAKLSZ'
       'KMI=KMI'
-      'VALKOR=VALKOR'
-      'TGYVAL=TGYVAL'
-      'ANA_ANYA_ENAR=ANA_ANYA_ENAR'
-      'ANYA_ELL=ANYA_ELL'
-      'ANYA_MIN=ANYA_MIN'
+      'IVAR=IVAR'
       'BNI=BNI'
       'SZAPIND=SZAPIND'
-      'KULLEM_IND=KULLEM_IND')
+      'KULLEM_IND=KULLEM_IND'
+      'NET_PONT=NET_PONT'
+      'EAP_KLSZ=EAP_KLSZ'
+      'EAP_NEV=EAP_NEV'
+      'EAP_FSZ=EAP_FSZ'
+      'EAP_FAJTAKOD=EAP_FAJTAKOD'
+      'EAP_FAJTANEV=EAP_FAJTANEV'
+      'EAP_SZULDAT=EAP_SZULDAT'
+      'EAP_V1=EAP_V1'
+      'EAP_VSZ1=EAP_VSZ1'
+      'EAP_F1NEV=EAP_F1NEV'
+      'EAP_V2=EAP_V2'
+      'EAP_VSZ2=EAP_VSZ2'
+      'EAP_F2NEV=EAP_F2NEV'
+      'EAP_V3=EAP_V3'
+      'EAP_VSZ3=EAP_VSZ3'
+      'EAP_F3NEV=EAP_F3NEV'
+      'EAP_V4=EAP_V4'
+      'EAP_VSZ4=EAP_VSZ4'
+      'EAP_F4NEV=EAP_F4NEV'
+      'EAN_ENAR=EAN_ENAR'
+      'EAN_ELL=EAN_ELL'
+      'EAN_NEV=EAN_NEV'
+      'EAN_FAJTAKOD=EAN_FAJTAKOD'
+      'EAN_FAJTANEV=EAN_FAJTANEV'
+      'EAN_SZULDAT=EAN_SZULDAT'
+      'EAN_KMI=EAN_KMI'
+      'EAN_V1=EAN_V1'
+      'EAN_VSZ1=EAN_VSZ1'
+      'EAN_F1NEV=EAN_F1NEV'
+      'EAN_V2=EAN_V2'
+      'EAN_VSZ2=EAN_VSZ2'
+      'EAN_F2NEV=EAN_F2NEV'
+      'EAN_V3=EAN_V3'
+      'EAN_VSZ3=EAN_VSZ3'
+      'EAN_F3NEV=EAN_F3NEV'
+      'EAN_V4=EAN_V4'
+      'EAN_VSZ4=EAN_VSZ4'
+      'EAN_F4NEV=EAN_F4NEV'
+      'EAPAP_AZON=EAPAP_AZON'
+      'EAPAP_NEV=EAPAP_NEV'
+      'EAPAN_AZON=EAPAN_AZON'
+      'EAPAN_NEV=EAPAN_NEV'
+      'EANAP_AZON=EANAP_AZON'
+      'EANAP_NEV=EANAP_NEV'
+      'EANAN_AZON=EANAN_AZON'
+      'EANAN_NEV=EANAN_NEV')
     OpenDataSource = False
     DataSet = sdsLista
-    Left = 536
-    Top = 160
+    Left = 136
+    Top = 240
   end
   object sdsLista: TTalSimpleDataSet
     Aggregates = <>
     Connection = dtmTarka.cnTarka
     DataSet.Connection = dtmTarka.cnTarka
     DataSet.CommandText = 
-      'select E.ENAR, E.TENYESZET, TENY.TNEV2,'#13#10'E.FULSZAM, E.ID_ENAR,E.' +
-      'TEHENSZAM, '#13#10'E.SZULDAT, '#13#10'E.MLEVEL1, E.MLEVEL2, '#13#10'E.TKV, '#13#10'E.SZI' +
-      'N, SZIN.NEV AS SZINNEV, '#13#10'E.FAJTAKOD,EF.FNEV, '#13#10'E.VER1,E.VSZ1,E.' +
-      'VER2,E.VSZ2,E.VER3,E.VSZ3,E.VER4,E.VSZ4, '#13#10'E.KKOD, '#13#10'E.VALDAT, C' +
-      'AST(TRUNC( E.VALDAT - E.SZULDAT) AS NUMBER (5,0)) AS VALKOR, E.V' +
-      'ALTOM, E.TOM205, E.SV, '#13#10'Cast(tomgyar(e.szul_suly, e.valtom, e.s' +
-      'zuldat,e.valdat) as Integer) as tgyval, '#13#10'E.SZORSZ,ORSZAG.NEV AS' +
-      ' ORSZAGNEV, '#13#10'E.SZARVALTSAG, '#13#10'E.BIKANEVELO, '#13#10'E.TENYTOM, '#13#10'E.MI' +
-      'N as KMI, '#13#10'E.IVAR, '#13#10'E.APAKLSZ, '#13#10'EAPA.NEV AS APANEV, '#13#10'EAPA.FS' +
-      'Z AS APA_FSZ, EAPA.APAKPLSZ AS APA_APAKLSZ, '#13#10'EAPA.FKOD AS APA_F' +
-      'AJTAKOD, AF.FNEV AS APA_FAJTANEV, '#13#10'EAPA.SZULDAT AS APA_SZULDAT,' +
-      ' '#13#10'EAPA.APAENAR AS APA_APAENAR, EAPA.APAFSZ AS APA_APAFSZ, '#13#10'EAP' +
-      'A.VER1 AS APA_V1, EAPA.VSZ1 AS APA_VSZ1 ,AF1.FNEV AS APA_V1NEV, ' +
-      #13#10'EAPA.VER2 AS APA_V2, EAPA.VSZ2 AS APA_VSZ2 ,AF2.FNEV AS APA_V2' +
-      'NEV, '#13#10'EAPA.VER3 AS APA_V3, EAPA.VSZ3 AS APA_VSZ3 ,AF3.FNEV AS A' +
-      'PA_V3NEV, '#13#10'EAPA.VER4 AS APA_V4, EAPA.VSZ4 AS APA_VSZ4 ,AF4.FNEV' +
-      ' AS APA_V4NEV, '#13#10'EAPA.ANAN as APA_ANYA, '#13#10'E.ANYA_ENAR, E.ANYA_EL' +
-      'L, ANA.NEV AS ANYA_NEV, '#13#10'ANA.FAJTAKOD AS ANYA_FAJTAKOD, ANF.FNE' +
-      'V AS ANYA_FAJTANEV, '#13#10'ANA.SZULDAT AS ANYA_SZULDAT, '#13#10'ANA.APAKLSZ' +
-      ' AS ANYA_APAKLSZ, '#13#10'ANA.VER1 AS ANYA_V1, ANA.VSZ1 AS ANYA_VSZ1 ,' +
-      'ANF1.FNEV AS ANYA_V1NEV, '#13#10'ANA.VER2 AS ANYA_V2, ANA.VSZ2 AS ANYA' +
-      '_VSZ2 ,ANF2.FNEV AS ANYA_V2NEV, '#13#10'ANA.VER3 AS ANYA_V3, ANA.VSZ3 ' +
-      'AS ANYA_VSZ3 ,ANF3.FNEV AS ANYA_V3NEV, '#13#10'ANA.VER4 AS ANYA_V4, AN' +
-      'A.VSZ4 AS ANYA_VSZ4 ,ANF4.FNEV AS ANYA_V4NEV, '#13#10'E.ALLDAT, '#13#10'E.KI' +
-      'KDAT, '#13#10'E.KIKOD, '#13#10'E.KIKOK, '#13#10'AAPA.FSZ AS ANA_APAFSZ, '#13#10'ANA.ANYA' +
-      '_ENAR AS ANA_ANYA_ENAR, '#13#10'ANA.ANYA_ELL as ANA_ANYA_FULSZAM, ANA.' +
-      'min as ANYA_MIN, '#13#10'cast(BNI(E.id) as numeric(10,3)) as BNI, '#13#10'ca' +
-      'st(SZAPIND(E.id) as numeric(10,3)) as SZAPIND, '#13#10'cast(KULLEM_IND' +
-      '(E.ENAR) as numeric(10,3)) as KULLEM_IND '#13#10'FROM EGYEDEK E'#13#10'LEFT ' +
-      'JOIN TENY ON TENY.TKOD = E.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KO' +
-      'D = E.SZIN '#13#10'LEFT JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT J' +
-      'OIN ORSZAG ON ORSZAG.KOD1 = E.SZORSZ '#13#10'left join KODOK IVARF on ' +
-      'IVARF.KOD = E.IVAR and IVARF.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39#13#10'left ' +
-      'join APA EAPA on EAPA.KPLSZ = E.APAKLSZ and E.APAKLSZ is not nul' +
-      'l  '#13#10'LEFT JOIN FAJTA AF ON AF.FKOD = EAPA.FKOD '#13#10'LEFT JOIN FAJTA' +
-      ' AF1 ON AF1.FKOD = EAPA.VER1 '#13#10'LEFT JOIN FAJTA AF2 ON AF2.FKOD =' +
-      ' EAPA.VER2 '#13#10'LEFT JOIN FAJTA AF3 ON AF3.FKOD = EAPA.VER3 '#13#10'left ' +
-      'join FAJTA AF4 on AF4.FKOD = EAPA.VER4 '#13#10'left join EGYEDEK ANA o' +
-      'n (((ANA.ENAR = trim(E.ANYA_ENAR)) and (E.ANYA_ENAR > '#39' '#39')) or (' +
-      '(ANA.TEHENSZAM=trim(E.ANYA_ELL)) and (E.ANYA_ELL > '#39' '#39') )) '#13#10'LEF' +
-      'T JOIN FAJTA ANF ON ANF.FKOD = ANA.FAJTAKOD '#13#10'LEFT JOIN FAJTA AN' +
-      'F1 ON ANF1.FKOD = ANA.VER1 '#13#10'LEFT JOIN FAJTA ANF2 ON ANF2.FKOD =' +
-      ' ANA.VER2 '#13#10'LEFT JOIN FAJTA ANF3 ON ANF3.FKOD = ANA.VER3 '#13#10'left ' +
-      'join FAJTA ANF4 on ANF4.FKOD = ANA.VER4 '#13#10'LEFT JOIN APA AAPA ON ' +
-      'AAPA.KPLSZ = ANA.APAKLSZ AND ANA.APAKLSZ IS NOT NULL '#13#10'where E.I' +
-      'D  = '#39'3207487007'#39';'
+      'SELECT E.ENAR,'#13#10'E.TENYESZET,'#13#10'TENY.TNEV2,'#13#10'TENY.VAROS as VAROS,'#13 +
+      #10'E.FULSZAM,'#13#10'E.ID_ENAR,'#13#10'E.TEHENSZAM,'#13#10'E.SZULDAT,'#13#10'E.MLEVEL1,'#13#10'E' +
+      '.MLEVEL2,'#13#10'E.TKV,'#13#10'E.SZIN, SZIN.NEV AS SZINNEV,'#13#10'E.FAJTAKOD, EF.' +
+      'FNEV,'#13#10'E.VER1, E.VSZ1, E.VER2, E.VSZ2, E.VER3, E.VSZ3, E.VER4, E' +
+      '.VSZ4,'#13#10'E.KKOD,'#13#10'E.VALDAT, CAST(TRUNC(E.VALDAT - E.SZULDAT) AS N' +
+      'UMBER (5,0)) AS VALKOR, E.VALTOM, E.TOM205, E.SV,'#13#10'CAST(TOMGYAR(' +
+      'E.SZUL_SULY, E.VALTOM, E.SZULDAT, E.VALDAT) AS INTEGER) AS TGYVA' +
+      'L,'#13#10'E.SZORSZ, ORSZAG.NEV AS ORSZAGNEV,'#13#10'E.SZARVALTSAG,'#13#10'E.BIKANE' +
+      'VELO,'#13#10'E.TENYTOM,'#13#10'E.MIN AS KMI,'#13#10'E.IVAR,'#13#10'CAST (BNI(E.ID) AS NU' +
+      'MERIC(10,3)) AS BNI,'#13#10'CAST (SZAPIND(E.ID) AS NUMERIC(10,3)) AS S' +
+      'ZAPIND,'#13#10'CAST (KULLEM_IND(E.ENAR) AS NUMERIC(10,3)) AS KULLEM_IN' +
+      'D,'#13#10'E.NET_PONT,'#13#10'E.APAKLSZ AS EAP_KLSZ,'#13#10'EAP.NEV AS EAP_NEV,'#13#10'EA' +
+      'P.FSZ AS EAP_FSZ,'#13#10'EAP.FKOD AS EAP_FAJTAKOD, EAPF.FNEV AS EAP_FA' +
+      'JTANEV,'#13#10'EAP.SZULDAT AS EAP_SZULDAT,'#13#10'EAP.VER1 AS EAP_V1, EAP.VS' +
+      'Z1 AS EAP_VSZ1, EAPF1.FNEV AS EAP_F1NEV,'#13#10'EAP.VER2 AS EAP_V2, EA' +
+      'P.VSZ2 AS EAP_VSZ2, EAPF2.FNEV AS EAP_F2NEV,'#13#10'EAP.VER3 AS EAP_V3' +
+      ', EAP.VSZ3 AS EAP_VSZ3, EAPF3.FNEV AS EAP_F3NEV,'#13#10'EAP.VER4 AS EA' +
+      'P_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV,'#13#10'E.ANYA_ENA' +
+      'R AS EAN_ENAR,'#13#10'E.ANYA_ELL AS EAN_ELL,'#13#10'EAN.NEV AS EAN_NEV,'#13#10'EAN' +
+      '.FAJTAKOD AS EAN_FAJTAKOD, EANF.FNEV AS EAN_FAJTANEV,'#13#10'EAN.SZULD' +
+      'AT AS EAN_SZULDAT,'#13#10'EAN.MIN AS EAN_KMI,'#13#10'EAN.VER1 AS EAN_V1, EAN' +
+      '.VSZ1 AS EAN_VSZ1, EANF1.FNEV AS EAN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2,' +
+      ' EAN.VSZ2 AS EAN_VSZ2, EANF2.FNEV AS EAN_F2NEV,'#13#10'EAN.VER3 AS EAN' +
+      '_V3, EAN.VSZ3 AS EAN_VSZ3, EANF3.FNEV AS EAN_F3NEV,'#13#10'EAN.VER4 AS' +
+      ' EAN_V4, EAN.VSZ4 AS EAN_VSZ4, EANF4.FNEV AS EAN_F4NEV,'#13#10'EAPAP.K' +
+      'AZON AS EAPAP_AZON,'#13#10'EAPAP.NEVEE AS EAPAP_NEV,'#13#10'EAP.AENAR AS EAP' +
+      'AN_AZON,'#13#10'EAP.ANYANEV AS EAPAN_NEV,'#13#10'EANAP.KAZON AS EANAP_AZON,'#13 +
+      #10'EANAP.NEVEE AS EANAP_NEV,'#13#10'EANAN.ENAR AS EANAN_AZON,'#13#10'EANAN.NEV' +
+      ' AS EANAN_NEV'#13#10'FROM EGYEDEK E '#13#10'LEFT JOIN TENY ON TENY.TKOD = E.' +
+      'TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN '#13#10'LEFT JOIN FAJT' +
+      'A EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT JOIN ORSZAG ON ORSZAG.KOD1 =' +
+      ' E.SZORSZ '#13#10'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.IVAR AND IVAR' +
+      'F.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39' '#13#10'LEFT JOIN APA EAP ON TRIM(EAP.K' +
+      'PLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL'#13#10'LEFT JOIN FAJ' +
+      'TA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NOT NULL '#13#10'LEFT' +
+      ' JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1'#13#10'LEFT JOIN FAJTA EAPF' +
+      '2 ON EAPF2.FKOD = EAP.VER2'#13#10'LEFT JOIN FAJTA EAPF3 ON EAPF3.FKOD ' +
+      '= EAP.VER3'#13#10'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = EAP.VER4'#13#10'LEFT' +
+      ' JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR)) AND (E.ANY' +
+      'A_ENAR > '#39' '#39')) OR ((EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANY' +
+      'A_ELL > '#39' '#39'))) AND EAN.TENYESZET = E.TENYESZET '#13#10'LEFT JOIN FAJTA' +
+      ' EANF ON EANF.FKOD = EAN.FAJTAKOD '#13#10'LEFT JOIN FAJTA EANF1 ON EAN' +
+      'F1.FKOD = EAN.VER1'#13#10'LEFT JOIN FAJTA EANF2 ON EANF2.FKOD = EAN.VE' +
+      'R2'#13#10'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3'#13#10'LEFT JOIN FA' +
+      'JTA EANF4 ON EANF4.FKOD = EAN.VER4'#13#10'LEFT JOIN BIKTXT EAPAP ON EA' +
+      'PAP.KAZTP = '#39'4'#39' AND TRIM(EAPAP.KAZON) = TRIM(EAP.APAKPLSZ)'#13#10'LEFT' +
+      ' JOIN BIKTXT EANAP ON ((TRIM(EANAP.KAZON) = TRIM(EAN.APAKLSZ)) O' +
+      'R (TRIM(EANAP.KAZON) = TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZ' +
+      'ON) = TRIM(EAN.ID_APA))) AND EANAP.KAZON IS NOT NULL'#13#10'LEFT JOIN ' +
+      'EGYEDEK EANAN ON ((TRIM(EANAN.ENAR) = TRIM(EAN.ANYA_ENAR) AND EA' +
+      'N.ANYA_ENAR IS NOT NULL) OR (TRIM(EANAN.TEHENSZAM) = TRIM(EAN.AN' +
+      'YA_ELL) AND EAN.ANYA_ELL IS NOT NULL) OR (TRIM(EANAN.ID_ENAR) = ' +
+      'TRIM(EAN.ANYA_ID_ENAR)) AND EAN.ANYA_ID_ENAR IS NOT NULL)'#13#10'where' +
+      ' E.ENAR  = '#39'3207476221'#39
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
-      'select E.ENAR, E.TENYESZET, TENY.TNEV2,'#13#10'E.FULSZAM, E.ID_ENAR,E.' +
-      'TEHENSZAM, '#13#10'E.SZULDAT, '#13#10'E.MLEVEL1, E.MLEVEL2, '#13#10'E.TKV, '#13#10'E.SZI' +
-      'N, SZIN.NEV AS SZINNEV, '#13#10'E.FAJTAKOD,EF.FNEV, '#13#10'E.VER1,E.VSZ1,E.' +
-      'VER2,E.VSZ2,E.VER3,E.VSZ3,E.VER4,E.VSZ4, '#13#10'E.KKOD, '#13#10'E.VALDAT, C' +
-      'AST(TRUNC( E.VALDAT - E.SZULDAT) AS NUMBER (5,0)) AS VALKOR, E.V' +
-      'ALTOM, E.TOM205, E.SV, '#13#10'Cast(tomgyar(e.szul_suly, e.valtom, e.s' +
-      'zuldat,e.valdat) as Integer) as tgyval, '#13#10'E.SZORSZ,ORSZAG.NEV AS' +
-      ' ORSZAGNEV, '#13#10'E.SZARVALTSAG, '#13#10'E.BIKANEVELO, '#13#10'E.TENYTOM, '#13#10'E.MI' +
-      'N as KMI, '#13#10'E.IVAR, '#13#10'E.APAKLSZ, '#13#10'EAPA.NEV AS APANEV, '#13#10'EAPA.FS' +
-      'Z AS APA_FSZ, EAPA.APAKPLSZ AS APA_APAKLSZ, '#13#10'EAPA.FKOD AS APA_F' +
-      'AJTAKOD, AF.FNEV AS APA_FAJTANEV, '#13#10'EAPA.SZULDAT AS APA_SZULDAT,' +
-      ' '#13#10'EAPA.APAENAR AS APA_APAENAR, EAPA.APAFSZ AS APA_APAFSZ, '#13#10'EAP' +
-      'A.VER1 AS APA_V1, EAPA.VSZ1 AS APA_VSZ1 ,AF1.FNEV AS APA_V1NEV, ' +
-      #13#10'EAPA.VER2 AS APA_V2, EAPA.VSZ2 AS APA_VSZ2 ,AF2.FNEV AS APA_V2' +
-      'NEV, '#13#10'EAPA.VER3 AS APA_V3, EAPA.VSZ3 AS APA_VSZ3 ,AF3.FNEV AS A' +
-      'PA_V3NEV, '#13#10'EAPA.VER4 AS APA_V4, EAPA.VSZ4 AS APA_VSZ4 ,AF4.FNEV' +
-      ' AS APA_V4NEV, '#13#10'EAPA.ANAN as APA_ANYA, '#13#10'E.ANYA_ENAR, E.ANYA_EL' +
-      'L, ANA.NEV AS ANYA_NEV, '#13#10'ANA.FAJTAKOD AS ANYA_FAJTAKOD, ANF.FNE' +
-      'V AS ANYA_FAJTANEV, '#13#10'ANA.SZULDAT AS ANYA_SZULDAT, '#13#10'ANA.APAKLSZ' +
-      ' AS ANYA_APAKLSZ, '#13#10'ANA.VER1 AS ANYA_V1, ANA.VSZ1 AS ANYA_VSZ1 ,' +
-      'ANF1.FNEV AS ANYA_V1NEV, '#13#10'ANA.VER2 AS ANYA_V2, ANA.VSZ2 AS ANYA' +
-      '_VSZ2 ,ANF2.FNEV AS ANYA_V2NEV, '#13#10'ANA.VER3 AS ANYA_V3, ANA.VSZ3 ' +
-      'AS ANYA_VSZ3 ,ANF3.FNEV AS ANYA_V3NEV, '#13#10'ANA.VER4 AS ANYA_V4, AN' +
-      'A.VSZ4 AS ANYA_VSZ4 ,ANF4.FNEV AS ANYA_V4NEV, '#13#10'E.ALLDAT, '#13#10'E.KI' +
-      'KDAT, '#13#10'E.KIKOD, '#13#10'E.KIKOK, '#13#10'AAPA.FSZ AS ANA_APAFSZ, '#13#10'ANA.ANYA' +
-      '_ENAR AS ANA_ANYA_ENAR, '#13#10'ANA.ANYA_ELL as ANA_ANYA_FULSZAM, ANA.' +
-      'min as ANYA_MIN, '#13#10'cast(BNI(E.id) as numeric(10,3)) as BNI, '#13#10'ca' +
-      'st(SZAPIND(E.id) as numeric(10,3)) as SZAPIND, '#13#10'cast(KULLEM_IND' +
-      '(E.ENAR) as numeric(10,3)) as KULLEM_IND '#13#10'FROM EGYEDEK E'#13#10'LEFT ' +
-      'JOIN TENY ON TENY.TKOD = E.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KO' +
-      'D = E.SZIN '#13#10'LEFT JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT J' +
-      'OIN ORSZAG ON ORSZAG.KOD1 = E.SZORSZ '#13#10'left join KODOK IVARF on ' +
-      'IVARF.KOD = E.IVAR and IVARF.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39#13#10'left ' +
-      'join APA EAPA on EAPA.KPLSZ = E.APAKLSZ and E.APAKLSZ is not nul' +
-      'l  '#13#10'LEFT JOIN FAJTA AF ON AF.FKOD = EAPA.FKOD '#13#10'LEFT JOIN FAJTA' +
-      ' AF1 ON AF1.FKOD = EAPA.VER1 '#13#10'LEFT JOIN FAJTA AF2 ON AF2.FKOD =' +
-      ' EAPA.VER2 '#13#10'LEFT JOIN FAJTA AF3 ON AF3.FKOD = EAPA.VER3 '#13#10'left ' +
-      'join FAJTA AF4 on AF4.FKOD = EAPA.VER4 '#13#10'left join EGYEDEK ANA o' +
-      'n (((ANA.ENAR = trim(E.ANYA_ENAR)) and (E.ANYA_ENAR > '#39' '#39')) or (' +
-      '(ANA.TEHENSZAM=trim(E.ANYA_ELL)) and (E.ANYA_ELL > '#39' '#39') )) '#13#10'LEF' +
-      'T JOIN FAJTA ANF ON ANF.FKOD = ANA.FAJTAKOD '#13#10'LEFT JOIN FAJTA AN' +
-      'F1 ON ANF1.FKOD = ANA.VER1 '#13#10'LEFT JOIN FAJTA ANF2 ON ANF2.FKOD =' +
-      ' ANA.VER2 '#13#10'LEFT JOIN FAJTA ANF3 ON ANF3.FKOD = ANA.VER3 '#13#10'left ' +
-      'join FAJTA ANF4 on ANF4.FKOD = ANA.VER4 '#13#10'LEFT JOIN APA AAPA ON ' +
-      'AAPA.KPLSZ = ANA.APAKLSZ AND ANA.APAKLSZ IS NOT NULL '#13#10'where E.I' +
-      'D  = '#39'3207487007'#39';'
+      'SELECT E.ENAR,'#13#10'E.TENYESZET,'#13#10'TENY.TNEV2,'#13#10'TENY.VAROS as VAROS,'#13 +
+      #10'E.FULSZAM,'#13#10'E.ID_ENAR,'#13#10'E.TEHENSZAM,'#13#10'E.SZULDAT,'#13#10'E.MLEVEL1,'#13#10'E' +
+      '.MLEVEL2,'#13#10'E.TKV,'#13#10'E.SZIN, SZIN.NEV AS SZINNEV,'#13#10'E.FAJTAKOD, EF.' +
+      'FNEV,'#13#10'E.VER1, E.VSZ1, E.VER2, E.VSZ2, E.VER3, E.VSZ3, E.VER4, E' +
+      '.VSZ4,'#13#10'E.KKOD,'#13#10'E.VALDAT, CAST(TRUNC(E.VALDAT - E.SZULDAT) AS N' +
+      'UMBER (5,0)) AS VALKOR, E.VALTOM, E.TOM205, E.SV,'#13#10'CAST(TOMGYAR(' +
+      'E.SZUL_SULY, E.VALTOM, E.SZULDAT, E.VALDAT) AS INTEGER) AS TGYVA' +
+      'L,'#13#10'E.SZORSZ, ORSZAG.NEV AS ORSZAGNEV,'#13#10'E.SZARVALTSAG,'#13#10'E.BIKANE' +
+      'VELO,'#13#10'E.TENYTOM,'#13#10'E.MIN AS KMI,'#13#10'E.IVAR,'#13#10'CAST (BNI(E.ID) AS NU' +
+      'MERIC(10,3)) AS BNI,'#13#10'CAST (SZAPIND(E.ID) AS NUMERIC(10,3)) AS S' +
+      'ZAPIND,'#13#10'CAST (KULLEM_IND(E.ENAR) AS NUMERIC(10,3)) AS KULLEM_IN' +
+      'D,'#13#10'E.NET_PONT,'#13#10'E.APAKLSZ AS EAP_KLSZ,'#13#10'EAP.NEV AS EAP_NEV,'#13#10'EA' +
+      'P.FSZ AS EAP_FSZ,'#13#10'EAP.FKOD AS EAP_FAJTAKOD, EAPF.FNEV AS EAP_FA' +
+      'JTANEV,'#13#10'EAP.SZULDAT AS EAP_SZULDAT,'#13#10'EAP.VER1 AS EAP_V1, EAP.VS' +
+      'Z1 AS EAP_VSZ1, EAPF1.FNEV AS EAP_F1NEV,'#13#10'EAP.VER2 AS EAP_V2, EA' +
+      'P.VSZ2 AS EAP_VSZ2, EAPF2.FNEV AS EAP_F2NEV,'#13#10'EAP.VER3 AS EAP_V3' +
+      ', EAP.VSZ3 AS EAP_VSZ3, EAPF3.FNEV AS EAP_F3NEV,'#13#10'EAP.VER4 AS EA' +
+      'P_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV,'#13#10'E.ANYA_ENA' +
+      'R AS EAN_ENAR,'#13#10'E.ANYA_ELL AS EAN_ELL,'#13#10'EAN.NEV AS EAN_NEV,'#13#10'EAN' +
+      '.FAJTAKOD AS EAN_FAJTAKOD, EANF.FNEV AS EAN_FAJTANEV,'#13#10'EAN.SZULD' +
+      'AT AS EAN_SZULDAT,'#13#10'EAN.MIN AS EAN_KMI,'#13#10'EAN.VER1 AS EAN_V1, EAN' +
+      '.VSZ1 AS EAN_VSZ1, EANF1.FNEV AS EAN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2,' +
+      ' EAN.VSZ2 AS EAN_VSZ2, EANF2.FNEV AS EAN_F2NEV,'#13#10'EAN.VER3 AS EAN' +
+      '_V3, EAN.VSZ3 AS EAN_VSZ3, EANF3.FNEV AS EAN_F3NEV,'#13#10'EAN.VER4 AS' +
+      ' EAN_V4, EAN.VSZ4 AS EAN_VSZ4, EANF4.FNEV AS EAN_F4NEV,'#13#10'EAPAP.K' +
+      'AZON AS EAPAP_AZON,'#13#10'EAPAP.NEVEE AS EAPAP_NEV,'#13#10'EAP.AENAR AS EAP' +
+      'AN_AZON,'#13#10'EAP.ANYANEV AS EAPAN_NEV,'#13#10'EANAP.KAZON AS EANAP_AZON,'#13 +
+      #10'EANAP.NEVEE AS EANAP_NEV,'#13#10'EANAN.ENAR AS EANAN_AZON,'#13#10'EANAN.NEV' +
+      ' AS EANAN_NEV'#13#10'FROM EGYEDEK E '#13#10'LEFT JOIN TENY ON TENY.TKOD = E.' +
+      'TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN '#13#10'LEFT JOIN FAJT' +
+      'A EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT JOIN ORSZAG ON ORSZAG.KOD1 =' +
+      ' E.SZORSZ '#13#10'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.IVAR AND IVAR' +
+      'F.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39' '#13#10'LEFT JOIN APA EAP ON TRIM(EAP.K' +
+      'PLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL'#13#10'LEFT JOIN FAJ' +
+      'TA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NOT NULL '#13#10'LEFT' +
+      ' JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1'#13#10'LEFT JOIN FAJTA EAPF' +
+      '2 ON EAPF2.FKOD = EAP.VER2'#13#10'LEFT JOIN FAJTA EAPF3 ON EAPF3.FKOD ' +
+      '= EAP.VER3'#13#10'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = EAP.VER4'#13#10'LEFT' +
+      ' JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR)) AND (E.ANY' +
+      'A_ENAR > '#39' '#39')) OR ((EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANY' +
+      'A_ELL > '#39' '#39'))) AND EAN.TENYESZET = E.TENYESZET '#13#10'LEFT JOIN FAJTA' +
+      ' EANF ON EANF.FKOD = EAN.FAJTAKOD '#13#10'LEFT JOIN FAJTA EANF1 ON EAN' +
+      'F1.FKOD = EAN.VER1'#13#10'LEFT JOIN FAJTA EANF2 ON EANF2.FKOD = EAN.VE' +
+      'R2'#13#10'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3'#13#10'LEFT JOIN FA' +
+      'JTA EANF4 ON EANF4.FKOD = EAN.VER4'#13#10'LEFT JOIN BIKTXT EAPAP ON EA' +
+      'PAP.KAZTP = '#39'4'#39' AND TRIM(EAPAP.KAZON) = TRIM(EAP.APAKPLSZ)'#13#10'LEFT' +
+      ' JOIN BIKTXT EANAP ON ((TRIM(EANAP.KAZON) = TRIM(EAN.APAKLSZ)) O' +
+      'R (TRIM(EANAP.KAZON) = TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZ' +
+      'ON) = TRIM(EAN.ID_APA))) AND EANAP.KAZON IS NOT NULL'#13#10'LEFT JOIN ' +
+      'EGYEDEK EANAN ON ((TRIM(EANAN.ENAR) = TRIM(EAN.ANYA_ENAR) AND EA' +
+      'N.ANYA_ENAR IS NOT NULL) OR (TRIM(EANAN.TEHENSZAM) = TRIM(EAN.AN' +
+      'YA_ELL) AND EAN.ANYA_ELL IS NOT NULL) OR (TRIM(EANAN.ID_ENAR) = ' +
+      'TRIM(EAN.ANYA_ID_ENAR)) AND EAN.ANYA_ID_ENAR IS NOT NULL)'#13#10'where' +
+      ' E.ENAR  = '#39'3207476221'#39
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
     Params = <>
     ReadOnly = True
-    Left = 475
-    Top = 168
+    Left = 139
+    Top = 176
     object sdsListaENAR: TWideStringField
       FieldName = 'ENAR'
       Size = 14
     end
+    object sdsListaTENYESZET: TWideStringField
+      FieldName = 'TENYESZET'
+      Size = 7
+    end
+    object sdsListaTNEV2: TWideStringField
+      FieldName = 'TNEV2'
+      Size = 78
+    end
+    object sdsListaVAROS: TWideStringField
+      FieldName = 'VAROS'
+    end
     object sdsListaFULSZAM: TWideStringField
       FieldName = 'FULSZAM'
-      FixedChar = True
+      Size = 15
+    end
+    object sdsListaID_ENAR: TWideStringField
+      FieldName = 'ID_ENAR'
+      Size = 15
+    end
+    object sdsListaTEHENSZAM: TWideStringField
+      FieldName = 'TEHENSZAM'
       Size = 15
     end
     object sdsListaSZULDAT: TDateTimeField
@@ -5063,52 +5816,62 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     end
     object sdsListaMLEVEL1: TWideStringField
       FieldName = 'MLEVEL1'
-      FixedChar = True
       Size = 7
     end
     object sdsListaMLEVEL2: TWideStringField
       FieldName = 'MLEVEL2'
-      FixedChar = True
       Size = 7
     end
     object sdsListaTKV: TWideStringField
       FieldName = 'TKV'
-      FixedChar = True
       Size = 1
     end
     object sdsListaSZIN: TWideStringField
       FieldName = 'SZIN'
-      FixedChar = True
       Size = 1
+    end
+    object sdsListaSZINNEV: TWideStringField
+      FieldName = 'SZINNEV'
+      Size = 40
     end
     object sdsListaFAJTAKOD: TWideStringField
       FieldName = 'FAJTAKOD'
       Size = 5
     end
-    object sdsListaSZINNEV: TWideStringField
-      FieldName = 'SZINNEV'
-      FixedChar = True
-      Size = 40
-    end
     object sdsListaFNEV: TWideStringField
       FieldName = 'FNEV'
-      FixedChar = True
       Size = 40
+    end
+    object sdsListaVER1: TWideStringField
+      FieldName = 'VER1'
+      Size = 10
     end
     object sdsListaVSZ1: TBCDField
       FieldName = 'VSZ1'
       Precision = 6
       Size = 2
     end
+    object sdsListaVER2: TWideStringField
+      FieldName = 'VER2'
+      Size = 10
+    end
     object sdsListaVSZ2: TBCDField
       FieldName = 'VSZ2'
       Precision = 6
       Size = 2
     end
+    object sdsListaVER3: TWideStringField
+      FieldName = 'VER3'
+      Size = 10
+    end
     object sdsListaVSZ3: TBCDField
       FieldName = 'VSZ3'
       Precision = 6
       Size = 2
+    end
+    object sdsListaVER4: TWideStringField
+      FieldName = 'VER4'
+      Size = 10
     end
     object sdsListaVSZ4: TBCDField
       FieldName = 'VSZ4'
@@ -5117,319 +5880,57 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     end
     object sdsListaKKOD: TWideStringField
       FieldName = 'KKOD'
-      FixedChar = True
       Size = 3
     end
     object sdsListaVALDAT: TDateTimeField
       FieldName = 'VALDAT'
     end
-    object sdsListaVALTOM: TSmallintField
+    object sdsListaVALKOR: TIntegerField
+      FieldName = 'VALKOR'
+      ReadOnly = True
+    end
+    object sdsListaVALTOM: TIntegerField
       FieldName = 'VALTOM'
     end
-    object sdsListaTOM205: TSmallintField
+    object sdsListaTOM205: TIntegerField
       FieldName = 'TOM205'
     end
-    object sdsListaSV: TSmallintField
+    object sdsListaSV: TIntegerField
       FieldName = 'SV'
+    end
+    object sdsListaTGYVAL: TBCDField
+      FieldName = 'TGYVAL'
+      ReadOnly = True
+      Precision = 38
+      Size = 0
     end
     object sdsListaSZORSZ: TWideStringField
       FieldName = 'SZORSZ'
-      FixedChar = True
       Size = 3
     end
     object sdsListaORSZAGNEV: TWideStringField
       FieldName = 'ORSZAGNEV'
-      FixedChar = True
       Size = 30
     end
     object sdsListaSZARVALTSAG: TWideStringField
       FieldName = 'SZARVALTSAG'
-      FixedChar = True
       Size = 1
     end
     object sdsListaBIKANEVELO: TWideStringField
       FieldName = 'BIKANEVELO'
-      FixedChar = True
       Size = 1
     end
-    object sdsListaTENYTOM: TSmallintField
+    object sdsListaTENYTOM: TIntegerField
       FieldName = 'TENYTOM'
-    end
-    object sdsListaIVAR: TWideStringField
-      FieldName = 'IVAR'
-      FixedChar = True
-      Size = 1
-    end
-    object sdsListaAPANEV: TWideStringField
-      FieldName = 'APANEV'
-      FixedChar = True
-      Size = 40
-    end
-    object sdsListaAPA_FSZ: TWideStringField
-      FieldName = 'APA_FSZ'
-      FixedChar = True
-      Size = 15
-    end
-    object sdsListaAPA_FAJTANEV: TWideStringField
-      FieldName = 'APA_FAJTANEV'
-      FixedChar = True
-      Size = 40
-    end
-    object sdsListaAPA_SZULDAT: TDateTimeField
-      FieldName = 'APA_SZULDAT'
-    end
-    object sdsListaAPA_APAENAR: TWideStringField
-      FieldName = 'APA_APAENAR'
-      FixedChar = True
-      Size = 10
-    end
-    object sdsListaAPA_APAFSZ: TWideStringField
-      FieldName = 'APA_APAFSZ'
-      FixedChar = True
-      Size = 15
-    end
-    object sdsListaAPA_VSZ1: TBCDField
-      FieldName = 'APA_VSZ1'
-      Precision = 6
-      Size = 2
-    end
-    object sdsListaAPA_V1NEV: TWideStringField
-      FieldName = 'APA_V1NEV'
-      FixedChar = True
-      Size = 40
-    end
-    object sdsListaAPA_VSZ2: TBCDField
-      FieldName = 'APA_VSZ2'
-      Precision = 6
-      Size = 2
-    end
-    object sdsListaAPA_V2NEV: TWideStringField
-      FieldName = 'APA_V2NEV'
-      FixedChar = True
-      Size = 40
-    end
-    object sdsListaAPA_VSZ3: TBCDField
-      FieldName = 'APA_VSZ3'
-      Precision = 6
-      Size = 2
-    end
-    object sdsListaAPA_V3NEV: TWideStringField
-      FieldName = 'APA_V3NEV'
-      FixedChar = True
-      Size = 40
-    end
-    object sdsListaAPA_VSZ4: TBCDField
-      FieldName = 'APA_VSZ4'
-      Precision = 6
-      Size = 2
-    end
-    object sdsListaAPA_V4NEV: TWideStringField
-      FieldName = 'APA_V4NEV'
-      FixedChar = True
-      Size = 40
-    end
-    object sdsListaAPA_ANYA: TWideStringField
-      FieldName = 'APA_ANYA'
-      FixedChar = True
-      Size = 15
-    end
-    object sdsListaANYA_ENAR: TWideStringField
-      FieldName = 'ANYA_ENAR'
-      FixedChar = True
-      Size = 10
-    end
-    object sdsListaANYA_NEV: TWideStringField
-      FieldName = 'ANYA_NEV'
-      FixedChar = True
-      Size = 30
-    end
-    object sdsListaANYA_FAJTANEV: TWideStringField
-      FieldName = 'ANYA_FAJTANEV'
-      FixedChar = True
-      Size = 40
-    end
-    object sdsListaANYA_SZULDAT: TDateTimeField
-      FieldName = 'ANYA_SZULDAT'
-    end
-    object sdsListaANYA_VSZ1: TBCDField
-      FieldName = 'ANYA_VSZ1'
-      Precision = 6
-      Size = 2
-    end
-    object sdsListaANYA_V1NEV: TWideStringField
-      FieldName = 'ANYA_V1NEV'
-      FixedChar = True
-      Size = 40
-    end
-    object sdsListaANYA_VSZ2: TBCDField
-      FieldName = 'ANYA_VSZ2'
-      Precision = 6
-      Size = 2
-    end
-    object sdsListaANYA_V2NEV: TWideStringField
-      FieldName = 'ANYA_V2NEV'
-      FixedChar = True
-      Size = 40
-    end
-    object sdsListaANYA_VSZ3: TBCDField
-      FieldName = 'ANYA_VSZ3'
-      Precision = 6
-      Size = 2
-    end
-    object sdsListaANYA_V3NEV: TWideStringField
-      FieldName = 'ANYA_V3NEV'
-      FixedChar = True
-      Size = 40
-    end
-    object sdsListaANYA_VSZ4: TBCDField
-      FieldName = 'ANYA_VSZ4'
-      Precision = 6
-      Size = 2
-    end
-    object sdsListaALLDAT: TDateTimeField
-      FieldName = 'ALLDAT'
-    end
-    object sdsListaKIKDAT: TDateTimeField
-      FieldName = 'KIKDAT'
-    end
-    object sdsListaTENYESZET: TWideStringField
-      FieldName = 'TENYESZET'
-      FixedChar = True
-      Size = 7
-    end
-    object sdsListaTNEV2: TWideStringField
-      FieldName = 'TNEV2'
-      FixedChar = True
-      Size = 78
-    end
-    object sdsListaID_ENAR: TWideStringField
-      FieldName = 'ID_ENAR'
-      FixedChar = True
-      Size = 15
-    end
-    object sdsListaTEHENSZAM: TWideStringField
-      FieldName = 'TEHENSZAM'
-      FixedChar = True
-      Size = 15
-    end
-    object sdsListaANYA_V4NEV: TWideStringField
-      FieldName = 'ANYA_V4NEV'
-      FixedChar = True
-      Size = 40
-    end
-    object sdsListaANA_APAFSZ: TWideStringField
-      FieldName = 'ANA_APAFSZ'
-      FixedChar = True
-      Size = 15
-    end
-    object sdsListaANA_ANYA_FULSZAM: TWideStringField
-      FieldName = 'ANA_ANYA_FULSZAM'
-      FixedChar = True
-      Size = 15
-    end
-    object sdsListaVER1: TWideStringField
-      FieldName = 'VER1'
-      Size = 10
-    end
-    object sdsListaVER2: TWideStringField
-      FieldName = 'VER2'
-      Size = 10
-    end
-    object sdsListaVER3: TWideStringField
-      FieldName = 'VER3'
-      Size = 10
-    end
-    object sdsListaVER4: TWideStringField
-      FieldName = 'VER4'
-      Size = 10
-    end
-    object sdsListaAPA_FAJTAKOD: TWideStringField
-      FieldName = 'APA_FAJTAKOD'
-      Size = 10
-    end
-    object sdsListaAPA_V1: TWideStringField
-      FieldName = 'APA_V1'
-      Size = 10
-    end
-    object sdsListaAPA_V2: TWideStringField
-      FieldName = 'APA_V2'
-      Size = 10
-    end
-    object sdsListaAPA_V3: TWideStringField
-      FieldName = 'APA_V3'
-      Size = 10
-    end
-    object sdsListaAPA_V4: TWideStringField
-      FieldName = 'APA_V4'
-      Size = 10
-    end
-    object sdsListaANYA_FAJTAKOD: TWideStringField
-      FieldName = 'ANYA_FAJTAKOD'
-      Size = 5
-    end
-    object sdsListaANYA_APAKLSZ: TWideStringField
-      FieldName = 'ANYA_APAKLSZ'
-      Size = 10
-    end
-    object sdsListaANYA_V1: TWideStringField
-      FieldName = 'ANYA_V1'
-      Size = 10
-    end
-    object sdsListaANYA_V2: TWideStringField
-      FieldName = 'ANYA_V2'
-      Size = 10
-    end
-    object sdsListaANYA_V3: TWideStringField
-      FieldName = 'ANYA_V3'
-      Size = 10
-    end
-    object sdsListaANYA_V4: TWideStringField
-      FieldName = 'ANYA_V4'
-      Size = 10
-    end
-    object sdsListaKIKOD: TWideStringField
-      FieldName = 'KIKOD'
-      Size = 10
-    end
-    object sdsListaKIKOK: TWideStringField
-      FieldName = 'KIKOK'
-      Size = 10
-    end
-    object sdsListaAPAKLSZ: TWideStringField
-      FieldName = 'APAKLSZ'
-      Size = 10
-    end
-    object sdsListaAPA_APAKLSZ: TWideStringField
-      FieldName = 'APA_APAKLSZ'
-      Size = 5
     end
     object sdsListaKMI: TBCDField
       FieldName = 'KMI'
       Precision = 6
       Size = 2
     end
-    object sdsListaVALKOR: TIntegerField
-      FieldName = 'VALKOR'
-      ReadOnly = True
-    end
-    object sdsListaTGYVAL: TBCDField
-      FieldName = 'TGYVAL'
-      ReadOnly = True
-      Precision = 32
-      Size = 0
-    end
-    object sdsListaANA_ANYA_ENAR: TWideStringField
-      FieldName = 'ANA_ANYA_ENAR'
-      Size = 14
-    end
-    object sdsListaANYA_ELL: TWideStringField
-      FieldName = 'ANYA_ELL'
-      Size = 11
-    end
-    object sdsListaANYA_MIN: TBCDField
-      FieldName = 'ANYA_MIN'
-      Precision = 6
-      Size = 2
+    object sdsListaIVAR: TWideStringField
+      FieldName = 'IVAR'
+      Size = 1
     end
     object sdsListaBNI: TBCDField
       FieldName = 'BNI'
@@ -5448,6 +5949,196 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       ReadOnly = True
       Precision = 10
       Size = 3
+    end
+    object sdsListaNET_PONT: TIntegerField
+      FieldName = 'NET_PONT'
+    end
+    object sdsListaEAP_KLSZ: TWideStringField
+      FieldName = 'EAP_KLSZ'
+      Size = 10
+    end
+    object sdsListaEAP_NEV: TWideStringField
+      FieldName = 'EAP_NEV'
+      Size = 40
+    end
+    object sdsListaEAP_FSZ: TWideStringField
+      FieldName = 'EAP_FSZ'
+      Size = 15
+    end
+    object sdsListaEAP_FAJTAKOD: TWideStringField
+      FieldName = 'EAP_FAJTAKOD'
+      Size = 10
+    end
+    object sdsListaEAP_FAJTANEV: TWideStringField
+      FieldName = 'EAP_FAJTANEV'
+      Size = 40
+    end
+    object sdsListaEAP_SZULDAT: TDateTimeField
+      FieldName = 'EAP_SZULDAT'
+    end
+    object sdsListaEAP_V1: TWideStringField
+      FieldName = 'EAP_V1'
+      Size = 10
+    end
+    object sdsListaEAP_VSZ1: TBCDField
+      FieldName = 'EAP_VSZ1'
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaEAP_F1NEV: TWideStringField
+      FieldName = 'EAP_F1NEV'
+      Size = 40
+    end
+    object sdsListaEAP_V2: TWideStringField
+      FieldName = 'EAP_V2'
+      Size = 10
+    end
+    object sdsListaEAP_VSZ2: TBCDField
+      FieldName = 'EAP_VSZ2'
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaEAP_F2NEV: TWideStringField
+      FieldName = 'EAP_F2NEV'
+      Size = 40
+    end
+    object sdsListaEAP_V3: TWideStringField
+      FieldName = 'EAP_V3'
+      Size = 10
+    end
+    object sdsListaEAP_VSZ3: TBCDField
+      FieldName = 'EAP_VSZ3'
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaEAP_F3NEV: TWideStringField
+      FieldName = 'EAP_F3NEV'
+      Size = 40
+    end
+    object sdsListaEAP_V4: TWideStringField
+      FieldName = 'EAP_V4'
+      Size = 10
+    end
+    object sdsListaEAP_VSZ4: TBCDField
+      FieldName = 'EAP_VSZ4'
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaEAP_F4NEV: TWideStringField
+      FieldName = 'EAP_F4NEV'
+      Size = 40
+    end
+    object sdsListaEAN_ENAR: TWideStringField
+      FieldName = 'EAN_ENAR'
+      Size = 10
+    end
+    object sdsListaEAN_ELL: TWideStringField
+      FieldName = 'EAN_ELL'
+      Size = 11
+    end
+    object sdsListaEAN_NEV: TWideStringField
+      FieldName = 'EAN_NEV'
+      Size = 30
+    end
+    object sdsListaEAN_FAJTAKOD: TWideStringField
+      FieldName = 'EAN_FAJTAKOD'
+      Size = 5
+    end
+    object sdsListaEAN_FAJTANEV: TWideStringField
+      FieldName = 'EAN_FAJTANEV'
+      Size = 40
+    end
+    object sdsListaEAN_SZULDAT: TDateTimeField
+      FieldName = 'EAN_SZULDAT'
+    end
+    object sdsListaEAN_KMI: TBCDField
+      FieldName = 'EAN_KMI'
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaEAN_V1: TWideStringField
+      FieldName = 'EAN_V1'
+      Size = 10
+    end
+    object sdsListaEAN_VSZ1: TBCDField
+      FieldName = 'EAN_VSZ1'
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaEAN_F1NEV: TWideStringField
+      FieldName = 'EAN_F1NEV'
+      Size = 40
+    end
+    object sdsListaEAN_V2: TWideStringField
+      FieldName = 'EAN_V2'
+      Size = 10
+    end
+    object sdsListaEAN_VSZ2: TBCDField
+      FieldName = 'EAN_VSZ2'
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaEAN_F2NEV: TWideStringField
+      FieldName = 'EAN_F2NEV'
+      Size = 40
+    end
+    object sdsListaEAN_V3: TWideStringField
+      FieldName = 'EAN_V3'
+      Size = 10
+    end
+    object sdsListaEAN_VSZ3: TBCDField
+      FieldName = 'EAN_VSZ3'
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaEAN_F3NEV: TWideStringField
+      FieldName = 'EAN_F3NEV'
+      Size = 40
+    end
+    object sdsListaEAN_V4: TWideStringField
+      FieldName = 'EAN_V4'
+      Size = 10
+    end
+    object sdsListaEAN_VSZ4: TBCDField
+      FieldName = 'EAN_VSZ4'
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaEAN_F4NEV: TWideStringField
+      FieldName = 'EAN_F4NEV'
+      Size = 40
+    end
+    object sdsListaEAPAP_AZON: TWideStringField
+      FieldName = 'EAPAP_AZON'
+      Size = 40
+    end
+    object sdsListaEAPAP_NEV: TWideStringField
+      FieldName = 'EAPAP_NEV'
+      Size = 60
+    end
+    object sdsListaEAPAN_AZON: TWideStringField
+      FieldName = 'EAPAN_AZON'
+      Size = 10
+    end
+    object sdsListaEAPAN_NEV: TWideStringField
+      FieldName = 'EAPAN_NEV'
+      Size = 40
+    end
+    object sdsListaEANAP_AZON: TWideStringField
+      FieldName = 'EANAP_AZON'
+      Size = 40
+    end
+    object sdsListaEANAP_NEV: TWideStringField
+      FieldName = 'EANAP_NEV'
+      Size = 60
+    end
+    object sdsListaEANAN_AZON: TWideStringField
+      FieldName = 'EANAN_AZON'
+      Size = 14
+    end
+    object sdsListaEANAN_NEV: TWideStringField
+      FieldName = 'EANAN_NEV'
+      Size = 30
     end
   end
 end
