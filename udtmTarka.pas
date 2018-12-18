@@ -531,8 +531,10 @@ begin
   tq.Close;
   tq.free;
 
-  If ivar = '1' then
-     result := 'Bika';
+  If ivar = '1' then begin
+     Result := 'Bika';
+     exit;
+  end;
 
   SQL := 'select count(*) as darab from ellesek where egyed_id = ' + IntToStr( pID);
   tq := TTalQuery.Create(Self);
@@ -548,7 +550,6 @@ begin
      result := 'Tehén';
 
 end;
-
 
 //------------------------------------------------------------------------------
 function TdtmTarka.JogosultsagEllenorzes(mode: string): Boolean;

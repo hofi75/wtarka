@@ -122,13 +122,13 @@ SQL1 = 'SELECT E.ENAR, ' +
       'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, EANF2.FNEV AS EAN_F2NEV, ' +
       'EAN.VER3 AS EAN_V3, EAN.VSZ3 AS EAN_VSZ3, EANF3.FNEV AS EAN_F3NEV, ' +
       'EAN.VER4 AS EAN_V4, EAN.VSZ4 AS EAN_VSZ4, EANF4.FNEV AS EAN_F4NEV, ' +
-      'EAPAP.KAZON AS EAPAP_AZON, ' +
-      'EAPAP.NEVEE AS EAPAP_NEV, ' +
+      'EAP2.AAZON AS EAPAP_AZON, ' +
+      'EAP2.ANEVE AS EAPAP_NEV, ' +
       'EAP.AENAR AS EAPAN_AZON, ' +
       'EAP.ANYANEV AS EAPAN_NEV, ' +
       'EANAP.KAZON AS EANAP_AZON, ' +
       'EANAP.NEVEE AS EANAP_NEV, ' +
-      'EANAN.ENAR AS EANAN_AZON, ' +
+      'EAN.ANYA_ENAR AS EANAN_AZON, ' +
       'EANAN.NEV AS EANAN_NEV ' +
       'FROM EGYEDEK E  ' +
       'LEFT JOIN TENY ON TENY.TKOD = E.TENYESZET  ' +
@@ -148,8 +148,9 @@ SQL1 = 'SELECT E.ENAR, ' +
       'LEFT JOIN FAJTA EANF2 ON EANF2.FKOD = EAN.VER2 ' +
       'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3 ' +
       'LEFT JOIN FAJTA EANF4 ON EANF4.FKOD = EAN.VER4 ' +
+      'LEFT JOIN BIKTXT EAP2 ON EAP2.KAZTP = ' + '''4''' + ' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ) ' +
       'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = ' + '''4''' + ' AND TRIM(EAPAP.KAZON) = TRIM(EAP.APAKPLSZ) ' +
-      'LEFT JOIN BIKTXT EANAP ON ((TRIM(EANAP.KAZON) = TRIM(EAN.APAKLSZ)) OR (TRIM(EANAP.KAZON) = TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZON) = TRIM(EAN.ID_APA))) AND EANAP.KAZON IS NOT NULL ' +
+      'LEFT JOIN BIKTXT EANAP ON (EANAP.KAZTP= ''4'' AND CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT)) ' +
       'LEFT JOIN EGYEDEK EANAN ON ((TRIM(EANAN.ENAR) = TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_ENAR IS NOT NULL) OR ' +
                   '(TRIM(EANAN.TEHENSZAM) = TRIM(EAN.ANYA_ELL) AND EAN.ANYA_ELL IS NOT NULL) OR ' +
                   '(TRIM(EANAN.ID_ENAR) = TRIM(EAN.ANYA_ID_ENAR)) AND EAN.ANYA_ID_ENAR IS NOT NULL) ' +
@@ -167,33 +168,6 @@ type
     frxDBDKullem: TfrxDBDataset;
     sdsEllesek: TTalSimpleDataSet;
     dtsEllesek: TfrxDBDataset;
-    sdsEllesekENAR: TWideStringField;
-    sdsEllesekFULSZAM: TWideStringField;
-    sdsEllesekE_TERM_DAT: TDateTimeField;
-    sdsEllesekE_TERM_ID: TBCDField;
-    sdsEllesekELLES_DATUM: TDateTimeField;
-    sdsEllesekELLES_LEF: TWideStringField;
-    sdsEllesekBORJU_SSZ: TBCDField;
-    sdsEllesekBORJU_IVAR: TWideStringField;
-    sdsEllesekBORJU_SZIN: TWideStringField;
-    sdsEllesekBORJU_SULY: TBCDField;
-    sdsEllesekBORJU_KIESES_KOD: TWideStringField;
-    sdsEllesekBORJU_KIESES_OK: TWideStringField;
-    sdsEllesekBORJU_ENAR: TWideStringField;
-    sdsEllesekSZARVALTSAG: TWideStringField;
-    sdsEllesekKEK: TIntegerField;
-    sdsEllesekKPLSZ: TWideStringField;
-    sdsEllesekTERM_DATUM: TDateTimeField;
-    sdsEllesekVALDAT: TDateTimeField;
-    sdsEllesekVALTOM: TIntegerField;
-    sdsEllesekKOR_NAP: TIntegerField;
-    sdsEllesekTGYVAL: TBCDField;
-    sdsEllesekATL_NAP: TBCDField;
-    sdsEllesekTOM205: TIntegerField;
-    sdsEllesekSV: TIntegerField;
-    sdsEllesekKIKDAT: TDateTimeField;
-    sdsEllesekKIKOD: TWideStringField;
-    sdsEllesekKIKOK: TWideStringField;
     TalConnection1: TTalConnection;
     sdsKullemID: TBCDField;
     sdsKullemENAR: TWideStringField;
@@ -223,6 +197,37 @@ type
     frxDBLista: TfrxDBDataset;
     sdsLista: TTalSimpleDataSet;
     frxRepLista: TfrxReport;
+    sdsEllesekID: TBCDField;
+    sdsEllesekELLES_DATUM: TDateTimeField;
+    sdsEllesekELLES_LEF: TWideStringField;
+    sdsEllesekE_TERM_DAT: TDateTimeField;
+    sdsEllesekAPA_KPLSZ: TWideStringField;
+    sdsEllesekAPA_NEV: TWideStringField;
+    sdsEllesekKEK: TIntegerField;
+    sdsEllesekB1_ENAR: TWideStringField;
+    sdsEllesekB1_IVAR: TWideStringField;
+    sdsEllesekB1_SULY: TBCDField;
+    sdsEllesekB1_SZARVALTSAG: TWideStringField;
+    sdsEllesekBE1_VALDAT: TDateTimeField;
+    sdsEllesekBE1_VALTOM: TIntegerField;
+    sdsEllesekBE1_TOM205: TIntegerField;
+    sdsEllesekBE1_SV: TIntegerField;
+    sdsEllesekB1_TGY: TBCDField;
+    sdsEllesekBE1_KIKDAT: TDateTimeField;
+    sdsEllesekBE1_KIKOD: TWideStringField;
+    sdsEllesekBE1_KIKOK: TWideStringField;
+    sdsEllesekB2_ENAR: TWideStringField;
+    sdsEllesekB2_IVAR: TWideStringField;
+    sdsEllesekB2_SULY: TBCDField;
+    sdsEllesekB2_SZARVALTSAG: TWideStringField;
+    sdsEllesekBE2_VALDAT: TDateTimeField;
+    sdsEllesekBE2_VALTOM: TIntegerField;
+    sdsEllesekBE2_TOM205: TIntegerField;
+    sdsEllesekBE2_SV: TIntegerField;
+    sdsEllesekB2_TGY: TBCDField;
+    sdsEllesekBE2_KIKDAT: TDateTimeField;
+    sdsEllesekBE2_KIKOD: TWideStringField;
+    sdsEllesekBE2_KIKOK: TWideStringField;
     sdsListaENAR: TWideStringField;
     sdsListaTENYESZET: TWideStringField;
     sdsListaTNEV2: TWideStringField;
@@ -285,6 +290,7 @@ type
     sdsListaEAN_ENAR: TWideStringField;
     sdsListaEAN_ELL: TWideStringField;
     sdsListaEAN_NEV: TWideStringField;
+    sdsListaEANAN_AZON: TWideStringField;
     sdsListaEAN_FAJTAKOD: TWideStringField;
     sdsListaEAN_FAJTANEV: TWideStringField;
     sdsListaEAN_SZULDAT: TDateTimeField;
@@ -307,8 +313,14 @@ type
     sdsListaEAPAN_NEV: TWideStringField;
     sdsListaEANAP_AZON: TWideStringField;
     sdsListaEANAP_NEV: TWideStringField;
-    sdsListaEANAN_AZON: TWideStringField;
     sdsListaEANAN_NEV: TWideStringField;
+    sdsTermekenyitesek: TTalSimpleDataSet;
+    sdsTermekenyitesekDATUM1: TDateTimeField;
+    sdsTermekenyitesekDATUM2: TDateTimeField;
+    sdsTermekenyitesekKPLSZ: TWideStringField;
+    sdsTermekenyitesekALLAPOT: TWideStringField;
+    frxDBTermekenyitesek: TfrxDBDataset;
+    sdsTermekenyitesekBIKANEV: TWideStringField;
     frxEgyedLista: TfrxReport;
     procedure actOKExecute(Sender: TObject);
     procedure sdsListaENARGetText(Sender: TField; var Text: String;
@@ -361,6 +373,8 @@ begin
         sdsKullem.DataSet.CommandText := StringReplace( sdsKullem.DataSet.CommandText, ':ID', IntToStr( pID), [rfReplaceAll]);
         // sdsKullem.DataSet.Parameters.ParamByName('ID').Value := pID;
         sdsKullem.Open;
+        sdsTermekenyitesek.DataSet.CommandText := StringReplace( sdsTermekenyitesek.DataSet.CommandText, ':ID', IntToStr( pID), [rfReplaceAll]);
+        sdsTermekenyitesek.Open;
         actOKExecute(NIL);
       end;
     finally
