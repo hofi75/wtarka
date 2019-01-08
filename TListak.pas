@@ -121,12 +121,12 @@ type
     sdsTNaploALLAP5: TWideStringField;
     frxDBTNaplo: TfrxDBDataset;
     spTNaplo: TTalStoredProc;
-    frxReport_test: TfrxReport;
-    frxRepListak: TfrxReport;
-    frxRepLists: TfrxReport;
     sdsSEQ: TTalSimpleDataSet;
     frxDBSEQ: TfrxDBDataset;
     sdsSEQPAGENR: TBCDField;
+    frxRepLists: TfrxReport;
+    frxReport_test: TfrxReport;
+    frxRepListak: TfrxReport;
     frxTNaplo: TfrxReport;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);

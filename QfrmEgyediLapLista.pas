@@ -76,7 +76,7 @@ const
        ' LEFT JOIN APA AAPA ON AAPA.KPLSZ = ANA.APAKLSZ AND ANA.APAKLSZ IS NOT NULL ' +
        // ' left join EGYEDEK ANA_ANYA on (((ANA_ANYA.ENAR = trim(ANA.ANYA_ENAR)) and (ANA.ANYA_ENAR > '' '')) or ((ANA_ANYA.TEHENSZAM=TRIM(ANA.ANYA_ELL)) and (ANA.ANYA_ELL > '' ''))) ' +
        ' where E.ID  = :ID ';
-SQL1 = 'SELECT E.ENAR, ' +
+SQL1 = 'SELECT DISTINCT E.ENAR, ' +
       'E.TENYESZET, ' +
       'TENY.TNEV2, ' +
       'TENY.VAROS, ' +
@@ -124,17 +124,17 @@ SQL1 = 'SELECT E.ENAR, ' +
       'EAN.VER4 AS EAN_V4, EAN.VSZ4 AS EAN_VSZ4, EANF4.FNEV AS EAN_F4NEV, ' +
       'EAP2.AAZON AS EAPAP_AZON, ' +
       'EAP2.ANEVE AS EAPAP_NEV, ' +
-      'EAP.AENAR AS EAPAN_AZON, ' +
+      'EAP2.MAZON AS EAPAN_AZON, ' +
       'EAP.ANYANEV AS EAPAN_NEV, ' +
       'EANAP.KAZON AS EANAP_AZON, ' +
       'EANAP.NEVEE AS EANAP_NEV, ' +
-      'EAN.ANYA_ENAR AS EANAN_AZON, ' +
+      'TRIM(RNOTNULL(TRIM(EANAN.ENAR), TRIM(EANAN.TEHENSZAM), TRIM(EANAN.ID_ENAR),'' '')) AS EANAN_AZON, ' +
       'EANAN.NEV AS EANAN_NEV ' +
       'FROM EGYEDEK E  ' +
       'LEFT JOIN TENY ON TENY.TKOD = E.TENYESZET  ' +
       'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN  ' +
       'LEFT JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD  ' +
-      'LEFT JOIN ORSZAG ON ORSZAG.KOD1 = E.SZORSZ  ' +
+      'LEFT JOIN ORSZAG ON ORSZAG.KOD2 = E.SZORSZ  ' +
       'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.IVAR AND IVARF.KODTIPUSOK_TIPUSKOD = ' + '''IVAR'''  +
       'LEFT JOIN APA EAP ON TRIM(EAP.KPLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL ' +
       'LEFT JOIN FAJTA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NOT NULL  ' +
@@ -142,7 +142,7 @@ SQL1 = 'SELECT E.ENAR, ' +
       'LEFT JOIN FAJTA EAPF2 ON EAPF2.FKOD = EAP.VER2 ' +
       'LEFT JOIN FAJTA EAPF3 ON EAPF3.FKOD = EAP.VER3 ' +
       'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = EAP.VER4 ' +
-      'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR)) AND (E.ANYA_ENAR > ' + ''' ''' + ')) OR ((EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > ' + ''' ''' + '))) AND EAN.TENYESZET = E.TENYESZET  ' +
+      'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR=TRIM(E.ANYA_ENAR)) AND (E.ANYA_ENAR > ' + ''' ''' + ') AND EAN.TENYESZET = E.TENYESZET) OR ((EAN.TEHENSZAM=TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > ' + ''' ''' + '))) ' +
       'LEFT JOIN FAJTA EANF ON EANF.FKOD = EAN.FAJTAKOD  ' +
       'LEFT JOIN FAJTA EANF1 ON EANF1.FKOD = EAN.VER1 ' +
       'LEFT JOIN FAJTA EANF2 ON EANF2.FKOD = EAN.VER2 ' +
@@ -151,9 +151,8 @@ SQL1 = 'SELECT E.ENAR, ' +
       'LEFT JOIN BIKTXT EAP2 ON EAP2.KAZTP = ' + '''4''' + ' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ) ' +
       'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = ' + '''4''' + ' AND TRIM(EAPAP.KAZON) = TRIM(EAP.APAKPLSZ) ' +
       'LEFT JOIN BIKTXT EANAP ON (EANAP.KAZTP= ''4'' AND CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT)) ' +
-      'LEFT JOIN EGYEDEK EANAN ON ((TRIM(EANAN.ENAR) = TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_ENAR IS NOT NULL) OR ' +
-                  '(TRIM(EANAN.TEHENSZAM) = TRIM(EAN.ANYA_ELL) AND EAN.ANYA_ELL IS NOT NULL) OR ' +
-                  '(TRIM(EANAN.ID_ENAR) = TRIM(EAN.ANYA_ID_ENAR)) AND EAN.ANYA_ID_ENAR IS NOT NULL) ' +
+      'LEFT JOIN EGYEDEK EANAN ON (TRIM(EANAN.ENAR)=TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_ENAR IS NOT NULL) OR (TRIM(EANAN.TEHENSZAM)=TRIM(EAN.ANYA_ELL) AND EAN.ANYA_ELL IS NOT NULL) ' +
+      'OR (TRIM(EANAN.ID_ENAR)=TRIM(EAN.ANYA_ID_ENAR) AND EAN.ID_ENAR IS NOT NULL) ' +
       'where E.ID  = :ID ';
 
 type
@@ -228,6 +227,8 @@ type
     sdsEllesekBE2_KIKDAT: TDateTimeField;
     sdsEllesekBE2_KIKOD: TWideStringField;
     sdsEllesekBE2_KIKOK: TWideStringField;
+    sdsTermekenyitesek: TTalSimpleDataSet;
+    frxDBTermekenyitesek: TfrxDBDataset;
     sdsListaENAR: TWideStringField;
     sdsListaTENYESZET: TWideStringField;
     sdsListaTNEV2: TWideStringField;
@@ -314,14 +315,15 @@ type
     sdsListaEANAP_AZON: TWideStringField;
     sdsListaEANAP_NEV: TWideStringField;
     sdsListaEANAN_NEV: TWideStringField;
-    sdsTermekenyitesek: TTalSimpleDataSet;
+    frxEgyedLista: TfrxReport;
     sdsTermekenyitesekDATUM1: TDateTimeField;
     sdsTermekenyitesekDATUM2: TDateTimeField;
     sdsTermekenyitesekKPLSZ: TWideStringField;
     sdsTermekenyitesekALLAPOT: TWideStringField;
-    frxDBTermekenyitesek: TfrxDBDataset;
     sdsTermekenyitesekBIKANEV: TWideStringField;
-    frxEgyedLista: TfrxReport;
+    sdsTermekenyitesekVEMHALL: TWideStringField;
+    sdsTermekenyitesekTERMMOD: TWideStringField;
+    sdsTermekenyitesekUT_ELL_DAT: TDateTimeField;
     procedure actOKExecute(Sender: TObject);
     procedure sdsListaENARGetText(Sender: TField; var Text: String;
       DisplayText: Boolean);
@@ -373,7 +375,7 @@ begin
         sdsKullem.DataSet.CommandText := StringReplace( sdsKullem.DataSet.CommandText, ':ID', IntToStr( pID), [rfReplaceAll]);
         // sdsKullem.DataSet.Parameters.ParamByName('ID').Value := pID;
         sdsKullem.Open;
-        sdsTermekenyitesek.DataSet.CommandText := StringReplace( sdsTermekenyitesek.DataSet.CommandText, ':ID', IntToStr( pID), [rfReplaceAll]);
+        sdsTermekenyitesek.DataSet.CommandText := StringReplace( sdsTermekenyitesek.DataSet.CommandText, '99999', IntToStr( pID), [rfReplaceAll]);
         sdsTermekenyitesek.Open;
         actOKExecute(NIL);
       end;

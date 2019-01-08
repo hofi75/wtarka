@@ -1,6 +1,6 @@
 inherited frmEgyediLapLista: TfrmEgyediLapLista
-  Left = 715
-  Top = 279
+  Left = 1158
+  Top = 126
   Width = 701
   Height = 389
   Caption = 'Egyedi lap nyomtat'#225'sa'
@@ -2759,7 +2759,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 38838.519462187500000000
-    ReportOptions.LastChange = 43452.909404421300000000
+    ReportOptions.LastChange = 43463.634596435190000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'var'
@@ -5037,7 +5037,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         ReprintOnNewPage = True
         object Memo108: TfrxMemoView
           Left = 311.760831270000000000
-          Top = 3.779529999999990000
+          Top = 3.779530000000000000
           Width = 94.488250000000000000
           Height = 22.677180000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -5047,7 +5047,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = [fsBold, fsUnderline]
           HAlign = haCenter
           Memo.UTF8 = (
-            'Ell'#258#169'sek')
+            'Ell'#258#169'sei')
           ParentFont = False
         end
         object Memo111: TfrxMemoView
@@ -5521,7 +5521,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       BottomMargin = 10.000000000000000000
       PrintOnPreviousPage = True
       object MasterData4: TfrxMasterData
-        Height = 22.677180000000000000
+        Height = 18.897650000000000000
         Top = 94.488250000000000000
         Width = 718.110700000000000000
         OnAfterPrint = 'MasterData2OnAfterPrint'
@@ -5530,8 +5530,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         DataSetName = 'frxDBTermekenyitesek'
         RowCount = 0
         object Memo8: TfrxMemoView
-          Left = 15.118120000000000000
-          Width = 109.606299210000000000
+          Left = 3.779530000000000000
+          Width = 83.149606300000000000
           Height = 18.897650000000000000
           DataField = 'DATUM1'
           DataSet = frxDBTermekenyitesek
@@ -5541,8 +5541,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
             '[frxDBTermekenyitesek."DATUM1"]')
         end
         object Memo29: TfrxMemoView
-          Left = 136.063080000000000000
-          Width = 109.606311420000000000
+          Left = 90.708720000000000000
+          Width = 83.149606300000000000
           Height = 18.897650000000000000
           DataField = 'DATUM2'
           DataSet = frxDBTermekenyitesek
@@ -5552,8 +5552,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
             '[frxDBTermekenyitesek."DATUM2"]')
         end
         object Memo49: TfrxMemoView
-          Left = 272.126160000000000000
-          Width = 64.252010000000000000
+          Left = 317.480520000000000000
+          Width = 56.692950000000000000
           Height = 18.897650000000000000
           DataField = 'KPLSZ'
           DataSet = frxDBTermekenyitesek
@@ -5562,26 +5562,30 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
             '[frxDBTermekenyitesek."KPLSZ"]')
         end
         object Memo52: TfrxMemoView
-          Left = 612.283860000000000000
-          Width = 102.047310000000000000
+          Left = 608.503937010000000000
+          Width = 109.606370000000000000
           Height = 18.897650000000000000
-          DataField = 'ALLAPOT'
           DataSet = frxDBTermekenyitesek
           DataSetName = 'frxDBTermekenyitesek'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxDBTermekenyitesek."ALLAPOT"]')
+            '[frxDBTermekenyitesek."VEMHALL"]')
+          ParentFont = False
         end
         object Line51: TfrxLineView
           Align = baWidth
-          Left = -3.779530000000000000
           Top = 18.897637800000000000
-          Width = 616.063390000000000000
+          Width = 718.110700000000000000
           Frame.Typ = [ftTop]
         end
         object Memo2: TfrxMemoView
-          Left = 347.716760000000000000
-          Width = 253.228510000000000000
+          Left = 377.953000000000000000
+          Width = 226.771800000000000000
           Height = 18.897650000000000000
           DataField = 'BIKANEV'
           DataSet = frxDBTermekenyitesek
@@ -5590,7 +5594,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
             '[frxDBTermekenyitesek."BIKANEV"]')
         end
         object Line52: TfrxLineView
-          Left = 268.346630000000000000
+          Left = 313.700990000000000000
           Height = 18.897650000000000000
           Frame.Typ = [ftLeft]
         end
@@ -5605,9 +5609,35 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Frame.Typ = [ftLeft]
         end
         object Line61: TfrxLineView
-          Left = -3.779530000000000000
           Height = 18.897650000000000000
           Frame.Typ = [ftLeft]
+        end
+        object Line91: TfrxLineView
+          Left = 608.504330000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line93: TfrxLineView
+          Left = 177.637910000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo106: TfrxMemoView
+          Left = 177.637910000000000000
+          Width = 136.063080000000000000
+          Height = 18.897650000000000000
+          DataField = 'TERMMOD'
+          DataSet = frxDBTermekenyitesek
+          DataSetName = 'frxDBTermekenyitesek'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haCenter
+          Memo.UTF8 = (
+            '[frxDBTermekenyitesek."TERMMOD"]')
+          ParentFont = False
         end
       end
       object Header2: TfrxHeader
@@ -5626,16 +5656,16 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = [fsBold, fsUnderline]
           HAlign = haCenter
           Memo.UTF8 = (
-            'Utols'#258#322' ell'#258#169's ut'#258#711'ni term'#258#169'keny'#258#173't'#258#169'sek')
+            'Term'#258#169'keny'#258#173't'#258#169'sei')
           ParentFont = False
         end
         object Memo167: TfrxMemoView
           Top = 34.015770000000000000
-          Width = 268.346630000000000000
+          Width = 177.637910000000000000
           Height = 18.897650000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'Term.d'#258#711'tum')
+            'Term'#258#169'keny'#258#173't'#258#169's ideje')
         end
         object Line63: TfrxLineView
           Align = baWidth
@@ -5644,7 +5674,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Frame.Typ = [ftTop]
         end
         object Line64: TfrxLineView
-          Left = 268.346630000000000000
+          Left = 313.700990000000000000
           Top = 34.015770000000000000
           Height = 18.897650000000000000
           Frame.Typ = [ftLeft]
@@ -5657,28 +5687,28 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Line72: TfrxLineView
           Top = 34.015770000000000000
-          Height = 41.574830000000000000
+          Height = 18.897637800000000000
           Frame.Typ = [ftLeft]
         end
         object Line73: TfrxLineView
           Left = 718.110700000000000000
           Top = 34.015770000000000000
-          Height = 41.574830000000000000
+          Height = 18.897637795275590000
           Frame.Typ = [ftLeft]
         end
         object Memo168: TfrxMemoView
-          Left = 321.260050000000000000
+          Left = 317.480520000000000000
           Top = 34.015770000000000000
-          Width = 222.992270000000000000
+          Width = 287.244280000000000000
           Height = 18.897650000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'Bika')
+            'Term'#258#169'keny'#258#173't'#313#8216' bika')
         end
         object Memo169: TfrxMemoView
-          Left = 623.622450000000000000
+          Left = 612.283860000000000000
           Top = 34.015770000000000000
-          Width = 86.929190000000000000
+          Width = 102.047310000000000000
           Height = 18.897650000000000000
           HAlign = haCenter
           Memo.UTF8 = (
@@ -5689,6 +5719,21 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Top = 52.913420000000000000
           Width = 718.110700000000000000
           Frame.Typ = [ftTop]
+        end
+        object Line92: TfrxLineView
+          Left = 177.637910000000000000
+          Top = 34.015770000000000000
+          Height = 18.897650000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Memo51: TfrxMemoView
+          Left = 177.637910000000000000
+          Top = 34.015770000000000000
+          Width = 136.063080000000000000
+          Height = 18.897650000000000000
+          HAlign = haCenter
+          Memo.UTF8 = (
+            'Term'#258#169'keny'#258#173't'#258#169's m'#258#322'dja')
         end
       end
     end
@@ -5759,7 +5804,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'EAN_ENAR=EAN_ENAR'
       'EAN_ELL=EAN_ELL'
       'EAN_NEV=EAN_NEV'
-      'EANAN_AZONOS=EANAN_AZONOS'
+      'EANAN_AZON=EANAN_AZON'
       'EAN_FAJTAKOD=EAN_FAJTAKOD'
       'EAN_FAJTANEV=EAN_FAJTANEV'
       'EAN_SZULDAT=EAN_SZULDAT'
@@ -5888,115 +5933,123 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     Connection = dtmTarka.cnTarka
     DataSet.Connection = dtmTarka.cnTarka
     DataSet.CommandText = 
-      'SELECT E.ENAR,'#13#10'E.TENYESZET,'#13#10'TENY.TNEV2,'#13#10'TENY.VAROS as VAROS,'#13 +
-      #10'E.FULSZAM,'#13#10'E.ID_ENAR,'#13#10'E.TEHENSZAM,'#13#10'E.SZULDAT,'#13#10'E.MLEVEL1,'#13#10'E' +
-      '.MLEVEL2,'#13#10'E.TKV,'#13#10'E.SZIN, SZIN.NEV AS SZINNEV,'#13#10'E.FAJTAKOD, EF.' +
-      'FNEV,'#13#10'E.VER1, E.VSZ1, E.VER2, E.VSZ2, E.VER3, E.VSZ3, E.VER4, E' +
-      '.VSZ4,'#13#10'E.KKOD,'#13#10'E.VALDAT, CAST(TRUNC(E.VALDAT - E.SZULDAT) AS N' +
-      'UMBER (5,0)) AS VALKOR, E.VALTOM, E.TOM205, E.SV,'#13#10'CAST(TOMGYAR(' +
-      'E.SZUL_SULY, E.VALTOM, E.SZULDAT, E.VALDAT) AS INTEGER) AS TGYVA' +
-      'L,'#13#10'E.SZORSZ, ORSZAG.NEV AS ORSZAGNEV,'#13#10'E.SZARVALTSAG,'#13#10'E.BIKANE' +
-      'VELO,'#13#10'E.TENYTOM,'#13#10'E.MIN AS KMI,'#13#10'E.IVAR,'#13#10'CAST (BNI(E.ID) AS NU' +
-      'MERIC(10,3)) AS BNI,'#13#10'CAST (SZAPIND(E.ID) AS NUMERIC(10,3)) AS S' +
-      'ZAPIND,'#13#10'CAST (KULLEM_IND(E.ENAR) AS NUMERIC(10,3)) AS KULLEM_IN' +
-      'D,'#13#10'E.NET_PONT,'#13#10'E.APAKLSZ AS EAP_KLSZ,'#13#10'EAP.NEV AS EAP_NEV,'#13#10'EA' +
-      'P.FSZ AS EAP_FSZ,'#13#10'EAP.FKOD AS EAP_FAJTAKOD, EAPF.FNEV AS EAP_FA' +
-      'JTANEV,'#13#10'EAP.SZULDAT AS EAP_SZULDAT,'#13#10'EAP.VER1 AS EAP_V1, EAP.VS' +
-      'Z1 AS EAP_VSZ1, EAPF1.FNEV AS EAP_F1NEV,'#13#10'EAP.VER2 AS EAP_V2, EA' +
-      'P.VSZ2 AS EAP_VSZ2, EAPF2.FNEV AS EAP_F2NEV,'#13#10'EAP.VER3 AS EAP_V3' +
-      ', EAP.VSZ3 AS EAP_VSZ3, EAPF3.FNEV AS EAP_F3NEV,'#13#10'EAP.VER4 AS EA' +
-      'P_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV,'#13#10'E.ANYA_ENA' +
-      'R AS EAN_ENAR,'#13#10'E.ANYA_ELL AS EAN_ELL,'#13#10'EAN.NEV AS EAN_NEV,'#13#10'EAN' +
-      '.ANYA_ENAR AS EANAN_AZON,'#13#10'EAN.FAJTAKOD AS EAN_FAJTAKOD, EANF.FN' +
-      'EV AS EAN_FAJTANEV,'#13#10'EAN.SZULDAT AS EAN_SZULDAT,'#13#10'EAN.MIN AS EAN' +
-      '_KMI,'#13#10'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, EANF1.FNEV AS E' +
-      'AN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, EANF2.FNEV ' +
-      'AS EAN_F2NEV,'#13#10'EAN.VER3 AS EAN_V3, EAN.VSZ3 AS EAN_VSZ3, EANF3.F' +
-      'NEV AS EAN_F3NEV,'#13#10'EAN.VER4 AS EAN_V4, EAN.VSZ4 AS EAN_VSZ4, EAN' +
-      'F4.FNEV AS EAN_F4NEV,'#13#10'EAP2.AAZON AS EAPAP_AZON,'#13#10'EAP2.ANEVE AS ' +
-      'EAPAP_NEV,'#13#10'EAP.AENAR AS EAPAN_AZON,'#13#10'EAP.ANYANEV AS EAPAN_NEV,'#13 +
-      #10'EANAP.KAZON AS EANAP_AZON,'#13#10'EANAP.NEVEE AS EANAP_NEV,'#13#10'EANAN.NE' +
-      'V AS EANAN_NEV'#13#10'FROM EGYEDEK E '#13#10'LEFT JOIN TENY ON TENY.TKOD = E' +
-      '.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN '#13#10'LEFT JOIN FAJ' +
-      'TA EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT JOIN ORSZAG ON ORSZAG.KOD1 ' +
-      '= E.SZORSZ '#13#10'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.IVAR AND IVA' +
-      'RF.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39' '#13#10'LEFT JOIN APA EAP ON TRIM(EAP.' +
-      'KPLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL'#13#10'LEFT JOIN FA' +
-      'JTA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NOT NULL '#13#10'LEF' +
-      'T JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1'#13#10'LEFT JOIN FAJTA EAP' +
-      'F2 ON EAPF2.FKOD = EAP.VER2'#13#10'LEFT JOIN FAJTA EAPF3 ON EAPF3.FKOD' +
-      ' = EAP.VER3'#13#10'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = EAP.VER4'#13#10'LEF' +
-      'T JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR)) AND (E.AN' +
-      'YA_ENAR > '#39' '#39')) OR ((EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.AN' +
-      'YA_ELL > '#39' '#39'))) AND EAN.TENYESZET = E.TENYESZET '#13#10'LEFT JOIN FAJT' +
-      'A EANF ON EANF.FKOD = EAN.FAJTAKOD '#13#10'LEFT JOIN FAJTA EANF1 ON EA' +
-      'NF1.FKOD = EAN.VER1'#13#10'LEFT JOIN FAJTA EANF2 ON EANF2.FKOD = EAN.V' +
-      'ER2'#13#10'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3'#13#10'LEFT JOIN F' +
-      'AJTA EANF4 ON EANF4.FKOD = EAN.VER4'#13#10'LEFT JOIN BIKTXT EAP2 ON EA' +
-      'P2.KAZTP = '#39'4'#39' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ)'#13#10'LEFT JOIN' +
-      ' BIKTXT EAPAP ON EAPAP.KAZTP = '#39'4'#39' AND TRIM(EAPAP.KAZON) = TRIM(' +
-      'EAP.APAKPLSZ)'#13#10'LEFT JOIN BIKTXT EANAP ON (EANAP.KAZTP= '#39'4'#39' AND (' +
-      'CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT))) OR (TRIM(EAN' +
-      'AP.KAZON)=TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZON)=TRIM(EAN.' +
-      'ID_APA)) AND EANAP.KAZON IS NOT NULL'#13#10'LEFT JOIN EGYEDEK EANAN ON' +
-      ' TRIM(EANAN.ENAR)=TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_ENAR IS NOT N' +
-      'ULL'#13#10'where E.ENAR  = '#39'3207476221'#39
+      'SELECT DISTINCT E.ENAR,'#13#10'E.TENYESZET,'#13#10'TENY.TNEV2,'#13#10'TENY.VAROS a' +
+      's VAROS,'#13#10'E.FULSZAM,'#13#10'E.ID_ENAR,'#13#10'E.TEHENSZAM,'#13#10'E.SZULDAT,'#13#10'E.ML' +
+      'EVEL1,'#13#10'E.MLEVEL2,'#13#10'E.TKV,'#13#10'E.SZIN, SZIN.NEV AS SZINNEV,'#13#10'E.FAJT' +
+      'AKOD, EF.FNEV,'#13#10'E.VER1, E.VSZ1, E.VER2, E.VSZ2, E.VER3, E.VSZ3, ' +
+      'E.VER4, E.VSZ4,'#13#10'E.KKOD,'#13#10'E.VALDAT, CAST(TRUNC(E.VALDAT - E.SZUL' +
+      'DAT) AS NUMBER (5,0)) AS VALKOR, E.VALTOM, E.TOM205, E.SV,'#13#10'CAST' +
+      '(TOMGYAR(E.SZUL_SULY, E.VALTOM, E.SZULDAT, E.VALDAT) AS INTEGER)' +
+      ' AS TGYVAL,'#13#10'E.SZORSZ, ORSZAG.NEV AS ORSZAGNEV,'#13#10'E.SZARVALTSAG,'#13 +
+      #10'E.BIKANEVELO,'#13#10'E.TENYTOM,'#13#10'E.MIN AS KMI,'#13#10'E.IVAR,'#13#10'CAST (BNI(E.' +
+      'ID) AS NUMERIC(10,3)) AS BNI,'#13#10'CAST (SZAPIND(E.ID) AS NUMERIC(10' +
+      ',3)) AS SZAPIND,'#13#10'CAST (KULLEM_IND(E.ENAR) AS NUMERIC(10,3)) AS ' +
+      'KULLEM_IND,'#13#10'E.NET_PONT,'#13#10'E.APAKLSZ AS EAP_KLSZ,'#13#10'EAP.NEV AS EAP' +
+      '_NEV,'#13#10'EAP.FSZ AS EAP_FSZ,'#13#10'EAP.FKOD AS EAP_FAJTAKOD, EAPF.FNEV ' +
+      'AS EAP_FAJTANEV,'#13#10'EAP.SZULDAT AS EAP_SZULDAT,'#13#10'EAP.VER1 AS EAP_V' +
+      '1, EAP.VSZ1 AS EAP_VSZ1, EAPF1.FNEV AS EAP_F1NEV,'#13#10'EAP.VER2 AS E' +
+      'AP_V2, EAP.VSZ2 AS EAP_VSZ2, EAPF2.FNEV AS EAP_F2NEV,'#13#10'EAP.VER3 ' +
+      'AS EAP_V3, EAP.VSZ3 AS EAP_VSZ3, EAPF3.FNEV AS EAP_F3NEV,'#13#10'EAP.V' +
+      'ER4 AS EAP_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV,'#13#10'E' +
+      '.ANYA_ENAR AS EAN_ENAR,'#13#10'E.ANYA_ELL AS EAN_ELL,'#13#10'EAN.NEV AS EAN_' +
+      'NEV,'#13#10'TRIM(RNOTNULL(TRIM(EANAN.ENAR), TRIM(EANAN.TEHENSZAM), TRI' +
+      'M(EANAN.ID_ENAR),'#39#39')) AS EANAN_AZON,'#13#10'EAN.FAJTAKOD AS EAN_FAJTAK' +
+      'OD, EANF.FNEV AS EAN_FAJTANEV,'#13#10'EAN.SZULDAT AS EAN_SZULDAT,'#13#10'EAN' +
+      '.MIN AS EAN_KMI,'#13#10'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, EANF' +
+      '1.FNEV AS EAN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, ' +
+      'EANF2.FNEV AS EAN_F2NEV,'#13#10'EAN.VER3 AS EAN_V3, EAN.VSZ3 AS EAN_VS' +
+      'Z3, EANF3.FNEV AS EAN_F3NEV,'#13#10'EAN.VER4 AS EAN_V4, EAN.VSZ4 AS EA' +
+      'N_VSZ4, EANF4.FNEV AS EAN_F4NEV,'#13#10'EAP2.AAZON AS EAPAP_AZON,'#13#10'EAP' +
+      '2.ANEVE AS EAPAP_NEV,'#13#10'EAP2.MAZON AS EAPAN_AZON,'#13#10'EAP.ANYANEV AS' +
+      ' EAPAN_NEV,'#13#10'EANAP.KAZON AS EANAP_AZON,'#13#10'EANAP.NEVEE AS EANAP_NE' +
+      'V,'#13#10'EANAN.NEV AS EANAN_NEV'#13#10'FROM EGYEDEK E '#13#10'LEFT JOIN TENY ON T' +
+      'ENY.TKOD = E.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN '#13#10'L' +
+      'EFT JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT JOIN ORSZAG ON ' +
+      'ORSZAG.KOD2 = E.SZORSZ '#13#10'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.' +
+      'IVAR AND IVARF.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39' '#13#10'LEFT JOIN APA EAP ' +
+      'ON TRIM(EAP.KPLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL'#13#10 +
+      'LEFT JOIN FAJTA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NO' +
+      'T NULL '#13#10'LEFT JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1'#13#10'LEFT JO' +
+      'IN FAJTA EAPF2 ON EAPF2.FKOD = EAP.VER2'#13#10'LEFT JOIN FAJTA EAPF3 O' +
+      'N EAPF3.FKOD = EAP.VER3'#13#10'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = E' +
+      'AP.VER4'#13#10'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR' +
+      ')) AND (E.ANYA_ENAR > '#39' '#39') AND EAN.TENYESZET = E.TENYESZET) OR (' +
+      '(EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > '#39' '#39'))) '#13#10'LE' +
+      'FT JOIN FAJTA EANF ON EANF.FKOD = EAN.FAJTAKOD '#13#10'LEFT JOIN FAJTA' +
+      ' EANF1 ON EANF1.FKOD = EAN.VER1'#13#10'LEFT JOIN FAJTA EANF2 ON EANF2.' +
+      'FKOD = EAN.VER2'#13#10'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3'#13 +
+      #10'LEFT JOIN FAJTA EANF4 ON EANF4.FKOD = EAN.VER4'#13#10'LEFT JOIN BIKTX' +
+      'T EAP2 ON EAP2.KAZTP = '#39'4'#39' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ' +
+      ')'#13#10'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = '#39'4'#39' AND TRIM(EAPAP.KA' +
+      'ZON) = TRIM(EAP.APAKPLSZ)'#13#10'LEFT JOIN BIKTXT EANAP ON (EANAP.KAZT' +
+      'P= '#39'4'#39' AND (CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT))) ' +
+      'OR (TRIM(EANAP.KAZON)=TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZO' +
+      'N)=TRIM(EAN.ID_APA)) AND EANAP.KAZON IS NOT NULL'#13#10'LEFT JOIN EGYE' +
+      'DEK EANAN ON (TRIM(EANAN.ENAR)=TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_' +
+      'ENAR IS NOT NULL) OR (TRIM(EANAN.TEHENSZAM)=TRIM(EAN.ANYA_ELL) A' +
+      'ND EAN.ANYA_ELL IS NOT NULL) OR (TRIM(EANAN.ID_ENAR)=TRIM(EAN.AN' +
+      'YA_ID_ENAR) AND EAN.ID_ENAR IS NOT NULL)'#13#10'where E.ENAR  = '#39'32074' +
+      '76221'#39
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
-      'SELECT E.ENAR,'#13#10'E.TENYESZET,'#13#10'TENY.TNEV2,'#13#10'TENY.VAROS as VAROS,'#13 +
-      #10'E.FULSZAM,'#13#10'E.ID_ENAR,'#13#10'E.TEHENSZAM,'#13#10'E.SZULDAT,'#13#10'E.MLEVEL1,'#13#10'E' +
-      '.MLEVEL2,'#13#10'E.TKV,'#13#10'E.SZIN, SZIN.NEV AS SZINNEV,'#13#10'E.FAJTAKOD, EF.' +
-      'FNEV,'#13#10'E.VER1, E.VSZ1, E.VER2, E.VSZ2, E.VER3, E.VSZ3, E.VER4, E' +
-      '.VSZ4,'#13#10'E.KKOD,'#13#10'E.VALDAT, CAST(TRUNC(E.VALDAT - E.SZULDAT) AS N' +
-      'UMBER (5,0)) AS VALKOR, E.VALTOM, E.TOM205, E.SV,'#13#10'CAST(TOMGYAR(' +
-      'E.SZUL_SULY, E.VALTOM, E.SZULDAT, E.VALDAT) AS INTEGER) AS TGYVA' +
-      'L,'#13#10'E.SZORSZ, ORSZAG.NEV AS ORSZAGNEV,'#13#10'E.SZARVALTSAG,'#13#10'E.BIKANE' +
-      'VELO,'#13#10'E.TENYTOM,'#13#10'E.MIN AS KMI,'#13#10'E.IVAR,'#13#10'CAST (BNI(E.ID) AS NU' +
-      'MERIC(10,3)) AS BNI,'#13#10'CAST (SZAPIND(E.ID) AS NUMERIC(10,3)) AS S' +
-      'ZAPIND,'#13#10'CAST (KULLEM_IND(E.ENAR) AS NUMERIC(10,3)) AS KULLEM_IN' +
-      'D,'#13#10'E.NET_PONT,'#13#10'E.APAKLSZ AS EAP_KLSZ,'#13#10'EAP.NEV AS EAP_NEV,'#13#10'EA' +
-      'P.FSZ AS EAP_FSZ,'#13#10'EAP.FKOD AS EAP_FAJTAKOD, EAPF.FNEV AS EAP_FA' +
-      'JTANEV,'#13#10'EAP.SZULDAT AS EAP_SZULDAT,'#13#10'EAP.VER1 AS EAP_V1, EAP.VS' +
-      'Z1 AS EAP_VSZ1, EAPF1.FNEV AS EAP_F1NEV,'#13#10'EAP.VER2 AS EAP_V2, EA' +
-      'P.VSZ2 AS EAP_VSZ2, EAPF2.FNEV AS EAP_F2NEV,'#13#10'EAP.VER3 AS EAP_V3' +
-      ', EAP.VSZ3 AS EAP_VSZ3, EAPF3.FNEV AS EAP_F3NEV,'#13#10'EAP.VER4 AS EA' +
-      'P_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV,'#13#10'E.ANYA_ENA' +
-      'R AS EAN_ENAR,'#13#10'E.ANYA_ELL AS EAN_ELL,'#13#10'EAN.NEV AS EAN_NEV,'#13#10'EAN' +
-      '.ANYA_ENAR AS EANAN_AZON,'#13#10'EAN.FAJTAKOD AS EAN_FAJTAKOD, EANF.FN' +
-      'EV AS EAN_FAJTANEV,'#13#10'EAN.SZULDAT AS EAN_SZULDAT,'#13#10'EAN.MIN AS EAN' +
-      '_KMI,'#13#10'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, EANF1.FNEV AS E' +
-      'AN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, EANF2.FNEV ' +
-      'AS EAN_F2NEV,'#13#10'EAN.VER3 AS EAN_V3, EAN.VSZ3 AS EAN_VSZ3, EANF3.F' +
-      'NEV AS EAN_F3NEV,'#13#10'EAN.VER4 AS EAN_V4, EAN.VSZ4 AS EAN_VSZ4, EAN' +
-      'F4.FNEV AS EAN_F4NEV,'#13#10'EAP2.AAZON AS EAPAP_AZON,'#13#10'EAP2.ANEVE AS ' +
-      'EAPAP_NEV,'#13#10'EAP.AENAR AS EAPAN_AZON,'#13#10'EAP.ANYANEV AS EAPAN_NEV,'#13 +
-      #10'EANAP.KAZON AS EANAP_AZON,'#13#10'EANAP.NEVEE AS EANAP_NEV,'#13#10'EANAN.NE' +
-      'V AS EANAN_NEV'#13#10'FROM EGYEDEK E '#13#10'LEFT JOIN TENY ON TENY.TKOD = E' +
-      '.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN '#13#10'LEFT JOIN FAJ' +
-      'TA EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT JOIN ORSZAG ON ORSZAG.KOD1 ' +
-      '= E.SZORSZ '#13#10'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.IVAR AND IVA' +
-      'RF.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39' '#13#10'LEFT JOIN APA EAP ON TRIM(EAP.' +
-      'KPLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL'#13#10'LEFT JOIN FA' +
-      'JTA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NOT NULL '#13#10'LEF' +
-      'T JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1'#13#10'LEFT JOIN FAJTA EAP' +
-      'F2 ON EAPF2.FKOD = EAP.VER2'#13#10'LEFT JOIN FAJTA EAPF3 ON EAPF3.FKOD' +
-      ' = EAP.VER3'#13#10'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = EAP.VER4'#13#10'LEF' +
-      'T JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR)) AND (E.AN' +
-      'YA_ENAR > '#39' '#39')) OR ((EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.AN' +
-      'YA_ELL > '#39' '#39'))) AND EAN.TENYESZET = E.TENYESZET '#13#10'LEFT JOIN FAJT' +
-      'A EANF ON EANF.FKOD = EAN.FAJTAKOD '#13#10'LEFT JOIN FAJTA EANF1 ON EA' +
-      'NF1.FKOD = EAN.VER1'#13#10'LEFT JOIN FAJTA EANF2 ON EANF2.FKOD = EAN.V' +
-      'ER2'#13#10'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3'#13#10'LEFT JOIN F' +
-      'AJTA EANF4 ON EANF4.FKOD = EAN.VER4'#13#10'LEFT JOIN BIKTXT EAP2 ON EA' +
-      'P2.KAZTP = '#39'4'#39' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ)'#13#10'LEFT JOIN' +
-      ' BIKTXT EAPAP ON EAPAP.KAZTP = '#39'4'#39' AND TRIM(EAPAP.KAZON) = TRIM(' +
-      'EAP.APAKPLSZ)'#13#10'LEFT JOIN BIKTXT EANAP ON (EANAP.KAZTP= '#39'4'#39' AND (' +
-      'CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT))) OR (TRIM(EAN' +
-      'AP.KAZON)=TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZON)=TRIM(EAN.' +
-      'ID_APA)) AND EANAP.KAZON IS NOT NULL'#13#10'LEFT JOIN EGYEDEK EANAN ON' +
-      ' TRIM(EANAN.ENAR)=TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_ENAR IS NOT N' +
-      'ULL'#13#10'where E.ENAR  = '#39'3207476221'#39
+      'SELECT DISTINCT E.ENAR,'#13#10'E.TENYESZET,'#13#10'TENY.TNEV2,'#13#10'TENY.VAROS a' +
+      's VAROS,'#13#10'E.FULSZAM,'#13#10'E.ID_ENAR,'#13#10'E.TEHENSZAM,'#13#10'E.SZULDAT,'#13#10'E.ML' +
+      'EVEL1,'#13#10'E.MLEVEL2,'#13#10'E.TKV,'#13#10'E.SZIN, SZIN.NEV AS SZINNEV,'#13#10'E.FAJT' +
+      'AKOD, EF.FNEV,'#13#10'E.VER1, E.VSZ1, E.VER2, E.VSZ2, E.VER3, E.VSZ3, ' +
+      'E.VER4, E.VSZ4,'#13#10'E.KKOD,'#13#10'E.VALDAT, CAST(TRUNC(E.VALDAT - E.SZUL' +
+      'DAT) AS NUMBER (5,0)) AS VALKOR, E.VALTOM, E.TOM205, E.SV,'#13#10'CAST' +
+      '(TOMGYAR(E.SZUL_SULY, E.VALTOM, E.SZULDAT, E.VALDAT) AS INTEGER)' +
+      ' AS TGYVAL,'#13#10'E.SZORSZ, ORSZAG.NEV AS ORSZAGNEV,'#13#10'E.SZARVALTSAG,'#13 +
+      #10'E.BIKANEVELO,'#13#10'E.TENYTOM,'#13#10'E.MIN AS KMI,'#13#10'E.IVAR,'#13#10'CAST (BNI(E.' +
+      'ID) AS NUMERIC(10,3)) AS BNI,'#13#10'CAST (SZAPIND(E.ID) AS NUMERIC(10' +
+      ',3)) AS SZAPIND,'#13#10'CAST (KULLEM_IND(E.ENAR) AS NUMERIC(10,3)) AS ' +
+      'KULLEM_IND,'#13#10'E.NET_PONT,'#13#10'E.APAKLSZ AS EAP_KLSZ,'#13#10'EAP.NEV AS EAP' +
+      '_NEV,'#13#10'EAP.FSZ AS EAP_FSZ,'#13#10'EAP.FKOD AS EAP_FAJTAKOD, EAPF.FNEV ' +
+      'AS EAP_FAJTANEV,'#13#10'EAP.SZULDAT AS EAP_SZULDAT,'#13#10'EAP.VER1 AS EAP_V' +
+      '1, EAP.VSZ1 AS EAP_VSZ1, EAPF1.FNEV AS EAP_F1NEV,'#13#10'EAP.VER2 AS E' +
+      'AP_V2, EAP.VSZ2 AS EAP_VSZ2, EAPF2.FNEV AS EAP_F2NEV,'#13#10'EAP.VER3 ' +
+      'AS EAP_V3, EAP.VSZ3 AS EAP_VSZ3, EAPF3.FNEV AS EAP_F3NEV,'#13#10'EAP.V' +
+      'ER4 AS EAP_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV,'#13#10'E' +
+      '.ANYA_ENAR AS EAN_ENAR,'#13#10'E.ANYA_ELL AS EAN_ELL,'#13#10'EAN.NEV AS EAN_' +
+      'NEV,'#13#10'TRIM(RNOTNULL(TRIM(EANAN.ENAR), TRIM(EANAN.TEHENSZAM), TRI' +
+      'M(EANAN.ID_ENAR),'#39#39')) AS EANAN_AZON,'#13#10'EAN.FAJTAKOD AS EAN_FAJTAK' +
+      'OD, EANF.FNEV AS EAN_FAJTANEV,'#13#10'EAN.SZULDAT AS EAN_SZULDAT,'#13#10'EAN' +
+      '.MIN AS EAN_KMI,'#13#10'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, EANF' +
+      '1.FNEV AS EAN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, ' +
+      'EANF2.FNEV AS EAN_F2NEV,'#13#10'EAN.VER3 AS EAN_V3, EAN.VSZ3 AS EAN_VS' +
+      'Z3, EANF3.FNEV AS EAN_F3NEV,'#13#10'EAN.VER4 AS EAN_V4, EAN.VSZ4 AS EA' +
+      'N_VSZ4, EANF4.FNEV AS EAN_F4NEV,'#13#10'EAP2.AAZON AS EAPAP_AZON,'#13#10'EAP' +
+      '2.ANEVE AS EAPAP_NEV,'#13#10'EAP2.MAZON AS EAPAN_AZON,'#13#10'EAP.ANYANEV AS' +
+      ' EAPAN_NEV,'#13#10'EANAP.KAZON AS EANAP_AZON,'#13#10'EANAP.NEVEE AS EANAP_NE' +
+      'V,'#13#10'EANAN.NEV AS EANAN_NEV'#13#10'FROM EGYEDEK E '#13#10'LEFT JOIN TENY ON T' +
+      'ENY.TKOD = E.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN '#13#10'L' +
+      'EFT JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT JOIN ORSZAG ON ' +
+      'ORSZAG.KOD2 = E.SZORSZ '#13#10'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.' +
+      'IVAR AND IVARF.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39' '#13#10'LEFT JOIN APA EAP ' +
+      'ON TRIM(EAP.KPLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL'#13#10 +
+      'LEFT JOIN FAJTA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NO' +
+      'T NULL '#13#10'LEFT JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1'#13#10'LEFT JO' +
+      'IN FAJTA EAPF2 ON EAPF2.FKOD = EAP.VER2'#13#10'LEFT JOIN FAJTA EAPF3 O' +
+      'N EAPF3.FKOD = EAP.VER3'#13#10'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = E' +
+      'AP.VER4'#13#10'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR' +
+      ')) AND (E.ANYA_ENAR > '#39' '#39') AND EAN.TENYESZET = E.TENYESZET) OR (' +
+      '(EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > '#39' '#39'))) '#13#10'LE' +
+      'FT JOIN FAJTA EANF ON EANF.FKOD = EAN.FAJTAKOD '#13#10'LEFT JOIN FAJTA' +
+      ' EANF1 ON EANF1.FKOD = EAN.VER1'#13#10'LEFT JOIN FAJTA EANF2 ON EANF2.' +
+      'FKOD = EAN.VER2'#13#10'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3'#13 +
+      #10'LEFT JOIN FAJTA EANF4 ON EANF4.FKOD = EAN.VER4'#13#10'LEFT JOIN BIKTX' +
+      'T EAP2 ON EAP2.KAZTP = '#39'4'#39' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ' +
+      ')'#13#10'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = '#39'4'#39' AND TRIM(EAPAP.KA' +
+      'ZON) = TRIM(EAP.APAKPLSZ)'#13#10'LEFT JOIN BIKTXT EANAP ON (EANAP.KAZT' +
+      'P= '#39'4'#39' AND (CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT))) ' +
+      'OR (TRIM(EANAP.KAZON)=TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZO' +
+      'N)=TRIM(EAN.ID_APA)) AND EANAP.KAZON IS NOT NULL'#13#10'LEFT JOIN EGYE' +
+      'DEK EANAN ON (TRIM(EANAN.ENAR)=TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_' +
+      'ENAR IS NOT NULL) OR (TRIM(EANAN.TEHENSZAM)=TRIM(EAN.ANYA_ELL) A' +
+      'ND EAN.ANYA_ELL IS NOT NULL) OR (TRIM(EANAN.ID_ENAR)=TRIM(EAN.AN' +
+      'YA_ID_ENAR) AND EAN.ID_ENAR IS NOT NULL)'#13#10'where E.ENAR  = '#39'32074' +
+      '76221'#39
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
@@ -6006,104 +6059,129 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     Top = 176
     object sdsListaENAR: TWideStringField
       FieldName = 'ENAR'
+      ReadOnly = True
       Size = 14
     end
     object sdsListaTENYESZET: TWideStringField
       FieldName = 'TENYESZET'
+      ReadOnly = True
       Size = 7
     end
     object sdsListaTNEV2: TWideStringField
       FieldName = 'TNEV2'
+      ReadOnly = True
       Size = 78
     end
     object sdsListaVAROS: TWideStringField
       FieldName = 'VAROS'
+      ReadOnly = True
     end
     object sdsListaFULSZAM: TWideStringField
       FieldName = 'FULSZAM'
+      ReadOnly = True
       Size = 15
     end
     object sdsListaID_ENAR: TWideStringField
       FieldName = 'ID_ENAR'
+      ReadOnly = True
       Size = 15
     end
     object sdsListaTEHENSZAM: TWideStringField
       FieldName = 'TEHENSZAM'
+      ReadOnly = True
       Size = 15
     end
     object sdsListaSZULDAT: TDateTimeField
       FieldName = 'SZULDAT'
+      ReadOnly = True
     end
     object sdsListaMLEVEL1: TWideStringField
       FieldName = 'MLEVEL1'
+      ReadOnly = True
       Size = 7
     end
     object sdsListaMLEVEL2: TWideStringField
       FieldName = 'MLEVEL2'
+      ReadOnly = True
       Size = 7
     end
     object sdsListaTKV: TWideStringField
       FieldName = 'TKV'
+      ReadOnly = True
       Size = 1
     end
     object sdsListaSZIN: TWideStringField
       FieldName = 'SZIN'
+      ReadOnly = True
       Size = 1
     end
     object sdsListaSZINNEV: TWideStringField
       FieldName = 'SZINNEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaFAJTAKOD: TWideStringField
       FieldName = 'FAJTAKOD'
+      ReadOnly = True
       Size = 5
     end
     object sdsListaFNEV: TWideStringField
       FieldName = 'FNEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaVER1: TWideStringField
       FieldName = 'VER1'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaVSZ1: TBCDField
       FieldName = 'VSZ1'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaVER2: TWideStringField
       FieldName = 'VER2'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaVSZ2: TBCDField
       FieldName = 'VSZ2'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaVER3: TWideStringField
       FieldName = 'VER3'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaVSZ3: TBCDField
       FieldName = 'VSZ3'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaVER4: TWideStringField
       FieldName = 'VER4'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaVSZ4: TBCDField
       FieldName = 'VSZ4'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaKKOD: TWideStringField
       FieldName = 'KKOD'
+      ReadOnly = True
       Size = 3
     end
     object sdsListaVALDAT: TDateTimeField
       FieldName = 'VALDAT'
+      ReadOnly = True
     end
     object sdsListaVALKOR: TIntegerField
       FieldName = 'VALKOR'
@@ -6111,12 +6189,15 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     end
     object sdsListaVALTOM: TIntegerField
       FieldName = 'VALTOM'
+      ReadOnly = True
     end
     object sdsListaTOM205: TIntegerField
       FieldName = 'TOM205'
+      ReadOnly = True
     end
     object sdsListaSV: TIntegerField
       FieldName = 'SV'
+      ReadOnly = True
     end
     object sdsListaTGYVAL: TBCDField
       FieldName = 'TGYVAL'
@@ -6126,30 +6207,37 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     end
     object sdsListaSZORSZ: TWideStringField
       FieldName = 'SZORSZ'
+      ReadOnly = True
       Size = 3
     end
     object sdsListaORSZAGNEV: TWideStringField
       FieldName = 'ORSZAGNEV'
+      ReadOnly = True
       Size = 30
     end
     object sdsListaSZARVALTSAG: TWideStringField
       FieldName = 'SZARVALTSAG'
+      ReadOnly = True
       Size = 1
     end
     object sdsListaBIKANEVELO: TWideStringField
       FieldName = 'BIKANEVELO'
+      ReadOnly = True
       Size = 1
     end
     object sdsListaTENYTOM: TIntegerField
       FieldName = 'TENYTOM'
+      ReadOnly = True
     end
     object sdsListaKMI: TBCDField
       FieldName = 'KMI'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaIVAR: TWideStringField
       FieldName = 'IVAR'
+      ReadOnly = True
       Size = 1
     end
     object sdsListaBNI: TBCDField
@@ -6172,192 +6260,238 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     end
     object sdsListaNET_PONT: TIntegerField
       FieldName = 'NET_PONT'
+      ReadOnly = True
     end
     object sdsListaEAP_KLSZ: TWideStringField
       FieldName = 'EAP_KLSZ'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaEAP_NEV: TWideStringField
       FieldName = 'EAP_NEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAP_FSZ: TWideStringField
       FieldName = 'EAP_FSZ'
+      ReadOnly = True
       Size = 15
     end
     object sdsListaEAP_FAJTAKOD: TWideStringField
       FieldName = 'EAP_FAJTAKOD'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaEAP_FAJTANEV: TWideStringField
       FieldName = 'EAP_FAJTANEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAP_SZULDAT: TDateTimeField
       FieldName = 'EAP_SZULDAT'
+      ReadOnly = True
     end
     object sdsListaEAP_V1: TWideStringField
       FieldName = 'EAP_V1'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaEAP_VSZ1: TBCDField
       FieldName = 'EAP_VSZ1'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaEAP_F1NEV: TWideStringField
       FieldName = 'EAP_F1NEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAP_V2: TWideStringField
       FieldName = 'EAP_V2'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaEAP_VSZ2: TBCDField
       FieldName = 'EAP_VSZ2'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaEAP_F2NEV: TWideStringField
       FieldName = 'EAP_F2NEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAP_V3: TWideStringField
       FieldName = 'EAP_V3'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaEAP_VSZ3: TBCDField
       FieldName = 'EAP_VSZ3'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaEAP_F3NEV: TWideStringField
       FieldName = 'EAP_F3NEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAP_V4: TWideStringField
       FieldName = 'EAP_V4'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaEAP_VSZ4: TBCDField
       FieldName = 'EAP_VSZ4'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaEAP_F4NEV: TWideStringField
       FieldName = 'EAP_F4NEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAN_ENAR: TWideStringField
       FieldName = 'EAN_ENAR'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaEAN_ELL: TWideStringField
       FieldName = 'EAN_ELL'
+      ReadOnly = True
       Size = 11
     end
     object sdsListaEAN_NEV: TWideStringField
       FieldName = 'EAN_NEV'
+      ReadOnly = True
       Size = 30
     end
     object sdsListaEANAN_AZON: TWideStringField
       FieldName = 'EANAN_AZON'
-      Size = 10
+      ReadOnly = True
+      Size = 4000
     end
     object sdsListaEAN_FAJTAKOD: TWideStringField
       FieldName = 'EAN_FAJTAKOD'
+      ReadOnly = True
       Size = 5
     end
     object sdsListaEAN_FAJTANEV: TWideStringField
       FieldName = 'EAN_FAJTANEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAN_SZULDAT: TDateTimeField
       FieldName = 'EAN_SZULDAT'
+      ReadOnly = True
     end
     object sdsListaEAN_KMI: TBCDField
       FieldName = 'EAN_KMI'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaEAN_V1: TWideStringField
       FieldName = 'EAN_V1'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaEAN_VSZ1: TBCDField
       FieldName = 'EAN_VSZ1'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaEAN_F1NEV: TWideStringField
       FieldName = 'EAN_F1NEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAN_V2: TWideStringField
       FieldName = 'EAN_V2'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaEAN_VSZ2: TBCDField
       FieldName = 'EAN_VSZ2'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaEAN_F2NEV: TWideStringField
       FieldName = 'EAN_F2NEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAN_V3: TWideStringField
       FieldName = 'EAN_V3'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaEAN_VSZ3: TBCDField
       FieldName = 'EAN_VSZ3'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaEAN_F3NEV: TWideStringField
       FieldName = 'EAN_F3NEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAN_V4: TWideStringField
       FieldName = 'EAN_V4'
+      ReadOnly = True
       Size = 10
     end
     object sdsListaEAN_VSZ4: TBCDField
       FieldName = 'EAN_VSZ4'
+      ReadOnly = True
       Precision = 6
       Size = 2
     end
     object sdsListaEAN_F4NEV: TWideStringField
       FieldName = 'EAN_F4NEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAPAP_AZON: TWideStringField
       FieldName = 'EAPAP_AZON'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAPAP_NEV: TWideStringField
       FieldName = 'EAPAP_NEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEAPAN_AZON: TWideStringField
       FieldName = 'EAPAN_AZON'
-      Size = 10
+      ReadOnly = True
+      Size = 40
     end
     object sdsListaEAPAN_NEV: TWideStringField
       FieldName = 'EAPAN_NEV'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEANAP_AZON: TWideStringField
       FieldName = 'EANAP_AZON'
+      ReadOnly = True
       Size = 40
     end
     object sdsListaEANAP_NEV: TWideStringField
       FieldName = 'EANAP_NEV'
+      ReadOnly = True
       Size = 60
     end
     object sdsListaEANAN_NEV: TWideStringField
       FieldName = 'EANAN_NEV'
+      ReadOnly = True
       Size = 30
     end
   end
@@ -6367,52 +6501,44 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     DataSet.Connection = dtmTarka.cnTarka
     DataSet.CommandText = 
       'select * from ('#13#10'select datum as datum1, null as datum2, t.kplsz' +
-      ' as kplsz, allapot, apa.nev as bikanev'#13#10'from termekenyitesek t'#13#10 +
-      'left join apa on apa.kplsz = t.kplsz'#13#10'where egyed_id = :ID'#13#10'unio' +
-      'n all'#13#10'select datum_tol as datum1, datum_ig as datum2, to_char(b' +
-      'ika_klsz) as kplsz, '#39'0'#39' as allapot, apa.nev as bikanev'#13#10'from ter' +
-      'mh t'#13#10'left join apa on apa.kplsz = t.bika_klsz'#13#10'where egyed_id =' +
-      ' :ID)'#13#10'where datum1 > UT_ELLES_DATUM(:ID)'#13#10'order by datum1'
+      ' as kplsz, allapot, apa.nev as bikanev, vkod.kod_nev as vemhall,' +
+      ' tkod.kod_nev as termmod, ut_elles_datum(99999) as ut_ell_dat'#13#10'f' +
+      'rom termekenyitesek t'#13#10'left join apa on apa.kplsz = t.kplsz'#13#10'lef' +
+      't join kodok vkod on vkod.kodtipusok_tipuskod = '#39'VEMHKOD'#39' and tr' +
+      'im(vkod.kod) = trim(t.allapot)'#13#10'left join kodok tkod on tkod.kod' +
+      'tipusok_tipuskod = '#39'TERMMOD'#39' and trim(tkod.kod) = trim(t.mod)'#13#10'w' +
+      'here egyed_id = 99999'#13#10'union all'#13#10'select datum_tol as datum1, da' +
+      'tum_ig as datum2, to_char(bika_klsz) as kplsz, '#39'0'#39' as allapot, a' +
+      'pa.nev as bikanev, '#39#39' as vemhall, '#39'H'#225'remszer'#369#39' as termmod, ut_el' +
+      'les_datum(99999) as ut_ell_dat'#13#10'from termh t'#13#10'left join apa on a' +
+      'pa.kplsz = t.bika_klsz'#13#10'where egyed_id = 99999)'#13#10'where datum1 > ' +
+      'UT_ELLES_DATUM(99999)'#13#10'order by datum1'
     DataSet.Parameters = <
       item
         Name = 'ID'
         DataType = ftString
         Size = -1
         Value = Null
-      end
-      item
-        Name = 'ID'
-        Size = -1
-        Value = Null
-      end
-      item
-        Name = 'ID'
-        Size = -1
-        Value = Null
       end>
     Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
       'select * from ('#13#10'select datum as datum1, null as datum2, t.kplsz' +
-      ' as kplsz, allapot, apa.nev as bikanev'#13#10'from termekenyitesek t'#13#10 +
-      'left join apa on apa.kplsz = t.kplsz'#13#10'where egyed_id = :ID'#13#10'unio' +
-      'n all'#13#10'select datum_tol as datum1, datum_ig as datum2, to_char(b' +
-      'ika_klsz) as kplsz, '#39'0'#39' as allapot, apa.nev as bikanev'#13#10'from ter' +
-      'mh t'#13#10'left join apa on apa.kplsz = t.bika_klsz'#13#10'where egyed_id =' +
-      ' :ID)'#13#10'where datum1 > UT_ELLES_DATUM(:ID)'#13#10'order by datum1'
+      ' as kplsz, allapot, apa.nev as bikanev, vkod.kod_nev as vemhall,' +
+      ' tkod.kod_nev as termmod, ut_elles_datum(99999) as ut_ell_dat'#13#10'f' +
+      'rom termekenyitesek t'#13#10'left join apa on apa.kplsz = t.kplsz'#13#10'lef' +
+      't join kodok vkod on vkod.kodtipusok_tipuskod = '#39'VEMHKOD'#39' and tr' +
+      'im(vkod.kod) = trim(t.allapot)'#13#10'left join kodok tkod on tkod.kod' +
+      'tipusok_tipuskod = '#39'TERMMOD'#39' and trim(tkod.kod) = trim(t.mod)'#13#10'w' +
+      'here egyed_id = 99999'#13#10'union all'#13#10'select datum_tol as datum1, da' +
+      'tum_ig as datum2, to_char(bika_klsz) as kplsz, '#39'0'#39' as allapot, a' +
+      'pa.nev as bikanev, '#39#39' as vemhall, '#39'H'#225'remszer'#369#39' as termmod, ut_el' +
+      'les_datum(99999) as ut_ell_dat'#13#10'from termh t'#13#10'left join apa on a' +
+      'pa.kplsz = t.bika_klsz'#13#10'where egyed_id = 99999)'#13#10'where datum1 > ' +
+      'UT_ELLES_DATUM(99999)'#13#10'order by datum1'
     Provider.DataSet.Parameters = <
       item
         Name = 'ID'
         DataType = ftString
-        Size = -1
-        Value = Null
-      end
-      item
-        Name = 'ID'
-        Size = -1
-        Value = Null
-      end
-      item
-        Name = 'ID'
         Size = -1
         Value = Null
       end>
@@ -6451,6 +6577,20 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       ReadOnly = True
       Size = 40
     end
+    object sdsTermekenyitesekVEMHALL: TWideStringField
+      FieldName = 'VEMHALL'
+      ReadOnly = True
+      Size = 120
+    end
+    object sdsTermekenyitesekTERMMOD: TWideStringField
+      FieldName = 'TERMMOD'
+      ReadOnly = True
+      Size = 120
+    end
+    object sdsTermekenyitesekUT_ELL_DAT: TDateTimeField
+      FieldName = 'UT_ELL_DAT'
+      ReadOnly = True
+    end
   end
   object frxDBTermekenyitesek: TfrxDBDataset
     UserName = 'frxDBTermekenyitesek'
@@ -6460,7 +6600,10 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'DATUM2=DATUM2'
       'KPLSZ=KPLSZ'
       'ALLAPOT=ALLAPOT'
-      'BIKANEV=BIKANEV')
+      'BIKANEV=BIKANEV'
+      'VEMHALL=VEMHALL'
+      'TERMMOD=TERMMOD'
+      'UT_ELL_DAT=UT_ELL_DAT')
     OpenDataSource = False
     DataSet = sdsTermekenyitesek
     Left = 408

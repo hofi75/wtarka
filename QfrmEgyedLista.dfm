@@ -1,6 +1,6 @@
 inherited frmEgyedLista: TfrmEgyedLista
-  Left = 410
-  Top = 152
+  Left = 729
+  Top = 271
   Width = 845
   Height = 624
   Caption = 'Egyedek list'#225'z'#225'sa'
