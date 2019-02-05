@@ -503,7 +503,7 @@ type
     sdsListSzLapokAPAI_NAGYAPA_ANYJA_FULSZAM: TWideStringField;
     sdsListSzLapokAPAI_NAGYAPA_ANYJA_NEV: TWideStringField;
     sdsListSzLapokAPAI_NAGYANYA_NEV: TWideStringField;
-    sdsListSzLapokAPAI_NAGYANYA_SZULDAT: TDateTimeField;
+    //sdsListSzLapokAPAI_NAGYANYA_SZULDAT: TDateTimeField;
     sdsListSzLapokAPAI_NAGYANYA_ENAR: TWideStringField;
     sdsListSzLapokAPAI_NAGYANYA_ELLSZAM: TWideStringField;
     sdsListSzLapokAPAI_NAGYANYA_FULSZAM: TWideStringField;
@@ -821,6 +821,7 @@ type
     TBFSZEdit: TEdit;
     AFSZAZEdit: TEdit;
     frxRepListak: TfrxReport;
+    TabEU: TTabSheet;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnRogzitClick(Sender: TObject);
@@ -830,7 +831,7 @@ type
     procedure dbClick(Sender: TObject);
     procedure backToBrowseMode(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
-    procedure btnPrintClick(Sender: TObject);
+    procedure btnPrintClic(Sender: TObject);
     procedure btnExportClick(Sender: TObject);
     procedure sdsHSzIModLapReconcileError(DataSet: TCustomClientDataSet;
       E: EReconcileError; UpdateKind: TUpdateKind;
@@ -1433,7 +1434,7 @@ begin
     screen.Cursor := crDefault;
 end;
 
-procedure TfrmHSzIMod.btnPrintClick(Sender: TObject);
+procedure TfrmHSzIMod.btnPrintClic(Sender: TObject);
 begin
   If frmHSzIMod.sdsListSzLapok.Active Then frmHSzIMod.sdsListSzLapok.Close;
   frmHSzIMod.sdsListSzLapok.Connection := dtmTarka.cnTarka;

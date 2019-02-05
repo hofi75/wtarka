@@ -563,9 +563,9 @@ object frmInfoPult: TfrmInfoPult
     object TalLabel9: TTalLabel
       Left = 16
       Top = 344
-      Width = 95
+      Width = 111
       Height = 13
-      Caption = 'T'#246'rzsk'#246'nyvi oszt'#225'ly:'
+      Caption = 'T'#246'rzsk'#246'nyvi oszt/sz'#225'm:'
     end
     object TalLabel13: TTalLabel
       Left = 16
@@ -741,7 +741,6 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtsInfo
       KeyField = 'KOD'
       ListField = 'KOD_NEV'
-      ListSource = dtmTarka.dtsKiesesOK
       TabOrder = 42
     end
     object lucKiMod: TTalDBLookupComboBox
@@ -753,7 +752,6 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtsInfo
       KeyField = 'KOD'
       ListField = 'KOD_NEV'
-      ListSource = dtmTarka.dtsKiesesKod
       TabOrder = 41
     end
     object TalDBGrid1: TTalDBGrid
@@ -1121,7 +1119,6 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtsInfo
       KeyField = 'KOD'
       ListField = 'KOD_NEV'
-      ListSource = dtmTarka.dtsKikHely
       TabOrder = 44
     end
     object edtKeres: TTalEdit
@@ -1519,6 +1516,22 @@ object frmInfoPult: TfrmInfoPult
       DataField = 'SZARM_TENY'
       DataSource = dtsInfo
     end
+    object edtTKVSZAM: TTalDBEdit
+      Left = 168
+      Top = 339
+      Width = 153
+      Height = 22
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      TabOrder = 52
+      DataField = 'TKVSZAM'
+      DataSource = dtsInfo
+    end
   end
   object TalPanel4: TTalPanel
     Left = 0
@@ -1620,6 +1633,8 @@ object frmInfoPult: TfrmInfoPult
   end
   object sdsInfo: TTalSimpleDataSet
     Aggregates = <>
+    Connection = dtmTarka.cnTarka
+    DataSet.Connection = dtmTarka.cnTarka
     DataSet.CommandText = 
       'SELECT '#13#10'  e.ID,'#13#10'  e.ENAR,'#13#10'  e.TENYESZET,'#13#10'  e.TEHENSZAM,'#13#10'  e' +
       '.FULSZAM,'#13#10'  e.ID_ENAR,'#13#10'  e.ANYA_ENAR,'#13#10'  e.ANYA_ELL,'#13#10'  e.ANYA' +
@@ -1628,11 +1643,11 @@ object frmInfoPult: TfrmInfoPult
       'SZ1,'#13#10'  e.VER2,'#13#10'  e.VSZ2,'#13#10'  e.VER3,'#13#10'  e.VSZ3,'#13#10'  e.VER4,'#13#10'  e' +
       '.VSZ4,'#13#10'  e.SZORSZ,'#13#10'  e.E_ORSZ,'#13#10'  e.KKOD,'#13#10'  e.SZIN,'#13#10'  e.SZAR' +
       'VALTSAG,'#13#10'  e.BIKANEVELO,'#13#10'  e.TENYTOM,'#13#10'  e.MLEVEL1,'#13#10'  e.MLEVE' +
-      'L2,'#13#10'  e.TKV,'#13#10'  e."MIN",'#13#10'  e.KIKOD,'#13#10'  e.KIKOK,'#13#10'  e.KIKDAT,'#13#10 +
-      '  e.STATUS,'#13#10'  e.ALLAPOT,'#13#10'  e.ALLDAT,'#13#10'  e.IVAR,'#13#10'  e.SZUL_SULY' +
-      ','#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  e.VALDAT,'#13#10'  e' +
-      '.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,'#13#10'  e.SZARM_TENY'#13#10'FR' +
-      'OM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'#13#10
+      'L2,'#13#10'  e.TKV,'#13#10'  e.TKVSZAM,'#13#10'  e."MIN",'#13#10'  e.KIKOD,'#13#10'  e.KIKOK,'#13 +
+      #10'  e.KIKDAT,'#13#10'  e.STATUS,'#13#10'  e.ALLAPOT,'#13#10'  e.ALLDAT,'#13#10'  e.IVAR,'#13 +
+      #10'  e.SZUL_SULY,'#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  ' +
+      'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,'#13#10'  e.' +
+      'SZARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'#13#10
     DataSet.Parameters = <
       item
         Name = 'ID'
@@ -1641,6 +1656,7 @@ object frmInfoPult: TfrmInfoPult
         Size = 15
         Value = '0'
       end>
+    Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
       'SELECT '#13#10'  e.ID,'#13#10'  e.ENAR,'#13#10'  e.TENYESZET,'#13#10'  e.TEHENSZAM,'#13#10'  e' +
       '.FULSZAM,'#13#10'  e.ID_ENAR,'#13#10'  e.ANYA_ENAR,'#13#10'  e.ANYA_ELL,'#13#10'  e.ANYA' +
@@ -1649,11 +1665,11 @@ object frmInfoPult: TfrmInfoPult
       'SZ1,'#13#10'  e.VER2,'#13#10'  e.VSZ2,'#13#10'  e.VER3,'#13#10'  e.VSZ3,'#13#10'  e.VER4,'#13#10'  e' +
       '.VSZ4,'#13#10'  e.SZORSZ,'#13#10'  e.E_ORSZ,'#13#10'  e.KKOD,'#13#10'  e.SZIN,'#13#10'  e.SZAR' +
       'VALTSAG,'#13#10'  e.BIKANEVELO,'#13#10'  e.TENYTOM,'#13#10'  e.MLEVEL1,'#13#10'  e.MLEVE' +
-      'L2,'#13#10'  e.TKV,'#13#10'  e."MIN",'#13#10'  e.KIKOD,'#13#10'  e.KIKOK,'#13#10'  e.KIKDAT,'#13#10 +
-      '  e.STATUS,'#13#10'  e.ALLAPOT,'#13#10'  e.ALLDAT,'#13#10'  e.IVAR,'#13#10'  e.SZUL_SULY' +
-      ','#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  e.VALDAT,'#13#10'  e' +
-      '.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,'#13#10'  e.SZARM_TENY'#13#10'FR' +
-      'OM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'#13#10
+      'L2,'#13#10'  e.TKV,'#13#10'  e.TKVSZAM,'#13#10'  e."MIN",'#13#10'  e.KIKOD,'#13#10'  e.KIKOK,'#13 +
+      #10'  e.KIKDAT,'#13#10'  e.STATUS,'#13#10'  e.ALLAPOT,'#13#10'  e.ALLDAT,'#13#10'  e.IVAR,'#13 +
+      #10'  e.SZUL_SULY,'#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  ' +
+      'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,'#13#10'  e.' +
+      'SZARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'#13#10
     Provider.DataSet.Parameters = <
       item
         Name = 'ID'
@@ -1674,252 +1690,204 @@ object frmInfoPult: TfrmInfoPult
     end
     object sdsInfoENAR: TWideStringField
       FieldName = 'ENAR'
-      ProviderFlags = [pfInUpdate]
       Size = 14
     end
     object sdsInfoTENYESZET: TWideStringField
       FieldName = 'TENYESZET'
-      ProviderFlags = [pfInUpdate]
       Size = 7
     end
     object sdsInfoTEHENSZAM: TWideStringField
       FieldName = 'TEHENSZAM'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoFULSZAM: TWideStringField
       FieldName = 'FULSZAM'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoID_ENAR: TWideStringField
       FieldName = 'ID_ENAR'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoANYA_ENAR: TWideStringField
       FieldName = 'ANYA_ENAR'
-      ProviderFlags = [pfInUpdate]
       Size = 10
     end
     object sdsInfoANYA_ELL: TWideStringField
       FieldName = 'ANYA_ELL'
-      ProviderFlags = [pfInUpdate]
       Size = 11
     end
     object sdsInfoANYA_ID_ENAR: TWideStringField
       FieldName = 'ANYA_ID_ENAR'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoDONOR_ANYA: TWideStringField
       FieldName = 'DONOR_ANYA'
-      ProviderFlags = [pfInUpdate]
       Size = 15
+    end
+    object sdsInfoAPAKLSZ: TWideStringField
+      FieldName = 'APAKLSZ'
+      Size = 10
     end
     object sdsInfoAPA_FULSZAM: TWideStringField
       FieldName = 'APA_FULSZAM'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoID_APA: TWideStringField
       FieldName = 'ID_APA'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoNEV: TWideStringField
       FieldName = 'NEV'
-      ProviderFlags = [pfInUpdate]
       Size = 30
     end
     object sdsInfoSZULDAT: TDateTimeField
       FieldName = 'SZULDAT'
-      ProviderFlags = [pfInUpdate]
+    end
+    object sdsInfoFAJTAKOD: TWideStringField
+      FieldName = 'FAJTAKOD'
+      Size = 5
+    end
+    object sdsInfoVER1: TWideStringField
+      FieldName = 'VER1'
+      Size = 10
     end
     object sdsInfoVSZ1: TBCDField
       FieldName = 'VSZ1'
-      ProviderFlags = [pfInUpdate]
       Precision = 6
       Size = 2
+    end
+    object sdsInfoVER2: TWideStringField
+      FieldName = 'VER2'
+      Size = 10
     end
     object sdsInfoVSZ2: TBCDField
       FieldName = 'VSZ2'
-      ProviderFlags = [pfInUpdate]
       Precision = 6
       Size = 2
+    end
+    object sdsInfoVER3: TWideStringField
+      FieldName = 'VER3'
+      Size = 10
     end
     object sdsInfoVSZ3: TBCDField
       FieldName = 'VSZ3'
-      ProviderFlags = [pfInUpdate]
       Precision = 6
       Size = 2
     end
+    object sdsInfoVER4: TWideStringField
+      FieldName = 'VER4'
+      Size = 10
+    end
     object sdsInfoVSZ4: TBCDField
       FieldName = 'VSZ4'
-      ProviderFlags = [pfInUpdate]
       Precision = 6
       Size = 2
     end
     object sdsInfoSZORSZ: TWideStringField
       FieldName = 'SZORSZ'
-      ProviderFlags = [pfInUpdate]
       Size = 3
     end
     object sdsInfoE_ORSZ: TWideStringField
       FieldName = 'E_ORSZ'
-      ProviderFlags = [pfInUpdate]
       Size = 3
     end
     object sdsInfoKKOD: TWideStringField
       FieldName = 'KKOD'
-      ProviderFlags = [pfInUpdate]
       Size = 3
     end
     object sdsInfoSZIN: TWideStringField
       FieldName = 'SZIN'
-      ProviderFlags = [pfInUpdate]
       Size = 1
     end
     object sdsInfoSZARVALTSAG: TWideStringField
       FieldName = 'SZARVALTSAG'
-      ProviderFlags = [pfInUpdate]
       Size = 1
     end
     object sdsInfoBIKANEVELO: TWideStringField
       FieldName = 'BIKANEVELO'
-      ProviderFlags = [pfInUpdate]
       Size = 1
     end
     object sdsInfoTENYTOM: TIntegerField
       FieldName = 'TENYTOM'
-      ProviderFlags = [pfInUpdate]
     end
     object sdsInfoMLEVEL1: TWideStringField
       FieldName = 'MLEVEL1'
-      ProviderFlags = [pfInUpdate]
       Size = 7
     end
     object sdsInfoMLEVEL2: TWideStringField
       FieldName = 'MLEVEL2'
-      ProviderFlags = [pfInUpdate]
       Size = 7
     end
     object sdsInfoTKV: TWideStringField
       FieldName = 'TKV'
-      ProviderFlags = [pfInUpdate]
       Size = 1
+    end
+    object sdsInfoTKVSZAM: TWideStringField
+      FieldName = 'TKVSZAM'
     end
     object sdsInfoMIN: TBCDField
       FieldName = 'MIN'
-      ProviderFlags = [pfInUpdate]
       Precision = 6
       Size = 2
     end
-    object sdsInfoKIKDAT: TDateTimeField
-      FieldName = 'KIKDAT'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoSTATUS: TWideStringField
-      FieldName = 'STATUS'
-      ProviderFlags = [pfInUpdate]
-      Size = 1
-    end
-    object sdsInfoALLAPOT: TWideStringField
-      FieldName = 'ALLAPOT'
-      ProviderFlags = [pfInUpdate]
-      Size = 1
-    end
-    object sdsInfoALLDAT: TDateTimeField
-      FieldName = 'ALLDAT'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoIVAR: TWideStringField
-      FieldName = 'IVAR'
-      ProviderFlags = [pfInUpdate]
-      Size = 1
-    end
-    object sdsInfoSZUL_SULY: TIntegerField
-      FieldName = 'SZUL_SULY'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoMOD_KOD: TWideStringField
-      FieldName = 'MOD_KOD'
-      ProviderFlags = [pfInUpdate]
-      Size = 3
-    end
-    object sdsInfoMOD_DAT: TDateTimeField
-      FieldName = 'MOD_DAT'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoMEGJEGYZES: TWideStringField
-      FieldName = 'MEGJEGYZES'
-      ProviderFlags = [pfInUpdate]
-      Size = 150
-    end
-    object sdsInfoVALDAT: TDateTimeField
-      FieldName = 'VALDAT'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoVALTOM: TIntegerField
-      FieldName = 'VALTOM'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoTOM205: TIntegerField
-      FieldName = 'TOM205'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoSV: TIntegerField
-      FieldName = 'SV'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoAPAKLSZ: TWideStringField
-      FieldName = 'APAKLSZ'
-      ProviderFlags = [pfInUpdate]
-      Size = 10
-    end
-    object sdsInfoFAJTAKOD: TWideStringField
-      FieldName = 'FAJTAKOD'
-      ProviderFlags = [pfInUpdate]
-      Size = 5
-    end
-    object sdsInfoVER1: TWideStringField
-      FieldName = 'VER1'
-      ProviderFlags = [pfInUpdate]
-      Size = 10
-    end
-    object sdsInfoVER2: TWideStringField
-      FieldName = 'VER2'
-      ProviderFlags = [pfInUpdate]
-      Size = 10
-    end
-    object sdsInfoVER3: TWideStringField
-      FieldName = 'VER3'
-      ProviderFlags = [pfInUpdate]
-      Size = 10
-    end
-    object sdsInfoVER4: TWideStringField
-      FieldName = 'VER4'
-      ProviderFlags = [pfInUpdate]
-      Size = 10
-    end
     object sdsInfoKIKOD: TWideStringField
       FieldName = 'KIKOD'
-      ProviderFlags = [pfInUpdate]
       Size = 10
     end
     object sdsInfoKIKOK: TWideStringField
       FieldName = 'KIKOK'
-      ProviderFlags = [pfInUpdate]
       Size = 10
+    end
+    object sdsInfoKIKDAT: TDateTimeField
+      FieldName = 'KIKDAT'
+    end
+    object sdsInfoSTATUS: TWideStringField
+      FieldName = 'STATUS'
+      Size = 1
+    end
+    object sdsInfoALLAPOT: TWideStringField
+      FieldName = 'ALLAPOT'
+      Size = 1
+    end
+    object sdsInfoALLDAT: TDateTimeField
+      FieldName = 'ALLDAT'
+    end
+    object sdsInfoIVAR: TWideStringField
+      FieldName = 'IVAR'
+      Size = 1
+    end
+    object sdsInfoSZUL_SULY: TIntegerField
+      FieldName = 'SZUL_SULY'
+    end
+    object sdsInfoMOD_KOD: TWideStringField
+      FieldName = 'MOD_KOD'
+      Size = 3
+    end
+    object sdsInfoMOD_DAT: TDateTimeField
+      FieldName = 'MOD_DAT'
+    end
+    object sdsInfoMEGJEGYZES: TWideStringField
+      FieldName = 'MEGJEGYZES'
+      Size = 150
+    end
+    object sdsInfoVALDAT: TDateTimeField
+      FieldName = 'VALDAT'
+    end
+    object sdsInfoVALTOM: TIntegerField
+      FieldName = 'VALTOM'
+    end
+    object sdsInfoTOM205: TIntegerField
+      FieldName = 'TOM205'
+    end
+    object sdsInfoSV: TIntegerField
+      FieldName = 'SV'
     end
     object sdsInfoKIKHELY: TWideStringField
       FieldName = 'KIKHELY'
-      ProviderFlags = [pfInUpdate]
       Size = 10
     end
     object sdsInfoSZARM_TENY: TWideStringField
       FieldName = 'SZARM_TENY'
-      ProviderFlags = [pfInUpdate]
       Size = 7
     end
   end

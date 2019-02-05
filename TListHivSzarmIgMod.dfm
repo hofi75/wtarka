@@ -1,7 +1,7 @@
 object frmHSzIMod: TfrmHSzIMod
-  Left = 388
+  Left = 454
   Top = 232
-  Width = 1286
+  Width = 1241
   Height = 672
   Caption = 'Hivatalos Sz'#225'rmaz'#225'si Igazol'#225's m'#243'dos'#237't'
   Color = clBtnFace
@@ -56,7 +56,7 @@ object frmHSzIMod: TfrmHSzIMod
     Width = 865
     Height = 429
     Hint = 'Egyed'
-    ActivePage = TabSheet6
+    ActivePage = TabEU
     ParentShowHint = False
     ShowHint = True
     Style = tsFlatButtons
@@ -4611,6 +4611,10 @@ object frmHSzIMod: TfrmHSzIMod
         end
       end
     end
+    object TabEU: TTabSheet
+      Caption = 'EU'
+      ImageIndex = 9
+    end
   end
   object grdVal: TTalDBGrid
     Left = 24
@@ -4700,7 +4704,6 @@ object frmHSzIMod: TfrmHSzIMod
     Height = 25
     Caption = 'Nyomtat'#225's'
     TabOrder = 8
-    OnClick = btnPrintClick
   end
   object btnExport: TTalBitBtn
     Left = 1024
@@ -12429,6 +12432,8 @@ object frmHSzIMod: TfrmHSzIMod
   end
   object sdsListSzLapok: TTalSimpleDataSet
     Aggregates = <>
+    Connection = dtmTarka.cnTarka
+    DataSet.Connection = dtmTarka.cnTarka
     DataSet.CommandText = 
       'Select szlapok.igdat, szlapok.tkod, szlapok.ukod, szlapok.egy, s' +
       'zlapok.sor, szlapok.per, szlapok.mas, szlapok.kidat, szlapok.hit' +
@@ -12517,19 +12522,23 @@ object frmHSzIMod: TfrmHSzIMod
     DataSet.Parameters = <
       item
         Name = 'PENAR'
-        Size = -1
+        DataType = ftString
+        Size = 20
         Value = Null
       end
       item
         Name = 'PSOR'
+        DataType = ftInteger
         Size = -1
         Value = Null
       end
       item
         Name = 'PPER'
+        DataType = ftInteger
         Size = -1
         Value = Null
       end>
+    Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
       'Select szlapok.igdat, szlapok.tkod, szlapok.ukod, szlapok.egy, s' +
       'zlapok.sor, szlapok.per, szlapok.mas, szlapok.kidat, szlapok.hit' +
@@ -12618,16 +12627,19 @@ object frmHSzIMod: TfrmHSzIMod
     Provider.DataSet.Parameters = <
       item
         Name = 'PENAR'
-        Size = -1
+        DataType = ftString
+        Size = 20
         Value = Null
       end
       item
         Name = 'PSOR'
+        DataType = ftInteger
         Size = -1
         Value = Null
       end
       item
         Name = 'PPER'
+        DataType = ftInteger
         Size = -1
         Value = Null
       end>
@@ -12683,12 +12695,11 @@ object frmHSzIMod: TfrmHSzIMod
         Name = 'KPLSZ'
         DataType = ftBCD
         Precision = 10
-        Size = 4
       end
       item
         Name = 'ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'FULSZAM'
@@ -12770,12 +12781,11 @@ object frmHSzIMod: TfrmHSzIMod
         Name = 'APA_KPLSZ'
         DataType = ftBCD
         Precision = 10
-        Size = 4
       end
       item
         Name = 'APA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'APA_SZULDAT'
@@ -12849,12 +12859,12 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'ANYA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'ANYA_ELLSZAM'
         DataType = ftWideString
-        Size = 11
+        Size = 20
       end
       item
         Name = 'ANYA_FULSZAM'
@@ -12918,12 +12928,11 @@ object frmHSzIMod: TfrmHSzIMod
         Name = 'APAI_NAGYAPA_KPLSZ'
         DataType = ftBCD
         Precision = 10
-        Size = 4
       end
       item
         Name = 'APAI_NAGYAPA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'APAI_NAGYAPA_FULSZAM'
@@ -12980,12 +12989,11 @@ object frmHSzIMod: TfrmHSzIMod
         Name = 'APAI_NAGYAPA_APJA_KPLSZ'
         DataType = ftBCD
         Precision = 10
-        Size = 4
       end
       item
         Name = 'APAI_NAGYAPA_APJA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'APAI_NAGYAPA_APJA_FULSZAM'
@@ -13000,12 +13008,12 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'APAI_NAGYAPA_ANYJA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'APAI_NAGYAPA_ANYJA_ELLSZAM'
         DataType = ftWideString
-        Size = 11
+        Size = 20
       end
       item
         Name = 'APAI_NAGYAPA_ANYJA_FULSZAM'
@@ -13029,12 +13037,12 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'APAI_NAGYANYA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'APAI_NAGYANYA_ELLSZAM'
         DataType = ftWideString
-        Size = 11
+        Size = 20
       end
       item
         Name = 'APAI_NAGYANYA_FULSZAM'
@@ -13055,7 +13063,6 @@ object frmHSzIMod: TfrmHSzIMod
         Name = 'APAI_NAGYANYA_APJA_KPLSZ'
         DataType = ftBCD
         Precision = 10
-        Size = 4
       end
       item
         Name = 'APAI_NAGYANYA_APJA_NEV'
@@ -13065,7 +13072,7 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'APAI_NAGYANYA_APJA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'APAI_NAGYANYA_APJA_FULSZAM'
@@ -13075,12 +13082,12 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'APAI_NAGYANYA_ANYJA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'APAI_NAGYANYA_ANYJA_ELLSZAM'
         DataType = ftWideString
-        Size = 11
+        Size = 20
       end
       item
         Name = 'APAI_NAGYANYA_ANYJA_FULSZAM'
@@ -13096,12 +13103,11 @@ object frmHSzIMod: TfrmHSzIMod
         Name = 'ANYAI_NAGYAPA_KPLSZ'
         DataType = ftBCD
         Precision = 10
-        Size = 4
       end
       item
         Name = 'ANYAI_NAGYAPA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'ANYAI_NAGYAPA_FULSZAM'
@@ -13167,12 +13173,11 @@ object frmHSzIMod: TfrmHSzIMod
         Name = 'ANYAI_NAGYAPA_APJA_KPLSZ'
         DataType = ftBCD
         Precision = 10
-        Size = 4
       end
       item
         Name = 'ANYAI_NAGYAPA_APJA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'ANYAI_NAGYAPA_APJA_NEV'
@@ -13187,7 +13192,7 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'ANYAI_NAGYAPA_ANYJA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'ANYAI_NAGYAPA_ANYJA_NEV'
@@ -13197,7 +13202,7 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'ANYAI_NAGYAPA_ANYJA_ELLSZAM'
         DataType = ftWideString
-        Size = 11
+        Size = 20
       end
       item
         Name = 'ANYAI_NAGYAPA_ANYJA_FULSZAM'
@@ -13216,12 +13221,12 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'ANYAI_NAGYANYA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'ANYAI_NAGYANYA_ELLSZAM'
         DataType = ftWideString
-        Size = 11
+        Size = 20
       end
       item
         Name = 'ANYAI_NAGYANYA_FULSZAM'
@@ -13241,13 +13246,12 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'ANYAI_NAGYANYA_APJA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'ANYAI_NAGYANYA_APJA_KPLSZ'
         DataType = ftBCD
         Precision = 10
-        Size = 4
       end
       item
         Name = 'ANYAI_NAGYANYA_APJA_FULSZAM'
@@ -13262,12 +13266,12 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'ANYAI_NAGYANYA_ANYJA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'ANYAI_NAGYANYA_ANYJA_ELLSZAM'
         DataType = ftWideString
-        Size = 11
+        Size = 20
       end
       item
         Name = 'ANYAI_NAGYANYA_ANYJA_FULSZAM'
@@ -13287,12 +13291,11 @@ object frmHSzIMod: TfrmHSzIMod
         Name = 'TERM_BIKA_KPLSZ'
         DataType = ftBCD
         Precision = 10
-        Size = 4
       end
       item
         Name = 'TERM_BIKA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'TERM_BIKA_NEV'
@@ -13358,12 +13361,11 @@ object frmHSzIMod: TfrmHSzIMod
         Name = 'TERM_BIKA_APJA_KPLSZ'
         DataType = ftBCD
         Precision = 10
-        Size = 4
       end
       item
         Name = 'TERM_BIKA_APJA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'TERM_BIKA_APJA_NEVE'
@@ -13393,7 +13395,7 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'TERM_BIKA_ANYJA_ENAR'
         DataType = ftWideString
-        Size = 10
+        Size = 20
       end
       item
         Name = 'TERM_BIKA_ANYJA_FULSZAM'
@@ -13407,7 +13409,7 @@ object frmHSzIMod: TfrmHSzIMod
       item
         Name = 'TERM_BIKA_ANYJA_ELLSZAM'
         DataType = ftWideString
-        Size = 11
+        Size = 20
       end
       item
         Name = 'TERM_BIKA_ANYJA_SZULDAT'
@@ -13492,10 +13494,6 @@ object frmHSzIMod: TfrmHSzIMod
       end
       item
         Name = 'APA_NET_PONT'
-        DataType = ftInteger
-      end
-      item
-        Name = 'APA_TOGY'
         DataType = ftInteger
       end
       item
