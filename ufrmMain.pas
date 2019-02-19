@@ -353,10 +353,11 @@ uses
   QfrmKonvNez, QfrmTenyKarb, QfrmGyFelhLista, QfrmEgyedLista,
   QfrmTermLista, qfrmEllesLista, QfrmhTerm, QfrmNyomtat, TListak, udtmComm,
   QfrmFuljelzok, QfrmFuljRend, QfrmKullemImport, TList22_24, TListValDat,
-  TListHivSzarmIgMod, TListHivSzarmIg,
+  TListHivSzarmIg,
   Qfrmsvszamol, QfrmEletLista, QfrmTParLis, QfrmUszoLis,
   QfrmZaras, QfrmValaszt, QfrmEnarBe, QfrmEnarGyujt, QfrmCsaladfa,
-  QfrmParVal, QfrmSzarmLista, QfrmNETPontRead;
+  QfrmParVal, QfrmSzarmLista, QfrmNETPontRead,
+  SzarmazasiIgazolas;
 
 
 {$r *.dfm}
@@ -968,8 +969,8 @@ end;
 procedure TfrmMain.actSzarmIgListaExecute(Sender: TObject);
 begin
   if not dtmTarka.JogosultsagEllenorzes('skarb') then exit;
-  TListHivSzarmIgMod.frmHSzIMod.Modosit
-  // TListHivSzarmIg.frmHivSzarmIg.HivSzarmIg;
+  frmSzarmazasiIgazolas.Modosit;
+  // TTListHivSzarmIg.frmHivSzarmIg.HivSzarmIg;
 end;
 
 procedure TfrmMain.actTenyNaploListaExecute(Sender: TObject);

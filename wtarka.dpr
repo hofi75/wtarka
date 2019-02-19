@@ -74,7 +74,6 @@ uses
   QfrmKullemImport in 'QfrmKullemImport.pas' {frmKullemImport},
   TList22_24 in 'TList22_24.pas' {frmMeresiAdatok},
   TListValDat in 'TListValDat.pas' {frmValDat},
-  TListHivSzarmIgMod in 'TListHivSzarmIgMod.pas' {frmHSzIMod},
   TListHivSzarmIg in 'TListHivSzarmIg.pas' {frmHivSzarmIg},
   Qfrmsvszamol in 'Qfrmsvszamol.pas' {frmUjraSzamol},
   QfrmEletLista in 'QfrmEletLista.pas' {frmEletLista},
@@ -89,7 +88,8 @@ uses
   QfrmSzarmCsopLista in 'QfrmSzarmCsopLista.pas' {SzarmCsopLista},
   QfrmSzarmLista in 'QfrmSzarmLista.pas' {frmSzarmLista},
   QfrmNETPontRead in 'QfrmNETPontRead.pas' {frmNETPontRead},
-  Atkotes in 'Atkotes.pas' {Form1};
+  Atkotes in 'Atkotes.pas' {Form1},
+  SzarmazasiIgazolas in 'SzarmazasiIgazolas.pas' {frmSzarmazasiIgazolas};
 
 {$R *.res}
 
@@ -115,8 +115,8 @@ begin
   Application.CreateForm(TfrmValaszt, frmValaszt);
   Application.CreateForm(TfrmMeresiAdatok, frmMeresiAdatok);
   Application.CreateForm(TfrmValDat, frmValDat);
-  Application.CreateForm(TfrmHSzIMod, frmHSzIMod);
   Application.CreateForm(TfrmHivSzarmIg, frmHivSzarmIg);
+  Application.CreateForm(TfrmSzarmazasiIgazolas, frmSzarmazasiIgazolas);
   // Application.CreateForm(TfrmAtkotes, frmAtkotes);
   // Application.CreateForm(TfrmKarbOs1, frmKarbOs1);
   //Application.CreateForm(TSzarmCsopLista, SzarmCsopLista);

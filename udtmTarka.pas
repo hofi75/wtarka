@@ -306,6 +306,9 @@ type
     sdsTenyeszetTKOD: TWideStringField;
     sdsTenyeszetTNEV2: TWideStringField;
     sdsTenyeszetRKOD: TWideStringField;
+    qryOrszag: TTalQuery;
+    dtsOrszag: TDataSource;
+    qryOrszagNEV: TWideStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure sdsInfoENARGetText(Sender: TField; var Text: String;
