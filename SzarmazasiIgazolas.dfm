@@ -1,6 +1,6 @@
 object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
-  Left = 337
-  Top = 170
+  Left = 476
+  Top = 211
   Width = 1489
   Height = 809
   Caption = 'frmSzarmazasiIgazolas'
@@ -5514,6 +5514,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     Height = 25
     Caption = 'Nyomtat'#225's'
     TabOrder = 7
+    OnClick = btnPrintClic
   end
   object btnExport: TTalBitBtn
     Left = 712
@@ -7780,7 +7781,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 40240.498815532400000000
-    ReportOptions.LastChange = 42565.837180844910000000
+    ReportOptions.LastChange = 43524.350744502310000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -7835,6 +7836,14 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       '               MemoTermBikaSzuldat.visible := false;'
       '               MemoTermBikaApjaSzuldat.visible := false;'
       '               MemoTermBikaAnyjaSzuldat.visible := false;'
+      '       end;'
+      
+        '       EU_SZULDAT.Text := FormatDateTime('#39'dd.mm.yyyy'#39',<frxDBSzLa' +
+        'pok."SZULDAT">);'
+      '       EU_ORSZAG.Text := <frxDBSzLapok."SZORSZ">;'
+      '       if Copy(EU_ORSZAG.Text,1,6) = '#39'Magyar'#39' then'
+      '       begin'
+      '          EU_ORSZAG.Text := '#39'Magyarorsz'#225'g (Hungary)'#39';'
       '       end;'
       'end.')
     Left = 256
@@ -8048,9 +8057,8 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         object Memo9: TfrxMemoView
           Left = 37.795300000000000000
           Top = 98.267780000000000000
-          Width = 37.795300000000000000
+          Width = 60.472480000000000000
           Height = 11.338590000000000000
-          DataField = 'IVAR'
           DataSet = frxDBSzLapok
           DataSetName = 'frxDBSzLapok'
           Font.Charset = DEFAULT_CHARSET
@@ -8059,7 +8067,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8 = (
-            '[frxDBSzLapok."IVAR"]')
+            '[IIF(<frxDBSzLapok."IVAR">='#39'1'#39','#39'H'#258#173'mivar'#258#351#39','#39'N'#313#8216'ivar'#258#351#39')]')
           ParentFont = False
         end
         object Memo10: TfrxMemoView
@@ -13263,7 +13271,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         end
         object Memo12: TfrxMemoView
           Left = 11.338590000000000000
-          Top = 563.149606299212600000
+          Top = 563.149606299213000000
           Width = 291.023797800000000000
           Height = 22.677172680000000000
           Font.Charset = DEFAULT_CHARSET
@@ -13280,6 +13288,945 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           Top = 551.811380000000000000
           Width = 309.921460000000000000
         end
+      end
+    end
+    object EU: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      object Line1: TfrxLineView
+        Width = 718.110700000000000000
+        Frame.Typ = [ftTop]
+      end
+      object Line2: TfrxLineView
+        Top = -3.779530000000000000
+        Height = 1043.150280000000000000
+        Frame.Typ = [ftLeft]
+      end
+      object Line3: TfrxLineView
+        Top = 1039.370750000000000000
+        Width = 718.110700000000000000
+        Frame.Typ = [ftTop]
+      end
+      object Line4: TfrxLineView
+        Left = 718.110700000000000000
+        Height = 1039.370750000000000000
+        Frame.Typ = [ftLeft]
+      end
+      object Memo201: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 7.559060000000000000
+        Width = 457.323130000000000000
+        Height = 34.015770000000000000
+        GroupIndex = 2
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          
+            'Az al'#258#711'bbi fajok fajtatiszta teny'#258#169'sz'#258#711'llatainak kereskedelm'#258#169're' +
+            ' vonatkoz'#258#322'an az (EU) 2016/1012 rendelet'#258#169'ben el'#313#8216#258#173'rt sz'#258#711'rmaz'#258 +
+            #711'si igazol'#258#711's:')
+        ParentFont = False
+      end
+      object Memo202: TfrxMemoView
+        Left = 7.559060000000000000
+        Top = 41.574830000000000000
+        Width = 453.543600000000000000
+        Height = 18.897650000000000000
+        GroupIndex = 2
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          
+            'a) szarvasmarhaf'#258#169'l'#258#169'k (Bos taurus, Bos indicus, Bubalus bubalis' +
+            ')')
+        ParentFont = False
+      end
+      object Memo203: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 60.472480000000000000
+        Width = 457.323130000000000000
+        Height = 37.795300000000000000
+        GroupIndex = 2
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          
+            'Zootechnical certificate in accordance with Regulation (EU) 2016' +
+            '/1012 for trading in purebred breeding animals for the bovine sp' +
+            'ecies.')
+        ParentFont = False
+      end
+      object Memo204: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 158.740260000000000000
+        Width = 457.323130000000000000
+        Height = 34.015770000000000000
+        GroupIndex = 2
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          
+            'L'#258#711'sd m'#258#711's nyelveken (all language versions and footnotes are av' +
+            'ailable at): www.magyartarka.hu')
+        ParentFont = False
+      end
+      object Memo208: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 98.267780000000000000
+        Width = 457.323130000000000000
+        Height = 60.472480000000000000
+        GroupIndex = 2
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          
+            'Az igazol'#258#711's tartalmi '#258#169's formai elemei k'#258#182'vetik a Bizotts'#258#711'g (E' +
+            'U) 2017/717 v'#258#169'grehajt'#258#711'si rendelet'#258#169'ben le'#258#173'rtakat.'
+          
+            'The certificate'#226#8364#8482's layout, format and data content is in accord' +
+            'ance with Commission Implementing Regulation (EU) 2017/717.'#194#160)
+        ParentFont = False
+      end
+      object Line5: TfrxLineView
+        Top = 200.315090000000000000
+        Width = 721.890230000000000000
+        Frame.Typ = [ftTop]
+      end
+      object Line6: TfrxLineView
+        Top = 253.228510000000000000
+        Width = 721.890230000000000000
+        Frame.Typ = [ftTop]
+      end
+      object Memo206: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 204.094620000000000000
+        Width = 230.551330000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'A kibocs'#258#711't'#258#322' teny'#258#169'szt'#313#8216'szervezet neve:')
+        ParentFont = False
+      end
+      object Memo211: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 219.212740000000000000
+        Width = 230.551330000000000000
+        Height = 30.236240000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          'Magyartarka Teny'#258#169'szt'#313#8216'k Egyes'#258#317'lete'
+          '7150 Bonyh'#258#711'd, Zr'#258#173'nyi u. 3.')
+        ParentFont = False
+      end
+      object Memo210: TfrxMemoView
+        Left = 362.834880000000000000
+        Top = 219.212740000000000000
+        Width = 37.795300000000000000
+        Height = 15.118120000000000000
+        GroupIndex = 1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'Tel:')
+        ParentFont = False
+      end
+      object Memo212: TfrxMemoView
+        Left = 362.834880000000000000
+        Top = 234.330860000000000000
+        Width = 37.795300000000000000
+        Height = 15.118120000000000000
+        GroupIndex = 1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'Web:')
+        ParentFont = False
+      end
+      object Memo213: TfrxMemoView
+        Left = 411.968770000000000000
+        Top = 219.212740000000000000
+        Width = 98.267780000000000000
+        Height = 15.118120000000000000
+        GroupIndex = 1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          '+36-74/451-022')
+        ParentFont = False
+      end
+      object Memo215: TfrxMemoView
+        Left = 411.968770000000000000
+        Top = 234.330860000000000000
+        Width = 136.063080000000000000
+        Height = 15.118120000000000000
+        GroupIndex = 1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          'www.magyartarka.hu')
+        ParentFont = False
+      end
+      object Memo216: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 257.008040000000000000
+        Width = 222.992270000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'A t'#258#182'rzsk'#258#182'nyv neve: magyartarka fajta t'#258#182'rzsk'#258#182'nyv')
+        ParentFont = False
+      end
+      object Memo217: TfrxMemoView
+        Left = 411.968770000000000000
+        Top = 257.008040000000000000
+        Width = 268.346630000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'A fajtatiszta teny'#258#169'sz'#258#711'llat fajt'#258#711'j'#258#711'nak neve: magyartarka')
+        ParentFont = False
+      end
+      object Line7: TfrxLineView
+        Top = 275.905690000000000000
+        Width = 721.890230000000000000
+        Frame.Typ = [ftTop]
+      end
+      object Line8: TfrxLineView
+        Left = 340.157700000000000000
+        Top = 253.228510000000000000
+        Height = 22.677180000000000000
+        Frame.Typ = [ftLeft]
+      end
+      object Memo218: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 279.685220000000000000
+        Width = 351.496290000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          
+            'A f'#313#8216't'#258#182'rzsk'#258#182'nyvi r'#258#169'sz azon oszt'#258#711'lya, amelybe az '#258#711'llatot bej' +
+            'egyezt'#258#169'k:  A')
+        ParentFont = False
+      end
+      object Line9: TfrxLineView
+        Top = 298.582870000000000000
+        Width = 721.890230000000000000
+        Frame.Typ = [ftTop]
+      end
+      object Memo222: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 204.094620000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '1.')
+        ParentFont = False
+      end
+      object Memo223: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 257.008040000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '2.')
+        ParentFont = False
+      end
+      object Memo224: TfrxMemoView
+        Left = 362.834880000000000000
+        Top = 257.008040000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '3.')
+        ParentFont = False
+      end
+      object Memo226: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 279.685220000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '4.')
+        ParentFont = False
+      end
+      object Line10: TfrxLineView
+        Top = 321.260050000000000000
+        Width = 721.890230000000000000
+        Frame.Typ = [ftTop]
+      end
+      object Memo228: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 302.362400000000000000
+        Width = 75.590600000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'Az '#258#711'llat neme:')
+        ParentFont = False
+      end
+      object Memo229: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 302.362400000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '5.')
+        ParentFont = False
+      end
+      object Memo230: TfrxMemoView
+        Left = 396.850650000000000000
+        Top = 302.362400000000000000
+        Width = 124.724490000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'Az '#258#711'llat t'#258#182'rzsk'#258#182'nyvi sz'#258#711'ma:')
+        ParentFont = False
+      end
+      object Memo231: TfrxMemoView
+        Left = 362.834880000000000000
+        Top = 302.362400000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '6.')
+        ParentFont = False
+      end
+      object Line11: TfrxLineView
+        Left = 359.055350000000000000
+        Top = 298.582870000000000000
+        Height = 22.677180000000000000
+        Frame.Typ = [ftLeft]
+      end
+      object Line12: TfrxLineView
+        Left = 491.338900000000000000
+        Height = 200.315090000000000000
+        Frame.Typ = [ftLeft]
+      end
+      object Line13: TfrxLineView
+        Top = 415.748300000000000000
+        Width = 721.890230000000000000
+        Frame.Typ = [ftTop]
+      end
+      object Memo233: TfrxMemoView
+        Top = 321.260050000000000000
+        Width = 38.181842840000000000
+        Height = 15.118120000000000000
+        Color = clSilver
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          ' 7.')
+        ParentFont = False
+      end
+      object Memo235: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 336.378170000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '7.1.')
+        ParentFont = False
+      end
+      object Memo236: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 351.496290000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '7.2.')
+        ParentFont = False
+      end
+      object Memo307: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 381.732530000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '7.3.')
+        ParentFont = False
+      end
+      object Memo308: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 396.850650000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '7.4.')
+        ParentFont = False
+      end
+      object Memo309: TfrxMemoView
+        Left = 38.181842840000000000
+        Top = 321.260050000000000000
+        Width = 320.873507160000000000
+        Height = 15.118120000000000000
+        Color = clSilver
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'A fajtatiszta teny'#258#169'sz'#258#711'llat azonos'#258#173't'#258#711'sa')
+        ParentFont = False
+      end
+      object Line14: TfrxLineView
+        Left = 359.055350000000000000
+        Top = 321.260050000000000000
+        Height = 94.488250000000000000
+        Frame.Typ = [ftLeft]
+      end
+      object Memo310: TfrxMemoView
+        Left = 359.055350000000000000
+        Top = 321.260050000000000000
+        Width = 37.795300000000000000
+        Height = 15.118120000000000000
+        Color = clSilver
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          ' 8.')
+        ParentFont = False
+      end
+      object Memo311: TfrxMemoView
+        Left = 396.850650000000000000
+        Top = 321.260050000000000000
+        Width = 321.260050000000000000
+        Height = 15.118120000000000000
+        Color = clSilver
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'A fajtatiszta teny'#258#169'sz'#258#711'llat azonos'#258#173't'#258#711'sa')
+        ParentFont = False
+      end
+      object Memo312: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 336.378170000000000000
+        Width = 49.133890000000000000
+        Height = 15.118120000000000000
+        DataSet = frxDBSzLapok
+        DataSetName = 'frxDBSzLapok'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'Rendszer:')
+        ParentFont = False
+      end
+      object Memo313: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 351.496290000000000000
+        Width = 102.047310000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'Egyedi azonos'#258#173't'#258#322'sz'#258#711'm: ')
+        ParentFont = False
+      end
+      object Memo314: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 366.614410000000000000
+        Width = 41.574830000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'KPLSZ:')
+        ParentFont = False
+      end
+      object Memo315: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 381.732530000000000000
+        Width = 154.960730000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          #258#129'llateg'#258#169'szs'#258#169'g'#258#317'gyi azonos'#258#173't'#258#322' sz'#258#711'm:')
+        ParentFont = False
+      end
+      object Memo317: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 396.850650000000000000
+        Width = 30.236240000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'N'#258#169'v:')
+        ParentFont = False
+      end
+      object Memo318: TfrxMemoView
+        Left = 362.834880000000000000
+        Top = 336.378170000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '8.1.')
+        ParentFont = False
+      end
+      object Memo319: TfrxMemoView
+        Left = 362.834880000000000000
+        Top = 351.496290000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '8.2.')
+        ParentFont = False
+      end
+      object Memo339: TfrxMemoView
+        Left = 396.850650000000000000
+        Top = 336.378170000000000000
+        Width = 45.354360000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'M'#258#322'dszer:')
+        ParentFont = False
+      end
+      object Memo340: TfrxMemoView
+        Left = 396.850650000000000000
+        Top = 351.496290000000000000
+        Width = 52.913420000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'Eredm'#258#169'ny:')
+        ParentFont = False
+      end
+      object Memo341: TfrxMemoView
+        Left = 396.850650000000000000
+        Top = 366.614410000000000000
+        Width = 102.047310000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'Vizsg'#258#711'lat iktat'#258#322'sz'#258#711'ma:')
+        ParentFont = False
+      end
+      object Memo342: TfrxMemoView
+        Left = 117.165430000000000000
+        Top = 302.362400000000000000
+        Width = 207.874150000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '[IIF(<frxDBSzLapok."IVAR">='#39'1'#39','#39'H'#258#173'mivar'#258#351#39','#39'N'#313#8216'ivar'#258#351#39')]')
+        ParentFont = False
+      end
+      object Memo343: TfrxMemoView
+        Left = 71.811070000000000000
+        Top = 396.850650000000000000
+        Width = 283.464750000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          '[frxDBSzLapok."NEV"]')
+        ParentFont = False
+      end
+      object Memo344: TfrxMemoView
+        Left = 79.370130000000000000
+        Top = 366.614410000000000000
+        Width = 124.724490000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          '[frxDBSzLapok."KPLSZ"]')
+        ParentFont = False
+      end
+      object Memo345: TfrxMemoView
+        Left = 139.842610000000000000
+        Top = 351.496290000000000000
+        Width = 147.401670000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          '[frxDBSzLapok."ENAR"]')
+        ParentFont = False
+      end
+      object Memo346: TfrxMemoView
+        Left = 86.929190000000000000
+        Top = 336.378170000000000000
+        Width = 37.795300000000000000
+        Height = 15.118120000000000000
+        DataSet = frxDBSzLapok
+        DataSetName = 'frxDBSzLapok'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          'ENAR')
+        ParentFont = False
+      end
+      object Memo347: TfrxMemoView
+        Left = 442.205010000000000000
+        Top = 336.378170000000000000
+        Width = 147.401670000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          '[frxDBSzLapok."AZONMOD"]')
+        ParentFont = False
+      end
+      object Memo352: TfrxMemoView
+        Left = 521.575140000000000000
+        Top = 302.362400000000000000
+        Width = 185.196970000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          '[frxDBSzLapok."TKVSZAM"]')
+        ParentFont = False
+      end
+      object Memo353: TfrxMemoView
+        Left = 449.764070000000000000
+        Top = 351.496290000000000000
+        Width = 147.401670000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          '[frxDBSzLapok."AZONEREDM"]')
+        ParentFont = False
+      end
+      object Memo354: TfrxMemoView
+        Left = 498.897960000000000000
+        Top = 366.614410000000000000
+        Width = 147.401670000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          '[frxDBSzLapok."AZONIKT"]')
+        ParentFont = False
+      end
+      object Memo355: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 419.527830000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '9.')
+        ParentFont = False
+      end
+      object Memo356: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 419.527830000000000000
+        Width = 151.181200000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'Az '#258#711'llat sz'#258#317'let'#258#169'si ideje '#258#169's orsz'#258#711'ga: ')
+        ParentFont = False
+      end
+      object EU_SZULDAT: TfrxMemoView
+        Left = 188.976500000000000000
+        Top = 419.527830000000000000
+        Width = 56.692950000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          'Hello')
+        ParentFont = False
+      end
+      object Memo358: TfrxMemoView
+        Left = 245.669450000000000000
+        Top = 419.527830000000000000
+        Width = 60.472480000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '(nn.hh.'#258#169#258#169#258#169#258#169')')
+        ParentFont = False
+      end
+      object EU_ORSZAG: TfrxMemoView
+        Left = 306.141930000000000000
+        Top = 419.527830000000000000
+        Width = 298.582870000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          'Orszag')
+        ParentFont = False
+      end
+      object Line15: TfrxLineView
+        Left = -3.779530000000000000
+        Top = 438.425480000000000000
+        Width = 721.890230000000000000
+        Frame.Typ = [ftTop]
+      end
+      object Memo357: TfrxMemoView
+        Left = 3.779530000000000000
+        Top = 442.205010000000000000
+        Width = 22.677180000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          '10.')
+        ParentFont = False
+      end
+      object Memo359: TfrxMemoView
+        Left = 37.795300000000000000
+        Top = 442.205010000000000000
+        Width = 219.212740000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = []
+        Memo.UTF8 = (
+          'A teny'#258#169'szt'#313#8216' neve, c'#258#173'me '#258#169's elektronikus lev'#258#169'lc'#258#173'me:')
+        ParentFont = False
+      end
+      object Memo360: TfrxMemoView
+        Left = 257.008040000000000000
+        Top = 442.205010000000000000
+        Width = 453.543600000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          '[frxDBSzLapok."TENYESZTO_NEV"] - [frxDBSzLapok."TENYESZTO_CIM"]')
+        ParentFont = False
+      end
+      object Memo361: TfrxMemoView
+        Left = 257.008040000000000000
+        Top = 457.323130000000000000
+        Width = 453.543600000000000000
+        Height = 15.118120000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        Memo.UTF8 = (
+          '[frxDBSzLapok."TENYEMAIL"]')
+        ParentFont = False
+      end
+      object Line16: TfrxLineView
+        Left = -3.779530000000000000
+        Top = 476.220780000000000000
+        Width = 721.890230000000000000
+        Frame.Typ = [ftTop]
       end
     end
   end
@@ -13502,8 +14449,6 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
   end
   object sdsListSzLapok: TTalSimpleDataSet
     Aggregates = <>
-    Connection = dtmTarka.cnTarka
-    DataSet.Connection = dtmTarka.cnTarka
     DataSet.CommandText = 
       'Select szlapok.igdat, szlapok.tkod, szlapok.ukod, szlapok.egy, s' +
       'zlapok.sor, szlapok.per, szlapok.mas, szlapok.kidat, szlapok.hit' +
@@ -13615,7 +14560,6 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         Size = -1
         Value = Null
       end>
-    Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
       'Select szlapok.igdat, szlapok.tkod, szlapok.ukod, szlapok.egy, s' +
       'zlapok.sor, szlapok.per, szlapok.mas, szlapok.kidat, szlapok.hit' +
@@ -13779,6 +14723,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         Name = 'KPLSZ'
         DataType = ftBCD
         Precision = 10
+        Size = 4
       end
       item
         Name = 'ENAR'
@@ -13865,6 +14810,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         Name = 'APA_KPLSZ'
         DataType = ftBCD
         Precision = 10
+        Size = 4
       end
       item
         Name = 'APA_ENAR'
@@ -14012,6 +14958,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         Name = 'APAI_NAGYAPA_KPLSZ'
         DataType = ftBCD
         Precision = 10
+        Size = 4
       end
       item
         Name = 'APAI_NAGYAPA_ENAR'
@@ -14073,6 +15020,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         Name = 'APAI_NAGYAPA_APJA_KPLSZ'
         DataType = ftBCD
         Precision = 10
+        Size = 4
       end
       item
         Name = 'APAI_NAGYAPA_APJA_ENAR'
@@ -14147,6 +15095,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         Name = 'APAI_NAGYANYA_APJA_KPLSZ'
         DataType = ftBCD
         Precision = 10
+        Size = 4
       end
       item
         Name = 'APAI_NAGYANYA_APJA_NEV'
@@ -14187,6 +15136,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         Name = 'ANYAI_NAGYAPA_KPLSZ'
         DataType = ftBCD
         Precision = 10
+        Size = 4
       end
       item
         Name = 'ANYAI_NAGYAPA_ENAR'
@@ -14257,6 +15207,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         Name = 'ANYAI_NAGYAPA_APJA_KPLSZ'
         DataType = ftBCD
         Precision = 10
+        Size = 4
       end
       item
         Name = 'ANYAI_NAGYAPA_APJA_ENAR'
@@ -14336,6 +15287,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         Name = 'ANYAI_NAGYANYA_APJA_KPLSZ'
         DataType = ftBCD
         Precision = 10
+        Size = 4
       end
       item
         Name = 'ANYAI_NAGYANYA_APJA_FULSZAM'
@@ -14375,6 +15327,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         Name = 'TERM_BIKA_KPLSZ'
         DataType = ftBCD
         Precision = 10
+        Size = 4
       end
       item
         Name = 'TERM_BIKA_ENAR'
@@ -14445,6 +15398,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         Name = 'TERM_BIKA_APJA_KPLSZ'
         DataType = ftBCD
         Precision = 10
+        Size = 4
       end
       item
         Name = 'TERM_BIKA_APJA_ENAR'

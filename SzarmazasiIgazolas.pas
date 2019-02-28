@@ -1603,7 +1603,8 @@ begin
     Screen.Cursor := crArrow;
   End;
 
-  If frmHivSzarmIg.frxRepListak.LoadFromFile(dtmTarka.fr3Path + '\' + 'HivatalosSzarmazasiIgazolas.fr3') Then
+  // If frmHivSzarmIg.frxRepListak.LoadFromFile(dtmTarka.fr3Path + '\' + 'HivatalosSzarmazasiIgazolas.fr3') Then
+  If frmHivSzarmIg.frxRepListak.LoadFromFile(dtmTarka.fr3Path + '\' + 'SzarmazasiIgazolasWork.fr3') Then
   Begin
       frmSzarmazasiIgazolas.frxRepListak.Variables.Clear;
       frmSzarmazasiIgazolas.frxRepListak.Script.Variables['p0'] := 'HIVATALOS SZÁRMAZÁSI IGAZOLÁS';
