@@ -936,7 +936,8 @@ type
     sdsListSzLapokDANAZON: TWideStringField;
     sdsListSzLapokDANNEV: TWideStringField;
     frxRepListak: TfrxReport;
-    procedure FormActivate(Sender: TObject);
+    btnExit: TTalBitBtn;
+    // procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnRogzitClic(Sender: TObject);
     procedure btnNewClick(Sender: TObject);
@@ -985,8 +986,9 @@ Procedure TfrmSzarmazasiIgazolas.Modosit;
 Begin
   frmSzarmazasiIgazolas.TabSheet8.TabVisible := True;
 
+  If sdsKeres.Active Then sdsKeres.Close;
   sdsKeres.Open;
-  grdVal.SelectedIndex := 1;
+  grdVal.SelectedIndex := dtsKeres.DataSet.RecordCount;
   grdVal.Refresh;
 
   If frmSzarmazasiIgazolas.sdsHSzIModLap.Active Then frmSzarmazasiIgazolas.sdsHSzIModLap.Close;
@@ -999,6 +1001,7 @@ Begin
   If qryTFajta.Active Then qryTFajta.Close;
   If dtmTarka.qryOrszag.Active Then dtmTarka.qryOrszag.Close;
   frmSzarmazasiIgazolas.sdsHSzIModLap.Connection := dtmTarka.cnTarka;
+  PageControl1.TabIndex := 0;
 
   frmSzarmazasiIgazolas.sdsHSzIModLap.DataSet.Parameters.ParamByName('PENAR').Value := sdsKeresENAR.Value;
   frmSzarmazasiIgazolas.sdsHSzIModLap.DataSet.Parameters.ParamByName('PSOR').Value := sdsKeresSOR.Value;
@@ -1040,127 +1043,15 @@ Begin
   frmSzarmazasiIgazolas.ShowModal;
 End;
 
-procedure TfrmSzarmazasiIgazolas.FormActivate(Sender: TObject);
-begin
-    //frmHSzIMod.TabSheet8.TabVisible := False;
-    frmSzarmazasiIgazolas.TabSheet8.TabVisible := True;
-
-  (*
-  If frmHSzIMod.sdsHSzIModIg.Active Then frmHSzIMod.sdsHSzIModIg.Close;
-  frmHSzIMod.sdsHSzIModIg.Connection := dtmTarka.cnTarka;
-  frmHSzIMod.sdsHSzIModIg.DataSet.CommandText :=
-        'SELECT I.SZIDO AS SZULDAT, I.ENAR, I.NEV, I.KPLSZ, I.IVAR, ' +
-          'I.TKOD AS TENYESZET, I.IGNEV, I.TNEV AS TNEV2, I.TCIM AS TVAROS, ' +
-          'I.ANYANEV, I.ANYAAZON AS ANYAENAR , I.IKTATOSZAM ' +
-        'FROM SZARMIG I ' +
-        'WHERE I.ENAR = :EGYEDENAR';
-
-  frmHSzIMod.sdsHSzIModIg.DataSet.Parameters.ParamByName('EGYEDENAR').Value := '3025208303';// TListHivSzarmIg.frmHivSzarmIg.eENAR.Text; // cbEgyed.texT;
-  Try
-    Screen.Cursor := crHourGlass;
-    frmHSzIMod.sdsHSzIModIg.Open;
-    If frmHSzIMod.sdsHSzIModIg.FieldByName('IVAR').AsString = '2' Then
-       frmHSzIMod.TabSheet8.TabVisible := True;
-  Finally
-    Screen.Cursor := crArrow;
-  End;
-  *)
-
-  sdsKeres.Open;
-  grdVal.SelectedIndex := 1;
-  grdVal.Refresh;
-
-  If frmSzarmazasiIgazolas.sdsHSzIModLap.Active Then frmSzarmazasiIgazolas.sdsHSzIModLap.Close;
-  If qryEfajta.Active Then qryEfajta.Close;
-  If qryIvar.Active Then qryIvar.Close;
-  If qryApaFajta.Active Then qryApaFajta.Close;
-  If qryAnyaFajta.Active Then qryAnyaFajta.Close;
-  If qryApaapa.Active Then qryApaapa.Close;
-  If qryAnyaApa.Active Then qryAnyaApa.Close;
-  If qryTFajta.Active Then qryTFajta.Close;
-  frmSzarmazasiIgazolas.sdsHSzIModLap.Connection := dtmTarka.cnTarka;
-
-  frmSzarmazasiIgazolas.sdsHSzIModLap.DataSet.Parameters.ParamByName('PENAR').Value := sdsKeresENAR.Value;
-  frmSzarmazasiIgazolas.sdsHSzIModLap.DataSet.Parameters.ParamByName('PSOR').Value := sdsKeresSOR.Value;
-  frmSzarmazasiIgazolas.sdsHSzIModLap.DataSet.Parameters.ParamByName('PPER').Value := sdsKeresPER.Value;
-  Try
-    Screen.Cursor := crHourGlass;
-    frmSzarmazasiIgazolas.sdsHSzIModLap.Open;
-  Finally
-    Screen.Cursor := crArrow;
-  End;
-
-  frmSzarmazasiIgazolas.sdsHSzIModLap.DataSet.Parameters.ParamByName('PENAR').Value := sdsKeresENAR.Value;
-  frmSzarmazasiIgazolas.sdsHSzIModLap.DataSet.Parameters.ParamByName('PSOR').Value := sdsKeresSOR.Value;
-  frmSzarmazasiIgazolas.sdsHSzIModLap.DataSet.Parameters.ParamByName('PPER').Value := sdsKeresPER.Value;
-  frmSzarmazasiIgazolas.sdsHSzIModLap.Refresh;
-
-  If frmSzarmazasiIgazolas.sdsHSzIModLap.FieldByName('IVAR').AsString = '2' Then
-     frmSzarmazasiIgazolas.TabSheet8.TabVisible := True
-  else
-      frmSzarmazasiIgazolas.TabSheet8.TabVisible := False;
-
-
-  qryEfajta.Open;
-  qryIvar.Open;
-  qryApaFajta.Open;
-  qryAnyaFajta.Open;
-  qryApaapa.Open;
-  qryAnyaApa.Open;
-  qryTFajta.Open;
-
-  // beolvasott értékek
-  (* E_KPLSZ     := frmSzarmazasiIgazolas.sdsHSzIModIg.FieldByName('KPLSZ').AsString;
-  E_ENAR      := frmSzarmazasiIgazolas.sdsHSzIModIg.FieldByName('ENAR').AsString;
-  E_NEV       := frmSzarmazasiIgazolas.sdsHSzIModIg.FieldByName('NEV').AsString;
-  E_SZULDAT   := frmSzarmazasiIgazolas.sdsHSzIModIg.FieldByName('SZULDAT').AsString;
-//  E_TENYESZET := frmSzarmazasiIgazolas.sdsHSzIModIg.FieldByName('TENYESZET').AsString;
-  E_IVAR      := frmSzarmazasiIgazolas.sdsHSzIModIg.FieldByName('IVAR').AsString;
-  E_ANYA_ENAR := frmSzarmazasiIgazolas.sdsHSzIModIg.FieldByName('ANYAENAR').AsString;
-  E_ANYA_NEV  := frmSzarmazasiIgazolas.sdsHSzIModIg.FieldByName('ANYANEV').AsString; *)
-
-  //  fajtakód és fajtanév váltás
-//  frmSzarmazasiIgazolas.cbEgyedFajtaNev.Text := frmSzarmazasiIgazolas.NEV_KOD(frmSzarmazasiIgazolas.sdsHSzIModLapFAJTAKOD.AsString);
-//  frmSzarmazasiIgazolas.cbApaFajtaNev.Text := frmSzarmazasiIgazolas.NEV_KOD(frmSzarmazasiIgazolas.sdsHSzIModLapAPA_FAJTAKOD.AsString);
-//  frmSzarmazasiIgazolas.cbAnyaFajtaNev.Text := frmSzarmazasiIgazolas.NEV_KOD(frmSzarmazasiIgazolas.sdsHSzIModLapANYA_FAJTA_KOD.AsString);
-//  frmSzarmazasiIgazolas.cbApaiNagyapaFajtaNev.Text := frmSzarmazasiIgazolas.NEV_KOD(frmSzarmazasiIgazolas.sdsHSzIModLapAPA_NAGYAPA_FAJATA_KOD.AsString);
-//  frmSzarmazasiIgazolas.cbAnyaiNagyapaFajtaNev.Text := frmSzarmazasiIgazolas.NEV_KOD(frmSzarmazasiIgazolas.sdsHSzIModLapANYAI_NAGYAPA_FAJTAKOD.AsString);
-//  if frmSzarmazasiIgazolas.sdsHSzIModLapTERMEKENYITO_BIKA_FAJTAKOD.AsString > '' then
-//    frmSzarmazasiIgazolas.cbTermekenyitoFajtaNev.Text := frmSzarmazasiIgazolas.NEV_KOD(frmSzarmazasiIgazolas.sdsHSzIModLapTERMEKENYITO_BIKA_FAJTAKOD.AsString)
-//  else
-//    frmSzarmazasiIgazolas.cbTermekenyitoFajtaNev.Text := '';
-
-  // Egyed ivarkód és ivarnév váltás
-//  frmSzarmazasiIgazolas.cbEgyedIvarNev.Text := frmSzarmazasiIgazolas.IVAR_NEV_KOD(frmSzarmazasiIgazolas.sdsHSzIModIgIVAR.AsString);
-
-  FSZEdit.Text := sdsHSzIModLapFAJTA_SZAZ.Text;
-  AFSZEdit.Text := sdsHSzIModLapAPA_FAJTA_SZAZ.Text;
-  AFSZAZEdit.Text := sdsHSzIModLapANYA_FAJTA_SZAZ.Text;
-  ANAFSZEdit.Text := sdsHSzIModLapAPAI_NAGYAPA_FAJTA_SZAZ.Text;
-  ANNAFSZEdit.Text := sdsHSzIModLapANYAI_NAGYAPA_FAJTA_SZAZ.Text;
-  TBFSZEdit.Text := sdsHSzIModLapTERM_BIKA_FAJTA_SZAZ.Text;
-
-end;
-
 procedure TfrmSzarmazasiIgazolas.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  // frmSzarmazasiIgazolas.sdsHSzIModIg.Close;
-  // frmSzarmazasiIgazolas.sdsHSzIModLap.Close;
-  // frmSzarmazasiIgazolas.sdsHSzIModLap.Destroy;
-  (*qryEfajta.Close;
-  qryIvar.Close;
-  qryApaFajta.Close;
-  qryAnyaFajta.Close;
-  qryApaapa.Close;
-  qryAnyaApa.Close;
-  qryTFajta.Close;
-  sdsKeres.Close;      *)
-  // sdsKeres.Destroy;
   sTulajKod := '';
   sTulajNev := '';
   sTulajCim := '';
   sKiallDatum := '    .  .  ';
   sHitDatum := '    .  .  ';
+  backToBrowseMode( NIL);
+  frmSzarmazasiIgazolas.sdsHSzIModLap.CancelUpdates;
 end;
 
 procedure TfrmSzarmazasiIgazolas.btnRogzitClic(Sender: TObject);
@@ -1656,7 +1547,7 @@ end;
 
 procedure TfrmSzarmazasiIgazolas.btnCancelClick(Sender: TObject);
 begin
-  frmSzarmazasiIgazolas.sdsHSzIModLap.CancelUpdates;
+    frmSzarmazasiIgazolas.sdsHSzIModLap.CancelUpdates;
     backToBrowseMode( NIL);
 end;
 
