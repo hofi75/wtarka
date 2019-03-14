@@ -1,6 +1,6 @@
 object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
-  Left = 399
-  Top = 186
+  Left = 105
+  Top = 118
   Width = 1252
   Height = 725
   Caption = 'frmSzarmazasiIgazolas'
@@ -45,7 +45,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     Width = 849
     Height = 537
     Hint = 'Egyed'
-    ActivePage = TabSheet1
+    ActivePage = TabEU
     ParentShowHint = False
     ShowHint = True
     Style = tsFlatButtons
@@ -4834,6 +4834,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           DataSource = dsHivSzarmLap
           KeyField = 'NEV'
           ListField = 'NEV'
+          ListSource = dtmTarka.dtsOrszag
           TabOrder = 3
         end
         object TalGroupBox1: TTalGroupBox
@@ -7793,7 +7794,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 40240.498815532400000000
-    ReportOptions.LastChange = 43534.659214976850000000
+    ReportOptions.LastChange = 43537.452700115740000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -8155,7 +8156,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         object Shape8: TfrxShapeView
           Top = 419.527830000000000000
           Width = 309.921460000000000000
-          Height = 88.818897637795280000
+          Height = 88.818897637795300000
         end
         object Memo13: TfrxMemoView
           Left = 7.559060000000000000
@@ -8224,7 +8225,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         end
         object Memo18: TfrxMemoView
           Left = 7.559060000000000000
-          Top = 515.905511811023600000
+          Top = 515.905511811024000000
           Width = 94.488250000000000000
           Height = 11.338582680000000000
           Font.Charset = DEFAULT_CHARSET
@@ -8461,7 +8462,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo42: TfrxMemoView
-          Left = 763.465060000000000000
+          Left = 767.244590000000000000
           Top = 128.504020000000000000
           Width = 37.795263390000000000
           Height = 11.338582680000000000
@@ -8642,7 +8643,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo52: TfrxMemoView
-          Left = 427.086890000000000000
+          Left = 408.189240000000000000
           Top = 154.960698270000000000
           Width = 30.236203390000000000
           Height = 11.338582680000000000
@@ -9009,7 +9010,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         object Memo80: TfrxMemoView
           Left = 665.197280000000000000
           Top = 204.094620000000000000
-          Width = 30.236203390000000000
+          Width = 28.346456692913390000
           Height = 11.338582680000000000
           DataSetName = 'frxDBListHSzIg'
           Font.Charset = DEFAULT_CHARSET
@@ -9081,7 +9082,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo85: TfrxMemoView
-          Left = 755.906000000000000000
+          Left = 759.685530000000000000
           Top = 272.126160000000000000
           Width = 41.574793390000000000
           Height = 11.338582680000000000
@@ -9293,7 +9294,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo101: TfrxMemoView
-          Left = 755.906000000000000000
+          Left = 763.465060000000000000
           Top = 427.086614170000000000
           Width = 41.574793390000000000
           Height = 11.338582680000000000
@@ -9432,7 +9433,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         object Memo109: TfrxMemoView
           Left = 665.197280000000000000
           Top = 502.677490000000000000
-          Width = 30.236203390000000000
+          Width = 28.346456692913390000
           Height = 11.338582680000000000
           DataSetName = 'frxDBListHSzIg'
           Font.Charset = DEFAULT_CHARSET
@@ -9689,9 +9690,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo121: TfrxMemoView
-          Left = 457.323130000000000000
+          Left = 438.425480000000000000
           Top = 154.960730000000000000
-          Width = 68.031503390000000000
+          Width = 86.929153390000000000
           Height = 11.338582680000000000
           DataField = 'APA_ENAR'
           DataSet = frxDBSzLapok
@@ -9809,7 +9810,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo128: TfrxMemoView
-          Left = 702.992580000000000000
+          Left = 699.213050000000000000
           Top = 49.133890000000000000
           Width = 34.015770000000000000
           Height = 11.338582680000000000
@@ -9861,7 +9862,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo139: TfrxMemoView
-          Left = 702.992580000000000000
+          Left = 699.213050000000000000
           Top = 94.488250000000000000
           Width = 34.015733390000000000
           Height = 11.338582680000000000
@@ -10069,9 +10070,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo131: TfrxMemoView
-          Left = 695.433520000000000000
+          Left = 693.543307086614200000
           Top = 204.094620000000000000
-          Width = 60.472443390000000000
+          Width = 62.362204724409450000
           Height = 11.338590000000000000
           DataField = 'APAI_NAGYANYA_ENAR'
           DataSet = frxDBSzLapok
@@ -10103,9 +10104,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo133: TfrxMemoView
-          Left = 907.087200000000000000
+          Left = 903.307670000000000000
           Top = 204.094620000000000000
-          Width = 68.031498500000000000
+          Width = 71.811028500000000000
           Height = 11.338582680000000000
           DataField = 'APAI_NAGYANYA_FULSZAM'
           DataSet = frxDBSzLapok
@@ -10138,7 +10139,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo151: TfrxMemoView
-          Left = 702.992580000000000000
+          Left = 699.213050000000000000
           Top = 238.110390000000000000
           Width = 30.236203390000000000
           Height = 11.338590000000000000
@@ -10156,9 +10157,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo152: TfrxMemoView
-          Left = 907.087200000000000000
+          Left = 903.307670000000000000
           Top = 238.110390000000000000
-          Width = 68.031498500000000000
+          Width = 71.811028500000000000
           Height = 11.338590000000000000
           DataField = 'APAI_NAGYANYA_APJA_FULSZAM'
           DataSet = frxDBSzLapok
@@ -10190,9 +10191,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo154: TfrxMemoView
-          Left = 695.433520000000000000
+          Left = 693.543307090000000000
           Top = 272.126160000000000000
-          Width = 56.692913390000000000
+          Width = 66.141734720000000000
           Height = 11.338582680000000000
           DataField = 'APAI_NAGYANYA_ANYJA_ENAR'
           DataSet = frxDBSzLapok
@@ -10207,7 +10208,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo155: TfrxMemoView
-          Left = 797.480830000000000000
+          Left = 801.260360000000000000
           Top = 272.126160000000000000
           Width = 60.472450710000000000
           Height = 11.338582680000000000
@@ -10224,9 +10225,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo156: TfrxMemoView
-          Left = 907.087200000000000000
+          Left = 903.307670000000000000
           Top = 272.126160000000000000
-          Width = 68.031498500000000000
+          Width = 71.811028500000000000
           Height = 11.338582680000000000
           DataField = 'APAI_NAGYANYA_ANYJA_FULSZAM'
           DataSet = frxDBSzLapok
@@ -10275,7 +10276,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo135: TfrxMemoView
-          Left = 702.992580000000000000
+          Left = 699.213050000000000000
           Top = 347.716760000000000000
           Width = 34.015733390000000000
           Height = 11.338590000000000000
@@ -10342,9 +10343,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo159: TfrxMemoView
-          Left = 702.992580000000000000
+          Left = 699.213050000000000000
           Top = 393.071120000000000000
-          Width = 45.354306300000000000
+          Width = 34.015716300000000000
           Height = 11.338590000000000000
           DataField = 'ANYAI_NAGYAPA_APJA_KPLSZ'
           DataSet = frxDBSzLapok
@@ -10394,7 +10395,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo162: TfrxMemoView
-          Left = 797.480830000000000000
+          Left = 805.039890000000000000
           Top = 427.086614170000000000
           Width = 56.692950000000000000
           Height = 11.338590000000000000
@@ -10462,9 +10463,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo166: TfrxMemoView
-          Left = 695.433520000000000000
+          Left = 693.543307090000000000
           Top = 502.677490000000000000
-          Width = 56.692913390000000000
+          Width = 60.472443390000000000
           Height = 11.338590000000000000
           DataField = 'ANYAI_NAGYANYA_ENAR'
           DataSet = frxDBSzLapok
@@ -10531,7 +10532,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo170: TfrxMemoView
-          Left = 702.992580000000000000
+          Left = 699.213050000000000000
           Top = 536.693260000000000000
           Width = 30.236203390000000000
           Height = 11.338590000000000000
@@ -10827,7 +10828,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         object Memo92: TfrxMemoView
           Left = 665.197280000000000000
           Top = 272.126160000000000000
-          Width = 30.236240000000000000
+          Width = 28.346456690000000000
           Height = 11.338582680000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -10841,7 +10842,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         object Memo187: TfrxMemoView
           Left = 665.197280000000000000
           Top = 570.709030000000000000
-          Width = 30.236240000000000000
+          Width = 28.346456692913390000
           Height = 11.338582680000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -10853,9 +10854,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo188: TfrxMemoView
-          Left = 695.433520000000000000
+          Left = 693.543307090000000000
           Top = 570.709030000000000000
-          Width = 56.692913390000000000
+          Width = 60.472440944881890000
           Height = 11.338582680000000000
           DataField = 'ANYAI_NAGYANYA_ANYJA_ENAR'
           DataSet = frxDBSzLapok
@@ -10903,7 +10904,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         object Memo191: TfrxMemoView
           Left = 665.197280000000000000
           Top = 427.086890000000000000
-          Width = 30.236227800000000000
+          Width = 28.346456692913390000
           Height = 11.338582680000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -10917,7 +10918,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         object Memo192: TfrxMemoView
           Left = 665.197280000000000000
           Top = 128.504020000000000000
-          Width = 30.236240000000000000
+          Width = 28.346456690000000000
           Height = 11.338582680000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -10929,9 +10930,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo193: TfrxMemoView
-          Left = 695.433520000000000000
+          Left = 693.543307090000000000
           Top = 128.504020000000000000
-          Width = 64.251997800000000000
+          Width = 73.700787400000000000
           Height = 11.338582680000000000
           DataField = 'APAI_NAGYAPA_ANYJA_ENAR'
           DataSet = frxDBSzLapok
@@ -10947,7 +10948,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         end
         object Memo194: TfrxMemoView
           Left = 11.338590000000000000
-          Top = 449.763779527559100000
+          Top = 449.763779527559000000
           Width = 22.677165350000000000
           Height = 11.338582680000000000
           Font.Charset = DEFAULT_CHARSET
@@ -10961,7 +10962,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         end
         object Memo195: TfrxMemoView
           Left = 11.338590000000000000
-          Top = 464.881889763779500000
+          Top = 464.881889763780000000
           Width = 22.677165350000000000
           Height = 11.338582680000000000
           Font.Charset = DEFAULT_CHARSET
@@ -10989,7 +10990,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         end
         object Memo197: TfrxMemoView
           Left = 11.338590000000000000
-          Top = 570.708661417322800000
+          Top = 570.708661417323000000
           Width = 22.677167800000000000
           Height = 11.338582680000000000
           Font.Charset = DEFAULT_CHARSET
@@ -11003,7 +11004,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         end
         object Memo198: TfrxMemoView
           Left = 11.338590000000000000
-          Top = 555.590551181102400000
+          Top = 555.590551181102000000
           Width = 22.677165350000000000
           Height = 11.338582680000000000
           Font.Charset = DEFAULT_CHARSET
@@ -11017,7 +11018,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         end
         object Memo199: TfrxMemoView
           Left = 11.338590000000000000
-          Top = 540.472440944881900000
+          Top = 540.472440944882000000
           Width = 22.677165350000000000
           Height = 11.338582680000000000
           Font.Charset = DEFAULT_CHARSET
@@ -11031,7 +11032,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         end
         object Memo200: TfrxMemoView
           Left = 37.795300000000000000
-          Top = 540.472440944881900000
+          Top = 540.472440944882000000
           Width = 177.637848980000000000
           Height = 11.338582680000000000
           DataField = 'TULAJ_KOD'
@@ -11108,9 +11109,8 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         object Memo205: TfrxMemoView
           Left = 37.795300000000000000
           Top = 241.889920000000000000
-          Width = 30.236240000000000000
+          Width = 37.795300000000000000
           Height = 11.338582680000000000
-          DataField = 'TERM_BIKA_KPLSZ'
           DataSet = frxDBSzLapok
           DataSetName = 'frxDBSzLapok'
           Font.Charset = DEFAULT_CHARSET
@@ -11155,7 +11155,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object MemoBikaENAR: TfrxMemoView
-          Left = 207.874003540000000000
+          Left = 188.976353540000000000
           Top = 241.889920000000000000
           Width = 28.346456690000000000
           Height = 11.338590000000000000
@@ -11169,11 +11169,10 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo209: TfrxMemoView
-          Left = 236.976365750000000000
+          Left = 218.078715750000000000
           Top = 241.889920000000000000
-          Width = 68.031498500000000000
+          Width = 86.929148500000000000
           Height = 11.338582680000000000
-          DataField = 'TERM_BIKA_ENAR'
           DataSet = frxDBSzLapok
           DataSetName = 'frxDBSzLapok'
           Font.Charset = DEFAULT_CHARSET
@@ -11667,7 +11666,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
         end
         object Memo240: TfrxMemoView
           Left = 37.795300000000000000
-          Top = 555.590551181102400000
+          Top = 555.590551181102000000
           Width = 177.637848980000000000
           Height = 11.338582680000000000
           DataField = 'TULAJ_NEV'
@@ -11977,7 +11976,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo261: TfrxMemoView
-          Left = 748.346940000000000000
+          Left = 737.008350000000000000
           Top = 49.133890000000000000
           Width = 30.236203390000000000
           Height = 11.338582680000000000
@@ -11992,9 +11991,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo262: TfrxMemoView
-          Left = 778.583180000000000000
+          Left = 767.244590000000000000
           Top = 49.133890000000000000
-          Width = 83.149660000000000000
+          Width = 94.488250000000000000
           Height = 11.338582680000000000
           DataField = 'APAI_NAGYAPA_ENAR'
           DataSet = frxDBSzLapok
@@ -12077,7 +12076,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo267: TfrxMemoView
-          Left = 748.346940000000000000
+          Left = 737.008350000000000000
           Top = 94.488250000000000000
           Width = 30.236203390000000000
           Height = 11.338582680000000000
@@ -12092,9 +12091,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo268: TfrxMemoView
-          Left = 778.583180000000000000
+          Left = 767.244590000000000000
           Top = 94.488250000000000000
-          Width = 83.149623390000000000
+          Width = 94.488213390000000000
           Height = 11.338582680000000000
           DataField = 'APAI_NAGYAPA_APJA_ENAR'
           DataSet = frxDBSzLapok
@@ -12109,7 +12108,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo269: TfrxMemoView
-          Left = 752.126470000000000000
+          Left = 737.008350000000000000
           Top = 238.110390000000000000
           Width = 30.236203390000000000
           Height = 11.338582680000000000
@@ -12124,9 +12123,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo270: TfrxMemoView
-          Left = 782.362710000000000000
+          Left = 767.244590000000000000
           Top = 238.110390000000000000
-          Width = 79.370130000000000000
+          Width = 94.488250000000000000
           Height = 11.338582680000000000
           DataField = 'APAI_NAGYANYA_APJA_ENAR'
           DataSet = frxDBSzLapok
@@ -12141,7 +12140,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo271: TfrxMemoView
-          Left = 752.126470000000000000
+          Left = 740.787880000000000000
           Top = 347.716760000000000000
           Width = 30.236203390000000000
           Height = 11.338582680000000000
@@ -12156,9 +12155,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo272: TfrxMemoView
-          Left = 782.362710000000000000
+          Left = 771.024120000000000000
           Top = 347.716760000000000000
-          Width = 79.370093390000000000
+          Width = 90.708683390000000000
           Height = 11.338582680000000000
           DataField = 'ANYAI_NAGYAPA_ENAR'
           DataSet = frxDBSzLapok
@@ -12306,7 +12305,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo281: TfrxMemoView
-          Left = 752.126470000000000000
+          Left = 740.787880000000000000
           Top = 393.071120000000000000
           Width = 30.236203390000000000
           Height = 11.338582680000000000
@@ -12321,9 +12320,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo282: TfrxMemoView
-          Left = 782.362710000000000000
+          Left = 771.024120000000000000
           Top = 393.071120000000000000
-          Width = 79.370093390000000000
+          Width = 90.708683390000000000
           Height = 11.338582680000000000
           DataField = 'ANYAI_NAGYAPA_APJA_ENAR'
           DataSet = frxDBSzLapok
@@ -12338,9 +12337,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo283: TfrxMemoView
-          Left = 695.433520000000000000
+          Left = 693.543307090000000000
           Top = 427.086890000000000000
-          Width = 56.692937800000000000
+          Width = 68.031527800000000000
           Height = 11.338582680000000000
           DataField = 'ANYAI_NAGYAPA_ANYJA_ENAR'
           DataSet = frxDBSzLapok
@@ -12355,7 +12354,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo284: TfrxMemoView
-          Left = 752.126470000000000000
+          Left = 737.008350000000000000
           Top = 536.693260000000000000
           Width = 30.236203390000000000
           Height = 11.338582680000000000
@@ -12370,9 +12369,9 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
           ParentFont = False
         end
         object Memo285: TfrxMemoView
-          Left = 782.362710000000000000
+          Left = 767.244590000000000000
           Top = 536.693260000000000000
-          Width = 79.370130000000000000
+          Width = 94.488250000000000000
           Height = 11.338582680000000000
           DataField = 'ANYAI_NAGYANYA_APJA_ENAR'
           DataSet = frxDBSzLapok

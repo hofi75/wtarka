@@ -935,8 +935,8 @@ type
     sdsListSzLapokTAZONEREDM: TWideStringField;
     sdsListSzLapokDANAZON: TWideStringField;
     sdsListSzLapokDANNEV: TWideStringField;
-    frxRepListak: TfrxReport;
     btnExit: TTalBitBtn;
+    frxRepListak: TfrxReport;
     // procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnRogzitClic(Sender: TObject);
@@ -985,6 +985,8 @@ Uses TListHivSzarmIg, udtmTarka, QSysTools, QfrmEgyedValaszto;
 Procedure TfrmSzarmazasiIgazolas.Modosit;
 Begin
   frmSzarmazasiIgazolas.TabSheet8.TabVisible := True;
+  sdsKeres.Connection := dtmTarka.cnTarka;
+  sdsHSzIModLap.Connection := dtmTarka.cnTarka;
 
   If sdsKeres.Active Then sdsKeres.Close;
   sdsKeres.Open;
