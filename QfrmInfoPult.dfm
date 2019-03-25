@@ -1680,6 +1680,7 @@ object frmInfoPult: TfrmInfoPult
       end>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
+    Provider.UpdateMode = upWhereChanged
     Params = <>
     Left = 768
     Top = 640
