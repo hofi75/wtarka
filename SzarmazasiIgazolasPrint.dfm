@@ -12,7 +12,7 @@ object SzarmazasiIgazolasPrint: TSzarmazasiIgazolasPrint
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 40240.498815532400000000
-    ReportOptions.LastChange = 43537.452700115740000000
+    ReportOptions.LastChange = 43571.851764189810000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -75,14 +75,14 @@ object SzarmazasiIgazolasPrint: TSzarmazasiIgazolasPrint
         '       EU_HITDAT.Text := FormatDateTime('#39'dd.mm.yyyy'#39',<frxDBSzLap' +
         'ok."HITDAT">);'
       
-        '       EU_TERM_IDEJE.Text := FormatDateTime('#39'dd.mm.yyyy'#39',<frxDBS' +
-        'zLapok."TERM_IDEJE">);'
+        '       // EU_TERM_IDEJE.Text := FormatDateTime('#39'dd.mm.yyyy'#39',<frx' +
+        'DBSzLapok."TERM_IDEJE">);'
       
         '       EU_KIDAT.Text := FormatDateTime('#39'dd.mm.yyyy'#39',<frxDBSzLapo' +
         'k."KIDAT">);'
       
-        '       TENYBECSDAT.Text := FormatDateTime('#39'dd.mm.yyyy'#39',<frxDBSzL' +
-        'apok."TENYBECSDAT">);'
+        '       // TENYBECSDAT.Text := FormatDateTime('#39'dd.mm.yyyy'#39',<frxDB' +
+        'SzLapok."TENYBECSDAT">);'
       '       EU_ORSZAG.Text := <frxDBSzLapok."SZORSZ">;'
       '       if Copy(EU_ORSZAG.Text,1,6) = '#39'Magyar'#39' then'
       '       begin'
