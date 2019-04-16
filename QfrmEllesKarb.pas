@@ -139,7 +139,8 @@ function OpenEllesekBrow:Boolean;
 implementation
 
 uses udtmTarka , DateUtils, StrUtils, QfrmhTerm, QfrmTermKarbm, QfrmValaszt,
-  QfrmFuljelzok, QSysTools;
+  QfrmFuljelzok, QSysTools,
+  Math;
 
 {$R *.dfm}
 
@@ -1139,46 +1140,53 @@ begin
 end;
 
 procedure TfrmEllesKarb.VerhanyadFeltotltes;
+type
+  Verhanyad = record
+    id : integer;
+    value : real;
+  end;
+
 var
   SQL : string;
   v1,v2,v3,v4, pv1,pv2,pv3,pv4, uv1,uv2,uv3,uv4, fkod, kkod: string;
   s1,s2,s3,s4, ps1,ps2,ps3,ps4, us1,us2,us3,us4 , maxszaz: real;
+  summ: real;
   tq : TTalQuery;
+  vh: array[1..8] of Verhanyad;
+  result_vh: array[1..8] of Verhanyad;
+  temp_vh: Verhanyad;
+  vID : string;
+  i, k, j : integer;
+
 begin
-  if dtmTarka.sdsEllesekENAR.AsString = EmptyStr then exit;
+  // if dtmTarka.sdsEllesekENAR.AsString = EmptyStr then exit;
   if dtmTarka.sdsEllesekBIKA.AsString = EmptyStr then exit;
-  uv1 := '';
-  uv2 := '';
-  uv3 := '';
-  uv4 := '';
 
   sql := 'select e.ver1,e.vsz1,e.ver2,e.vsz2,e.ver3,e.vsz3,e.ver4,e.vsz4 ' +
-         ' from egyedek e where e.enar = ' + quotedstr(dtmTarka.sdsEllesekENAR.AsString);
+         ' from egyedek e where e.ID = ' + dtmTarka.sdsEllesekEGYED_ID.AsString;
 
   tq := TTalQuery.Create(Self);
   tq.Connection := dtmTarka.cnTarka;
   tq.SQL.Add(SQL);
   tq.Open;
-  log('Open 1 OK');
-  if tq.FieldByName('ver1').AsString <> EmptyStr then
-    v1 := intToStr(tq.FieldByName('ver1').AsInteger);
-  if tq.FieldByName('ver2').AsString <> EmptyStr then
-    v2 := intToStr(tq.FieldByName('ver2').AsInteger);
-  if tq.FieldByName('ver3').AsString <> EmptyStr then
-    v3 := intToStr(tq.FieldByName('ver3').AsInteger);
-  if tq.FieldByName('ver4').AsString <> EmptyStr then
-    v4 := intToStr(tq.FieldByName('ver4').AsInteger);
-  s1 := tq.FieldByName('vsz1').AsFloat;
-  s2 := tq.FieldByName('vsz2').AsFloat;
-  s3 := tq.FieldByName('vsz3').AsFloat;
-  s4 := tq.FieldByName('vsz4').AsFloat;
 
+  for i := 1 to 8 do
+  begin
+    vh[i].id := -1;
+    vh[i].value := 0;
+    result_vh[i].id := -1;
+    result_vh[i].value := 0;
+  end;
+
+  for i := 1 to 4 do
+  begin
+    vID := tq.FieldByName('ver'+ IntToStr(i)).AsString;
+    if vID <> EmptyStr then
+       vh[i].ID := StrToInt( vID);
+    vh[i].value := tq.FieldByName('vsz' + IntToStr(i)).AsFloat;
+  end;
   tq.Close;
   tq.free;
-  if s1 = 0 then v1 := '';
-  if s2 = 0 then v2 := '';
-  if s3 = 0 then v3 := '';
-  if s4 = 0 then v4 := '';
 
   sql := 'select a.ver1,a.vsz1,a.ver2,a.vsz2,a.ver3,a.vsz3,a.ver4,a.vsz4 ' +
          ' from apa a where a.kplsz = ' + quotedstr(dtmTarka.sdsEllesekBIKA.AsString);
@@ -1188,123 +1196,99 @@ begin
   tq.SQL.Add(SQL);
   tq.Open;
   log('Open 2 OK');
-  if tq.FieldByName('ver1').AsString <> EmptyStr then begin
-      if tq.FieldByName('ver1').AsString <> EmptyStr then
-        pv1 := intToStr(tq.FieldByName('ver1').AsInteger);
-      if tq.FieldByName('ver2').AsString <> EmptyStr then
-        pv2 := intToStr(tq.FieldByName('ver2').AsInteger);
-      if tq.FieldByName('ver3').AsString <> EmptyStr then
-        pv3 := intToStr(tq.FieldByName('ver3').AsInteger);
-      if tq.FieldByName('ver4').AsString <> EmptyStr then
-        pv4 := intToStr(tq.FieldByName('ver4').AsInteger);
-      ps1 := tq.FieldByName('vsz1').AsFloat;
-      ps2 := tq.FieldByName('vsz2').AsFloat;
-      ps3 := tq.FieldByName('vsz3').AsFloat;
-      ps4 := tq.FieldByName('vsz4').AsFloat;
-  end;
-  tq.Close;
-  tq.free;
-  if ps1 = 0 then pv1 := '';
-  if ps2 = 0 then pv2 := '';
-  if ps3 = 0 then pv3 := '';
-  if ps4 = 0 then pv4 := '';
 
-  if v1 <> '' then begin
-    uv1 := v1;
-    us1 := s1/2;
-    if v1 = pv1 then  us1 := us1 + ps1/2;
-    if v1 = pv2 then  us1 := us1 + ps2/2;
-    if v1 = pv3 then  us1 := us1 + ps3/2;
-    if v1 = pv4 then  us1 := us1 + ps4/2;
+  for i := 1 to 4 do
+  begin
+    vID := tq.FieldByName('ver'+ IntToStr(i)).AsString;
+    if vID <> EmptyStr then
+       vh[i+4].ID := StrToInt( vID);;
+    vh[i+4].value := tq.FieldByName('vsz' + IntToStr(i)).AsFloat;
   end;
-  if v2 <> '' then begin
-    uv2 := v2;
-    us2 := s2/2;
-    if v2 = pv1 then  us2 := us2 + ps1/2;
-    if v2 = pv2 then  us2 := us2 + ps2/2;
-    if v2 = pv3 then  us2 := us2 + ps3/2;
-    if v2 = pv4 then  us2 := us2 + ps4/2;
+
+  (*
+  vh[1].id := 1;
+  vh[1].value := 50;
+  vh[2].id := 2;
+  vh[2].value := 25;
+  vh[3].id := 3;
+  vh[3].value := 25;
+  vh[4].id := -1;
+  vh[4].value := 0;
+  vh[5].id := 1;
+  vh[5].value := 50;
+  vh[6].id := 4;
+  vh[6].value := 25;
+  vh[7].id := 5;
+  vh[7].value := 20;
+  vh[8].id := 6;
+  vh[8].value := 5;
+  *)
+  j := 1;
+  for i := 1 to 8 do
+  begin
+     if vh[i].id = -1 then Continue;
+
+     result_vh[j].id := vh[i].id;
+     result_vh[j].value := vh[i].value;
+
+     for k := i + 1 to 8 do
+     begin
+        if vh[k].id = -1 then Continue;
+
+        if vh[i].id = vh[k].id then
+        begin
+           result_vh[j].value := result_vh[j].value + vh[k].value;
+           vh[k].id := -1;
+        end;
+     end;
+     j := j + 1;
   end;
-  if v3 <> '' then begin
-    uv3 := v3;
-    us3 := s3/2;
-    if v3 = pv1 then  us3 := us3 + ps1/2;
-    if v3 = pv2 then  us3 := us3 + ps2/2;
-    if v3 = pv3 then  us3 := us3 + ps3/2;
-    if v3 = pv4 then  us3 := us3 + ps4/2;
-  end;
-  if v4 <> '' then begin
-    uv4 := v4;
-    us4 := s4/2;
-    if v4 = pv1 then  us4 := us4 + ps1/2;
-    if v4 = pv2 then  us4 := us4 + ps2/2;
-    if v4 = pv3 then  us4 := us4 + ps3/2;
-    if v4 = pv4 then  us4 := us4 + ps4/2;
-  end;
-  if (pv1 <> '') then
-    if (uv1 <> pv1) and (uv2 <> pv1) and (uv3 <> pv1) and (uv4 <> pv1)  then begin
-      if uv1 = '' then begin
-        uv1 := pv1;
-        us1 := ps1 / 2;
-      end else if uv2 = '' then begin
-        uv2 := pv1;
-        us2 := ps1 / 2;
-      end else if uv3 = '' then begin
-        uv3 := pv1;
-        us3 := ps1 / 2;
-      end else if uv4 = '' then begin
-        uv4 := pv1;
-        us4 := ps1 / 2;
+
+  for i := 1 to j do
+     result_vh[i].value := result_vh[i].value / 2;
+
+  // rendezes
+  for i := 1 to j do
+    for k := i + 1 to j do
+      if result_vh[i].value < result_vh[k].value then
+      begin
+        temp_vh := result_vh[i];
+        result_vh[i] := result_vh[k];
+        result_vh[k] := temp_vh;
       end;
-    end;
-  if (pv2 <> '') then
-    if (uv1 <> pv2) and (uv2 <> pv2) and (uv3 <> pv2) and (uv4 <> pv2)  then begin
-      if uv1 = '' then begin
-        uv1 := pv2;
-        us1 := ps2 / 2;
-      end else if uv2 = '' then begin
-        uv2 := pv2;
-        us2 := ps2 / 2;
-      end else if uv3 = '' then begin
-        uv3 := pv2;
-        us3 := ps2 / 2;
-      end else if uv4 = '' then begin
-        uv4 := pv2;
-        us4 := ps2 / 2;
+
+  // egeszre hozas
+  summ := 0;
+  for i := 1 to j do
+    summ := summ + result_vh[i].value;
+
+  // if summ <> 100 then
+    for i := 1 to j do
+      result_vh[i].value := RoundTo( result_vh[i].value * 100 / summ, -2);
+
+      if result_vh[1].ID <> -1 then
+      begin
+        dtmTarka.sdsBorjakVER1.AsString := IntToStr( result_vh[1].ID);
+        dtmTarka.sdsBorjakVSZ1.AsFloat := result_vh[1].value;
       end;
-    end;
-  if (pv3 <> '') then
-    if (uv1 <> pv3) and (uv2 <> pv3) and (uv3 <> pv3) and (uv4 <> pv3)  then begin
-      if uv1 = '' then begin
-        uv1 := pv3;
-        us1 := ps3 / 2;
-      end else if uv2 = '' then begin
-        uv2 := pv3;
-        us2 := ps3 / 2;
-      end else if uv3 = '' then begin
-        uv3 := pv3;
-        us3 := ps3 / 2;
-      end else if uv4 = '' then begin
-        uv4 := pv3;
-        us4 := ps3 / 2;
+      if result_vh[2].ID <> -1 then
+      begin
+        dtmTarka.sdsBorjakVER2.AsString := IntToStr( result_vh[2].ID);
+        dtmTarka.sdsBorjakVSZ2.AsFloat := result_vh[2].value;
       end;
-    end;
-  if (pv4 <> '') then
-    if (uv1 <> pv4) and (uv2 <> pv4) and (uv3 <> pv4) and (uv4 <> pv4)  then begin
-      if uv1 = '' then begin
-        uv1 := pv4;
-        us1 := ps4 / 2;
-      end else if uv2 = '' then begin
-        uv2 := pv4;
-        us2 := ps4 / 2;
-      end else if uv3 = '' then begin
-        uv3 := pv4;
-        us3 := ps4 / 2;
-      end else if uv4 = '' then begin
-        uv4 := pv4;
-        us4 := ps4 / 2;
+      if result_vh[3].ID <> -1 then
+      begin
+        dtmTarka.sdsBorjakVER3.AsString := IntToStr( result_vh[3].ID);
+        dtmTarka.sdsBorjakVSZ3.AsFloat := result_vh[3].value;
       end;
-    end;
+      if result_vh[4].ID <> -1 then
+      begin
+        dtmTarka.sdsBorjakVER4.AsString := IntToStr( result_vh[4].ID);
+        dtmTarka.sdsBorjakVSZ4.AsFloat := result_vh[4].value;
+      end;
+
+
+    (*
     fkod := '';
     maxszaz := 0;
     if uv1 <> '' then begin
@@ -1377,6 +1361,7 @@ begin
          dtmTarka.sdsBorjakBORJU_KONS_KOD.AsString := kkod;
       end;
     end;
+    *)
 end;
 
 end.
