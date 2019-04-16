@@ -1,6 +1,6 @@
 object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
-  Left = 652
-  Top = 223
+  Left = 346
+  Top = 169
   Width = 1252
   Height = 725
   Caption = 'frmSzarmazasiIgazolas'
@@ -45,7 +45,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     Width = 849
     Height = 537
     Hint = 'Egyed'
-    ActivePage = TabEU
+    ActivePage = TabSheet8
     ParentShowHint = False
     ShowHint = True
     Style = tsFlatButtons

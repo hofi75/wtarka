@@ -195,38 +195,6 @@ type
     dtsLista: TfrxDBDataset;
     frxDBLista: TfrxDBDataset;
     sdsLista: TTalSimpleDataSet;
-    frxRepLista: TfrxReport;
-    sdsEllesekID: TBCDField;
-    sdsEllesekELLES_DATUM: TDateTimeField;
-    sdsEllesekELLES_LEF: TWideStringField;
-    sdsEllesekE_TERM_DAT: TDateTimeField;
-    sdsEllesekAPA_KPLSZ: TWideStringField;
-    sdsEllesekAPA_NEV: TWideStringField;
-    sdsEllesekKEK: TIntegerField;
-    sdsEllesekB1_ENAR: TWideStringField;
-    sdsEllesekB1_IVAR: TWideStringField;
-    sdsEllesekB1_SULY: TBCDField;
-    sdsEllesekB1_SZARVALTSAG: TWideStringField;
-    sdsEllesekBE1_VALDAT: TDateTimeField;
-    sdsEllesekBE1_VALTOM: TIntegerField;
-    sdsEllesekBE1_TOM205: TIntegerField;
-    sdsEllesekBE1_SV: TIntegerField;
-    sdsEllesekB1_TGY: TBCDField;
-    sdsEllesekBE1_KIKDAT: TDateTimeField;
-    sdsEllesekBE1_KIKOD: TWideStringField;
-    sdsEllesekBE1_KIKOK: TWideStringField;
-    sdsEllesekB2_ENAR: TWideStringField;
-    sdsEllesekB2_IVAR: TWideStringField;
-    sdsEllesekB2_SULY: TBCDField;
-    sdsEllesekB2_SZARVALTSAG: TWideStringField;
-    sdsEllesekBE2_VALDAT: TDateTimeField;
-    sdsEllesekBE2_VALTOM: TIntegerField;
-    sdsEllesekBE2_TOM205: TIntegerField;
-    sdsEllesekBE2_SV: TIntegerField;
-    sdsEllesekB2_TGY: TBCDField;
-    sdsEllesekBE2_KIKDAT: TDateTimeField;
-    sdsEllesekBE2_KIKOD: TWideStringField;
-    sdsEllesekBE2_KIKOK: TWideStringField;
     sdsTermekenyitesek: TTalSimpleDataSet;
     frxDBTermekenyitesek: TfrxDBDataset;
     sdsListaENAR: TWideStringField;
@@ -324,6 +292,38 @@ type
     sdsTermekenyitesekVEMHALL: TWideStringField;
     sdsTermekenyitesekTERMMOD: TWideStringField;
     sdsTermekenyitesekUT_ELL_DAT: TDateTimeField;
+    frxRepLista: TfrxReport;
+    sdsEllesekID: TBCDField;
+    sdsEllesekELLES_DATUM: TDateTimeField;
+    sdsEllesekELLES_LEF: TWideStringField;
+    sdsEllesekE_TERM_DAT: TDateTimeField;
+    sdsEllesekAPA_KPLSZ: TWideStringField;
+    sdsEllesekAPA_NEV: TWideStringField;
+    sdsEllesekKEK: TIntegerField;
+    sdsEllesekB1_ENAR: TWideStringField;
+    sdsEllesekB1_IVAR: TWideStringField;
+    sdsEllesekB1_SULY: TBCDField;
+    sdsEllesekB1_SZARVALTSAG: TWideStringField;
+    sdsEllesekBE1_VALDAT: TDateTimeField;
+    sdsEllesekBE1_VALTOM: TIntegerField;
+    sdsEllesekBE1_TOM205: TIntegerField;
+    sdsEllesekBE1_SV: TIntegerField;
+    sdsEllesekB1_TGY: TIntegerField;
+    sdsEllesekBE1_KIKDAT: TDateTimeField;
+    sdsEllesekBE1_KIKOD: TWideStringField;
+    sdsEllesekBE1_KIKOK: TWideStringField;
+    sdsEllesekB2_ENAR: TWideStringField;
+    sdsEllesekB2_IVAR: TWideStringField;
+    sdsEllesekB2_SULY: TBCDField;
+    sdsEllesekB2_SZARVALTSAG: TWideStringField;
+    sdsEllesekBE2_VALDAT: TDateTimeField;
+    sdsEllesekBE2_VALTOM: TIntegerField;
+    sdsEllesekBE2_TOM205: TIntegerField;
+    sdsEllesekBE2_SV: TIntegerField;
+    sdsEllesekB2_TGY: TIntegerField;
+    sdsEllesekBE2_KIKDAT: TDateTimeField;
+    sdsEllesekBE2_KIKOD: TWideStringField;
+    sdsEllesekBE2_KIKOK: TWideStringField;
     procedure actOKExecute(Sender: TObject);
     procedure sdsListaENARGetText(Sender: TField; var Text: String;
       DisplayText: Boolean);
@@ -345,7 +345,7 @@ uses udtmTarka;
 
 {$R *.dfm}
 
-procedure EgyediLapLista(pID : Integer);
+procedure EgyediLapLista( pID : Integer);
 var
   ssql : string;
 begin
@@ -371,6 +371,7 @@ begin
 
         // sdsEllesek.DataSet.Parameters.ParamByName('ID').Value := pID;
         sdsEllesek.DataSet.CommandText := StringReplace( sdsEllesek.DataSet.CommandText, ':ID', IntToStr( pID), [rfReplaceAll]);
+        // sdsEllesek.DataSet.Parameters.ParamByName('ID').Value := pID * 1.0;
         sdsEllesek.Open;
         sdsKullem.DataSet.CommandText := StringReplace( sdsKullem.DataSet.CommandText, ':ID', IntToStr( pID), [rfReplaceAll]);
         // sdsKullem.DataSet.Parameters.ParamByName('ID').Value := pID;
