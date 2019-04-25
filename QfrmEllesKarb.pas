@@ -1270,6 +1270,30 @@ begin
       begin
         dtmTarka.sdsBorjakVER1.AsString := IntToStr( result_vh[1].ID);
         dtmTarka.sdsBorjakVSZ1.AsFloat := result_vh[1].value;
+
+        sql := 'SELECT KONSKOD(' + quotedstr(dtmTarka.sdsBorjakVER1.AsString) + ',' + StringReplace( FloatToStr(result_vh[1].value),',','.',[]) + ' ) as kkod  FROM DUAL' ;
+        log(sql);
+        tq := TTalQuery.Create(Self);
+        tq.Connection := dtmTarka.cnTarka;
+        tq.SQL.Add(SQL);
+        tq.Open;
+        log('Open 3 OK');
+         if tq.FieldByName('kkod').AsString <> EmptyStr then begin
+            kkod := tq.FieldByName('kkod').AsString;
+            dtmTarka.sdsBorjakBORJU_KONS_KOD.AsString := tq.FieldByName('kkod').AsString;
+
+         (*
+            if kkod <> EmptyStr then begin
+           SQL := 'INSERT INTO KODOK(KODTIPUSOK_TIPUSKOD, KOD, KOD_NEV) ' +
+                  ' SELECT ''KONSTR'', ' + quotedstr(kkod) + ',' +  quotedstr(kkod) + ' FROM DUAL ' +
+                  ' WHERE NOT EXISTS( ' +
+                  ' select 1 from kodok where KODOK.KODTIPUSOK_TIPUSKOD = ''KONSTR'' and kodok.kod =' + quotedstr(kkod) + ')';
+           dtmTarka.cnTarka.Execute(SQL);
+           dtmTarka.qrybKons.Close;
+           dtmTarka.qrybKons.Open;
+         end; *)
+      end;
+
       end;
       if result_vh[2].ID <> -1 then
       begin
@@ -1286,7 +1310,6 @@ begin
         dtmTarka.sdsBorjakVER4.AsString := IntToStr( result_vh[4].ID);
         dtmTarka.sdsBorjakVSZ4.AsFloat := result_vh[4].value;
       end;
-
 
     (*
     fkod := '';
