@@ -1,6 +1,6 @@
 inherited frmEllesKarb: TfrmEllesKarb
-  Left = 663
-  Top = 437
+  Left = 606
+  Top = 285
   Width = 947
   Height = 648
   Caption = 'Ell'#233'sek karbantart'#225'sa'
@@ -283,7 +283,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         TabOrder = 0
         OnExit = edtEnarExit
         DataField = 'BORJU_ENAR'
-        DataSource = dtmTarka.dtsBorjak
         SpeedButton = TalSpeedButton1
       end
       object lucIvar: TTalDBLookupComboBox
@@ -292,7 +291,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'BORJU_IVAR'
-        DataSource = dtmTarka.dtsBorjak
         KeyField = 'KOD'
         ListField = 'KOD_NEV'
         TabOrder = 1
@@ -303,7 +301,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'BORJU_SZIN'
-        DataSource = dtmTarka.dtsBorjak
         KeyField = 'KOD'
         ListField = 'KOD_NEV'
         TabOrder = 2
@@ -314,7 +311,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'BORJU_KIESES_KOD'
-        DataSource = dtmTarka.dtsBorjak
         KeyField = 'KOD'
         ListField = 'KOD_NEV'
         TabOrder = 12
@@ -326,7 +322,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 37
         Height = 21
         DataField = 'BORJU_SULY'
-        DataSource = dtmTarka.dtsBorjak
         TabOrder = 3
       end
       object lucVH1: TTalDBLookupComboBox
@@ -335,7 +330,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'VER1'
-        DataSource = dtmTarka.dtsBorjak
         KeyField = 'FKOD'
         ListField = 'FNEV'
         TabOrder = 4
@@ -346,7 +340,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 37
         Height = 21
         DataField = 'VSZ1'
-        DataSource = dtmTarka.dtsBorjak
         TabOrder = 5
       end
       object lucVH2: TTalDBLookupComboBox
@@ -355,7 +348,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'VER2'
-        DataSource = dtmTarka.dtsBorjak
         KeyField = 'FKOD'
         ListField = 'FNEV'
         TabOrder = 6
@@ -366,7 +358,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 37
         Height = 21
         DataField = 'VSZ2'
-        DataSource = dtmTarka.dtsBorjak
         TabOrder = 7
       end
       object lucVH3: TTalDBLookupComboBox
@@ -375,7 +366,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'VER3'
-        DataSource = dtmTarka.dtsBorjak
         KeyField = 'FKOD'
         ListField = 'FNEV'
         TabOrder = 8
@@ -386,7 +376,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 37
         Height = 21
         DataField = 'VSZ3'
-        DataSource = dtmTarka.dtsBorjak
         TabOrder = 9
       end
       object lucVH4: TTalDBLookupComboBox
@@ -395,7 +384,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'VER4'
-        DataSource = dtmTarka.dtsBorjak
         KeyField = 'FKOD'
         ListField = 'FNEV'
         TabOrder = 10
@@ -406,7 +394,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 37
         Height = 21
         DataField = 'VSZ4'
-        DataSource = dtmTarka.dtsBorjak
         TabOrder = 11
       end
       object edtFulszam: TTalDBEdit
@@ -427,7 +414,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         TabOrder = 13
         OnExit = edtEnarExit
         DataField = 'FSZ'
-        DataSource = dtmTarka.dtsBorjak
         SpeedButton = TalSpeedButton1
       end
       object edtIdENAR: TTalDBEdit
@@ -448,7 +434,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         TabOrder = 14
         OnExit = edtEnarExit
         DataField = 'IENAR'
-        DataSource = dtmTarka.dtsBorjak
         SpeedButton = TalSpeedButton1
       end
       object cbSzarvaltsag: TTalDBCheckBox
@@ -466,7 +451,6 @@ inherited frmEllesKarb: TfrmEllesKarb
         Alignment = taLeftJustify
         Caption = 'Szarvalts'#225'g: '
         DataField = 'SZARVALTSAG'
-        DataSource = dtmTarka.dtsBorjak
         TabOrder = 15
       end
       object lucKonstrukciosKod: TTalDBLookupComboBox
@@ -475,10 +459,8 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'BORJU_KONS_KOD'
-        DataSource = dtmTarka.dtsBorjak
         KeyField = 'KOD'
         ListField = 'KOD_NEV'
-        ListSource = dtmTarka.dtsBKons
         TabOrder = 16
       end
     end
@@ -495,7 +477,6 @@ inherited frmEllesKarb: TfrmEllesKarb
       EditControlOptions = [ecoCheckboxSingleClick, ecoSearchOwnerForm]
       Align = alClient
       BorderStyle = bsNone
-      DataSource = dtmTarka.dtsBorjak
       KeyOptions = []
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap, dgNoLimitColSize, dgTabExitsOnLastCol]
       TabOrder = 1
@@ -665,7 +646,6 @@ inherited frmEllesKarb: TfrmEllesKarb
           Width = 145
           Height = 21
           DataField = 'ELLES_LEF'
-          DataSource = dtmTarka.dtsEllesek
           KeyField = 'KOD'
           ListField = 'KOD_NEV'
           TabOrder = 8
@@ -686,7 +666,6 @@ inherited frmEllesKarb: TfrmEllesKarb
           TabOrder = 0
           OnExit = edtAzonositoExit
           DataField = 'ENAR'
-          DataSource = dtmTarka.dtsEllesek
         end
         object edtTermdatum: TTalDBEdit
           Left = 178
@@ -707,7 +686,6 @@ inherited frmEllesKarb: TfrmEllesKarb
           TabOrder = 2
           OnExit = edtTermSszExit
           DataField = 'E_TERM_DAT'
-          DataSource = dtmTarka.dtsEllesek
         end
         object edtTermBika: TTalDBEdit
           Left = 178
@@ -726,7 +704,6 @@ inherited frmEllesKarb: TfrmEllesKarb
           TabOrder = 3
           OnExit = edtTermSszExit
           DataField = 'BIKA'
-          DataSource = dtmTarka.dtsEllesek
         end
         object edtVemhNap: TTalEdit
           Left = 400
@@ -771,7 +748,6 @@ inherited frmEllesKarb: TfrmEllesKarb
           TabOrder = 1
           OnExit = edtDatumExit
           DataField = 'ELLES_DATUM'
-          DataSource = dtmTarka.dtsEllesek
         end
         object edtAFulszam: TTalDBEdit
           Left = 269
@@ -790,7 +766,6 @@ inherited frmEllesKarb: TfrmEllesKarb
           TabOrder = 5
           OnExit = edtAzonositoExit
           DataField = 'FULSZAM'
-          DataSource = dtmTarka.dtsEllesek
         end
         object edtTehenszam: TTalDBEdit
           Left = 442
@@ -809,7 +784,6 @@ inherited frmEllesKarb: TfrmEllesKarb
           TabOrder = 6
           OnExit = edtAzonositoExit
           DataField = 'TEHENSZAM'
-          DataSource = dtmTarka.dtsEllesek
         end
         object TalButton1: TTalButton
           Left = 448
@@ -837,7 +811,6 @@ inherited frmEllesKarb: TfrmEllesKarb
     ShowHorzScrollBar = True
     EditControlOptions = [ecoCheckboxSingleClick, ecoSearchOwnerForm]
     Align = alClient
-    DataSource = dtmTarka.dtsEllesek
     KeyOptions = []
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap, dgNoLimitColSize, dgTabExitsOnLastCol]
     TabOrder = 2
