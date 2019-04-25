@@ -1,6 +1,6 @@
 object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
-  Left = 346
-  Top = 169
+  Left = 617
+  Top = 215
   Width = 1252
   Height = 725
   Caption = 'frmSzarmazasiIgazolas'
@@ -5823,7 +5823,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'FULSZAM'
@@ -5910,7 +5910,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'APA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'APA_SZULDAT'
@@ -5984,7 +5984,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'ANYA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'ANYA_ELLSZAM'
@@ -6058,7 +6058,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'APAI_NAGYAPA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'APAI_NAGYAPA_FULSZAM'
@@ -6120,7 +6120,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'APAI_NAGYAPA_APJA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'APAI_NAGYAPA_APJA_FULSZAM'
@@ -6135,7 +6135,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'APAI_NAGYAPA_ANYJA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'APAI_NAGYAPA_ANYJA_ELLSZAM'
@@ -6164,7 +6164,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'APAI_NAGYANYA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'APAI_NAGYANYA_ELLSZAM'
@@ -6200,7 +6200,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'APAI_NAGYANYA_APJA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'APAI_NAGYANYA_APJA_FULSZAM'
@@ -6210,7 +6210,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'APAI_NAGYANYA_ANYJA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'APAI_NAGYANYA_ANYJA_ELLSZAM'
@@ -6236,7 +6236,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'ANYAI_NAGYAPA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'ANYAI_NAGYAPA_FULSZAM'
@@ -6307,7 +6307,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'ANYAI_NAGYAPA_APJA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'ANYAI_NAGYAPA_APJA_NEV'
@@ -6322,7 +6322,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'ANYAI_NAGYAPA_ANYJA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'ANYAI_NAGYAPA_ANYJA_NEV'
@@ -6351,7 +6351,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'ANYAI_NAGYANYA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'ANYAI_NAGYANYA_ELLSZAM'
@@ -6376,7 +6376,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'ANYAI_NAGYANYA_APJA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'ANYAI_NAGYANYA_APJA_KPLSZ'
@@ -6397,7 +6397,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'ANYAI_NAGYANYA_ANYJA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'ANYAI_NAGYANYA_ANYJA_ELLSZAM'
@@ -6427,7 +6427,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'TERM_BIKA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'TERM_BIKA_NEV'
@@ -6498,7 +6498,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'TERM_BIKA_APJA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'TERM_BIKA_APJA_NEVE'
@@ -6528,7 +6528,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
       item
         Name = 'TERM_BIKA_ANYJA_ENAR'
         DataType = ftWideString
-        Size = 20
+        Size = 24
       end
       item
         Name = 'TERM_BIKA_ANYJA_FULSZAM'
@@ -6821,7 +6821,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapENAR: TWideStringField
       FieldName = 'ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapFULSZAM: TWideStringField
       FieldName = 'FULSZAM'
@@ -6884,7 +6884,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapAPA_ENAR: TWideStringField
       FieldName = 'APA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapAPA_SZULDAT: TDateTimeField
       FieldName = 'APA_SZULDAT'
@@ -6936,7 +6936,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapANYA_ENAR: TWideStringField
       FieldName = 'ANYA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapANYA_ELLSZAM: TWideStringField
       FieldName = 'ANYA_ELLSZAM'
@@ -6994,7 +6994,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapAPAI_NAGYAPA_ENAR: TWideStringField
       FieldName = 'APAI_NAGYAPA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapAPAI_NAGYAPA_FULSZAM: TWideStringField
       FieldName = 'APAI_NAGYAPA_FULSZAM'
@@ -7042,7 +7042,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapAPAI_NAGYAPA_APJA_ENAR: TWideStringField
       FieldName = 'APAI_NAGYAPA_APJA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapAPAI_NAGYAPA_APJA_FULSZAM: TWideStringField
       FieldName = 'APAI_NAGYAPA_APJA_FULSZAM'
@@ -7053,7 +7053,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapAPAI_NAGYAPA_ANYJA_ENAR: TWideStringField
       FieldName = 'APAI_NAGYAPA_ANYJA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapAPAI_NAGYAPA_ANYJA_ELLSZAM: TWideStringField
       FieldName = 'APAI_NAGYAPA_ANYJA_ELLSZAM'
@@ -7075,7 +7075,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapAPAI_NAGYANYA_ENAR: TWideStringField
       FieldName = 'APAI_NAGYANYA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapAPAI_NAGYANYA_ELLSZAM: TWideStringField
       FieldName = 'APAI_NAGYANYA_ELLSZAM'
@@ -7103,14 +7103,14 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapAPAI_NAGYANYA_APJA_ENAR: TWideStringField
       FieldName = 'APAI_NAGYANYA_APJA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapAPAI_NAGYANYA_APJA_FULSZAM: TWideStringField
       FieldName = 'APAI_NAGYANYA_APJA_FULSZAM'
     end
     object sdsHSzIModLapAPAI_NAGYANYA_ANYJA_ENAR: TWideStringField
       FieldName = 'APAI_NAGYANYA_ANYJA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapAPAI_NAGYANYA_ANYJA_ELLSZAM: TWideStringField
       FieldName = 'APAI_NAGYANYA_ANYJA_ELLSZAM'
@@ -7130,7 +7130,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapANYAI_NAGYAPA_ENAR: TWideStringField
       FieldName = 'ANYAI_NAGYAPA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapANYAI_NAGYAPA_FULSZAM: TWideStringField
       FieldName = 'ANYAI_NAGYAPA_FULSZAM'
@@ -7185,7 +7185,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapANYAI_NAGYAPA_APJA_ENAR: TWideStringField
       FieldName = 'ANYAI_NAGYAPA_APJA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapANYAI_NAGYAPA_APJA_NEV: TWideStringField
       FieldName = 'ANYAI_NAGYAPA_APJA_NEV'
@@ -7196,7 +7196,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapANYAI_NAGYAPA_ANYJA_ENAR: TWideStringField
       FieldName = 'ANYAI_NAGYAPA_ANYJA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapANYAI_NAGYAPA_ANYJA_NEV: TWideStringField
       FieldName = 'ANYAI_NAGYAPA_ANYJA_NEV'
@@ -7218,7 +7218,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapANYAI_NAGYANYA_ENAR: TWideStringField
       FieldName = 'ANYAI_NAGYANYA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapANYAI_NAGYANYA_ELLSZAM: TWideStringField
       FieldName = 'ANYAI_NAGYANYA_ELLSZAM'
@@ -7237,7 +7237,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapANYAI_NAGYANYA_APJA_ENAR: TWideStringField
       FieldName = 'ANYAI_NAGYANYA_APJA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapANYAI_NAGYANYA_APJA_KPLSZ: TBCDField
       FieldName = 'ANYAI_NAGYANYA_APJA_KPLSZ'
@@ -7253,7 +7253,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapANYAI_NAGYANYA_ANYJA_ENAR: TWideStringField
       FieldName = 'ANYAI_NAGYANYA_ANYJA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapANYAI_NAGYANYA_ANYJA_ELLSZAM: TWideStringField
       FieldName = 'ANYAI_NAGYANYA_ANYJA_ELLSZAM'
@@ -7276,7 +7276,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapTERM_BIKA_ENAR: TWideStringField
       FieldName = 'TERM_BIKA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapTERM_BIKA_NEV: TWideStringField
       FieldName = 'TERM_BIKA_NEV'
@@ -7331,7 +7331,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapTERM_BIKA_APJA_ENAR: TWideStringField
       FieldName = 'TERM_BIKA_APJA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapTERM_BIKA_APJA_NEVE: TWideStringField
       FieldName = 'TERM_BIKA_APJA_NEVE'
@@ -7354,7 +7354,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     end
     object sdsHSzIModLapTERM_BIKA_ANYJA_ENAR: TWideStringField
       FieldName = 'TERM_BIKA_ANYJA_ENAR'
-      Size = 10
+      Size = 24
     end
     object sdsHSzIModLapTERM_BIKA_ANYJA_FULSZAM: TWideStringField
       FieldName = 'TERM_BIKA_ANYJA_FULSZAM'
