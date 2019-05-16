@@ -45,7 +45,7 @@ object frmSzarmazasiIgazolas: TfrmSzarmazasiIgazolas
     Width = 849
     Height = 537
     Hint = 'Egyed'
-    ActivePage = TabSheet8
+    ActivePage = TabSheet3
     ParentShowHint = False
     ShowHint = True
     Style = tsFlatButtons

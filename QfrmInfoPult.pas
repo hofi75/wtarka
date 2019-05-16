@@ -140,8 +140,6 @@ type
     edtMin: TTalDBEdit;
     TalLabel45: TTalLabel;
     edtSzarmTeny: TTalDBEdit;
-    dtsInfo: TDataSource;
-    sdsInfo: TTalSimpleDataSet;
     qryInfElles: TTalSimpleDataSet;
     qryInfEllesELLES_DATUM: TDateTimeField;
     qryInfEllesKOD_NEV: TWideStringField;
@@ -157,59 +155,6 @@ type
     qryInfMeresDATUM: TDateTimeField;
     qryInfMeresTOMEG: TSmallintField;
     dtsInfMeres: TDataSource;
-    sdsInfoID: TBCDField;
-    sdsInfoENAR: TWideStringField;
-    sdsInfoTENYESZET: TWideStringField;
-    sdsInfoTEHENSZAM: TWideStringField;
-    sdsInfoFULSZAM: TWideStringField;
-    sdsInfoID_ENAR: TWideStringField;
-    sdsInfoANYA_ENAR: TWideStringField;
-    sdsInfoANYA_ELL: TWideStringField;
-    sdsInfoANYA_ID_ENAR: TWideStringField;
-    sdsInfoDONOR_ANYA: TWideStringField;
-    sdsInfoAPAKLSZ: TWideStringField;
-    sdsInfoAPA_FULSZAM: TWideStringField;
-    sdsInfoID_APA: TWideStringField;
-    sdsInfoNEV: TWideStringField;
-    sdsInfoSZULDAT: TDateTimeField;
-    sdsInfoFAJTAKOD: TWideStringField;
-    sdsInfoVER1: TWideStringField;
-    sdsInfoVSZ1: TBCDField;
-    sdsInfoVER2: TWideStringField;
-    sdsInfoVSZ2: TBCDField;
-    sdsInfoVER3: TWideStringField;
-    sdsInfoVSZ3: TBCDField;
-    sdsInfoVER4: TWideStringField;
-    sdsInfoVSZ4: TBCDField;
-    sdsInfoSZORSZ: TWideStringField;
-    sdsInfoE_ORSZ: TWideStringField;
-    sdsInfoKKOD: TWideStringField;
-    sdsInfoSZIN: TWideStringField;
-    sdsInfoSZARVALTSAG: TWideStringField;
-    sdsInfoBIKANEVELO: TWideStringField;
-    sdsInfoTENYTOM: TIntegerField;
-    sdsInfoMLEVEL1: TWideStringField;
-    sdsInfoMLEVEL2: TWideStringField;
-    sdsInfoTKV: TWideStringField;
-    sdsInfoTKVSZAM: TWideStringField;
-    sdsInfoMIN: TBCDField;
-    sdsInfoKIKOD: TWideStringField;
-    sdsInfoKIKOK: TWideStringField;
-    sdsInfoKIKDAT: TDateTimeField;
-    sdsInfoSTATUS: TWideStringField;
-    sdsInfoALLAPOT: TWideStringField;
-    sdsInfoALLDAT: TDateTimeField;
-    sdsInfoIVAR: TWideStringField;
-    sdsInfoSZUL_SULY: TIntegerField;
-    sdsInfoMOD_KOD: TWideStringField;
-    sdsInfoMOD_DAT: TDateTimeField;
-    sdsInfoMEGJEGYZES: TWideStringField;
-    sdsInfoVALDAT: TDateTimeField;
-    sdsInfoVALTOM: TIntegerField;
-    sdsInfoTOM205: TIntegerField;
-    sdsInfoSV: TIntegerField;
-    sdsInfoKIKHELY: TWideStringField;
-    sdsInfoSZARM_TENY: TWideStringField;
     edtTKVSZAM: TTalDBEdit;
     procedure btnKilepesClick(Sender: TObject);
     procedure btnKeresesClick(Sender: TObject);
@@ -278,7 +223,7 @@ var
 begin
   frmInfoPult := TfrmInfoPult.create(Application);
 
-  frmInfoPult.sdsInfo.Connection := dtmTarka.cnTarka;
+  // frmInfoPult.sdsInfo.Connection := dtmTarka.cnTarka;
   frmInfoPult.qryInfElles.Connection := dtmTarka.cnTarka;
   frmInfoPult.qryInfTerm.Connection := dtmTarka.cnTarka;
   frmInfoPult.qryInfMeres.Connection := dtmTarka.cnTarka;
@@ -297,7 +242,7 @@ begin
   frmInfoPult.lucKiMod.ListSource := dtmTarka.dtsKiesesKod;
   frmInfoPult.lucKikhely.ListSource := dtmTarka.dtsKikHely;
 
-  frmInfoPult.sdsInfo.Open;
+  dtmTarka.sdsInfo.Open;
   dtmtarka.qryIvar.Open;
   dtmtarka.qryStatus.Open;
   // dtmtarka.qryTermCsop.Open;
@@ -319,8 +264,8 @@ begin
   try
     frmInfoPult.showmodal;
   finally
-    if frmInfoPult.sdsInfo.Active then
-      frmInfoPult.sdsInfo.Close;
+    if dtmTarka.sdsInfo.Active then
+      dtmTarka.sdsInfo.Close;
     dtmtarka.qryIvar.Close;
     dtmtarka.qryStatus.Close;
     // dtmtarka.qryTermCsop.Close;
@@ -437,7 +382,7 @@ end;
 procedure TfrmInfoPult.btnKilepesClick(Sender: TObject);
 begin
   if EditMode <> 'L' then begin
-    sdsInfo.Cancel;
+    dtmTarka.sdsInfo.Cancel;
     ControlokBeallitasa(false);
     GombokBeallitasa(true);
     Self.EditMode := 'L';
@@ -483,14 +428,14 @@ begin
   end;
 
   if sAzonId = EmptyStr then sAzonId := '0';
-  if sdsInfo.Active then sdsInfo.Close;
+  if dtmTarka.sdsInfo.Active then dtmTarka.sdsInfo.Close;
 
-  sdsInfo.DataSet.Parameters.ParamByName('ID').Value := StrToInt64(sAzonId);
-  sdsInfo.Open;
+  dtmTarka.sdsInfo.DataSet.Parameters.ParamByName('ID').Value := StrToInt64(sAzonId);
+  dtmTarka.sdsInfo.Open;
 
-  if sdsInfo.RecordCount = 0 then   // nincs ilyen egyed
+  if dtmTarka.sdsInfo.RecordCount = 0 then   // nincs ilyen egyed
   begin
-    sdsInfo.Close;
+    dtmTarka.sdsInfo.Close;
     dtmTarka.MsgDlg('Nincs ilyen egyed!',mterror,[mbOK],0 );
     edtKeres.SelectAll;
     GombokBeallitasa(false);
@@ -512,22 +457,22 @@ begin
   begin
     if qryInfElles.Active then
       qryInfElles.Close;
-    qryInfElles.DataSet.Parameters.ParamByName('ID').Value := sdsInfo.FieldByName('ID').Value;
+    qryInfElles.DataSet.Parameters.ParamByName('ID').Value := dtmTarka.sdsInfo.FieldByName('ID').Value;
 
     qryInfElles.Open;
       if not qryInfElles.Eof then
       qryInfElles.Last;
 
     qryInfMeres.Close;
-    qryInfMeres.DataSet.Parameters.ParamByName('ID').Value := sdsInfo.FieldByName('ID').Value;
+    qryInfMeres.DataSet.Parameters.ParamByName('ID').Value := dtmTarka.sdsInfo.FieldByName('ID').Value;
     qryInfMeres.Open;
 
-    sEllDat := dtmtarka.UtolsoElles(sdsInfo.FieldByName('ID').AsString);
-    dtmtarka.UtolsoTermekenyites(sdsInfo.FieldByName('ID').AsString, sTermDat, vk);
+    sEllDat := dtmtarka.UtolsoElles(dtmTarka.sdsInfo.FieldByName('ID').AsString);
+    dtmtarka.UtolsoTermekenyites(dtmTarka.sdsInfo.FieldByName('ID').AsString, sTermDat, vk);
     lblEllDat.Caption := '';
     lblTermDat.Caption := '';
 
-    if (sdsInfo.FieldByName('KIKOD').AsString = EmptyStr) then
+    if (dtmTarka.sdsInfo.FieldByName('KIKOD').AsString = EmptyStr) then
     begin
       if sEllDat > EmptyStr then
       begin
@@ -576,7 +521,6 @@ begin
     if not dtmtarka.LicenceDatEll then exit;
     if not dtmTarka.JogosultsagEllenorzes('karb') then exit;
     Self.Caption := 'Egyed adatainak módosítása';
-    sdsInfo.Edit;
     Self.ControlokBeallitasa(True);
     Self.edtAzonosito.Enabled := false;  // módosításkor nem módosíthatja az azonosítót
     if not dtmTarka.isAdmin then begin
@@ -598,29 +542,32 @@ begin
     Self.btnTorol.Enabled := false;
     Self.edtKeres.Enabled := false;
     edtSzulDat.SetFocus;
+    dtmTarka.sdsInfo.Edit;
   end else begin
     if not Mezok_kitoltve then exit;
-    EgyedAzon := sdsInfo.FieldByName('ENAR').AsString;
-    sdsInfo.FieldByName('MOD_DAT').AsDateTime := now();
-    sdsInfo.FieldByName('MOD_KOD').AsString := dtmtarka.UserKod;
+    EgyedAzon := dtmTarka.sdsInfo.FieldByName('ENAR').AsString;
+    dtmTarka.sdsInfo.FieldByName('MOD_DAT').AsDateTime := now();
+    dtmTarka.sdsInfo.FieldByName('MOD_KOD').AsString := dtmtarka.UserKod;
+    // sdsInfo.FieldByName('VSZ1').Value := 55/2;
+    // sdsInfoVSZ1.AsBCD := 55;
     if EditMode = 'N' then begin
 //      sdsInfoTULAJDONOS_TENYESZET_ID.AsString := dtmtarka.sTenyeszetId;
       RegiKorcs := '';
       RegiOk := '';
     end else begin
-      if sdsInfo.FieldByName('KIKOK').OldValue <> NULL then
-        RegiOk := sdsInfo.FieldByName('KIKOK').OldValue
+      if dtmTarka.sdsInfo.FieldByName('KIKOK').OldValue <> NULL then
+        RegiOk := dtmTarka.sdsInfo.FieldByName('KIKOK').OldValue
       else
         RegiOk := '';
     end;
 
-    sdsInfo.Post;
-    EgyedAzon := sdsInfoENAR.AsString;
+    dtmTarka.sdsInfo.Post;
+    EgyedAzon := dtmTarka.sdsInfoENAR.AsString;
     dtmtarka.cnTarka.BeginTrans;
     try
-      sdsInfo.ApplyUpdates(0);
+      dtmTarka.sdsInfo.ApplyUpdates(0);
       dtmtarka.cnTarka.CommitTrans;
-      sdsInfo.Close;
+      dtmTarka.sdsInfo.Close;
 //      sdsInfo.Open;
     except
       if dtmtarka.cnTarka.InTransaction then
@@ -628,19 +575,19 @@ begin
     end;
     Self.Caption := 'Egyed adatainak lekérdezése';
 
-    sdsInfo.Close;
+    dtmTarka.sdsInfo.Close;
     if EditMode = 'N' then begin
       if dtmTarka.VaneEgyedEnar(EgyedAzon, azon, Id) then
-        sdsInfo.DataSet.Parameters.ParamByName('ID').Value := ID;
+        dtmTarka.sdsInfo.DataSet.Parameters.ParamByName('ID').Value := ID;
     end;
 
-    sdsInfo.Open;
+    dtmTarka.sdsInfo.Open;
 
     ControlokBeallitasa(false);
     GombokBeallitasa(true);
     if qryInfElles.Active then
       qryInfElles.Close;
-    qryInfElles.DataSet.Parameters.ParamByName('ID').Value := sdsInfo.fieldByName('ID').AsInteger;
+    qryInfElles.DataSet.Parameters.ParamByName('ID').Value := dtmTarka.sdsInfo.fieldByName('ID').AsInteger;
     qryInfElles.Open;
     Self.EditMode := 'L';
     Self.btnUj.Enabled := true;
@@ -664,7 +611,7 @@ end;
 procedure TfrmInfoPult.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-  if sdsInfo.State in [dsInsert, dsEdit] then
+  if dtmTarka.sdsInfo.State in [dsInsert, dsEdit] then
     btnKilepesClick(NIL);
 end;
 
@@ -673,10 +620,10 @@ begin
   if not dtmtarka.LicenceDatEll then exit;
   if not dtmTarka.JogosultsagEllenorzes('karb') then exit;
   Self.Caption := 'Új egyed felvétele';
-  if sdsInfo.Active = false then
-    sdsInfo.Open;
-  sdsInfo.Append;
-  sdsInfoTENYESZET.AsString := dtmTarka.TenyeszetTKOD;
+  if dtmTarka.sdsInfo.Active = false then
+    dtmTarka.sdsInfo.Open;
+  dtmTarka.sdsInfo.Append;
+  dtmTarka.sdsInfoTENYESZET.AsString := dtmTarka.TenyeszetTKOD;
   if qryInfElles.Active then
     qryInfElles.Close;
   qryInfElles.DataSet.Parameters.ParamByName('ID').Value := 0;
@@ -762,7 +709,7 @@ var
 begin
   datum := qryInfEllesELLES_DATUM.AsString;
 
-  if OpenEllesek(sdsInfo.FieldByName('ID').AsString, sdsInfo.FieldByName('ENAR').AsString,
+  if OpenEllesek(dtmTarka.sdsInfo.FieldByName('ID').AsString, dtmTarka.sdsInfo.FieldByName('ENAR').AsString,
                  qryInfEllesELLES_DATUM.AsString) then
   begin
     qryInfElles.Close;
@@ -772,7 +719,7 @@ begin
     begin
       if datum <> EmptyStr then
         qryInfElles.Locate('ELLES_DATUM',datum,[]);
-      sdsInfo.Refresh;
+      dtmTarka.sdsInfo.Refresh;
     end;
   end;
 end;
@@ -783,7 +730,7 @@ var
 begin
   vissza := TTalParamList.Create;
   try
-    OpenTermekenyitesek(sdsInfo.FieldByName('ID').AsString, sdsInfo.FieldByName('ENAR').AsString,'B',vissza);
+    OpenTermekenyitesek(dtmTarka.sdsInfo.FieldByName('ID').AsString, dtmTarka.sdsInfo.FieldByName('ENAR').AsString,'B',vissza);
     qryInfTerm.Close;
     qryInfTerm.Open;
   finally
@@ -793,7 +740,7 @@ end;
 
 procedure TfrmInfoPult.btnMeresClick(Sender: TObject);
 begin
-  OpenTestTomegek(sdsInfo.FieldByName('ID').AsString, sdsInfo.FieldByName('ENAR').AsString);
+  OpenTestTomegek(dtmTarka.sdsInfo.FieldByName('ID').AsString, dtmTarka.sdsInfo.FieldByName('ENAR').AsString);
   qryInfMeres.Close;
   qryInfMeres.Open;
 end;
@@ -812,8 +759,8 @@ begin
     if qryInfTerm.Active then
       qryInfTerm.Close;
     log('1');
-    qryInfTerm.DataSet.Parameters.ParamByName('ID').Value := sdsInfo.fieldByName('ID').Value;
-    qryInfTerm.DataSet.Parameters.ParamByName('ID').Value := sdsInfo.fieldByName('ID').Value;    
+    qryInfTerm.DataSet.Parameters.ParamByName('ID').Value := dtmTarka.sdsInfo.fieldByName('ID').Value;
+    qryInfTerm.DataSet.Parameters.ParamByName('ID').Value := dtmTarka.sdsInfo.fieldByName('ID').Value;
     log('2');
     if qryInfElles.RecNo <> qryInfElles.RecordCount then
     begin
@@ -879,8 +826,8 @@ procedure TfrmInfoPult.btnElapClick(Sender: TObject);
 var
   tehenszam: string;
 begin
-  if sdsInfo.FieldByName('ENAR').AsString <> NULL then
-    EgyediLapLista(sdsInfo.FieldByName('ID').AsInteger);
+  if dtmTarka.sdsInfo.FieldByName('ENAR').AsString <> NULL then
+    EgyediLapLista(dtmTarka.sdsInfo.FieldByName('ID').AsInteger);
 end;
 
 
@@ -903,12 +850,12 @@ begin
   begin
     if Application.MessageBox('Az egyed minden adata törlõdik a rendszerbõl, kivéve az anyja ellésének adatait! Biztos folytatja?','Figyelem!', MB_YESNO) = IDYES then
     begin
-      Azon := sdsInfo.FieldByName('ENAR').AsString;
+      Azon := dtmTarka.sdsInfo.FieldByName('ENAR').AsString;
       dtmTarka.stpEgyedTorles.Connection := dtmTarka.cnTarka;
-      dtmtarka.stpEgyedTorles.Parameters.ParamByName('P_EGYED_ID').Value := sdsInfoID.Value;
+      dtmtarka.stpEgyedTorles.Parameters.ParamByName('P_EGYED_ID').Value := dtmTarka.sdsInfoID.Value;
       try
 //        SQL := 'EXEC EGYED_TORLES( ' + sdsInfoID.AsString + ' );';
-        sdsInfo.Close;
+        dtmTarka.sdsInfo.Close;
 //        dtmtarka.cnTarka.Execute(SQL);
         dtmTarka.stpEgyedTorles.ExecProc;
       finally
@@ -922,17 +869,17 @@ end;
 
 procedure TfrmInfoPult.TalSpeedButton3Click(Sender: TObject);
 begin
-  sdsInfo.FieldByName('KIKOK').AsVariant := NULL ;
+  dtmTarka.sdsInfo.FieldByName('KIKOK').AsVariant := NULL ;
 end;
 
 procedure TfrmInfoPult.TalSpeedButton1Click(Sender: TObject);
 begin
-  sdsInfo.FieldByName('KIKOD').AsVariant := NULL ;
+  dtmTarka.sdsInfo.FieldByName('KIKOD').AsVariant := NULL ;
 end;
 
 procedure TfrmInfoPult.btnKullemClick(Sender: TObject);
 begin
-  OpenKullem(sdsInfo.FieldByName('ENAR').AsString);
+  OpenKullem(dtmTarka.sdsInfo.FieldByName('ENAR').AsString);
 end;
 
 procedure TfrmInfoPult.btnIvadekokClick(Sender: TObject);
@@ -964,21 +911,21 @@ end;
 function TfrmInfoPult.Mezok_Kitoltve: Boolean;
 begin
   result := false;
-  if (sdsInfoKIKOK.AsString <> EmptyStr) and (sdsInfoKIKOD.AsString <> EmptyStr) and
-    (sdsInfoKIKOK.AsString <> '0') and (sdsInfoKIKOD.AsString <> '0') and
-    (sdsInfoKIKHELY.AsString = EmptyStr) then begin
+  if (dtmTarka.sdsInfoKIKOK.AsString <> EmptyStr) and (dtmTarka.sdsInfoKIKOD.AsString <> EmptyStr) and
+    (dtmTarka.sdsInfoKIKOK.AsString <> '0') and (dtmTarka.sdsInfoKIKOD.AsString <> '0') and
+    (dtmTarka.sdsInfoKIKHELY.AsString = EmptyStr) then begin
     dtmTarka.MsgDlg('Ha az egyed már kiesett, akkor a kikerülés helyét meg kell adnia!', mtWarning, [mbOK], 0);
     lucKikhely.SetFocus;
     exit;
   end;
-  if (sdsInfoKIKOK.AsString <> EmptyStr) and (sdsInfoKIKOD.AsString <> EmptyStr) and
-    (sdsInfoKIKOK.AsString <> '0') and (sdsInfoKIKOD.AsString <> '0') and
-    (sdsInfoKIKDAT.AsString = '') then begin
+  if (dtmTarka.sdsInfoKIKOK.AsString <> EmptyStr) and (dtmTarka.sdsInfoKIKOD.AsString <> EmptyStr) and
+    (dtmTarka.sdsInfoKIKOK.AsString <> '0') and (dtmTarka.sdsInfoKIKOD.AsString <> '0') and
+    (dtmTarka.sdsInfoKIKDAT.AsString = '') then begin
     dtmTarka.MsgDlg('Ha az egyed már kiesett, akkor a kikerülés dátumát meg kell adnia!', mtWarning, [mbOK], 0);
     lucKikhely.SetFocus;
     exit;
   end;
-  if (sdsInfo.FieldByName('ALLDAT').AsString = EmptyStr) then begin
+  if (dtmTarka.sdsInfo.FieldByName('ALLDAT').AsString = EmptyStr) then begin
     dtmTarka.MsgDlg('A bekerülés dátumának megadása kötelezõ!', mtWarning, [mbOK], 0);
     edtBekerDat.SetFocus;
     exit;
@@ -990,7 +937,7 @@ end;
 
 procedure TfrmInfoPult.TalSpeedButton2Click(Sender: TObject);
 begin
-  sdsInfoKIKHELY.AsVariant := NULL ;
+  dtmTarka.sdsInfoKIKHELY.AsVariant := NULL ;
 end;
 
 procedure TfrmInfoPult.btnEgyedClick(Sender: TObject);
@@ -1046,7 +993,7 @@ end;
 
 procedure TfrmInfoPult.TalDBGrid2RowChanged(Sender: TObject);
 begin
-  if (sdsInfo.FieldByName('KIKOD').AsString = EmptyStr) then
+  if (dtmTarka.sdsInfo.FieldByName('KIKOD').AsString = EmptyStr) then
   begin
     if (qryInfTerm.RecordCount > 0) then
     begin
@@ -1062,7 +1009,7 @@ var
 begin
   vissza := TTalParamList.Create;
   try
-    OpenHTermE('INFOPULT',sdsInfo.FieldByName('ID').AsString, sdsInfo.FieldByName('ENAR').AsString,vissza);
+    OpenHTermE('INFOPULT',dtmTarka.sdsInfo.FieldByName('ID').AsString, dtmTarka.sdsInfo.FieldByName('ENAR').AsString,vissza);
   finally
     vissza.Free;
   end;
@@ -1070,9 +1017,9 @@ end;
 
 procedure TfrmInfoPult.edtSzulDatExit(Sender: TObject);
 begin
-  if sdsInfo.State = dsInsert then begin
-    if sdsInfoALLDAT.Value = 0 then
-      sdsInfoALLDAT.Value := edtSzulDat.Value ;
+  if dtmTarka.sdsInfo.State = dsInsert then begin
+    if dtmTarka.sdsInfoALLDAT.Value = 0 then
+      dtmTarka.sdsInfoALLDAT.Value := edtSzulDat.Value ;
   end;
 end;
 

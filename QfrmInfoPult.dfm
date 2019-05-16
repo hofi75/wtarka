@@ -1,6 +1,6 @@
 object frmInfoPult: TfrmInfoPult
-  Left = 714
-  Top = 270
+  Left = 952
+  Top = 325
   Width = 944
   Height = 722
   BorderIcons = [biSystemMenu, biMinimize]
@@ -668,7 +668,7 @@ object frmInfoPult: TfrmInfoPult
       TabOrder = 7
       OnExit = edtSzulDatExit
       DataField = 'SZULDAT'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtAnyaEnar: TTalDBEdit
       Left = 135
@@ -684,7 +684,7 @@ object frmInfoPult: TfrmInfoPult
       ButtonVisible = False
       TabOrder = 16
       DataField = 'ANYA_ENAR'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtApaKlsz: TTalDBEdit
       Left = 135
@@ -700,7 +700,7 @@ object frmInfoPult: TfrmInfoPult
       ButtonVisible = False
       TabOrder = 19
       DataField = 'APAKLSZ'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtKiesesDatum: TTalDBEdit
       Left = 109
@@ -719,7 +719,7 @@ object frmInfoPult: TfrmInfoPult
       TabOrder = 40
       OnExit = edtKiesesDatumExit
       DataField = 'KIKDAT'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object lucIvar: TTalDBLookupComboBox
       Left = 354
@@ -727,7 +727,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 177
       Height = 21
       DataField = 'IVAR'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       KeyField = 'KOD'
       ListField = 'KOD_NEV'
       TabOrder = 9
@@ -738,7 +738,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 191
       Height = 21
       DataField = 'KIKOK'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       KeyField = 'KOD'
       ListField = 'KOD_NEV'
       TabOrder = 42
@@ -749,7 +749,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 191
       Height = 21
       DataField = 'KIKOD'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       KeyField = 'KOD'
       ListField = 'KOD_NEV'
       TabOrder = 41
@@ -935,7 +935,7 @@ object frmInfoPult: TfrmInfoPult
       TabOrder = 2
       OnExit = edtAzonositoExit
       DataField = 'ENAR'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object TalDBGrid2: TTalDBGrid
       Tag = -1
@@ -990,7 +990,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 200
       Height = 21
       DataField = 'KKOD'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       DropDownAlign = daRight
       DropDownWidth = 220
       KeyField = 'KOD'
@@ -1011,7 +1011,7 @@ object frmInfoPult: TfrmInfoPult
       ButtonVisible = False
       TabOrder = 3
       DataField = 'FULSZAM'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtNev: TTalDBEdit
       Left = 683
@@ -1027,7 +1027,7 @@ object frmInfoPult: TfrmInfoPult
       ButtonVisible = False
       TabOrder = 5
       DataField = 'NEV'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object lucSzin: TTalDBLookupComboBox
       Left = 135
@@ -1035,7 +1035,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 200
       Height = 21
       DataField = 'SZIN'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       KeyField = 'KOD'
       ListField = 'KOD_NEV'
       TabOrder = 24
@@ -1046,7 +1046,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 200
       Height = 21
       DataField = 'FAJTAKOD'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       KeyField = 'FKOD'
       ListField = 'FNEV'
       TabOrder = 23
@@ -1065,7 +1065,7 @@ object frmInfoPult: TfrmInfoPult
       ButtonVisible = False
       TabOrder = 4
       DataField = 'TEHENSZAM'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object cbBikanevelo: TTalDBCheckBox
       Left = 134
@@ -1080,7 +1080,7 @@ object frmInfoPult: TfrmInfoPult
       DisplayValueUnchecked = '0'
       NullAndBlankState = cbUnchecked
       DataField = 'BIKANEVELO'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       TabOrder = 36
     end
     object edtMegjegyzes: TTalDBMemo
@@ -1089,7 +1089,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 226
       Height = 52
       DataField = 'MEGJEGYZES'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       TabOrder = 39
     end
     object edtMarhalevelszam: TTalDBEdit
@@ -1108,7 +1108,7 @@ object frmInfoPult: TfrmInfoPult
       MaxLength = -1
       TabOrder = 37
       DataField = 'MLEVEL1'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object lucKikhely: TTalDBLookupComboBox
       Left = 425
@@ -1116,7 +1116,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 191
       Height = 21
       DataField = 'KIKHELY'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       KeyField = 'KOD'
       ListField = 'KOD_NEV'
       TabOrder = 44
@@ -1153,7 +1153,7 @@ object frmInfoPult: TfrmInfoPult
       MaxLength = -1
       TabOrder = 14
       DataField = 'ALLDAT'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtkiesesTomeg: TTalDBEdit
       Left = 425
@@ -1171,7 +1171,7 @@ object frmInfoPult: TfrmInfoPult
       MaxLength = -1
       TabOrder = 45
       Visible = False
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtSzulSuly: TTalDBEdit
       Left = 239
@@ -1190,7 +1190,7 @@ object frmInfoPult: TfrmInfoPult
       MaxLength = -1
       TabOrder = 8
       DataField = 'SZUL_SULY'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtAnyaEll: TTalDBEdit
       Left = 312
@@ -1206,7 +1206,7 @@ object frmInfoPult: TfrmInfoPult
       ButtonVisible = False
       TabOrder = 17
       DataField = 'ANYA_ELL'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtAnyaDonor: TTalDBEdit
       Left = 488
@@ -1222,7 +1222,7 @@ object frmInfoPult: TfrmInfoPult
       ButtonVisible = False
       TabOrder = 18
       DataField = 'DONOR_ANYA'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtApaFuszam: TTalDBEdit
       Left = 312
@@ -1239,7 +1239,7 @@ object frmInfoPult: TfrmInfoPult
       ParentCtl3D = False
       TabOrder = 20
       DataField = 'APA_FULSZAM'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtApaNev: TTalDBEdit
       Left = 488
@@ -1262,7 +1262,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 163
       Height = 21
       DataField = 'VER1'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       KeyField = 'FKOD'
       ListField = 'FNEV'
       TabOrder = 25
@@ -1273,8 +1273,8 @@ object frmInfoPult: TfrmInfoPult
       Width = 37
       Height = 21
       DataField = 'VSZ1'
-      DataSource = dtsInfo
-      MaxLength = -1
+      DataSource = dtmTarka.dtsInfo
+      MaxLength = 8
       TabOrder = 26
     end
     object lucVer2: TTalDBLookupComboBox
@@ -1283,7 +1283,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 163
       Height = 21
       DataField = 'VER2'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       KeyField = 'FKOD'
       ListField = 'FNEV'
       TabOrder = 27
@@ -1294,7 +1294,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 37
       Height = 21
       DataField = 'VSZ2'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       TabOrder = 28
     end
     object edtTko: TTalDBEdit
@@ -1311,7 +1311,7 @@ object frmInfoPult: TfrmInfoPult
       ButtonVisible = False
       TabOrder = 33
       DataField = 'TKV'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtSzarv: TTalDBEdit
       Left = 134
@@ -1327,7 +1327,7 @@ object frmInfoPult: TfrmInfoPult
       ButtonVisible = False
       TabOrder = 35
       DataField = 'SZARVALTSAG'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtMarhalev2: TTalDBEdit
       Left = 238
@@ -1345,7 +1345,7 @@ object frmInfoPult: TfrmInfoPult
       MaxLength = -1
       TabOrder = 38
       DataField = 'MLEVEL2'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtVer3: TDBEdit
       Left = 299
@@ -1353,7 +1353,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 37
       Height = 21
       DataField = 'VSZ3'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       TabOrder = 30
     end
     object edtVer4: TDBEdit
@@ -1362,7 +1362,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 37
       Height = 21
       DataField = 'VSZ4'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       TabOrder = 32
     end
     object lucVer3: TTalDBLookupComboBox
@@ -1371,7 +1371,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 163
       Height = 21
       DataField = 'VER3'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       KeyField = 'FKOD'
       ListField = 'FNEV'
       TabOrder = 29
@@ -1382,7 +1382,7 @@ object frmInfoPult: TfrmInfoPult
       Width = 163
       Height = 21
       DataField = 'VER4'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
       KeyField = 'FKOD'
       ListField = 'FNEV'
       TabOrder = 31
@@ -1401,7 +1401,7 @@ object frmInfoPult: TfrmInfoPult
       ButtonVisible = False
       TabOrder = 6
       DataField = 'TENYESZET'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtValNap: TTalDBEdit
       Left = 135
@@ -1419,7 +1419,7 @@ object frmInfoPult: TfrmInfoPult
       MaxLength = -1
       TabOrder = 10
       DataField = 'VALDAT'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtValsuly: TTalDBEdit
       Left = 239
@@ -1438,7 +1438,7 @@ object frmInfoPult: TfrmInfoPult
       MaxLength = -1
       TabOrder = 11
       DataField = 'VALTOM'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edt205suly: TTalDBEdit
       Left = 447
@@ -1457,7 +1457,7 @@ object frmInfoPult: TfrmInfoPult
       MaxLength = -1
       TabOrder = 12
       DataField = 'TOM205'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtSv: TTalDBEdit
       Left = 569
@@ -1476,7 +1476,7 @@ object frmInfoPult: TfrmInfoPult
       MaxLength = -1
       TabOrder = 13
       DataField = 'SV'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtMin: TTalDBEdit
       Left = 135
@@ -1496,7 +1496,7 @@ object frmInfoPult: TfrmInfoPult
       MaxLength = -1
       TabOrder = 34
       DataField = 'MIN'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtSzarmTeny: TTalDBEdit
       Left = 374
@@ -1514,7 +1514,7 @@ object frmInfoPult: TfrmInfoPult
       MaxLength = -1
       TabOrder = 15
       DataField = 'SZARM_TENY'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
     object edtTKVSZAM: TTalDBEdit
       Left = 168
@@ -1530,7 +1530,7 @@ object frmInfoPult: TfrmInfoPult
       ButtonVisible = False
       TabOrder = 52
       DataField = 'TKVSZAM'
-      DataSource = dtsInfo
+      DataSource = dtmTarka.dtsInfo
     end
   end
   object TalPanel4: TTalPanel
@@ -1624,272 +1624,6 @@ object frmInfoPult: TfrmInfoPult
       Caption = 'lblTermDat'
       ParentShowHint = False
       ShowHint = True
-    end
-  end
-  object dtsInfo: TDataSource
-    DataSet = sdsInfo
-    Left = 728
-    Top = 640
-  end
-  object sdsInfo: TTalSimpleDataSet
-    Aggregates = <>
-    Connection = dtmTarka.cnTarka
-    DataSet.Connection = dtmTarka.cnTarka
-    DataSet.CommandText = 
-      'SELECT '#13#10'  e.ID,'#13#10'  e.ENAR,'#13#10'  e.TENYESZET,'#13#10'  e.TEHENSZAM,'#13#10'  e' +
-      '.FULSZAM,'#13#10'  e.ID_ENAR,'#13#10'  e.ANYA_ENAR,'#13#10'  e.ANYA_ELL,'#13#10'  e.ANYA' +
-      '_ID_ENAR,'#13#10'  e.DONOR_ANYA,'#13#10'  e.APAKLSZ,'#13#10'  e.APA_FULSZAM,'#13#10'  e.' +
-      'ID_APA,'#13#10'  e.NEV,'#13#10'  e.SZULDAT,'#13#10'  e.FAJTAKOD,'#13#10'  e.VER1,'#13#10'  e.V' +
-      'SZ1,'#13#10'  e.VER2,'#13#10'  e.VSZ2,'#13#10'  e.VER3,'#13#10'  e.VSZ3,'#13#10'  e.VER4,'#13#10'  e' +
-      '.VSZ4,'#13#10'  e.SZORSZ,'#13#10'  e.E_ORSZ,'#13#10'  e.KKOD,'#13#10'  e.SZIN,'#13#10'  e.SZAR' +
-      'VALTSAG,'#13#10'  e.BIKANEVELO,'#13#10'  e.TENYTOM,'#13#10'  e.MLEVEL1,'#13#10'  e.MLEVE' +
-      'L2,'#13#10'  e.TKV,'#13#10'  e.TKVSZAM,'#13#10'  e."MIN",'#13#10'  e.KIKOD,'#13#10'  e.KIKOK,'#13 +
-      #10'  e.KIKDAT,'#13#10'  e.STATUS,'#13#10'  e.ALLAPOT,'#13#10'  e.ALLDAT,'#13#10'  e.IVAR,'#13 +
-      #10'  e.SZUL_SULY,'#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  ' +
-      'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,'#13#10'  e.' +
-      'SZARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'#13#10
-    DataSet.Parameters = <
-      item
-        Name = 'ID'
-        Attributes = [paNullable]
-        DataType = ftString
-        Size = 15
-        Value = '0'
-      end>
-    Provider.DataSet.Connection = dtmTarka.cnTarka
-    Provider.DataSet.CommandText = 
-      'SELECT '#13#10'  e.ID,'#13#10'  e.ENAR,'#13#10'  e.TENYESZET,'#13#10'  e.TEHENSZAM,'#13#10'  e' +
-      '.FULSZAM,'#13#10'  e.ID_ENAR,'#13#10'  e.ANYA_ENAR,'#13#10'  e.ANYA_ELL,'#13#10'  e.ANYA' +
-      '_ID_ENAR,'#13#10'  e.DONOR_ANYA,'#13#10'  e.APAKLSZ,'#13#10'  e.APA_FULSZAM,'#13#10'  e.' +
-      'ID_APA,'#13#10'  e.NEV,'#13#10'  e.SZULDAT,'#13#10'  e.FAJTAKOD,'#13#10'  e.VER1,'#13#10'  e.V' +
-      'SZ1,'#13#10'  e.VER2,'#13#10'  e.VSZ2,'#13#10'  e.VER3,'#13#10'  e.VSZ3,'#13#10'  e.VER4,'#13#10'  e' +
-      '.VSZ4,'#13#10'  e.SZORSZ,'#13#10'  e.E_ORSZ,'#13#10'  e.KKOD,'#13#10'  e.SZIN,'#13#10'  e.SZAR' +
-      'VALTSAG,'#13#10'  e.BIKANEVELO,'#13#10'  e.TENYTOM,'#13#10'  e.MLEVEL1,'#13#10'  e.MLEVE' +
-      'L2,'#13#10'  e.TKV,'#13#10'  e.TKVSZAM,'#13#10'  e."MIN",'#13#10'  e.KIKOD,'#13#10'  e.KIKOK,'#13 +
-      #10'  e.KIKDAT,'#13#10'  e.STATUS,'#13#10'  e.ALLAPOT,'#13#10'  e.ALLDAT,'#13#10'  e.IVAR,'#13 +
-      #10'  e.SZUL_SULY,'#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  ' +
-      'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,'#13#10'  e.' +
-      'SZARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'#13#10
-    Provider.DataSet.Parameters = <
-      item
-        Name = 'ID'
-        Attributes = [paNullable]
-        DataType = ftString
-        Size = 15
-        Value = '0'
-      end>
-    Provider.ResolveToDataSet = True
-    Provider.Options = [poPropogateChanges]
-    Provider.UpdateMode = upWhereChanged
-    Params = <>
-    Left = 768
-    Top = 640
-    object sdsInfoID: TBCDField
-      FieldName = 'ID'
-      Precision = 15
-      Size = 0
-    end
-    object sdsInfoENAR: TWideStringField
-      FieldName = 'ENAR'
-      Size = 14
-    end
-    object sdsInfoTENYESZET: TWideStringField
-      FieldName = 'TENYESZET'
-      Size = 7
-    end
-    object sdsInfoTEHENSZAM: TWideStringField
-      FieldName = 'TEHENSZAM'
-      Size = 15
-    end
-    object sdsInfoFULSZAM: TWideStringField
-      FieldName = 'FULSZAM'
-      Size = 15
-    end
-    object sdsInfoID_ENAR: TWideStringField
-      FieldName = 'ID_ENAR'
-      Size = 15
-    end
-    object sdsInfoANYA_ENAR: TWideStringField
-      FieldName = 'ANYA_ENAR'
-      Size = 10
-    end
-    object sdsInfoANYA_ELL: TWideStringField
-      FieldName = 'ANYA_ELL'
-      Size = 11
-    end
-    object sdsInfoANYA_ID_ENAR: TWideStringField
-      FieldName = 'ANYA_ID_ENAR'
-      Size = 15
-    end
-    object sdsInfoDONOR_ANYA: TWideStringField
-      FieldName = 'DONOR_ANYA'
-      Size = 15
-    end
-    object sdsInfoAPAKLSZ: TWideStringField
-      FieldName = 'APAKLSZ'
-      Size = 10
-    end
-    object sdsInfoAPA_FULSZAM: TWideStringField
-      FieldName = 'APA_FULSZAM'
-      Size = 15
-    end
-    object sdsInfoID_APA: TWideStringField
-      FieldName = 'ID_APA'
-      Size = 15
-    end
-    object sdsInfoNEV: TWideStringField
-      FieldName = 'NEV'
-      Size = 30
-    end
-    object sdsInfoSZULDAT: TDateTimeField
-      FieldName = 'SZULDAT'
-    end
-    object sdsInfoFAJTAKOD: TWideStringField
-      FieldName = 'FAJTAKOD'
-      Size = 5
-    end
-    object sdsInfoVER1: TWideStringField
-      FieldName = 'VER1'
-      Size = 10
-    end
-    object sdsInfoVSZ1: TBCDField
-      FieldName = 'VSZ1'
-      Precision = 6
-      Size = 2
-    end
-    object sdsInfoVER2: TWideStringField
-      FieldName = 'VER2'
-      Size = 10
-    end
-    object sdsInfoVSZ2: TBCDField
-      FieldName = 'VSZ2'
-      Precision = 6
-      Size = 2
-    end
-    object sdsInfoVER3: TWideStringField
-      FieldName = 'VER3'
-      Size = 10
-    end
-    object sdsInfoVSZ3: TBCDField
-      FieldName = 'VSZ3'
-      Precision = 6
-      Size = 2
-    end
-    object sdsInfoVER4: TWideStringField
-      FieldName = 'VER4'
-      Size = 10
-    end
-    object sdsInfoVSZ4: TBCDField
-      FieldName = 'VSZ4'
-      Precision = 6
-      Size = 2
-    end
-    object sdsInfoSZORSZ: TWideStringField
-      FieldName = 'SZORSZ'
-      Size = 3
-    end
-    object sdsInfoE_ORSZ: TWideStringField
-      FieldName = 'E_ORSZ'
-      Size = 3
-    end
-    object sdsInfoKKOD: TWideStringField
-      FieldName = 'KKOD'
-      Size = 3
-    end
-    object sdsInfoSZIN: TWideStringField
-      FieldName = 'SZIN'
-      Size = 1
-    end
-    object sdsInfoSZARVALTSAG: TWideStringField
-      FieldName = 'SZARVALTSAG'
-      Size = 1
-    end
-    object sdsInfoBIKANEVELO: TWideStringField
-      FieldName = 'BIKANEVELO'
-      Size = 1
-    end
-    object sdsInfoTENYTOM: TIntegerField
-      FieldName = 'TENYTOM'
-    end
-    object sdsInfoMLEVEL1: TWideStringField
-      FieldName = 'MLEVEL1'
-      Size = 7
-    end
-    object sdsInfoMLEVEL2: TWideStringField
-      FieldName = 'MLEVEL2'
-      Size = 7
-    end
-    object sdsInfoTKV: TWideStringField
-      FieldName = 'TKV'
-      Size = 1
-    end
-    object sdsInfoTKVSZAM: TWideStringField
-      FieldName = 'TKVSZAM'
-    end
-    object sdsInfoMIN: TBCDField
-      FieldName = 'MIN'
-      Precision = 6
-      Size = 2
-    end
-    object sdsInfoKIKOD: TWideStringField
-      FieldName = 'KIKOD'
-      Size = 10
-    end
-    object sdsInfoKIKOK: TWideStringField
-      FieldName = 'KIKOK'
-      Size = 10
-    end
-    object sdsInfoKIKDAT: TDateTimeField
-      FieldName = 'KIKDAT'
-    end
-    object sdsInfoSTATUS: TWideStringField
-      FieldName = 'STATUS'
-      Size = 1
-    end
-    object sdsInfoALLAPOT: TWideStringField
-      FieldName = 'ALLAPOT'
-      Size = 1
-    end
-    object sdsInfoALLDAT: TDateTimeField
-      FieldName = 'ALLDAT'
-    end
-    object sdsInfoIVAR: TWideStringField
-      FieldName = 'IVAR'
-      Size = 1
-    end
-    object sdsInfoSZUL_SULY: TIntegerField
-      FieldName = 'SZUL_SULY'
-    end
-    object sdsInfoMOD_KOD: TWideStringField
-      FieldName = 'MOD_KOD'
-      Size = 3
-    end
-    object sdsInfoMOD_DAT: TDateTimeField
-      FieldName = 'MOD_DAT'
-    end
-    object sdsInfoMEGJEGYZES: TWideStringField
-      FieldName = 'MEGJEGYZES'
-      Size = 150
-    end
-    object sdsInfoVALDAT: TDateTimeField
-      FieldName = 'VALDAT'
-    end
-    object sdsInfoVALTOM: TIntegerField
-      FieldName = 'VALTOM'
-    end
-    object sdsInfoTOM205: TIntegerField
-      FieldName = 'TOM205'
-    end
-    object sdsInfoSV: TIntegerField
-      FieldName = 'SV'
-    end
-    object sdsInfoKIKHELY: TWideStringField
-      FieldName = 'KIKHELY'
-      Size = 10
-    end
-    object sdsInfoSZARM_TENY: TWideStringField
-      FieldName = 'SZARM_TENY'
-      Size = 7
     end
   end
   object qryInfElles: TTalSimpleDataSet

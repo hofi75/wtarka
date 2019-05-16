@@ -902,7 +902,7 @@ begin
     Try
       frmSzarmazasiIgazolas.sdsHSzIModLap.Post;
       frmSzarmazasiIgazolas.sdsHSzIModLap.ApplyUpdates(0);
-      if FSZEditChanged Then begin
+      // if FSZEditChanged Then begin
         UpdateSQL := TTalQuery.Create(nil);
         UpdateSQL.Connection := dtmTarka.cnTarka;
         UpdateSQL.SQL.Add( 'update szlapok ');
@@ -917,7 +917,7 @@ begin
         Log( UpdateSQL.SQL.Text);
         UpdateSQL.ExecSQL;
         UpdateSQL.Free;
-      End;
+      // End;
       dtmTarka.cnTarka.CommitTrans;
       // frmSzarmazasiIgazolas.sdsHSzIModIg.Refresh;
       // frmSzarmazasiIgazolas.sdsHSzIModLap.Refresh;
