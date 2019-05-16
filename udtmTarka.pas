@@ -18,7 +18,6 @@ type
     qryIvar: TTalQuery;
     qryIvarKOD: TWideStringField;
     qryIvarKOD_NEV: TWideStringField;
-    qryStatus: TTalQuery;
     qryStatusKOD: TWideStringField;
     qryStatusNEV: TWideStringField;
     qryTermCsop: TTalQuery;
@@ -309,6 +308,8 @@ type
     qryOrszag: TTalQuery;
     dtsOrszag: TDataSource;
     qryOrszagNEV: TWideStringField;
+    qryStatus: TTalQuery;
+    sdsInfoTKVSZAM: TWideStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure sdsInfoENARGetText(Sender: TField; var Text: String;
