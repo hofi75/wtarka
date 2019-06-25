@@ -1,6 +1,6 @@
 object frmMain: TfrmMain
-  Left = 443
-  Top = 148
+  Left = 532
+  Top = 183
   Width = 1215
   Height = 686
   Caption = 'WinTarka - H'#250'shaszn'#250' szarvasmarha nyilv'#225'ntart'#243' program'
@@ -892,6 +892,10 @@ object frmMain: TfrmMain
       end
       object Bikaneveltehenektrzsknyve1: TMenuItem
         Action = actBikNevLista
+      end
+      object Atorzskonyves1: TMenuItem
+        Caption = #39'A'#39' torzskonyves'
+        OnClick = Atorzskonyves1Click
       end
     end
     object Szervzfunkcik1: TMenuItem

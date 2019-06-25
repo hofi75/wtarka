@@ -90,7 +90,8 @@ uses
   QfrmNETPontRead in 'QfrmNETPontRead.pas' {frmNETPontRead},
   Atkotes in 'Atkotes.pas' {Form1},
   SzarmazasiIgazolas in 'SzarmazasiIgazolas.pas' {frmSzarmazasiIgazolas},
-  SzarmazasiIgazolasPrint in 'SzarmazasiIgazolasPrint.pas' {SzarmazasiIgazolasPrint: TSzarmazasiIgazolasPrint};
+  SzarmazasiIgazolasPrint in 'SzarmazasiIgazolasPrint.pas' {SzarmazasiIgazolasPrint: TSzarmazasiIgazolasPrint},
+  ATorzskonyves in 'ATorzskonyves.pas' {Form2};
 
 {$R *.res}
 
@@ -118,6 +119,7 @@ begin
   Application.CreateForm(TfrmValDat, frmValDat);
   Application.CreateForm(TfrmHivSzarmIg, frmHivSzarmIg);
   Application.CreateForm(TfrmSzarmazasiIgazolas, frmSzarmazasiIgazolas);
+  //Application.CreateForm(TAtorzskonyves, ATorzskonyves);
   // Application.CreateForm(TDataModule1, DataModule1);
   // Application.CreateForm(TfrmAtkotes, frmAtkotes);
   // Application.CreateForm(TfrmKarbOs1, frmKarbOs1);

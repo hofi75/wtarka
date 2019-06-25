@@ -2,7 +2,7 @@ object dtmTarka: TdtmTarka
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 1573
+  Left = 984
   Top = 172
   Height = 788
   Width = 936

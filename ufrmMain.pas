@@ -230,6 +230,7 @@ type
     sdsTenyeszetTMEGYE: TWideStringField;
     sdsTenyeszetCHANGED: TDateTimeField;
     sdsTenyeszetROW_ID: TVarBytesField;
+    Atorzskonyves1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure ShowHint(Sender: TObject);
     procedure HelpContents(Sender: TObject);
@@ -334,6 +335,7 @@ type
     procedure actSzarmListaExecute(Sender: TObject);
     procedure NETPontReadClick(Sender: TObject);
     procedure cbTenyeszetCloseUp(Sender: TObject);
+    procedure Atorzskonyves1Click(Sender: TObject);
   end;
 
 var
@@ -357,7 +359,7 @@ uses
   Qfrmsvszamol, QfrmEletLista, QfrmTParLis, QfrmUszoLis,
   QfrmZaras, QfrmValaszt, QfrmEnarBe, QfrmEnarGyujt, QfrmCsaladfa,
   QfrmParVal, QfrmSzarmLista, QfrmNETPontRead,
-  SzarmazasiIgazolas;
+  SzarmazasiIgazolas, ATorzskonyves;
 
 
 {$r *.dfm}
@@ -1123,6 +1125,11 @@ begin
     dtmTarka.TenyeszetRKOD := '';
     dtmTarka.TenyeszetEKOD := '';
   end;
+end;
+
+procedure TfrmMain.Atorzskonyves1Click(Sender: TObject);
+begin
+  ATorzskonyvesCreate;
 end;
 
 end.
