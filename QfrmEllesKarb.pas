@@ -1226,6 +1226,7 @@ begin
   j := 1;
   for i := 1 to 8 do
   begin
+     if vh[i].value = 0 then continue;
      if vh[i].id = -1 then Continue;
 
      result_vh[j].id := vh[i].id;
@@ -1241,7 +1242,7 @@ begin
            vh[k].id := -1;
         end;
      end;
-     j := j + 1;
+      j := j + 1;
   end;
 
   for i := 1 to j do
@@ -1259,12 +1260,17 @@ begin
 
   // egeszre hozas
   summ := 0;
-  for i := 1 to j do
+  for i := 1 to 4 do
     summ := summ + result_vh[i].value;
 
-  // if summ <> 100 then
-    for i := 1 to j do
+    for i := 1 to 4 do
       result_vh[i].value := RoundTo( result_vh[i].value * 100 / summ, -2);
+
+    // korrekcio
+    summ := 0;
+    for i := 1 to 4 do
+      summ := summ + result_vh[i].value;
+    result_vh[1].value := result_vh[1].value + ( 100 - summ );
 
       if result_vh[1].ID <> -1 then
       begin

@@ -894,7 +894,7 @@ object frmMain: TfrmMain
         Action = actBikNevLista
       end
       object Atorzskonyves1: TMenuItem
-        Caption = #39'A'#39' torzskonyves'
+        Caption = #39'A'#39' t'#246'rzsk'#246'nyves egyedek sz'#225'ma'
         OnClick = Atorzskonyves1Click
       end
     end

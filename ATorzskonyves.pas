@@ -19,15 +19,7 @@ type
     ADOAtorzskonyv: TADOStoredProc;
     sdsTReturn: TTalSimpleDataSet;
     dtsTReturn: TDataSource;
-    sdsTReturnV1: TWideStringField;
-    sdsTReturnV2: TWideStringField;
-    sdsTReturnV3: TWideStringField;
-    sdsTReturnV4: TWideStringField;
-    sdsTReturnV5: TWideStringField;
-    sdsTReturnV6: TWideStringField;
-    sdsTReturnV7: TWideStringField;
     frxTReturn: TfrxDBDataset;
-    frxRepListak: TfrxReport;
     sdsTenyeszet: TTalSimpleDataSet;
     sdsTenyeszetLISTA: TWideStringField;
     sdsTenyeszetTKOD: TWideStringField;
@@ -56,8 +48,20 @@ type
     sdsTenyeszetTMEGYE: TWideStringField;
     sdsTenyeszetCHANGED: TDateTimeField;
     sdsTenyeszetROW_ID: TVarBytesField;
+    sdsTReturnTKOD: TWideStringField;
+    sdsTReturnSZULDAT: TDateTimeField;
+    sdsTReturnV1: TBCDField;
+    sdsTReturnV2: TBCDField;
+    sdsTReturnV3: TBCDField;
+    sdsTReturnV4: TBCDField;
+    sdsTReturnV5: TBCDField;
+    sdsTReturnV6: TBCDField;
+    sdsTReturnV7: TBCDField;
+    sdsTReturnV8: TBCDField;
+    lblProgress: TLabel;
+    frxRepListak: TfrxReport;
     procedure btnPrintClick(Sender: TObject);
-  private
+    private
     { Private declarations }
   public
     { Public declarations }
@@ -78,6 +82,7 @@ var
 begin
   ATorzskonyves := TATorzskonyves.create(Application);
   ATorzskonyves.sdsTenyeszet.Open;
+  ATorzskonyves.lblProgress.Visible := False;
 
   if dtmTarka.TenyeszetTKOD = '' then
      ATorzskonyves.cbTenyeszet.KeyValue := '0000000'
@@ -91,31 +96,42 @@ begin
 end;
 
 procedure TATorzskonyves.btnPrintClick(Sender: TObject);
+var
+    TenyeszetNev: string;
 begin
 
     Cursor := crHourGlass;
-    dtmTarka.cnTarka.BeginTrans;
-   try
-      ADOAtorzskonyv.Prepared := True;
-      ADOAtorzskonyv.Parameters.ParamByName('P_TKOD').Value := cbTenyeszet.KeyValue;
-      ADOAtorzskonyv.Parameters.ParamByName('P_BIRTHDATE').Value := edtBirthdate.Text;
-      ADOAtorzskonyv.ExecProc;
-      dtmTarka.cnTarka.CommitTrans;
-      ADOAtorzskonyv.Prepared := False;
-  except
-    on E:Exception do
-    begin
-      dtmTarka.cnTarka.RollbackTrans;
-      ShowMessage( E.Message);
-      Exit;
-    end;
-  end;
-  Cursor := crDefault;
+    lblProgress.Visible := True;
+    lblProgress.Update;
 
+    dtmTarka.cnTarka.BeginTrans;
+    try
+        ADOAtorzskonyv.Prepared := True;
+        ADOAtorzskonyv.Parameters.ParamByName('P_TKOD').Value := cbTenyeszet.KeyValue;
+        ADOAtorzskonyv.Parameters.ParamByName('P_BIRTHDATE').Value := edtBirthdate.Text;
+        ADOAtorzskonyv.ExecProc;
+        dtmTarka.cnTarka.CommitTrans;
+        ADOAtorzskonyv.Prepared := False;
+    except
+      on E:Exception do
+      begin
+        dtmTarka.cnTarka.RollbackTrans;
+        ShowMessage( E.Message);
+        Exit;
+      end;
+    end;
+    Cursor := crDefault;
+    lblProgress.Visible := False;
+    lblProgress.Update;
+
+    TenyeszetNev := dtmTarka.getTenyeszetNev( cbTenyeszet.KeyValue);
+    sdsTReturn.Close;
     sdsTReturn.Open;
+    frxRepListak.Variables.Clear;
+    frxRepListak.Script.Variables['TENYESZET'] := cbTenyeszet.KeyValue + ' - ' + TenyeszetNev;
+    frxRepListak.Script.Variables['SZULETESI_DATUM'] := edtBirthdate.Text;
     frxRepListak.ShowReport();
     sdsTReturn.Close;
-
 end;
 
 end.

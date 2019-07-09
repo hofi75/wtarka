@@ -1,6 +1,6 @@
 inherited frmEllesKarb: TfrmEllesKarb
-  Left = 606
-  Top = 285
+  Left = 929
+  Top = 294
   Width = 947
   Height = 648
   Caption = 'Ell'#233'sek karbantart'#225'sa'
