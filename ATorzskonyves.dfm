@@ -1,6 +1,6 @@
 object ATorzskonyves: TATorzskonyves
-  Left = 634
-  Top = 402
+  Left = 421
+  Top = 260
   Width = 512
   Height = 238
   Caption = '"A" t'#246'rzsk'#246'nyves egyedek sz'#225'ma'
@@ -11,6 +11,7 @@ object ATorzskonyves: TATorzskonyves
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -42,7 +43,7 @@ object ATorzskonyves: TATorzskonyves
   object lblProgress: TLabel
     Left = 96
     Top = 88
-    Width = 321
+    Width = 233
     Height = 24
     Alignment = taCenter
     Caption = 'A feldolgoz'#225's folyamatban...'
@@ -129,58 +130,88 @@ object ATorzskonyves: TATorzskonyves
     Top = 40
   end
   object sdsTReturn: TTalSimpleDataSet
-    Active = True
     Aggregates = <>
     Connection = dtmTarka.cnTarka
     DataSet.Connection = dtmTarka.cnTarka
-    DataSet.CommandText = 'SELECT * from TRETURN'
+    DataSet.CommandText = 
+      'SELECT TO_CHAR( V1) as R1, '#13#10'TO_CHAR( V2) as R2,'#13#10'TO_CHAR( V3) a' +
+      's R3,'#13#10'TO_CHAR( V4) as R4,'#13#10'TO_CHAR( V5) as R5,'#13#10'TO_CHAR( V6) as' +
+      ' R6,'#13#10'TO_CHAR( V7) as R7,'#13#10'TO_CHAR( V8) as R8,'#13#10'TO_CHAR( V1+V2) ' +
+      'as R12,'#13#10'TO_CHAR( V3+V4) as R34,'#13#10'TO_CHAR( V5+V6) as R56,'#13#10'TO_CH' +
+      'AR( V7+V8) as R78 from TRETURN'
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
-    Provider.DataSet.CommandText = 'SELECT * from TRETURN'
+    Provider.DataSet.CommandText = 
+      'SELECT TO_CHAR( V1) as R1, '#13#10'TO_CHAR( V2) as R2,'#13#10'TO_CHAR( V3) a' +
+      's R3,'#13#10'TO_CHAR( V4) as R4,'#13#10'TO_CHAR( V5) as R5,'#13#10'TO_CHAR( V6) as' +
+      ' R6,'#13#10'TO_CHAR( V7) as R7,'#13#10'TO_CHAR( V8) as R8,'#13#10'TO_CHAR( V1+V2) ' +
+      'as R12,'#13#10'TO_CHAR( V3+V4) as R34,'#13#10'TO_CHAR( V5+V6) as R56,'#13#10'TO_CH' +
+      'AR( V7+V8) as R78 from TRETURN'
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
     Params = <>
     Left = 296
     Top = 40
-    object sdsTReturnTKOD: TWideStringField
-      FieldName = 'TKOD'
-      Size = 256
+    object sdsTReturnR1: TWideStringField
+      FieldName = 'R1'
+      ReadOnly = True
+      Size = 40
     end
-    object sdsTReturnSZULDAT: TDateTimeField
-      FieldName = 'SZULDAT'
+    object sdsTReturnR2: TWideStringField
+      FieldName = 'R2'
+      ReadOnly = True
+      Size = 40
     end
-    object sdsTReturnV1: TBCDField
-      FieldName = 'V1'
-      Precision = 32
+    object sdsTReturnR3: TWideStringField
+      FieldName = 'R3'
+      ReadOnly = True
+      Size = 40
     end
-    object sdsTReturnV2: TBCDField
-      FieldName = 'V2'
-      Precision = 32
+    object sdsTReturnR4: TWideStringField
+      FieldName = 'R4'
+      ReadOnly = True
+      Size = 40
     end
-    object sdsTReturnV3: TBCDField
-      FieldName = 'V3'
-      Precision = 32
+    object sdsTReturnR5: TWideStringField
+      FieldName = 'R5'
+      ReadOnly = True
+      Size = 40
     end
-    object sdsTReturnV4: TBCDField
-      FieldName = 'V4'
-      Precision = 32
+    object sdsTReturnR6: TWideStringField
+      FieldName = 'R6'
+      ReadOnly = True
+      Size = 40
     end
-    object sdsTReturnV5: TBCDField
-      FieldName = 'V5'
-      Precision = 32
+    object sdsTReturnR7: TWideStringField
+      FieldName = 'R7'
+      ReadOnly = True
+      Size = 40
     end
-    object sdsTReturnV6: TBCDField
-      FieldName = 'V6'
-      Precision = 32
+    object sdsTReturnR8: TWideStringField
+      FieldName = 'R8'
+      ReadOnly = True
+      Size = 40
     end
-    object sdsTReturnV7: TBCDField
-      FieldName = 'V7'
-      Precision = 32
+    object sdsTReturnR12: TWideStringField
+      FieldName = 'R12'
+      ReadOnly = True
+      Size = 40
     end
-    object sdsTReturnV8: TBCDField
-      FieldName = 'V8'
-      Precision = 32
+    object sdsTReturnR34: TWideStringField
+      FieldName = 'R34'
+      ReadOnly = True
+      Size = 40
+    end
+    object sdsTReturnR56: TWideStringField
+      FieldName = 'R56'
+      ReadOnly = True
+      Size = 40
+    end
+    object sdsTReturnR78: TWideStringField
+      FieldName = 'R78'
+      ReadOnly = True
+      Size = 40
     end
   end
   object dtsTReturn: TDataSource
@@ -192,16 +223,18 @@ object ATorzskonyves: TATorzskonyves
     UserName = 'frxTReturn'
     CloseDataSource = False
     FieldAliases.Strings = (
-      'TKOD=TKOD'
-      'SZULDAT=SZULDAT'
-      'V1=V1'
-      'V2=V2'
-      'V3=V3'
-      'V4=V4'
-      'V5=V5'
-      'V6=V6'
-      'V7=V7'
-      'V8=V8')
+      'R1=R1'
+      'R2=R2'
+      'R3=R3'
+      'R4=R4'
+      'R5=R5'
+      'R6=R6'
+      'R7=R7'
+      'R8=R8'
+      'R12=R12'
+      'R34=R34'
+      'R56=R56'
+      'R78=R78')
     DataSource = dtsTReturn
     Left = 244
     Top = 144
@@ -214,10 +247,11 @@ object ATorzskonyves: TATorzskonyves
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 40240.498815532400000000
-    ReportOptions.LastChange = 43655.870956736110000000
+    ReportOptions.LastChange = 43668.878613761580000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
+      ''
       'end.')
     Left = 308
     Top = 144
@@ -489,8 +523,10 @@ object ATorzskonyves: TATorzskonyves
           Width = 143.622103390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
+          DataField = 'R2'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
+          DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
@@ -498,16 +534,17 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxTReturn."V2"]')
+            '[frxTReturn."R2"]')
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo13: TfrxMemoView
+        object summ1: TfrxMemoView
           Left = 578.268090000000000000
           Top = 56.692913390000000000
           Width = 151.181163390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
+          DataField = 'R12'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
           Font.Charset = DEFAULT_CHARSET
@@ -517,7 +554,7 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = [fsBold]
           HAlign = haCenter
           Memo.UTF8 = (
-            '[<frxTReturn."V1">+<frxTReturn."V2">]')
+            '[frxTReturn."R12"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -587,6 +624,7 @@ object ATorzskonyves: TATorzskonyves
           Width = 143.622103390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
+          DataField = 'R3'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
           Font.Charset = DEFAULT_CHARSET
@@ -596,7 +634,7 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxTReturn."V3"]')
+            '[frxTReturn."R3"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -624,6 +662,7 @@ object ATorzskonyves: TATorzskonyves
           Width = 143.622103390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
+          DataField = 'R4'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
           Font.Charset = DEFAULT_CHARSET
@@ -633,7 +672,7 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxTReturn."V4"]')
+            '[frxTReturn."R4"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -655,12 +694,13 @@ object ATorzskonyves: TATorzskonyves
           WordWrap = False
           VAlign = vaCenter
         end
-        object Memo22: TfrxMemoView
+        object summ2: TfrxMemoView
           Left = 578.268090000000000000
           Top = 188.976377950000000000
           Width = 151.181163390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
+          DataField = 'R34'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
           Font.Charset = DEFAULT_CHARSET
@@ -670,7 +710,7 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = [fsBold]
           HAlign = haCenter
           Memo.UTF8 = (
-            '[<frxTReturn."V3">+<frxTReturn."V4">]')
+            '[frxTReturn."R34"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -858,6 +898,7 @@ object ATorzskonyves: TATorzskonyves
           Width = 143.622103390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
+          DataField = 'R5'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
           Font.Charset = DEFAULT_CHARSET
@@ -867,7 +908,7 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxTReturn."V5"]')
+            '[frxTReturn."R5"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -877,6 +918,7 @@ object ATorzskonyves: TATorzskonyves
           Width = 143.622103390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
+          DataField = 'R6'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
           Font.Charset = DEFAULT_CHARSET
@@ -886,16 +928,17 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxTReturn."V6"]')
+            '[frxTReturn."R6"]')
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo30: TfrxMemoView
+        object summ3: TfrxMemoView
           Left = 578.268090000000000000
           Top = 321.260050000000000000
           Width = 151.181163390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
+          DataField = 'R56'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
           Font.Charset = DEFAULT_CHARSET
@@ -905,7 +948,7 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = [fsBold]
           HAlign = haCenter
           Memo.UTF8 = (
-            '[<frxTReturn."V5">+<frxTReturn."V6">]')
+            '[frxTReturn."R56"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -915,6 +958,7 @@ object ATorzskonyves: TATorzskonyves
           Width = 143.622103390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
+          DataField = 'R7'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
           Font.Charset = DEFAULT_CHARSET
@@ -924,7 +968,7 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxTReturn."V7"]')
+            '[frxTReturn."R7"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -934,6 +978,7 @@ object ATorzskonyves: TATorzskonyves
           Width = 143.622103390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
+          DataField = 'R8'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
           Font.Charset = DEFAULT_CHARSET
@@ -943,16 +988,17 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxTReturn."V8"]')
+            '[frxTReturn."R8"]')
           ParentFont = False
           VAlign = vaCenter
         end
-        object Memo33: TfrxMemoView
+        object summ4: TfrxMemoView
           Left = 578.268090000000000000
           Top = 453.543600000000000000
           Width = 151.181163390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
+          DataField = 'R78'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
           Font.Charset = DEFAULT_CHARSET
@@ -962,7 +1008,7 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = [fsBold]
           HAlign = haCenter
           Memo.UTF8 = (
-            '[<frxTReturn."V7">+<frxTReturn."V8">]')
+            '[frxTReturn."R78"]')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -972,9 +1018,10 @@ object ATorzskonyves: TATorzskonyves
           Width = 143.622103390000000000
           Height = 37.795275590000000000
           OnAfterData = 'Memo2OnAfterData'
-          DataField = 'V1'
+          DataField = 'R1'
           DataSet = frxTReturn
           DataSetName = 'frxTReturn'
+          DisplayFormat.DecimalSeparator = ','
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -16
@@ -982,7 +1029,7 @@ object ATorzskonyves: TATorzskonyves
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '[frxTReturn."V1"]')
+            '[frxTReturn."R1"]')
           ParentFont = False
           VAlign = vaCenter
         end

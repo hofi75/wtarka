@@ -2,8 +2,8 @@ object dtmTarka: TdtmTarka
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 984
-  Top = 172
+  Left = 504
+  Top = 72
   Height = 788
   Width = 936
   object cnTarka: TTalConnection

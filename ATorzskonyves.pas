@@ -48,17 +48,19 @@ type
     sdsTenyeszetTMEGYE: TWideStringField;
     sdsTenyeszetCHANGED: TDateTimeField;
     sdsTenyeszetROW_ID: TVarBytesField;
-    sdsTReturnTKOD: TWideStringField;
-    sdsTReturnSZULDAT: TDateTimeField;
-    sdsTReturnV1: TBCDField;
-    sdsTReturnV2: TBCDField;
-    sdsTReturnV3: TBCDField;
-    sdsTReturnV4: TBCDField;
-    sdsTReturnV5: TBCDField;
-    sdsTReturnV6: TBCDField;
-    sdsTReturnV7: TBCDField;
-    sdsTReturnV8: TBCDField;
     lblProgress: TLabel;
+    sdsTReturnR1: TWideStringField;
+    sdsTReturnR2: TWideStringField;
+    sdsTReturnR3: TWideStringField;
+    sdsTReturnR4: TWideStringField;
+    sdsTReturnR5: TWideStringField;
+    sdsTReturnR6: TWideStringField;
+    sdsTReturnR7: TWideStringField;
+    sdsTReturnR8: TWideStringField;
+    sdsTReturnR12: TWideStringField;
+    sdsTReturnR34: TWideStringField;
+    sdsTReturnR56: TWideStringField;
+    sdsTReturnR78: TWideStringField;
     frxRepListak: TfrxReport;
     procedure btnPrintClick(Sender: TObject);
     private
@@ -133,5 +135,6 @@ begin
     frxRepListak.ShowReport();
     sdsTReturn.Close;
 end;
+
 
 end.
