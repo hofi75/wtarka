@@ -1,6 +1,6 @@
 object frmInfoPult: TfrmInfoPult
-  Left = 952
-  Top = 325
+  Left = 304
+  Top = 0
   Width = 944
   Height = 722
   BorderIcons = [biSystemMenu, biMinimize]
@@ -1038,6 +1038,7 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtmTarka.dtsInfo
       KeyField = 'KOD'
       ListField = 'KOD_NEV'
+      ListSource = dtmTarka.dtsBszin
       TabOrder = 24
     end
     object lucFajta: TTalDBLookupComboBox

@@ -2,15 +2,15 @@ object dtmTarka: TdtmTarka
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 504
-  Top = 72
-  Height = 788
-  Width = 936
+  Left = 467
+  Top = 78
+  Height = 558
+  Width = 798
   object cnTarka: TTalConnection
     Connected = True
     ConnectionString = 
-      'Provider=OraOLEDB.Oracle.1;Password=tarka;Persist Security Info=' +
-      'True;User ID=tarka;Data Source=localhost/xe'
+      'Provider=OraOLEDB.Oracle.1;Password=term;Persist Security Info=T' +
+      'rue;User ID=term;Data Source=localhost/xe;Extended Properties=""'
     LoginPrompt = False
     Provider = 'OraOLEDB.Oracle.1'
     Left = 24
@@ -1972,7 +1972,291 @@ object dtmTarka: TdtmTarka
       #10'  e.SZUL_SULY,'#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  ' +
       'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,'#13#10'  e.' +
       'SZARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'
-    DataSet.FieldDefs = <>
+    DataSet.FieldDefs = <
+      item
+        Name = 'ID'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 15
+        Size = 4
+      end
+      item
+        Name = 'ENAR'
+        DataType = ftWideString
+        Size = 14
+      end
+      item
+        Name = 'TENYESZET'
+        DataType = ftWideString
+        Size = 7
+      end
+      item
+        Name = 'TEHENSZAM'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'FULSZAM'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'ID_ENAR'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'ANYA_ENAR'
+        DataType = ftWideString
+        Size = 14
+      end
+      item
+        Name = 'ANYA_ELL'
+        DataType = ftWideString
+        Size = 11
+      end
+      item
+        Name = 'ANYA_ID_ENAR'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'DONOR_ANYA'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'APAKLSZ'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'APA_FULSZAM'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'ID_APA'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'NEV'
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'SZULDAT'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'FAJTAKOD'
+        DataType = ftWideString
+        Size = 5
+      end
+      item
+        Name = 'VER1'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'VSZ1'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 6
+        Size = 2
+      end
+      item
+        Name = 'VER2'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'VSZ2'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 6
+        Size = 2
+      end
+      item
+        Name = 'VER3'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'VSZ3'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 6
+        Size = 2
+      end
+      item
+        Name = 'VER4'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'VSZ4'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 6
+        Size = 2
+      end
+      item
+        Name = 'SZORSZ'
+        DataType = ftWideString
+        Size = 3
+      end
+      item
+        Name = 'E_ORSZ'
+        DataType = ftWideString
+        Size = 3
+      end
+      item
+        Name = 'KKOD'
+        DataType = ftWideString
+        Size = 3
+      end
+      item
+        Name = 'SZIN'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 2
+      end
+      item
+        Name = 'SZARVALTSAG'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'BIKANEVELO'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'TENYTOM'
+        Attributes = [faFixed]
+        DataType = ftInteger
+      end
+      item
+        Name = 'MLEVEL1'
+        DataType = ftWideString
+        Size = 7
+      end
+      item
+        Name = 'MLEVEL2'
+        DataType = ftWideString
+        Size = 7
+      end
+      item
+        Name = 'TKV'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'TKVSZAM'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'MIN'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 6
+        Size = 2
+      end
+      item
+        Name = 'KIKOD'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'KIKOK'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'KIKDAT'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'STATUS'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'ALLAPOT'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'ALLDAT'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'IVAR'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'SZUL_SULY'
+        Attributes = [faFixed]
+        DataType = ftInteger
+      end
+      item
+        Name = 'MOD_KOD'
+        DataType = ftWideString
+        Size = 3
+      end
+      item
+        Name = 'MOD_DAT'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'MEGJEGYZES'
+        DataType = ftWideString
+        Size = 150
+      end
+      item
+        Name = 'VALDAT'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'VALTOM'
+        Attributes = [faFixed]
+        DataType = ftInteger
+      end
+      item
+        Name = 'TOM205'
+        Attributes = [faFixed]
+        DataType = ftInteger
+      end
+      item
+        Name = 'SV'
+        Attributes = [faFixed]
+        DataType = ftInteger
+      end
+      item
+        Name = 'KIKHELY'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'SZARM_TENY'
+        DataType = ftWideString
+        Size = 7
+      end>
     DataSet.Parameters = <
       item
         Name = 'ID'
@@ -1996,7 +2280,291 @@ object dtmTarka: TdtmTarka
       #10'  e.SZUL_SULY,'#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  ' +
       'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,'#13#10'  e.' +
       'SZARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'
-    Provider.DataSet.FieldDefs = <>
+    Provider.DataSet.FieldDefs = <
+      item
+        Name = 'ID'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 15
+        Size = 4
+      end
+      item
+        Name = 'ENAR'
+        DataType = ftWideString
+        Size = 14
+      end
+      item
+        Name = 'TENYESZET'
+        DataType = ftWideString
+        Size = 7
+      end
+      item
+        Name = 'TEHENSZAM'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'FULSZAM'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'ID_ENAR'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'ANYA_ENAR'
+        DataType = ftWideString
+        Size = 14
+      end
+      item
+        Name = 'ANYA_ELL'
+        DataType = ftWideString
+        Size = 11
+      end
+      item
+        Name = 'ANYA_ID_ENAR'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'DONOR_ANYA'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'APAKLSZ'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'APA_FULSZAM'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'ID_APA'
+        DataType = ftWideString
+        Size = 15
+      end
+      item
+        Name = 'NEV'
+        DataType = ftWideString
+        Size = 30
+      end
+      item
+        Name = 'SZULDAT'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'FAJTAKOD'
+        DataType = ftWideString
+        Size = 5
+      end
+      item
+        Name = 'VER1'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'VSZ1'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 6
+        Size = 2
+      end
+      item
+        Name = 'VER2'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'VSZ2'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 6
+        Size = 2
+      end
+      item
+        Name = 'VER3'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'VSZ3'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 6
+        Size = 2
+      end
+      item
+        Name = 'VER4'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'VSZ4'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 6
+        Size = 2
+      end
+      item
+        Name = 'SZORSZ'
+        DataType = ftWideString
+        Size = 3
+      end
+      item
+        Name = 'E_ORSZ'
+        DataType = ftWideString
+        Size = 3
+      end
+      item
+        Name = 'KKOD'
+        DataType = ftWideString
+        Size = 3
+      end
+      item
+        Name = 'SZIN'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 2
+      end
+      item
+        Name = 'SZARVALTSAG'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'BIKANEVELO'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'TENYTOM'
+        Attributes = [faFixed]
+        DataType = ftInteger
+      end
+      item
+        Name = 'MLEVEL1'
+        DataType = ftWideString
+        Size = 7
+      end
+      item
+        Name = 'MLEVEL2'
+        DataType = ftWideString
+        Size = 7
+      end
+      item
+        Name = 'TKV'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'TKVSZAM'
+        DataType = ftWideString
+        Size = 20
+      end
+      item
+        Name = 'MIN'
+        Attributes = [faFixed]
+        DataType = ftBCD
+        Precision = 6
+        Size = 2
+      end
+      item
+        Name = 'KIKOD'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'KIKOK'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'KIKDAT'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'STATUS'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'ALLAPOT'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'ALLDAT'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'IVAR'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'SZUL_SULY'
+        Attributes = [faFixed]
+        DataType = ftInteger
+      end
+      item
+        Name = 'MOD_KOD'
+        DataType = ftWideString
+        Size = 3
+      end
+      item
+        Name = 'MOD_DAT'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'MEGJEGYZES'
+        DataType = ftWideString
+        Size = 150
+      end
+      item
+        Name = 'VALDAT'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'VALTOM'
+        Attributes = [faFixed]
+        DataType = ftInteger
+      end
+      item
+        Name = 'TOM205'
+        Attributes = [faFixed]
+        DataType = ftInteger
+      end
+      item
+        Name = 'SV'
+        Attributes = [faFixed]
+        DataType = ftInteger
+      end
+      item
+        Name = 'KIKHELY'
+        DataType = ftWideString
+        Size = 10
+      end
+      item
+        Name = 'SZARM_TENY'
+        DataType = ftWideString
+        Size = 7
+      end>
     Provider.DataSet.Parameters = <
       item
         Name = 'ID'
@@ -2018,256 +2586,205 @@ object dtmTarka: TdtmTarka
     end
     object sdsInfoENAR: TWideStringField
       FieldName = 'ENAR'
-      ProviderFlags = [pfInUpdate]
       Size = 14
     end
     object sdsInfoTENYESZET: TWideStringField
       FieldName = 'TENYESZET'
-      ProviderFlags = [pfInUpdate]
       Size = 7
     end
     object sdsInfoTEHENSZAM: TWideStringField
       FieldName = 'TEHENSZAM'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoFULSZAM: TWideStringField
       FieldName = 'FULSZAM'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoID_ENAR: TWideStringField
       FieldName = 'ID_ENAR'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoANYA_ENAR: TWideStringField
       FieldName = 'ANYA_ENAR'
-      ProviderFlags = [pfInUpdate]
-      Size = 10
+      Size = 14
     end
     object sdsInfoANYA_ELL: TWideStringField
       FieldName = 'ANYA_ELL'
-      ProviderFlags = [pfInUpdate]
       Size = 11
     end
     object sdsInfoANYA_ID_ENAR: TWideStringField
       FieldName = 'ANYA_ID_ENAR'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoDONOR_ANYA: TWideStringField
       FieldName = 'DONOR_ANYA'
-      ProviderFlags = [pfInUpdate]
       Size = 15
+    end
+    object sdsInfoAPAKLSZ: TWideStringField
+      FieldName = 'APAKLSZ'
+      Size = 10
     end
     object sdsInfoAPA_FULSZAM: TWideStringField
       FieldName = 'APA_FULSZAM'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoID_APA: TWideStringField
       FieldName = 'ID_APA'
-      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoNEV: TWideStringField
       FieldName = 'NEV'
-      ProviderFlags = [pfInUpdate]
       Size = 30
     end
     object sdsInfoSZULDAT: TDateTimeField
       FieldName = 'SZULDAT'
-      ProviderFlags = [pfInUpdate]
+    end
+    object sdsInfoFAJTAKOD: TWideStringField
+      FieldName = 'FAJTAKOD'
+      Size = 5
+    end
+    object sdsInfoVER1: TWideStringField
+      FieldName = 'VER1'
+      Size = 10
     end
     object sdsInfoVSZ1: TBCDField
       FieldName = 'VSZ1'
-      ProviderFlags = [pfInUpdate]
       Precision = 6
       Size = 2
+    end
+    object sdsInfoVER2: TWideStringField
+      FieldName = 'VER2'
+      Size = 10
     end
     object sdsInfoVSZ2: TBCDField
       FieldName = 'VSZ2'
-      ProviderFlags = [pfInUpdate]
       Precision = 6
       Size = 2
+    end
+    object sdsInfoVER3: TWideStringField
+      FieldName = 'VER3'
+      Size = 10
     end
     object sdsInfoVSZ3: TBCDField
       FieldName = 'VSZ3'
-      ProviderFlags = [pfInUpdate]
       Precision = 6
       Size = 2
     end
+    object sdsInfoVER4: TWideStringField
+      FieldName = 'VER4'
+      Size = 10
+    end
     object sdsInfoVSZ4: TBCDField
       FieldName = 'VSZ4'
-      ProviderFlags = [pfInUpdate]
       Precision = 6
       Size = 2
     end
     object sdsInfoSZORSZ: TWideStringField
       FieldName = 'SZORSZ'
-      ProviderFlags = [pfInUpdate]
       Size = 3
     end
     object sdsInfoE_ORSZ: TWideStringField
       FieldName = 'E_ORSZ'
-      ProviderFlags = [pfInUpdate]
       Size = 3
     end
     object sdsInfoKKOD: TWideStringField
       FieldName = 'KKOD'
-      ProviderFlags = [pfInUpdate]
       Size = 3
     end
     object sdsInfoSZIN: TWideStringField
       FieldName = 'SZIN'
-      ProviderFlags = [pfInUpdate]
-      Size = 1
+      Size = 2
     end
     object sdsInfoSZARVALTSAG: TWideStringField
       FieldName = 'SZARVALTSAG'
-      ProviderFlags = [pfInUpdate]
       Size = 1
     end
     object sdsInfoBIKANEVELO: TWideStringField
       FieldName = 'BIKANEVELO'
-      ProviderFlags = [pfInUpdate]
       Size = 1
     end
     object sdsInfoTENYTOM: TIntegerField
       FieldName = 'TENYTOM'
-      ProviderFlags = [pfInUpdate]
     end
     object sdsInfoMLEVEL1: TWideStringField
       FieldName = 'MLEVEL1'
-      ProviderFlags = [pfInUpdate]
       Size = 7
     end
     object sdsInfoMLEVEL2: TWideStringField
       FieldName = 'MLEVEL2'
-      ProviderFlags = [pfInUpdate]
       Size = 7
     end
     object sdsInfoTKV: TWideStringField
       FieldName = 'TKV'
-      ProviderFlags = [pfInUpdate]
       Size = 1
+    end
+    object sdsInfoTKVSZAM: TWideStringField
+      FieldName = 'TKVSZAM'
     end
     object sdsInfoMIN: TBCDField
       FieldName = 'MIN'
-      ProviderFlags = [pfInUpdate]
       Precision = 6
       Size = 2
     end
-    object sdsInfoKIKDAT: TDateTimeField
-      FieldName = 'KIKDAT'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoSTATUS: TWideStringField
-      FieldName = 'STATUS'
-      ProviderFlags = [pfInUpdate]
-      Size = 1
-    end
-    object sdsInfoALLAPOT: TWideStringField
-      FieldName = 'ALLAPOT'
-      ProviderFlags = [pfInUpdate]
-      Size = 1
-    end
-    object sdsInfoALLDAT: TDateTimeField
-      FieldName = 'ALLDAT'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoIVAR: TWideStringField
-      FieldName = 'IVAR'
-      ProviderFlags = [pfInUpdate]
-      Size = 1
-    end
-    object sdsInfoSZUL_SULY: TIntegerField
-      FieldName = 'SZUL_SULY'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoMOD_KOD: TWideStringField
-      FieldName = 'MOD_KOD'
-      ProviderFlags = [pfInUpdate]
-      Size = 3
-    end
-    object sdsInfoMOD_DAT: TDateTimeField
-      FieldName = 'MOD_DAT'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoMEGJEGYZES: TWideStringField
-      FieldName = 'MEGJEGYZES'
-      ProviderFlags = [pfInUpdate]
-      Size = 150
-    end
-    object sdsInfoVALDAT: TDateTimeField
-      FieldName = 'VALDAT'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoVALTOM: TIntegerField
-      FieldName = 'VALTOM'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoTOM205: TIntegerField
-      FieldName = 'TOM205'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoSV: TIntegerField
-      FieldName = 'SV'
-      ProviderFlags = [pfInUpdate]
-    end
-    object sdsInfoAPAKLSZ: TWideStringField
-      FieldName = 'APAKLSZ'
-      ProviderFlags = [pfInUpdate]
-      Size = 10
-    end
-    object sdsInfoFAJTAKOD: TWideStringField
-      FieldName = 'FAJTAKOD'
-      ProviderFlags = [pfInUpdate]
-      Size = 5
-    end
-    object sdsInfoVER1: TWideStringField
-      FieldName = 'VER1'
-      ProviderFlags = [pfInUpdate]
-      Size = 10
-    end
-    object sdsInfoVER2: TWideStringField
-      FieldName = 'VER2'
-      ProviderFlags = [pfInUpdate]
-      Size = 10
-    end
-    object sdsInfoVER3: TWideStringField
-      FieldName = 'VER3'
-      ProviderFlags = [pfInUpdate]
-      Size = 10
-    end
-    object sdsInfoVER4: TWideStringField
-      FieldName = 'VER4'
-      ProviderFlags = [pfInUpdate]
-      Size = 10
-    end
     object sdsInfoKIKOD: TWideStringField
       FieldName = 'KIKOD'
-      ProviderFlags = [pfInUpdate]
       Size = 10
     end
     object sdsInfoKIKOK: TWideStringField
       FieldName = 'KIKOK'
-      ProviderFlags = [pfInUpdate]
       Size = 10
+    end
+    object sdsInfoKIKDAT: TDateTimeField
+      FieldName = 'KIKDAT'
+    end
+    object sdsInfoSTATUS: TWideStringField
+      FieldName = 'STATUS'
+      Size = 1
+    end
+    object sdsInfoALLAPOT: TWideStringField
+      FieldName = 'ALLAPOT'
+      Size = 1
+    end
+    object sdsInfoALLDAT: TDateTimeField
+      FieldName = 'ALLDAT'
+    end
+    object sdsInfoIVAR: TWideStringField
+      FieldName = 'IVAR'
+      Size = 1
+    end
+    object sdsInfoSZUL_SULY: TIntegerField
+      FieldName = 'SZUL_SULY'
+    end
+    object sdsInfoMOD_KOD: TWideStringField
+      FieldName = 'MOD_KOD'
+      Size = 3
+    end
+    object sdsInfoMOD_DAT: TDateTimeField
+      FieldName = 'MOD_DAT'
+    end
+    object sdsInfoMEGJEGYZES: TWideStringField
+      FieldName = 'MEGJEGYZES'
+      Size = 150
+    end
+    object sdsInfoVALDAT: TDateTimeField
+      FieldName = 'VALDAT'
+    end
+    object sdsInfoVALTOM: TIntegerField
+      FieldName = 'VALTOM'
+    end
+    object sdsInfoTOM205: TIntegerField
+      FieldName = 'TOM205'
+    end
+    object sdsInfoSV: TIntegerField
+      FieldName = 'SV'
     end
     object sdsInfoKIKHELY: TWideStringField
       FieldName = 'KIKHELY'
-      ProviderFlags = [pfInUpdate]
       Size = 10
     end
     object sdsInfoSZARM_TENY: TWideStringField
       FieldName = 'SZARM_TENY'
-      ProviderFlags = [pfInUpdate]
       Size = 7
-    end
-    object sdsInfoTKVSZAM: TWideStringField
-      FieldName = 'TKVSZAM'
     end
   end
   object sdsMeresTip: TTalSimpleDataSet
