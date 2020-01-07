@@ -9,7 +9,8 @@ uses
   uTALDBComboBox, uTALDBLookupComboBox, Mask, uValidedit, uDBValidedit,
   uTALDBEdit, uTALDBNavigator, uTALBitBtn, dbcgrids, uTALEdit, uTalParams,
   uTALSpeedButton, uTALCheckBox, Wwkeycb, uTALSearch, uTALMaskEdit, uTalQuery,
-  uTALButton, wwcheckbox, uTALDBCheckBox;
+  uTALButton, wwcheckbox, uTALDBCheckBox,
+  ADODB, uTALStoredProc;
 
 const
   order = ' ORDER BY EGYEDEK.ENAR, EGYEDEK.FULSZAM, EGYEDEK.TEHENSZAM, E.ELLES_DATUM ';
@@ -87,6 +88,8 @@ type
     TalButton1: TTalButton;
     cbSzarvaltsag: TTalDBCheckBox;
     lucKonstrukciosKod: TTalDBLookupComboBox;
+    btnXMLExport: TBitBtn;
+    XMLGen: TTalStoredProc;
     procedure TalBitBtn1Click(Sender: TObject);
     procedure actOKExecute(Sender: TObject);
     procedure TalBitBtn2Click(Sender: TObject);
@@ -96,6 +99,7 @@ type
     procedure edtAzonositoExit(Sender: TObject);
     procedure grdValRowChanged(Sender: TObject);
     procedure btnUjClick(Sender: TObject);
+    procedure btnXMLExportClick(Sender: TObject);
     procedure btnModositClick(Sender: TObject);
     procedure edtTermSszExit(Sender: TObject);
     procedure edtEnarExit(Sender: TObject);
@@ -125,6 +129,7 @@ type
     procedure EgyedTorles(EnarAzonosito:string);
     function EllesTorolheto(Egyed_id,elles_datum:string):Boolean;
     procedure VerhanyadFeltotltes;
+    procedure VerhanyadEditable( mode : Boolean);
   public
     { Public declarations }
   end;
@@ -327,7 +332,7 @@ begin
   frmEllesKarb.AktDatum := today;
   frmEllesKarb.sEllesSQl := EllesSql;
   s := FormatDateTime('yyyy.mm.dd',date-1);
-  frmEllesKarb.edtDatTol.Text := s;
+  frmEllesKarb.edtDatTol.Text := s; // '2019.01.01';
   dtmTarka.sdsEllesek.DataSet.CommandText := EllesSql + Quotedstr(s) + ' ' +  dtmTarka.TenyeszetWhereE + order;
   dtmTarka.sdsEllesek.Open;
 
@@ -690,6 +695,19 @@ begin
   end;
 end;
 
+Procedure TfrmEllesKarb.VerhanyadEditable( mode : Boolean);
+begin
+     lucVH1.Enabled := mode;
+     lucVH2.Enabled := mode;
+     lucVH3.Enabled := mode;
+     lucVH4.Enabled := mode;
+     lucKonstrukciosKod.Enabled := mode;
+     edtVSZ1.Enabled := mode;
+     edtVSZ2.Enabled := mode;
+     edtVSZ3.Enabled := mode;
+     edtVSZ4.Enabled := mode;
+end;
+
 
 Procedure TfrmEllesKarb.BKarb;
 begin
@@ -717,6 +735,8 @@ begin
       lucIvar.SetFocus;
     end;
   end;
+
+  VerhanyadEditable(dtmTarka.isAdmin);
 end;
 
 // Sor adatok változása
@@ -742,6 +762,59 @@ begin
   end
   else
     edtVemhNap.Text := '';
+
+  inherited;
+end;
+
+
+procedure TfrmEllesKarb.btnXMLExportClick(Sender: TObject);
+var
+  i : integer;
+  ell_azonositok, filename, TempDate : string;
+  rslt : WideString;
+begin
+  if not dtmTarka.LicenceDatEll then exit;
+
+  if grdVal.SelectedList.Count = 0 then
+  begin
+    dtmTarka.MsgDlg('Nincs kiválasztott egyed!',mterror,[mbOK],0 );
+    exit;
+  end;
+
+
+  ell_azonositok := '';
+  with grdVal.DataSource.DataSet do
+  begin
+    for i := 0 to grdVal.SelectedList.Count-1 do
+    begin
+      GotoBookmark(grdVal.SelectedList.Items[i]);
+      if ell_azonositok = '' then ell_azonositok := IntToStr( dtmTarka.dtsEllesek.DataSet.FieldValues['ID'])
+         else ell_azonositok := ell_azonositok + ',' + IntToStr( dtmTarka.dtsEllesek.DataSet.FieldValues['ID']);
+    end;
+  end;
+
+  XMLGen.ProcedureName := 'BORJAK_XML_EXPORT';
+  XMLGen.Parameters.Clear;
+  XMLGen.Parameters.CreateParameter('@IDS',ftString,pdInput,1024,null);
+  XMLGen.Parameters.CreateParameter('@RSLT',ftString,pdInputOutput,24000,null);
+  XMLGen.Parameters.ParamByName('@IDS').Value := ell_azonositok;
+  XMLGen.ExecProc;
+  rslt := XMLGen.Parameters.ParamByName('@RSLT').Value;
+  ell_azonositok := '';
+  with TStringList.Create do
+  try
+     rslt := StringReplace( rslt,'<ns2:SzmarhaBejelentok>',
+        '<ns2:SzmarhaBejelentok xmlns:ns2="http://e5046.client.enar.si.hu">', [rfReplaceAll]);
+     rslt := StringReplace( rslt,'<?xml version="1.0"?>',
+        '<?xml version="1.0" encoding="UTF-8"?>', [rfReplaceAll]);
+     Add(rslt);
+     DateTimeToString( TempDate, 'yyyymmdd', Now);
+     filename := dtmTarka.AppPath + '\SzmarhaBejelento_' + dtmTarka.TenyeszetTKOD + '_' + TempDate + '.xml';
+     SaveToFile(filename);
+  finally
+     Free;
+  end;
+  dtmTarka.MsgDlg('Exportálás sikeres: ' + filename, mtInformation, [mbOK], 0);
 
   inherited;
 end;

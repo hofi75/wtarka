@@ -1,8 +1,8 @@
 inherited frmEllesKarb: TfrmEllesKarb
-  Left = 929
-  Top = 294
-  Width = 947
-  Height = 648
+  Left = 180
+  Top = 136
+  Width = 1020
+  Height = 603
   Caption = 'Ell'#233'sek karbantart'#225'sa'
   OldCreateOrder = True
   Position = poDesigned
@@ -10,11 +10,11 @@ inherited frmEllesKarb: TfrmEllesKarb
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
-    Top = 567
-    Width = 931
+    Top = 522
+    Width = 1004
     Height = 43
     object btnUj: TBitBtn [0]
-      Left = 508
+      Left = 581
       Top = 11
       Width = 75
       Height = 25
@@ -33,7 +33,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         3300}
     end
     object btnModosit: TBitBtn [1]
-      Left = 588
+      Left = 661
       Top = 11
       Width = 75
       Height = 25
@@ -57,7 +57,7 @@ inherited frmEllesKarb: TfrmEllesKarb
       NumGlyphs = 2
     end
     object btnTorol: TBitBtn [2]
-      Left = 668
+      Left = 741
       Top = 11
       Width = 75
       Height = 25
@@ -81,27 +81,38 @@ inherited frmEllesKarb: TfrmEllesKarb
       NumGlyphs = 2
     end
     inherited BitBtn1: TTalBitBtn
-      Left = 746
+      Left = 821
       Top = 11
       TabOrder = 4
     end
     inherited BitBtn2: TTalBitBtn
-      Left = 826
+      Left = 915
       Top = 11
       TabOrder = 3
     end
+    object btnXMLExport: TBitBtn
+      Left = 165
+      Top = 11
+      Width = 190
+      Height = 25
+      Anchors = [akRight, akBottom]
+      Caption = 'XML export csoportos bejelent'#233'shez'
+      TabOrder = 5
+      OnClick = btnXMLExportClick
+      NumGlyphs = 2
+    end
   end
   inherited Panel2: TPanel
-    Left = 366
+    Left = 439
     Top = 38
     Width = 565
-    Height = 529
+    Height = 484
     Align = alRight
     object TalPanel3: TTalPanel
       Left = 248
       Top = 200
       Width = 313
-      Height = 325
+      Height = 280
       Align = alRight
       TabOrder = 0
       object TalLabel8: TTalLabel
@@ -283,6 +294,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         TabOrder = 0
         OnExit = edtEnarExit
         DataField = 'BORJU_ENAR'
+        DataSource = dtmTarka.dtsBorjak
         SpeedButton = TalSpeedButton1
       end
       object lucIvar: TTalDBLookupComboBox
@@ -291,6 +303,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'BORJU_IVAR'
+        DataSource = dtmTarka.dtsBorjak
         KeyField = 'KOD'
         ListField = 'KOD_NEV'
         TabOrder = 1
@@ -301,8 +314,10 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'BORJU_SZIN'
+        DataSource = dtmTarka.dtsBorjak
         KeyField = 'KOD'
         ListField = 'KOD_NEV'
+        ListSource = dtmTarka.dtsBszin
         TabOrder = 2
       end
       object lucHvKod: TTalDBLookupComboBox
@@ -311,6 +326,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'BORJU_KIESES_KOD'
+        DataSource = dtmTarka.dtsBorjak
         KeyField = 'KOD'
         ListField = 'KOD_NEV'
         TabOrder = 12
@@ -322,6 +338,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 37
         Height = 21
         DataField = 'BORJU_SULY'
+        DataSource = dtmTarka.dtsBorjak
         TabOrder = 3
       end
       object lucVH1: TTalDBLookupComboBox
@@ -330,6 +347,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'VER1'
+        DataSource = dtmTarka.dtsBorjak
         KeyField = 'FKOD'
         ListField = 'FNEV'
         TabOrder = 4
@@ -340,6 +358,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 37
         Height = 21
         DataField = 'VSZ1'
+        DataSource = dtmTarka.dtsBorjak
         TabOrder = 5
       end
       object lucVH2: TTalDBLookupComboBox
@@ -348,6 +367,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'VER2'
+        DataSource = dtmTarka.dtsBorjak
         KeyField = 'FKOD'
         ListField = 'FNEV'
         TabOrder = 6
@@ -358,6 +378,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 37
         Height = 21
         DataField = 'VSZ2'
+        DataSource = dtmTarka.dtsBorjak
         TabOrder = 7
       end
       object lucVH3: TTalDBLookupComboBox
@@ -366,6 +387,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'VER3'
+        DataSource = dtmTarka.dtsBorjak
         KeyField = 'FKOD'
         ListField = 'FNEV'
         TabOrder = 8
@@ -376,6 +398,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 37
         Height = 21
         DataField = 'VSZ3'
+        DataSource = dtmTarka.dtsBorjak
         TabOrder = 9
       end
       object lucVH4: TTalDBLookupComboBox
@@ -384,6 +407,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'VER4'
+        DataSource = dtmTarka.dtsBorjak
         KeyField = 'FKOD'
         ListField = 'FNEV'
         TabOrder = 10
@@ -394,6 +418,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 37
         Height = 21
         DataField = 'VSZ4'
+        DataSource = dtmTarka.dtsBorjak
         TabOrder = 11
       end
       object edtFulszam: TTalDBEdit
@@ -414,6 +439,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         TabOrder = 13
         OnExit = edtEnarExit
         DataField = 'FSZ'
+        DataSource = dtmTarka.dtsBorjak
         SpeedButton = TalSpeedButton1
       end
       object edtIdENAR: TTalDBEdit
@@ -434,6 +460,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         TabOrder = 14
         OnExit = edtEnarExit
         DataField = 'IENAR'
+        DataSource = dtmTarka.dtsBorjak
         SpeedButton = TalSpeedButton1
       end
       object cbSzarvaltsag: TTalDBCheckBox
@@ -451,6 +478,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Alignment = taLeftJustify
         Caption = 'Szarvalts'#225'g: '
         DataField = 'SZARVALTSAG'
+        DataSource = dtmTarka.dtsBorjak
         TabOrder = 15
       end
       object lucKonstrukciosKod: TTalDBLookupComboBox
@@ -459,6 +487,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         Width = 145
         Height = 21
         DataField = 'BORJU_KONS_KOD'
+        DataSource = dtmTarka.dtsBorjak
         KeyField = 'KOD'
         ListField = 'KOD_NEV'
         TabOrder = 16
@@ -468,7 +497,7 @@ inherited frmEllesKarb: TfrmEllesKarb
       Left = 0
       Top = 200
       Width = 248
-      Height = 325
+      Height = 280
       TabStop = False
       IniAttributes.Delimiter = ';;'
       TitleColor = clBtnFace
@@ -646,6 +675,7 @@ inherited frmEllesKarb: TfrmEllesKarb
           Width = 145
           Height = 21
           DataField = 'ELLES_LEF'
+          DataSource = dtmTarka.dtsEllesek
           KeyField = 'KOD'
           ListField = 'KOD_NEV'
           TabOrder = 8
@@ -704,6 +734,7 @@ inherited frmEllesKarb: TfrmEllesKarb
           TabOrder = 3
           OnExit = edtTermSszExit
           DataField = 'BIKA'
+          DataSource = dtmTarka.dtsEllesek
         end
         object edtVemhNap: TTalEdit
           Left = 400
@@ -802,8 +833,8 @@ inherited frmEllesKarb: TfrmEllesKarb
   object grdVal: TTalDBGrid [2]
     Left = 0
     Top = 38
-    Width = 366
-    Height = 529
+    Width = 439
+    Height = 484
     IniAttributes.Delimiter = ';;'
     TitleColor = clBtnFace
     OnRowChanged = grdValRowChanged
@@ -812,7 +843,8 @@ inherited frmEllesKarb: TfrmEllesKarb
     EditControlOptions = [ecoCheckboxSingleClick, ecoSearchOwnerForm]
     Align = alClient
     KeyOptions = []
-    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap, dgNoLimitColSize, dgTabExitsOnLastCol]
+    MultiSelectOptions = [msoAutoUnselect, msoShiftSelect]
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap, dgMultiSelect, dgNoLimitColSize, dgTabExitsOnLastCol]
     TabOrder = 2
     TitleAlignment = taLeftJustify
     TitleFont.Charset = DEFAULT_CHARSET
@@ -839,7 +871,7 @@ inherited frmEllesKarb: TfrmEllesKarb
   object pnlKeres: TTalPanel [3]
     Left = 0
     Top = 0
-    Width = 931
+    Width = 1004
     Height = 38
     Align = alTop
     TabOrder = 3
@@ -923,5 +955,12 @@ inherited frmEllesKarb: TfrmEllesKarb
     inherited actMegsem: TAction
       Tag = -1
     end
+  end
+  object XMLGen: TTalStoredProc
+    Connection = dtmTarka.cnTarka
+    ProcedureName = 'BORJAK_XML_EXPORT'
+    Parameters = <>
+    Left = 16
+    Top = 568
   end
 end
