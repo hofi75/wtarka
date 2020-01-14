@@ -2,8 +2,8 @@ object dtmTarka: TdtmTarka
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 467
-  Top = 78
+  Left = 391
+  Top = 219
   Height = 558
   Width = 798
   object cnTarka: TTalConnection
@@ -1970,8 +1970,8 @@ object dtmTarka: TdtmTarka
       'L2,'#13#10'  e.TKV,'#13#10'  e.TKVSZAM,'#13#10'  e."MIN",'#13#10'  e.KIKOD,'#13#10'  e.KIKOK,'#13 +
       #10'  e.KIKDAT,'#13#10'  e.STATUS,'#13#10'  e.ALLAPOT,'#13#10'  e.ALLDAT,'#13#10'  e.IVAR,'#13 +
       #10'  e.SZUL_SULY,'#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  ' +
-      'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,'#13#10'  e.' +
-      'SZARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'
+      'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,  e.SZ' +
+      'ARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'
     DataSet.FieldDefs = <
       item
         Name = 'ID'
@@ -2260,10 +2260,9 @@ object dtmTarka: TdtmTarka
     DataSet.Parameters = <
       item
         Name = 'ID'
-        Attributes = [paNullable]
-        DataType = ftString
+        DataType = ftInteger
         Size = 15
-        Value = '0'
+        Value = Null
       end>
     DataSet.StoreDefs = True
     Provider.DataSet.Connection = cnTarka
@@ -2278,8 +2277,8 @@ object dtmTarka: TdtmTarka
       'L2,'#13#10'  e.TKV,'#13#10'  e.TKVSZAM,'#13#10'  e."MIN",'#13#10'  e.KIKOD,'#13#10'  e.KIKOK,'#13 +
       #10'  e.KIKDAT,'#13#10'  e.STATUS,'#13#10'  e.ALLAPOT,'#13#10'  e.ALLDAT,'#13#10'  e.IVAR,'#13 +
       #10'  e.SZUL_SULY,'#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  ' +
-      'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,'#13#10'  e.' +
-      'SZARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'
+      'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,  e.SZ' +
+      'ARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'
     Provider.DataSet.FieldDefs = <
       item
         Name = 'ID'
@@ -2568,15 +2567,16 @@ object dtmTarka: TdtmTarka
     Provider.DataSet.Parameters = <
       item
         Name = 'ID'
-        Attributes = [paNullable]
-        DataType = ftString
+        DataType = ftInteger
         Size = 15
-        Value = '0'
+        Value = Null
       end>
     Provider.DataSet.StoreDefs = True
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
+    Provider.UpdateMode = upWhereChanged
     Params = <>
+    OnReconcileError = sdsInfoReconcileError
     Left = 24
     Top = 72
     object sdsInfoID: TBCDField
@@ -2586,14 +2586,17 @@ object dtmTarka: TdtmTarka
     end
     object sdsInfoENAR: TWideStringField
       FieldName = 'ENAR'
+      ProviderFlags = [pfInUpdate]
       Size = 14
     end
     object sdsInfoTENYESZET: TWideStringField
       FieldName = 'TENYESZET'
+      ProviderFlags = [pfInUpdate]
       Size = 7
     end
     object sdsInfoTEHENSZAM: TWideStringField
       FieldName = 'TEHENSZAM'
+      ProviderFlags = [pfInUpdate]
       Size = 15
     end
     object sdsInfoFULSZAM: TWideStringField
@@ -2638,6 +2641,7 @@ object dtmTarka: TdtmTarka
     end
     object sdsInfoSZULDAT: TDateTimeField
       FieldName = 'SZULDAT'
+      ProviderFlags = [pfInUpdate]
     end
     object sdsInfoFAJTAKOD: TWideStringField
       FieldName = 'FAJTAKOD'
@@ -2736,6 +2740,7 @@ object dtmTarka: TdtmTarka
     end
     object sdsInfoKIKDAT: TDateTimeField
       FieldName = 'KIKDAT'
+      ProviderFlags = [pfInUpdate]
     end
     object sdsInfoSTATUS: TWideStringField
       FieldName = 'STATUS'
@@ -2747,6 +2752,7 @@ object dtmTarka: TdtmTarka
     end
     object sdsInfoALLDAT: TDateTimeField
       FieldName = 'ALLDAT'
+      ProviderFlags = [pfInUpdate]
     end
     object sdsInfoIVAR: TWideStringField
       FieldName = 'IVAR'
@@ -2761,6 +2767,7 @@ object dtmTarka: TdtmTarka
     end
     object sdsInfoMOD_DAT: TDateTimeField
       FieldName = 'MOD_DAT'
+      ProviderFlags = [pfInUpdate]
     end
     object sdsInfoMEGJEGYZES: TWideStringField
       FieldName = 'MEGJEGYZES'
@@ -2768,6 +2775,7 @@ object dtmTarka: TdtmTarka
     end
     object sdsInfoVALDAT: TDateTimeField
       FieldName = 'VALDAT'
+      ProviderFlags = [pfInUpdate]
     end
     object sdsInfoVALTOM: TIntegerField
       FieldName = 'VALTOM'

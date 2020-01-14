@@ -151,11 +151,11 @@ type
     qryInfTermKOD_NEV: TWideStringField;
     dtsInfTerm: TDataSource;
     qryInfMeres: TTalSimpleDataSet;
-    qryInfMeresKOD_NEV: TWideStringField;
-    qryInfMeresDATUM: TDateTimeField;
-    qryInfMeresTOMEG: TSmallintField;
     dtsInfMeres: TDataSource;
     edtTKVSZAM: TTalDBEdit;
+    qryInfMeresKOD_NEV: TWideStringField;
+    qryInfMeresDATUM: TDateTimeField;
+    qryInfMeresTOMEG: TIntegerField;
     procedure btnKilepesClick(Sender: TObject);
     procedure btnKeresesClick(Sender: TObject);
     procedure btnModositClick(Sender: TObject);
@@ -194,6 +194,7 @@ type
     { Private declarations }
     EditMode : string;
     AktId : string;
+    SQL_statement: string;
     procedure ControlokBeallitasa(mode:Boolean);
     procedure GombokBeallitasa(mode:Boolean);
     function Mezok_Kitoltve:Boolean;
@@ -242,6 +243,7 @@ begin
   frmInfoPult.lucKiMod.ListSource := dtmTarka.dtsKiesesKod;
   frmInfoPult.lucKikhely.ListSource := dtmTarka.dtsKikHely;
 
+    // dtmTarka.sdsInfo.DataSet.CommandText := StringReplace( frmInfoPult.SQL_statement,':ID','0', [rfReplaceAll]);
   dtmTarka.sdsInfo.Open;
   dtmtarka.qryIvar.Open;
   dtmtarka.qryStatus.Open;
@@ -430,6 +432,9 @@ begin
   if sAzonId = EmptyStr then sAzonId := '0';
   if dtmTarka.sdsInfo.Active then dtmTarka.sdsInfo.Close;
 
+  // dtmTarka.sdsInfo.DataSet.CommandText :=
+  //     StringReplace( SQL_statement,':ID',
+  //                 sAzonId, [rfReplaceAll]);
   dtmTarka.sdsInfo.DataSet.Parameters.ParamByName('ID').Value := StrToInt64(sAzonId);
   dtmTarka.sdsInfo.Open;
 
@@ -516,6 +521,7 @@ var
   EgyedAzon, azon, id : string;
   RegiKorcs : string;
   RegiOk : string;
+  nof_errors : Integer;
 begin
   if Self.EditMode = 'L' then begin
     if not dtmtarka.LicenceDatEll then exit;
@@ -563,16 +569,17 @@ begin
 
     dtmTarka.sdsInfo.Post;
     EgyedAzon := dtmTarka.sdsInfoENAR.AsString;
-    dtmtarka.cnTarka.BeginTrans;
-    try
-      dtmTarka.sdsInfo.ApplyUpdates(0);
-      dtmtarka.cnTarka.CommitTrans;
+    // dtmtarka.cnTarka.BeginTrans;
+    // try
+      nof_errors := dtmTarka.sdsInfo.ApplyUpdates(0);
+      // dtmTarka.sdsInfo.on
+      // dtmtarka.cnTarka.CommitTrans;
       dtmTarka.sdsInfo.Close;
 //      sdsInfo.Open;
-    except
-      if dtmtarka.cnTarka.InTransaction then
-        dtmtarka.cnTarka.RollbackTrans;
-    end;
+    // except
+      // if dtmtarka.cnTarka.InTransaction then
+        // dtmtarka.cnTarka.RollbackTrans;
+    // end;
     Self.Caption := 'Egyed adatainak lekérdezése';
 
     dtmTarka.sdsInfo.Close;
@@ -1027,6 +1034,5 @@ procedure TfrmInfoPult.btnAtkotesClick(Sender: TObject);
 begin
   // ( sdsInfo.FieldByName('ID').AsString, sdsInfo.FieldByName('ENAR').AsString, sdsInfo.FieldByName('Tenyeszet').AsString);
 end;
-
 
 end.
