@@ -5207,10 +5207,6 @@ object frmTListak: TfrmTListak
       FieldName = 'FAJTAKOD'
       Size = 5
     end
-    object sdsTNaploSZIN: TWideStringField
-      FieldName = 'SZIN'
-      Size = 1
-    end
     object sdsTNaploKIKDAT: TDateTimeField
       FieldName = 'KIKDAT'
     end
@@ -5483,6 +5479,10 @@ object frmTListak: TfrmTListak
       FieldName = 'ALLAP5'
       Size = 1
     end
+    object sdsTNaploSZIN: TWideStringField
+      FieldName = 'SZIN'
+      Size = 2
+    end
   end
   object dtsTNaplo: TDataSource
     DataSet = sdsTNaplo
@@ -5500,7 +5500,6 @@ object frmTListak: TfrmTListak
       'APAKLSZ=APAKLSZ'
       'BN=BN'
       'FAJTAKOD=FAJTAKOD'
-      'SZIN=SZIN'
       'KIKDAT=KIKDAT'
       'KIKOD=KIKOD'
       'KIKOK=KIKOK'
@@ -5576,7 +5575,8 @@ object frmTListak: TfrmTListak
       'TDAT5_TOL=TDAT5_TOL'
       'TDAT5_IG=TDAT5_IG'
       'TKLSZ5=TKLSZ5'
-      'ALLAP5=ALLAP5')
+      'ALLAP5=ALLAP5'
+      'SZIN=SZIN')
     DataSet = sdsTNaplo
     Left = 368
     Top = 296

@@ -42,7 +42,6 @@ type
     sdsTNaploAPAKLSZ: TWideStringField;
     sdsTNaploBN: TWideStringField;
     sdsTNaploFAJTAKOD: TWideStringField;
-    sdsTNaploSZIN: TWideStringField;
     sdsTNaploKIKDAT: TDateTimeField;
     sdsTNaploKIKOD: TWideStringField;
     sdsTNaploKIKOK: TWideStringField;
@@ -128,6 +127,7 @@ type
     frxReport_test: TfrxReport;
     frxRepListak: TfrxReport;
     frxTNaplo: TfrxReport;
+    sdsTNaploSZIN: TWideStringField;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
     procedure cbBikaExit(Sender: TObject);

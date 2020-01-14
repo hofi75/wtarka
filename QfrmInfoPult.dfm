@@ -1,6 +1,6 @@
 object frmInfoPult: TfrmInfoPult
-  Left = 304
-  Top = 0
+  Left = 581
+  Top = 137
   Width = 944
   Height = 722
   BorderIcons = [biSystemMenu, biMinimize]
@@ -1798,6 +1798,8 @@ object frmInfoPult: TfrmInfoPult
   end
   object qryInfMeres: TTalSimpleDataSet
     Aggregates = <>
+    Connection = dtmTarka.cnTarka
+    DataSet.Connection = dtmTarka.cnTarka
     DataSet.CommandText = 
       'SELECT kodok.kod_nev, TOMEGEK.DATUM, TOMEGEK.TOMEG '#13#10'FROM TOMEGE' +
       'K '#13#10'left join kodok on kodok.kod = tomegek.meres_tipus and kodok' +
@@ -1805,11 +1807,11 @@ object frmInfoPult: TfrmInfoPult
     DataSet.Parameters = <
       item
         Name = 'ID'
-        Attributes = [paNullable]
         DataType = ftString
-        Size = 15
-        Value = '0'
+        Size = -1
+        Value = Null
       end>
+    Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
       'SELECT kodok.kod_nev, TOMEGEK.DATUM, TOMEGEK.TOMEG '#13#10'FROM TOMEGE' +
       'K '#13#10'left join kodok on kodok.kod = tomegek.meres_tipus and kodok' +
@@ -1817,10 +1819,9 @@ object frmInfoPult: TfrmInfoPult
     Provider.DataSet.Parameters = <
       item
         Name = 'ID'
-        Attributes = [paNullable]
         DataType = ftString
-        Size = 15
-        Value = '0'
+        Size = -1
+        Value = Null
       end>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
@@ -1828,21 +1829,13 @@ object frmInfoPult: TfrmInfoPult
     Left = 16
     Top = 640
     object qryInfMeresKOD_NEV: TWideStringField
-      DisplayLabel = 'Tipus'
-      DisplayWidth = 15
       FieldName = 'KOD_NEV'
       Size = 30
     end
     object qryInfMeresDATUM: TDateTimeField
-      Alignment = taCenter
-      DisplayLabel = 'D'#225'tum'
-      DisplayWidth = 10
       FieldName = 'DATUM'
     end
-    object qryInfMeresTOMEG: TSmallintField
-      Alignment = taCenter
-      DisplayLabel = 'T'#246'meg[kg]'
-      DisplayWidth = 10
+    object qryInfMeresTOMEG: TIntegerField
       FieldName = 'TOMEG'
     end
   end

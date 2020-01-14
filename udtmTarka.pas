@@ -316,6 +316,9 @@ type
       DisplayText: Boolean);
     procedure sdsTermekenyitesekVEMH_DATUMGetText(Sender: TField;
       var Text: String; DisplayText: Boolean);
+    procedure sdsInfoReconcileError(DataSet: TCustomClientDataSet;
+      E: EReconcileError; UpdateKind: TUpdateKind;
+      var Action: TReconcileAction);
   private
     { Private declarations }
   public
@@ -2607,6 +2610,13 @@ begin
     exit;
   end ;
   tq.Close;
+end;
+
+procedure TdtmTarka.sdsInfoReconcileError(DataSet: TCustomClientDataSet;
+  E: EReconcileError; UpdateKind: TUpdateKind;
+  var Action: TReconcileAction);
+begin
+   dtmTarka.MsgDlg('ERROR :' + E.Message, mtWarning, [mbOK], 0);
 end;
 
 end.
