@@ -195,6 +195,7 @@ type
     procedure edtSzulDatExit(Sender: TObject);
     procedure btnAtkotesClick(Sender: TObject);
     procedure edtVerhanyadChanged(Sender: TObject);
+    procedure VerhanyadDB2Edit();
   private
     { Private declarations }
     EditMode : string;
@@ -466,11 +467,7 @@ begin
   end
   else
   begin
-
-    edtVer1.Value := dtmTarka.sdsInfoVSZ1.AsVariant;
-    edtVer2.Value := dtmTarka.sdsInfoVSZ2.AsVariant;
-    edtVer3.Value := dtmTarka.sdsInfoVSZ3.AsVariant;
-    edtVer4.Value := dtmTarka.sdsInfoVSZ4.AsVariant;
+    VerhanyadDB2Edit;
     CurrentID := dtmTarka.sdsInfoID.AsVariant;
 
     if qryInfElles.Active then
@@ -616,10 +613,7 @@ begin
     end;
 
     dtmTarka.sdsInfo.Open;
-    edtVer1.Value := dtmTarka.sdsInfoVSZ1.AsVariant;
-    edtVer2.Value := dtmTarka.sdsInfoVSZ2.AsVariant;
-    edtVer3.Value := dtmTarka.sdsInfoVSZ3.AsVariant;
-    edtVer4.Value := dtmTarka.sdsInfoVSZ4.AsVariant;
+    VerhanyadDB2Edit;
 
     ControlokBeallitasa(false);
     GombokBeallitasa(true);
@@ -1069,6 +1063,32 @@ end;
 procedure TfrmInfoPult.edtVerhanyadChanged(Sender: TObject);
 begin
     VerhanyadChanged := true;
+end;
+
+procedure TfrmInfoPult.VerhanyadDB2Edit;
+begin
+    try
+       edtVer1.Value := dtmTarka.sdsInfoVSZ1.AsVariant;
+    except
+       edtVer1.EditText := '0';
+    end;
+    try
+       edtVer2.Value := dtmTarka.sdsInfoVSZ2.AsVariant;
+    except
+       edtVer2.EditText := '0';
+    end;
+
+    try
+       edtVer3.Value := dtmTarka.sdsInfoVSZ3.AsVariant;
+    except
+       edtVer3.EditText := '0';
+    end;
+
+    try
+       edtVer4.Value := dtmTarka.sdsInfoVSZ4.AsVariant;
+    except
+       edtVer4.EditText := '0';
+    end;
 end;
 
 end.
