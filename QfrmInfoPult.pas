@@ -102,16 +102,16 @@ type
     TalLabel38: TTalLabel;
     lucVer1: TTalDBLookupComboBox;
     TalLabel39: TTalLabel;
-    edtVer1: TDBEdit;
+    edtVer1_old: TDBEdit;
     TalLabel40: TTalLabel;
     lucVer2: TTalDBLookupComboBox;
     TalLabel41: TTalLabel;
-    edtVer2: TDBEdit;
+    edtVer2_old: TDBEdit;
     TalLabel42: TTalLabel;
     lucVer3: TTalDBLookupComboBox;
-    edtVer3: TDBEdit;
+    edtVer3_old: TDBEdit;
     lucVer4: TTalDBLookupComboBox;
-    edtVer4: TDBEdit;
+    edtVer4_old: TDBEdit;
     TalLabel47: TTalLabel;
     TalLabel48: TTalLabel;
     TalLabel49: TTalLabel;
@@ -156,6 +156,10 @@ type
     qryInfMeresKOD_NEV: TWideStringField;
     qryInfMeresDATUM: TDateTimeField;
     qryInfMeresTOMEG: TIntegerField;
+    edtVer1: TTalEdit;
+    edtVer3: TTalEdit;
+    edtVer2: TTalEdit;
+    edtVer4: TTalEdit;
     procedure btnKilepesClick(Sender: TObject);
     procedure btnKeresesClick(Sender: TObject);
     procedure btnModositClick(Sender: TObject);
@@ -190,10 +194,13 @@ type
     procedure btnHtermClick(Sender: TObject);
     procedure edtSzulDatExit(Sender: TObject);
     procedure btnAtkotesClick(Sender: TObject);
+    procedure edtVerhanyadChanged(Sender: TObject);
   private
     { Private declarations }
     EditMode : string;
     AktId : string;
+    CurrentID : Integer;
+    VerhanyadChanged : Boolean;
     SQL_statement: string;
     procedure ControlokBeallitasa(mode:Boolean);
     procedure GombokBeallitasa(mode:Boolean);
@@ -453,13 +460,19 @@ begin
     qryInfMeres.DataSet.Parameters.ParamByName('ID').Value := 0;
     qryInfMeres.Open;
 
-
     btnModosit.Enabled := false;
     edtKeres.SetFocus;
     exit;
   end
   else
   begin
+
+    edtVer1.Value := dtmTarka.sdsInfoVSZ1.AsVariant;
+    edtVer2.Value := dtmTarka.sdsInfoVSZ2.AsVariant;
+    edtVer3.Value := dtmTarka.sdsInfoVSZ3.AsVariant;
+    edtVer4.Value := dtmTarka.sdsInfoVSZ4.AsVariant;
+    CurrentID := dtmTarka.sdsInfoID.AsVariant;
+
     if qryInfElles.Active then
       qryInfElles.Close;
     qryInfElles.DataSet.Parameters.ParamByName('ID').Value := dtmTarka.sdsInfo.FieldByName('ID').Value;
@@ -520,7 +533,7 @@ procedure TfrmInfoPult.btnModositClick(Sender: TObject);
 var
   EgyedAzon, azon, id : string;
   RegiKorcs : string;
-  RegiOk : string;
+  RegiOk, sql : string;
   nof_errors : Integer;
 begin
   if Self.EditMode = 'L' then begin
@@ -548,6 +561,7 @@ begin
     Self.btnTorol.Enabled := false;
     Self.edtKeres.Enabled := false;
     edtSzulDat.SetFocus;
+    VerhanyadChanged := false;
     dtmTarka.sdsInfo.Edit;
   end else begin
     if not Mezok_kitoltve then exit;
@@ -567,20 +581,33 @@ begin
         RegiOk := '';
     end;
 
+    // edtVer1_old.EditText := '55.1';
     dtmTarka.sdsInfo.Post;
     EgyedAzon := dtmTarka.sdsInfoENAR.AsString;
-    // dtmtarka.cnTarka.BeginTrans;
-    // try
-      nof_errors := dtmTarka.sdsInfo.ApplyUpdates(0);
-      // dtmTarka.sdsInfo.on
-      // dtmtarka.cnTarka.CommitTrans;
-      dtmTarka.sdsInfo.Close;
-//      sdsInfo.Open;
-    // except
-      // if dtmtarka.cnTarka.InTransaction then
-        // dtmtarka.cnTarka.RollbackTrans;
-    // end;
+    nof_errors := dtmTarka.sdsInfo.ApplyUpdates(0);
+    dtmTarka.sdsInfo.Close;
     Self.Caption := 'Egyed adatainak lekérdezése';
+
+    if VerhanyadChanged then begin
+      sql := 'update egyedek ' +
+             ' set vsz1 = ' + StringReplace( edtVer1.EditText,',','.',[]) + ', ' +
+             ' vsz2 = ' + StringReplace( edtVer2.EditText,',','.',[]) + ', ' +
+             ' vsz3 = ' + StringReplace( edtVer3.EditText,',','.',[]) + ', ' +
+             ' vsz4 = ' + StringReplace( edtVer4.EditText,',','.',[]) +
+             ' where ID = ' + IntToStr(CurrentID);
+      log(sql);
+
+      dtmTarka.cnTarka.BeginTrans;
+      try
+         dtmTarka.cnTarka.Execute(SQL);
+         dtmTarka.cnTarka.CommitTrans;
+      except
+         if dtmTarka.cnTarka.InTransaction then begin
+            dtmTarka.cnTarka.RollbackTrans;
+         end;
+         dtmTarka.MsgDlg( 'Az adatok mentése nem sikerült!' + dtmTarka.cnTarka.Errors.Item[0].Description, mtWarning, [mbOK], 0);
+      end;
+    end;
 
     dtmTarka.sdsInfo.Close;
     if EditMode = 'N' then begin
@@ -589,6 +616,10 @@ begin
     end;
 
     dtmTarka.sdsInfo.Open;
+    edtVer1.Value := dtmTarka.sdsInfoVSZ1.AsVariant;
+    edtVer2.Value := dtmTarka.sdsInfoVSZ2.AsVariant;
+    edtVer3.Value := dtmTarka.sdsInfoVSZ3.AsVariant;
+    edtVer4.Value := dtmTarka.sdsInfoVSZ4.AsVariant;
 
     ControlokBeallitasa(false);
     GombokBeallitasa(true);
@@ -1033,6 +1064,11 @@ end;
 procedure TfrmInfoPult.btnAtkotesClick(Sender: TObject);
 begin
   // ( sdsInfo.FieldByName('ID').AsString, sdsInfo.FieldByName('ENAR').AsString, sdsInfo.FieldByName('Tenyeszet').AsString);
+end;
+
+procedure TfrmInfoPult.edtVerhanyadChanged(Sender: TObject);
+begin
+    VerhanyadChanged := true;
 end;
 
 end.

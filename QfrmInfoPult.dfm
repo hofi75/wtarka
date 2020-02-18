@@ -1,6 +1,6 @@
 object frmInfoPult: TfrmInfoPult
-  Left = 581
-  Top = 137
+  Left = 324
+  Top = 128
   Width = 944
   Height = 722
   BorderIcons = [biSystemMenu, biMinimize]
@@ -1268,15 +1268,17 @@ object frmInfoPult: TfrmInfoPult
       ListField = 'FNEV'
       TabOrder = 25
     end
-    object edtVer1: TDBEdit
-      Left = 299
-      Top = 295
+    object edtVer1_old: TDBEdit
+      Left = 475
+      Top = 7
       Width = 37
       Height = 21
       DataField = 'VSZ1'
       DataSource = dtmTarka.dtsInfo
+      Enabled = False
       MaxLength = 8
       TabOrder = 26
+      Visible = False
     end
     object lucVer2: TTalDBLookupComboBox
       Left = 375
@@ -1289,14 +1291,15 @@ object frmInfoPult: TfrmInfoPult
       ListField = 'FNEV'
       TabOrder = 27
     end
-    object edtVer2: TDBEdit
-      Left = 539
-      Top = 295
+    object edtVer2_old: TDBEdit
+      Left = 563
+      Top = 7
       Width = 37
       Height = 21
       DataField = 'VSZ2'
       DataSource = dtmTarka.dtsInfo
       TabOrder = 28
+      Visible = False
     end
     object edtTko: TTalDBEdit
       Left = 135
@@ -1348,23 +1351,25 @@ object frmInfoPult: TfrmInfoPult
       DataField = 'MLEVEL2'
       DataSource = dtmTarka.dtsInfo
     end
-    object edtVer3: TDBEdit
-      Left = 299
-      Top = 317
+    object edtVer3_old: TDBEdit
+      Left = 515
+      Top = 5
       Width = 37
       Height = 21
       DataField = 'VSZ3'
       DataSource = dtmTarka.dtsInfo
       TabOrder = 30
+      Visible = False
     end
-    object edtVer4: TDBEdit
-      Left = 539
-      Top = 317
+    object edtVer4_old: TDBEdit
+      Left = 619
+      Top = 5
       Width = 37
       Height = 21
       DataField = 'VSZ4'
       DataSource = dtmTarka.dtsInfo
       TabOrder = 32
+      Visible = False
     end
     object lucVer3: TTalDBLookupComboBox
       Left = 135
@@ -1532,6 +1537,78 @@ object frmInfoPult: TfrmInfoPult
       TabOrder = 52
       DataField = 'TKVSZAM'
       DataSource = dtmTarka.dtsInfo
+    end
+    object edtVer1: TTalEdit
+      Left = 304
+      Top = 296
+      Width = 33
+      Height = 22
+      Alignment = taRightJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Text = '0'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ReadOnly = False
+      TabOrder = 53
+      OnChange = edtVerhanyadChanged
+    end
+    object edtVer3: TTalEdit
+      Left = 304
+      Top = 318
+      Width = 33
+      Height = 22
+      Alignment = taRightJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Text = '0'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ReadOnly = False
+      TabOrder = 54
+      OnChange = edtVerhanyadChanged
+    end
+    object edtVer2: TTalEdit
+      Left = 544
+      Top = 296
+      Width = 33
+      Height = 22
+      Alignment = taRightJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Text = '0'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ReadOnly = False
+      TabOrder = 55
+      OnChange = edtVerhanyadChanged
+    end
+    object edtVer4: TTalEdit
+      Left = 544
+      Top = 320
+      Width = 33
+      Height = 22
+      Alignment = taRightJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Text = '0'
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      MaxLength = -1
+      ReadOnly = False
+      TabOrder = 56
+      OnChange = edtVerhanyadChanged
     end
   end
   object TalPanel4: TTalPanel
