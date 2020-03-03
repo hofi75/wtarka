@@ -1634,6 +1634,8 @@ procedure TdtmTarka.UjBorjuEgyedtorzsbe(b_azon: string);
 var
   SQL : string;
   fk, SQL1 : string;
+  spIkerUpdate: TADOStoredProc;
+  b_enar_parm : TParameter;
 begin
    SQL := 'insert into EGYEDEK (   ENAR, NEV, SZULDAT, ALLDAT, ' +
   ' IVAR, SZIN, ANYA_ENAR,   APAKLSZ, TENYESZET, KKOD, ' +
@@ -1659,10 +1661,23 @@ begin
         ' where EGYEDEK.ENAR = ' + quotedstr(b_azon);
     log(sql1);
     cnTarka.Execute(SQL1);
+
+    // TADOConnection
+    spIkerUpdate := TADOStoredProc.Create(Self);
+    spIkerUpdate.Connection := dtmTarka.cnTarka;
+    spIkerUpdate.ProcedureName := 'IKER_UPDATE';
+    spIkerUpdate.Parameters.Clear;
+    spIkerUpdate.Parameters.CreateParameter('B_ENAR',ftString,pdInput,16,b_azon);
+    spIkerUpdate.ExecProc;
+
     cnTarka.CommitTrans;
   except
-    if cnTarka.InTransaction then begin
-      cnTarka.RollbackTrans;
+    on E : Exception do
+    begin
+      ShowMessage(E.ClassName+' error raised, with message : '+E.Message);
+      if cnTarka.InTransaction then begin
+         cnTarka.RollbackTrans;
+    end;
     end;
   end;
 
