@@ -1607,6 +1607,7 @@ end;
 procedure TdtmTarka.BorjuEgyedtorzsbeUpdate(b_azon: string);
 var
   SQL : string;
+  spIkerUpdate: TADOStoredProc;
 begin
   if b_azon = EmptyStr then exit;
   SQL := 'update EGYEDEK  '+
@@ -1626,6 +1627,15 @@ begin
       cnTarka.RollbackTrans;
     end;
   end;
+
+    // TADOConnection
+  spIkerUpdate := TADOStoredProc.Create(Self);
+  spIkerUpdate.Connection := dtmTarka.cnTarka;
+  spIkerUpdate.ProcedureName := 'IKER_UPDATE';
+  spIkerUpdate.Parameters.Clear;
+  spIkerUpdate.Parameters.CreateParameter('B_ENAR',ftString,pdInput,16,b_azon);
+  spIkerUpdate.ExecProc;
+
 end;
 
 
