@@ -1,9 +1,9 @@
 inherited frmEgyediLapLista: TfrmEgyediLapLista
-  Left = 1708
-  Top = 169
+  Left = 450
+  Top = 220
   Width = 701
   Height = 389
-  Caption = 'Egyedi lap nyomtat�sa'
+  Caption = 'Egyedi lap nyomtat'#225'sa'
   OldCreateOrder = True
   PixelsPerInch = 96
   TextHeight = 13
@@ -28,7 +28,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       Top = 80
       Width = 82
       Height = 13
-      Caption = 'Egyed azonos�t�:'
+      Caption = 'Egyed azonos'#237't'#243':'
     end
     object TalLabel2: TTalLabel
       Left = 272
@@ -42,7 +42,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       Top = 56
       Width = 52
       Height = 13
-      Caption = 'Teny�szet:'
+      Caption = 'Teny'#233'szet:'
     end
     object edtEgyedIg: TTalEdit
       Left = 288
@@ -96,7 +96,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     IniFile = 'EgyediLap.fr3'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator]
     PreviewOptions.Zoom = 1.000000000000000000
-    PrintOptions.Printer = 'Alap�rtelmezett'
+    PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 38838.519462187500000000
     ReportOptions.LastChange = 43566.865340266200000000
     ScriptLanguage = 'PascalScript'
@@ -114,14 +114,14 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '  s : string;'
       'begin'
       '    s:= Trim(<frxDBLista."ENAR">);'
-      '    if ((Copy(s,1,1) = ''3'') And (Length(s) = 10)) Then'
+      '    if ((Copy(s,1,1) = '#39'3'#39') And (Length(s) = 10)) Then'
       
-        '      memo7.text := Copy(s,1,5) + ''-'' + Copy(s,6,4) + ''-'' + Copy' +
+        '      memo7.text := Copy(s,1,5) + '#39'-'#39' + Copy(s,6,4) + '#39'-'#39' + Copy' +
         '(s,10,1)'
       '    Else'
-      '     If ((Copy(s,1,3) = ''HU3'') And (Length(s) = 12)) Then'
+      '     If ((Copy(s,1,3) = '#39'HU3'#39') And (Length(s) = 12)) Then'
       
-        '       memo7.text := Copy(s,1,7) + ''-'' + Copy(s,8,4) + ''-'' + Cop' +
+        '       memo7.text := Copy(s,1,7) + '#39'-'#39' + Copy(s,8,4) + '#39'-'#39' + Cop' +
         'y(s,12,1)'
       '     else'
       '       memo7.text := <frxDBLista."ENAR">;'
@@ -137,10 +137,10 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'begin'
       '  if <COUNT(MasterData2)> > 0 then'
       
-        '    Memo149.text := FormatFloat(''#.#'', 100 * KonnyuElles / <COUN' +
-        'T(MasterData2)>) + '' %'''
+        '    Memo149.text := FormatFloat('#39'#.#'#39', 100 * KonnyuElles / <COUN' +
+        'T(MasterData2)>) + '#39' %'#39
       '  else'
-      '    Memo149.text := ''0'' ;'
+      '    Memo149.text := '#39'0'#39' ;'
       'end;'
       ''
       'procedure ReportTitle1OnBeforePrint(Sender: TfrxComponent);'
@@ -151,8 +151,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'procedure MasterData2OnAfterPrint(Sender: TfrxComponent);'
       'begin'
       
-        '  if (<frxDBEgyElles."ELLES_LEF"> = ''1'') or  (<frxDBEgyElles."EL' +
-        'LES_LEF"> = ''2'') then'
+        '  if (<frxDBEgyElles."ELLES_LEF"> = '#39'1'#39') or  (<frxDBEgyElles."EL' +
+        'LES_LEF"> = '#39'2'#39') then'
       '    KonnyuElles := KonnyuElles + 1;'
       ''
       ''
@@ -163,14 +163,14 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '  s : string;'
       'begin'
       '    s:= Trim(<frxDBLista."ENAR">);'
-      '    if ((Copy(s,1,1) = ''3'') And (Length(s) = 10)) Then'
+      '    if ((Copy(s,1,1) = '#39'3'#39') And (Length(s) = 10)) Then'
       
-        '      memo7.text := Copy(s,1,5) + ''-'' + Copy(s,6,4) + ''-'' + Copy' +
+        '      memo7.text := Copy(s,1,5) + '#39'-'#39' + Copy(s,6,4) + '#39'-'#39' + Copy' +
         '(s,10,1)'
       '    Else'
-      '     If ((Copy(s,1,3) = ''HU3'') And (Length(s) = 12)) Then'
+      '     If ((Copy(s,1,3) = '#39'HU3'#39') And (Length(s) = 12)) Then'
       
-        '       memo7.text := Copy(s,1,7) + ''-'' + Copy(s,8,4) + ''-'' + Cop' +
+        '       memo7.text := Copy(s,1,7) + '#39'-'#39' + Copy(s,8,4) + '#39'-'#39' + Cop' +
         'y(s,12,1)'
       '     else'
       '       memo7.text := <frxDBLista."ENAR">;'
@@ -181,14 +181,14 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '  s : string;'
       'begin'
       '    s := Trim(<frxDBLista."ANYA_ENAR">);'
-      '    if ((Copy(s,1,1) = ''3'') And (Length(s) = 10)) Then'
+      '    if ((Copy(s,1,1) = '#39'3'#39') And (Length(s) = 10)) Then'
       
-        '      memo84.text := Copy(s,1,5) + ''-'' + Copy(s,6,4) + ''-'' + Cop' +
+        '      memo84.text := Copy(s,1,5) + '#39'-'#39' + Copy(s,6,4) + '#39'-'#39' + Cop' +
         'y(s,10,1)'
       '    Else'
-      '     If ((Copy(s,1,3) = ''HU3'') And (Length(s) = 12)) Then'
+      '     If ((Copy(s,1,3) = '#39'HU3'#39') And (Length(s) = 12)) Then'
       
-        '       memo84.text := Copy(s,1,7) + ''-'' + Copy(s,8,4) + ''-'' + Co' +
+        '       memo84.text := Copy(s,1,7) + '#39'-'#39' + Copy(s,8,4) + '#39'-'#39' + Co' +
         'py(s,12,1)'
       '     else'
       '       memo84.text := <frxDBLista."ANYA_ENAR">;'
@@ -200,14 +200,14 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '  s : string;'
       'begin'
       '    s := Trim(<frxDBLista."APA_ANYA">);'
-      '    if ((Copy(s,1,1) = ''3'') And (Length(s) = 10)) Then'
+      '    if ((Copy(s,1,1) = '#39'3'#39') And (Length(s) = 10)) Then'
       
-        '      memo83.text := Copy(s,1,5) + ''-'' + Copy(s,6,4) + ''-'' + Cop' +
+        '      memo83.text := Copy(s,1,5) + '#39'-'#39' + Copy(s,6,4) + '#39'-'#39' + Cop' +
         'y(s,10,1)'
       '    Else'
-      '     If ((Copy(s,1,3) = ''HU3'') And (Length(s) = 12)) Then'
+      '     If ((Copy(s,1,3) = '#39'HU3'#39') And (Length(s) = 12)) Then'
       
-        '       memo83.text := Copy(s,1,7) + ''-'' + Copy(s,8,4) + ''-'' + Co' +
+        '       memo83.text := Copy(s,1,7) + '#39'-'#39' + Copy(s,8,4) + '#39'-'#39' + Co' +
         'py(s,12,1)'
       '     else'
       '       memo83.text := <frxDBLista."APA_ANYA">;'
@@ -218,14 +218,14 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '  s : string;'
       'begin'
       '    s := Trim(<frxDBLista."ANA_ANYA_ENAR">);'
-      '    if ((Copy(s,1,1) = ''3'') And (Length(s) = 10)) Then'
+      '    if ((Copy(s,1,1) = '#39'3'#39') And (Length(s) = 10)) Then'
       
-        '      memo106.text := Copy(s,1,5) + ''-'' + Copy(s,6,4) + ''-'' + Co' +
+        '      memo106.text := Copy(s,1,5) + '#39'-'#39' + Copy(s,6,4) + '#39'-'#39' + Co' +
         'py(s,10,1)'
       '    Else'
-      '     If ((Copy(s,1,3) = ''HU3'') And (Length(s) = 12)) Then'
+      '     If ((Copy(s,1,3) = '#39'HU3'#39') And (Length(s) = 12)) Then'
       
-        '       memo106.text := Copy(s,1,7) + ''-'' + Copy(s,8,4) + ''-'' + C' +
+        '       memo106.text := Copy(s,1,7) + '#39'-'#39' + Copy(s,8,4) + '#39'-'#39' + C' +
         'opy(s,12,1)'
       '     else'
       '       memo106.text := <frxDBLista."ANA_ANYA_ENAR">;'
@@ -461,14 +461,15 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'rom ellesek ell'#13#10'LEFT JOIN BORJAK ON BORJAK.ELLESEK_ID = ELL.ID ' +
       #13#10'LEFT JOIN ELLESEK EE ON EE.ID = ELOZO_ELLES_ID(ELL.EGYED_ID, E' +
       'LL.ELLES_DATUM)'#13#10'LEFT JOIN APA BIKA ON BIKA.KPLSZ = ELL.BIKA'#13#10'LE' +
-      'FT JOIN BIKTXT EAP ON EAP.KAZTP = ''4'' AND CAST(EAP.KAZON AS INT)' +
+      'FT JOIN BIKTXT EAP ON EAP.KAZTP = '#39'4'#39' AND CAST(EAP.KAZON AS INT)' +
       ' = ELL.BIKA'#13#10'LEFT JOIN BORJAK B1 ON B1.ID = BORJU_ID(ELL.ID,1)'#13#10 +
-      'LEFT JOIN BORJAK B2 ON B2.ID = BORJU_ID(ELL.ID,2)'#13#10'LEFT JOIN EGY' +
-      'EDEK AE ON (AE.ID = ELL.EGYED_ID)'#13#10'LEFT JOIN EGYEDEK BE1 ON (BE1' +
-      '.ENAR = B1.BORJU_ENAR) AND B1.BORJU_ENAR > ''2'' AND BE1.TENYESZET' +
-      ' = AE.TENYESZET'#13#10'LEFT JOIN EGYEDEK BE2 ON (BE2.ENAR = B2.BORJU_E' +
-      'NAR) AND B2.BORJU_ENAR > ''2'' AND BE2.TENYESZET = AE.TENYESZET'#13#10'W' +
-      'HERE ell.egyed_ID = :ID'#13#10'ORDER BY ELL.ELLES_DATUM'
+      'LEFT JOIN BORJAK B2 ON B2.ID = BORJU_ID(ELL.ID,2) and B2.BORJU_E' +
+      'NAR <> B1.BORJU_ENAR'#13#10'LEFT JOIN EGYEDEK AE ON (AE.ID = ELL.EGYED' +
+      '_ID)'#13#10'LEFT JOIN EGYEDEK BE1 ON (BE1.ENAR = B1.BORJU_ENAR) AND B1' +
+      '.BORJU_ENAR > '#39'2'#39' AND BE1.TENYESZET = AE.TENYESZET'#13#10'LEFT JOIN EG' +
+      'YEDEK BE2 ON (BE2.ENAR = B2.BORJU_ENAR) AND B2.BORJU_ENAR > '#39'2'#39' ' +
+      'AND BE2.TENYESZET = AE.TENYESZET'#13#10'WHERE ell.egyed_ID = :ID'#13#10'ORDE' +
+      'R BY ELL.ELLES_DATUM'
     DataSet.Parameters = <
       item
         Name = 'ID'
@@ -497,14 +498,15 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'rom ellesek ell'#13#10'LEFT JOIN BORJAK ON BORJAK.ELLESEK_ID = ELL.ID ' +
       #13#10'LEFT JOIN ELLESEK EE ON EE.ID = ELOZO_ELLES_ID(ELL.EGYED_ID, E' +
       'LL.ELLES_DATUM)'#13#10'LEFT JOIN APA BIKA ON BIKA.KPLSZ = ELL.BIKA'#13#10'LE' +
-      'FT JOIN BIKTXT EAP ON EAP.KAZTP = ''4'' AND CAST(EAP.KAZON AS INT)' +
+      'FT JOIN BIKTXT EAP ON EAP.KAZTP = '#39'4'#39' AND CAST(EAP.KAZON AS INT)' +
       ' = ELL.BIKA'#13#10'LEFT JOIN BORJAK B1 ON B1.ID = BORJU_ID(ELL.ID,1)'#13#10 +
-      'LEFT JOIN BORJAK B2 ON B2.ID = BORJU_ID(ELL.ID,2)'#13#10'LEFT JOIN EGY' +
-      'EDEK AE ON (AE.ID = ELL.EGYED_ID)'#13#10'LEFT JOIN EGYEDEK BE1 ON (BE1' +
-      '.ENAR = B1.BORJU_ENAR) AND B1.BORJU_ENAR > ''2'' AND BE1.TENYESZET' +
-      ' = AE.TENYESZET'#13#10'LEFT JOIN EGYEDEK BE2 ON (BE2.ENAR = B2.BORJU_E' +
-      'NAR) AND B2.BORJU_ENAR > ''2'' AND BE2.TENYESZET = AE.TENYESZET'#13#10'W' +
-      'HERE ell.egyed_ID = :ID'#13#10'ORDER BY ELL.ELLES_DATUM'
+      'LEFT JOIN BORJAK B2 ON B2.ID = BORJU_ID(ELL.ID,2) and B2.BORJU_E' +
+      'NAR <> B1.BORJU_ENAR'#13#10'LEFT JOIN EGYEDEK AE ON (AE.ID = ELL.EGYED' +
+      '_ID)'#13#10'LEFT JOIN EGYEDEK BE1 ON (BE1.ENAR = B1.BORJU_ENAR) AND B1' +
+      '.BORJU_ENAR > '#39'2'#39' AND BE1.TENYESZET = AE.TENYESZET'#13#10'LEFT JOIN EG' +
+      'YEDEK BE2 ON (BE2.ENAR = B2.BORJU_ENAR) AND B2.BORJU_ENAR > '#39'2'#39' ' +
+      'AND BE2.TENYESZET = AE.TENYESZET'#13#10'WHERE ell.egyed_ID = :ID'#13#10'ORDE' +
+      'R BY ELL.ELLES_DATUM'
     Provider.DataSet.Parameters = <
       item
         Name = 'ID'
@@ -718,7 +720,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator]
     PreviewOptions.Zoom = 1.000000000000000000
-    PrintOptions.Printer = 'Alap�rtelmezett'
+    PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 38838.519462187500000000
     ReportOptions.LastChange = 43463.634596435190000000
     ScriptLanguage = 'PascalScript'
@@ -736,14 +738,14 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '  s : string;'
       'begin'
       '    s:= Trim(<frxDBLista."ENAR">);'
-      '    if ((Copy(s,1,1) = ''3'') And (Length(s) = 10)) Then'
+      '    if ((Copy(s,1,1) = '#39'3'#39') And (Length(s) = 10)) Then'
       
-        '      memo7.text := Copy(s,1,5) + ''-'' + Copy(s,6,4) + ''-'' + Copy' +
+        '      memo7.text := Copy(s,1,5) + '#39'-'#39' + Copy(s,6,4) + '#39'-'#39' + Copy' +
         '(s,10,1)'
       '    Else'
-      '     If ((Copy(s,1,3) = ''HU3'') And (Length(s) = 12)) Then'
+      '     If ((Copy(s,1,3) = '#39'HU3'#39') And (Length(s) = 12)) Then'
       
-        '       memo7.text := Copy(s,1,7) + ''-'' + Copy(s,8,4) + ''-'' + Cop' +
+        '       memo7.text := Copy(s,1,7) + '#39'-'#39' + Copy(s,8,4) + '#39'-'#39' + Cop' +
         'y(s,12,1)'
       '     else'
       '       memo7.text := <frxDBLista."ENAR">;'
@@ -759,10 +761,10 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'begin'
       '  if <COUNT(MasterData2)> > 0 then'
       
-        '    Memo149.text := FormatFloat(''#.#'', 100 * KonnyuElles / <COUN' +
-        'T(MasterData2)>) + '' %'''
+        '    Memo149.text := FormatFloat('#39'#.#'#39', 100 * KonnyuElles / <COUN' +
+        'T(MasterData2)>) + '#39' %'#39
       '  else'
-      '    Memo149.text := ''0'' ;'
+      '    Memo149.text := '#39'0'#39' ;'
       'end;'
       ''
       'procedure ReportTitle1OnBeforePrint(Sender: TfrxComponent);'
@@ -773,8 +775,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'procedure MasterData2OnAfterPrint(Sender: TfrxComponent);'
       'begin'
       
-        '  if (<frxDBEgyElles."ELLES_LEF"> = ''1'') or  (<frxDBEgyElles."EL' +
-        'LES_LEF"> = ''2'') then'
+        '  if (<frxDBEgyElles."ELLES_LEF"> = '#39'1'#39') or  (<frxDBEgyElles."EL' +
+        'LES_LEF"> = '#39'2'#39') then'
       '    KonnyuElles := KonnyuElles + 1;'
       ''
       ''
@@ -785,14 +787,14 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '  s : string;'
       'begin'
       '    s:= Trim(<frxDBLista."ENAR">);'
-      '    if ((Copy(s,1,1) = ''3'') And (Length(s) = 10)) Then'
+      '    if ((Copy(s,1,1) = '#39'3'#39') And (Length(s) = 10)) Then'
       
-        '      memo7.text := Copy(s,1,5) + ''-'' + Copy(s,6,4) + ''-'' + Copy' +
+        '      memo7.text := Copy(s,1,5) + '#39'-'#39' + Copy(s,6,4) + '#39'-'#39' + Copy' +
         '(s,10,1)'
       '    Else'
-      '     If ((Copy(s,1,3) = ''HU3'') And (Length(s) = 12)) Then'
+      '     If ((Copy(s,1,3) = '#39'HU3'#39') And (Length(s) = 12)) Then'
       
-        '       memo7.text := Copy(s,1,7) + ''-'' + Copy(s,8,4) + ''-'' + Cop' +
+        '       memo7.text := Copy(s,1,7) + '#39'-'#39' + Copy(s,8,4) + '#39'-'#39' + Cop' +
         'y(s,12,1)'
       '     else'
       '       memo7.text := <frxDBLista."ENAR">;'
@@ -803,14 +805,14 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '  s : string;'
       'begin'
       '    s := Trim(<frxDBLista."ANYA_ENAR">);'
-      '    if ((Copy(s,1,1) = ''3'') And (Length(s) = 10)) Then'
+      '    if ((Copy(s,1,1) = '#39'3'#39') And (Length(s) = 10)) Then'
       
-        '      memo84.text := Copy(s,1,5) + ''-'' + Copy(s,6,4) + ''-'' + Cop' +
+        '      memo84.text := Copy(s,1,5) + '#39'-'#39' + Copy(s,6,4) + '#39'-'#39' + Cop' +
         'y(s,10,1)'
       '    Else'
-      '     If ((Copy(s,1,3) = ''HU3'') And (Length(s) = 12)) Then'
+      '     If ((Copy(s,1,3) = '#39'HU3'#39') And (Length(s) = 12)) Then'
       
-        '       memo84.text := Copy(s,1,7) + ''-'' + Copy(s,8,4) + ''-'' + Co' +
+        '       memo84.text := Copy(s,1,7) + '#39'-'#39' + Copy(s,8,4) + '#39'-'#39' + Co' +
         'py(s,12,1)'
       '     else'
       '       memo84.text := <frxDBLista."ANYA_ENAR">;'
@@ -822,14 +824,14 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '  s : string;'
       'begin'
       '    s := Trim(<frxDBLista."APA_ANYA">);'
-      '    if ((Copy(s,1,1) = ''3'') And (Length(s) = 10)) Then'
+      '    if ((Copy(s,1,1) = '#39'3'#39') And (Length(s) = 10)) Then'
       
-        '      memo83.text := Copy(s,1,5) + ''-'' + Copy(s,6,4) + ''-'' + Cop' +
+        '      memo83.text := Copy(s,1,5) + '#39'-'#39' + Copy(s,6,4) + '#39'-'#39' + Cop' +
         'y(s,10,1)'
       '    Else'
-      '     If ((Copy(s,1,3) = ''HU3'') And (Length(s) = 12)) Then'
+      '     If ((Copy(s,1,3) = '#39'HU3'#39') And (Length(s) = 12)) Then'
       
-        '       memo83.text := Copy(s,1,7) + ''-'' + Copy(s,8,4) + ''-'' + Co' +
+        '       memo83.text := Copy(s,1,7) + '#39'-'#39' + Copy(s,8,4) + '#39'-'#39' + Co' +
         'py(s,12,1)'
       '     else'
       '       memo83.text := <frxDBLista."APA_ANYA">;'
@@ -840,14 +842,14 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '  s : string;'
       'begin'
       '    s := Trim(<frxDBLista."ANA_ANYA_ENAR">);'
-      '    if ((Copy(s,1,1) = ''3'') And (Length(s) = 10)) Then'
+      '    if ((Copy(s,1,1) = '#39'3'#39') And (Length(s) = 10)) Then'
       
-        '      memo106.text := Copy(s,1,5) + ''-'' + Copy(s,6,4) + ''-'' + Co' +
+        '      memo106.text := Copy(s,1,5) + '#39'-'#39' + Copy(s,6,4) + '#39'-'#39' + Co' +
         'py(s,10,1)'
       '    Else'
-      '     If ((Copy(s,1,3) = ''HU3'') And (Length(s) = 12)) Then'
+      '     If ((Copy(s,1,3) = '#39'HU3'#39') And (Length(s) = 12)) Then'
       
-        '       memo106.text := Copy(s,1,7) + ''-'' + Copy(s,8,4) + ''-'' + C' +
+        '       memo106.text := Copy(s,1,7) + '#39'-'#39' + Copy(s,8,4) + '#39'-'#39' + C' +
         'opy(s,12,1)'
       '     else'
       '       memo106.text := <frxDBLista."ANA_ANYA_ENAR">;'
@@ -943,7 +945,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             
-              'Tenyészet :  [frxDBLista."TENYESZET"] - [Trim(<frxDBLista."TNEV' +
+              'Teny'#258#169'szet :  [frxDBLista."TENYESZET"] - [Trim(<frxDBLista."TNEV' +
               '2">)], [frxDBLista."VAROS"]')
           VAlign = vaCenter
         end
@@ -985,7 +987,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            'Fülszám: [frxDBLista."FULSZAM"]')
+            'F'#258#317'lsz'#258#711'm: [frxDBLista."FULSZAM"]')
           VAlign = vaCenter
         end
         object Memo12: TfrxMemoView
@@ -996,7 +998,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            'Tehénszám: [frxDBLista."TEHENSZAM"]')
+            'Teh'#258#169'nsz'#258#711'm: [frxDBLista."TEHENSZAM"]')
           VAlign = vaCenter
         end
         object Memo14: TfrxMemoView
@@ -1008,7 +1010,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            'Külf.ENAR : [frxDBLista."ID_ENAR"]')
+            'K'#258#317'lf.ENAR : [frxDBLista."ID_ENAR"]')
           VAlign = vaCenter
         end
         object Memo17: TfrxMemoView
@@ -1031,7 +1033,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            'Szín : [frxDBLista."SZIN"]  [frxDBLista."SZINNEV"]')
+            'Sz'#258#173'n : [frxDBLista."SZIN"]  [frxDBLista."SZINNEV"]')
           VAlign = vaCenter
         end
         object Memo15: TfrxMemoView
@@ -1043,7 +1045,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
-            'Születési dátum: [frxDBLista."SZULDAT"]')
+            'Sz'#258#317'let'#258#169'si d'#258#711'tum: [frxDBLista."SZULDAT"]')
           VAlign = vaCenter
         end
         object Memo16: TfrxMemoView
@@ -1056,7 +1058,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             
-              'Marhalevél száma: [frxDBLista."MLEVEL1"] [frxDBLista."MLEVEL2"' +
+              'Marhalev'#258#169'l sz'#258#711'ma: [frxDBLista."MLEVEL1"] [frxDBLista."MLEVEL2"' +
               ']')
           VAlign = vaCenter
         end
@@ -1124,7 +1126,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 71.811070000000000000
           Height = 22.677165350000000000
           Memo.UTF8 = (
-            'Vérhányad: ')
+            'V'#258#169'rh'#258#711'nyad: ')
           VAlign = vaCenter
         end
         object Memo22: TfrxMemoView
@@ -1241,7 +1243,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            'Konstrukciós kód: [frxDBLista."KKOD"]')
+            'Konstrukci'#258#322's k'#258#322'd: [frxDBLista."KKOD"]')
           VAlign = vaCenter
         end
         object Subreport1: TfrxSubreport
@@ -1267,7 +1269,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
-            'Választás dátuma: [frxDBLista."VALDAT"]')
+            'V'#258#711'laszt'#258#711's d'#258#711'tuma: [frxDBLista."VALDAT"]')
           VAlign = vaCenter
         end
         object Memo34: TfrxMemoView
@@ -1292,7 +1294,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
-            'Tömeg: [frxDBLista."VALTOM"]')
+            'T'#258#182'meg: [frxDBLista."VALTOM"]')
           VAlign = vaCenter
         end
         object Memo36: TfrxMemoView
@@ -1302,7 +1304,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 22.677165350000000000
           HideZeros = True
           Memo.UTF8 = (
-            'Étgy: [frxDBLista."TGYVAL"]')
+            #258#8240'tgy: [frxDBLista."TGYVAL"]')
           VAlign = vaCenter
         end
         object Memo37: TfrxMemoView
@@ -1338,7 +1340,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             
-              'Származási ország: [frxDBLista."SZORSZ"] [frxDBLista."ORSZAGN' +
+              'Sz'#258#711'rmaz'#258#711'si orsz'#258#711'g: [frxDBLista."SZORSZ"] [frxDBLista."ORSZAGN' +
               'EV"]')
           VAlign = vaCenter
         end
@@ -1362,7 +1364,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            'Szarvaltság: [frxDBLista."SZARVALTSAG"]')
+            'Szarvalts'#258#711'g: [frxDBLista."SZARVALTSAG"]')
           VAlign = vaCenter
         end
         object Line13: TfrxLineView
@@ -1379,7 +1381,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSet = frxDBLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
-            'Bikanevelő : [frxDBLista."BIKANEVELO"]')
+            'Bikanevel'#313#8216' : [frxDBLista."BIKANEVELO"]')
           VAlign = vaCenter
         end
         object Memo45: TfrxMemoView
@@ -1391,7 +1393,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBLista'
           HideZeros = True
           Memo.UTF8 = (
-            'Tömege tenyésztésbe állításkor: [frxDBLista."TENYTOM"]')
+            'T'#258#182'mege teny'#258#169'szt'#258#169'sbe '#258#711'll'#258#173't'#258#711'skor: [frxDBLista."TENYTOM"]')
           VAlign = vaCenter
         end
         object Line17: TfrxLineView
@@ -1407,7 +1409,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 22.677165350000000000
           HideZeros = True
           Memo.UTF8 = (
-            'Kombinált minősítő index: [frxDBLista."KMI"]')
+            'Kombin'#258#711'lt min'#313#8216's'#258#173't'#313#8216' index: [frxDBLista."KMI"]')
           VAlign = vaCenter
         end
         object Line18: TfrxLineView
@@ -1468,7 +1470,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 18.897650000000000000
           AutoWidth = True
           Memo.UTF8 = (
-            'Születés dátuma:')
+            'Sz'#258#317'let'#258#169's d'#258#711'tuma:')
         end
         object Memo65: TfrxMemoView
           Left = 117.165430000000000000
@@ -1498,7 +1500,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 18.897650000000000000
           AutoWidth = True
           Memo.UTF8 = (
-            'Név:')
+            'N'#258#169'v:')
         end
         object Memo68: TfrxMemoView
           Left = 49.133890000000000000
@@ -1526,7 +1528,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 18.897650000000000000
           AutoWidth = True
           Memo.UTF8 = (
-            'Vérhányada:')
+            'V'#258#169'rh'#258#711'nyada:')
         end
         object Memo71: TfrxMemoView
           Left = 302.362204720000000000
@@ -1724,7 +1726,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 18.897650000000000000
           AutoWidth = True
           Memo.UTF8 = (
-            'Születés dátuma:')
+            'Sz'#258#317'let'#258#169's d'#258#711'tuma:')
         end
         object Memo88: TfrxMemoView
           Left = 117.165430000000000000
@@ -1754,7 +1756,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 18.897650000000000000
           AutoWidth = True
           Memo.UTF8 = (
-            'Név:')
+            'N'#258#169'v:')
         end
         object Memo91: TfrxMemoView
           Left = 49.133890000000000000
@@ -1782,7 +1784,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 18.897650000000000000
           AutoWidth = True
           Memo.UTF8 = (
-            'Vérhányada:')
+            'V'#258#169'rh'#258#711'nyada:')
         end
         object Memo94: TfrxMemoView
           Left = 302.362400000000000000
@@ -1938,7 +1940,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 18.897650000000000000
           AutoWidth = True
           Memo.UTF8 = (
-            'Kombinált minősítő index:')
+            'Kombin'#258#711'lt min'#313#8216's'#258#173't'#313#8216' index:')
         end
         object Memo104: TfrxMemoView
           Left = 498.897960000000000000
@@ -1966,7 +1968,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Width = 56.692950000000000000
           Height = 22.677165350000000000
           Memo.UTF8 = (
-            'Vál.kor:')
+            'V'#258#711'l.kor:')
           VAlign = vaCenter
         end
         object Memo150: TfrxMemoView
@@ -1998,7 +2000,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 22.677165350000000000
           AutoWidth = True
           Memo.UTF8 = (
-            'Szaporasági index:')
+            'Szaporas'#258#711'gi index:')
           VAlign = vaCenter
         end
         object Memo154: TfrxMemoView
@@ -2018,7 +2020,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 22.677165350000000000
           AutoWidth = True
           Memo.UTF8 = (
-            'Küllemi index:')
+            'K'#258#317'llemi index:')
           VAlign = vaCenter
         end
         object Memo153: TfrxMemoView
@@ -2231,7 +2233,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBKullem'
           HideZeros = True
           Memo.UTF8 = (
-            'Küllemi bírálat dátuma: [frxDBKullem."BIRDAT"]')
+            'K'#258#317'llemi b'#258#173'r'#258#711'lat d'#258#711'tuma: [frxDBKullem."BIRDAT"]')
           VAlign = vaCenter
         end
         object Memo60: TfrxMemoView
@@ -2242,7 +2244,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBKullem'
           HideZeros = True
           Memo.UTF8 = (
-            'Típus: [frxDBKullem."TIPUS"]')
+            'T'#258#173'pus: [frxDBKullem."TIPUS"]')
           VAlign = vaCenter
         end
         object Memo61: TfrxMemoView
@@ -2253,7 +2255,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBKullem'
           HideZeros = True
           Memo.UTF8 = (
-            'Izmoltság: [frxDBKullem."IZOM"]')
+            'Izmolts'#258#711'g: [frxDBKullem."IZOM"]')
           VAlign = vaCenter
         end
         object Memo62: TfrxMemoView
@@ -2264,7 +2266,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBKullem'
           HideZeros = True
           Memo.UTF8 = (
-            'Lábszerkezet: [frxDBKullem."LAB"]')
+            'L'#258#711'bszerkezet: [frxDBKullem."LAB"]')
           VAlign = vaCenter
         end
         object Line16: TfrxLineView
@@ -2281,7 +2283,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBKullem'
           HideZeros = True
           Memo.UTF8 = (
-            'Tőgy: [frxDBKullem."TOGY"]')
+            'T'#313#8216'gy: [frxDBKullem."TOGY"]')
           VAlign = vaCenter
         end
         object Line15: TfrxLineView
@@ -3008,7 +3010,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = [fsBold, fsUnderline]
           HAlign = haCenter
           Memo.UTF8 = (
-            'Ellései')
+            'Ell'#258#169'sei')
           ParentFont = False
         end
         object Memo111: TfrxMemoView
@@ -3023,7 +3025,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Termékenyítés ideje')
+            'Term'#258#169'keny'#258#173't'#258#169's ideje')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3038,7 +3040,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Ellés dátuma')
+            'Ell'#258#169's d'#258#711'tuma')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3053,7 +3055,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Ellés lef.')
+            'Ell'#258#169's lef.')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3101,7 +3103,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Választás dátuma')
+            'V'#258#711'laszt'#258#711's d'#258#711'tuma')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3117,7 +3119,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Életn.'
+            #258#8240'letn.'
             'tgy.')
           ParentFont = False
           VAlign = vaCenter
@@ -3134,7 +3136,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            '205 napos tömeg')
+            '205 napos t'#258#182'meg')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3166,8 +3168,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Kikerülés'
-            ' dátuma')
+            'Kiker'#258#317'l'#258#169's'
+            ' d'#258#711'tuma')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3183,7 +3185,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Kiker. módja')
+            'Kiker. m'#258#322'dja')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3279,7 +3281,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Ellések közti idő')
+            'Ell'#258#169'sek k'#258#182'zti id'#313#8216)
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3301,7 +3303,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Borjú ENAR')
+            'Borj'#258#351' ENAR')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3323,7 +3325,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Szül. súly')
+            'Sz'#258#317'l. s'#258#351'ly')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3345,8 +3347,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Vál.'
-            ' töm.')
+            'V'#258#711'l.'
+            ' t'#258#182'm.')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3396,7 +3398,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
-            'Termékenyítő bika')
+            'Term'#258#169'keny'#258#173't'#313#8216' bika')
           ParentFont = False
           VAlign = vaCenter
         end
@@ -3435,7 +3437,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8 = (
-            'Két ellés közti napok átlaga:')
+            'K'#258#169't ell'#258#169's k'#258#182'zti napok '#258#711'tlaga:')
           ParentFont = False
         end
         object Memo147: TfrxMemoView
@@ -3449,7 +3451,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8 = (
-            'Könnyű ellések aránya:')
+            'K'#258#182'nny'#313#177' ell'#258#169'sek ar'#258#711'nya:')
           ParentFont = False
         end
         object Memo149: TfrxMemoView
@@ -3617,7 +3619,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Font.Style = [fsBold, fsUnderline]
           HAlign = haCenter
           Memo.UTF8 = (
-            'Termékenyítései')
+            'Term'#258#169'keny'#258#173't'#258#169'sei')
           ParentFont = False
         end
         object Memo167: TfrxMemoView
@@ -3626,7 +3628,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 18.897650000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'Termékenyítés ideje')
+            'Term'#258#169'keny'#258#173't'#258#169's ideje')
         end
         object Line63: TfrxLineView
           Align = baWidth
@@ -3664,7 +3666,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 18.897650000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'Termékenyítő bika')
+            'Term'#258#169'keny'#258#173't'#313#8216' bika')
         end
         object Memo169: TfrxMemoView
           Left = 612.283860000000000000
@@ -3673,7 +3675,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 18.897650000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'Eredménye')
+            'Eredm'#258#169'nye')
         end
         object Line62: TfrxLineView
           Align = baWidth
@@ -3694,7 +3696,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Height = 18.897650000000000000
           HAlign = haCenter
           Memo.UTF8 = (
-            'Termékenyítés módja')
+            'Term'#258#169'keny'#258#173't'#258#169's m'#258#322'dja')
         end
       end
     end
@@ -3914,7 +3916,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'ER4 AS EAP_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV,'#13#10'E' +
       '.ANYA_ENAR AS EAN_ENAR,'#13#10'E.ANYA_ELL AS EAN_ELL,'#13#10'EAN.NEV AS EAN_' +
       'NEV,'#13#10'TRIM(RNOTNULL(TRIM(EANAN.ENAR), TRIM(EANAN.TEHENSZAM), TRI' +
-      'M(EANAN.ID_ENAR),'''')) AS EANAN_AZON,'#13#10'EAN.FAJTAKOD AS EAN_FAJTAK' +
+      'M(EANAN.ID_ENAR),'#39#39')) AS EANAN_AZON,'#13#10'EAN.FAJTAKOD AS EAN_FAJTAK' +
       'OD, EANF.FNEV AS EAN_FAJTANEV,'#13#10'EAN.SZULDAT AS EAN_SZULDAT,'#13#10'EAN' +
       '.MIN AS EAN_KMI,'#13#10'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, EANF' +
       '1.FNEV AS EAN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, ' +
@@ -3927,30 +3929,30 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'ENY.TKOD = E.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN '#13#10'L' +
       'EFT JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT JOIN ORSZAG ON ' +
       'ORSZAG.KOD2 = E.SZORSZ '#13#10'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.' +
-      'IVAR AND IVARF.KODTIPUSOK_TIPUSKOD = ''IVAR'' '#13#10'LEFT JOIN APA EAP ' +
+      'IVAR AND IVARF.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39' '#13#10'LEFT JOIN APA EAP ' +
       'ON TRIM(EAP.KPLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL'#13#10 +
       'LEFT JOIN FAJTA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NO' +
       'T NULL '#13#10'LEFT JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1'#13#10'LEFT JO' +
       'IN FAJTA EAPF2 ON EAPF2.FKOD = EAP.VER2'#13#10'LEFT JOIN FAJTA EAPF3 O' +
       'N EAPF3.FKOD = EAP.VER3'#13#10'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = E' +
       'AP.VER4'#13#10'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR' +
-      ')) AND (E.ANYA_ENAR > '' '') AND EAN.TENYESZET = E.TENYESZET) OR (' +
-      '(EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > '' ''))) '#13#10'LE' +
+      ')) AND (E.ANYA_ENAR > '#39' '#39') AND EAN.TENYESZET = E.TENYESZET) OR (' +
+      '(EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > '#39' '#39'))) '#13#10'LE' +
       'FT JOIN FAJTA EANF ON EANF.FKOD = EAN.FAJTAKOD '#13#10'LEFT JOIN FAJTA' +
       ' EANF1 ON EANF1.FKOD = EAN.VER1'#13#10'LEFT JOIN FAJTA EANF2 ON EANF2.' +
       'FKOD = EAN.VER2'#13#10'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3'#13 +
       #10'LEFT JOIN FAJTA EANF4 ON EANF4.FKOD = EAN.VER4'#13#10'LEFT JOIN BIKTX' +
-      'T EAP2 ON EAP2.KAZTP = ''4'' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ' +
-      ')'#13#10'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = ''4'' AND TRIM(EAPAP.KA' +
+      'T EAP2 ON EAP2.KAZTP = '#39'4'#39' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ' +
+      ')'#13#10'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = '#39'4'#39' AND TRIM(EAPAP.KA' +
       'ZON) = TRIM(EAP.APAKPLSZ)'#13#10'LEFT JOIN BIKTXT EANAP ON (EANAP.KAZT' +
-      'P= ''4'' AND (CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT))) ' +
+      'P= '#39'4'#39' AND (CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT))) ' +
       'OR (TRIM(EANAP.KAZON)=TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZO' +
       'N)=TRIM(EAN.ID_APA)) AND EANAP.KAZON IS NOT NULL'#13#10'LEFT JOIN EGYE' +
       'DEK EANAN ON (TRIM(EANAN.ENAR)=TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_' +
       'ENAR IS NOT NULL) OR (TRIM(EANAN.TEHENSZAM)=TRIM(EAN.ANYA_ELL) A' +
       'ND EAN.ANYA_ELL IS NOT NULL) OR (TRIM(EANAN.ID_ENAR)=TRIM(EAN.AN' +
-      'YA_ID_ENAR) AND EAN.ID_ENAR IS NOT NULL)'#13#10'where E.ENAR  = ''32074' +
-      '76221'''
+      'YA_ID_ENAR) AND EAN.ID_ENAR IS NOT NULL)'#13#10'where E.ENAR  = '#39'32074' +
+      '76221'#39
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
@@ -3974,7 +3976,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'ER4 AS EAP_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV,'#13#10'E' +
       '.ANYA_ENAR AS EAN_ENAR,'#13#10'E.ANYA_ELL AS EAN_ELL,'#13#10'EAN.NEV AS EAN_' +
       'NEV,'#13#10'TRIM(RNOTNULL(TRIM(EANAN.ENAR), TRIM(EANAN.TEHENSZAM), TRI' +
-      'M(EANAN.ID_ENAR),'''')) AS EANAN_AZON,'#13#10'EAN.FAJTAKOD AS EAN_FAJTAK' +
+      'M(EANAN.ID_ENAR),'#39#39')) AS EANAN_AZON,'#13#10'EAN.FAJTAKOD AS EAN_FAJTAK' +
       'OD, EANF.FNEV AS EAN_FAJTANEV,'#13#10'EAN.SZULDAT AS EAN_SZULDAT,'#13#10'EAN' +
       '.MIN AS EAN_KMI,'#13#10'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, EANF' +
       '1.FNEV AS EAN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, ' +
@@ -3987,30 +3989,30 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'ENY.TKOD = E.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN '#13#10'L' +
       'EFT JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT JOIN ORSZAG ON ' +
       'ORSZAG.KOD2 = E.SZORSZ '#13#10'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.' +
-      'IVAR AND IVARF.KODTIPUSOK_TIPUSKOD = ''IVAR'' '#13#10'LEFT JOIN APA EAP ' +
+      'IVAR AND IVARF.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39' '#13#10'LEFT JOIN APA EAP ' +
       'ON TRIM(EAP.KPLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL'#13#10 +
       'LEFT JOIN FAJTA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NO' +
       'T NULL '#13#10'LEFT JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1'#13#10'LEFT JO' +
       'IN FAJTA EAPF2 ON EAPF2.FKOD = EAP.VER2'#13#10'LEFT JOIN FAJTA EAPF3 O' +
       'N EAPF3.FKOD = EAP.VER3'#13#10'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = E' +
       'AP.VER4'#13#10'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR' +
-      ')) AND (E.ANYA_ENAR > '' '') AND EAN.TENYESZET = E.TENYESZET) OR (' +
-      '(EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > '' ''))) '#13#10'LE' +
+      ')) AND (E.ANYA_ENAR > '#39' '#39') AND EAN.TENYESZET = E.TENYESZET) OR (' +
+      '(EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > '#39' '#39'))) '#13#10'LE' +
       'FT JOIN FAJTA EANF ON EANF.FKOD = EAN.FAJTAKOD '#13#10'LEFT JOIN FAJTA' +
       ' EANF1 ON EANF1.FKOD = EAN.VER1'#13#10'LEFT JOIN FAJTA EANF2 ON EANF2.' +
       'FKOD = EAN.VER2'#13#10'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3'#13 +
       #10'LEFT JOIN FAJTA EANF4 ON EANF4.FKOD = EAN.VER4'#13#10'LEFT JOIN BIKTX' +
-      'T EAP2 ON EAP2.KAZTP = ''4'' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ' +
-      ')'#13#10'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = ''4'' AND TRIM(EAPAP.KA' +
+      'T EAP2 ON EAP2.KAZTP = '#39'4'#39' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ' +
+      ')'#13#10'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = '#39'4'#39' AND TRIM(EAPAP.KA' +
       'ZON) = TRIM(EAP.APAKPLSZ)'#13#10'LEFT JOIN BIKTXT EANAP ON (EANAP.KAZT' +
-      'P= ''4'' AND (CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT))) ' +
+      'P= '#39'4'#39' AND (CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT))) ' +
       'OR (TRIM(EANAP.KAZON)=TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZO' +
       'N)=TRIM(EAN.ID_APA)) AND EANAP.KAZON IS NOT NULL'#13#10'LEFT JOIN EGYE' +
       'DEK EANAN ON (TRIM(EANAN.ENAR)=TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_' +
       'ENAR IS NOT NULL) OR (TRIM(EANAN.TEHENSZAM)=TRIM(EAN.ANYA_ELL) A' +
       'ND EAN.ANYA_ELL IS NOT NULL) OR (TRIM(EANAN.ID_ENAR)=TRIM(EAN.AN' +
-      'YA_ID_ENAR) AND EAN.ID_ENAR IS NOT NULL)'#13#10'where E.ENAR  = ''32074' +
-      '76221'''
+      'YA_ID_ENAR) AND EAN.ID_ENAR IS NOT NULL)'#13#10'where E.ENAR  = '#39'32074' +
+      '76221'#39
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
@@ -4465,12 +4467,12 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       ' as kplsz, allapot, apa.nev as bikanev, vkod.kod_nev as vemhall,' +
       ' tkod.kod_nev as termmod, ut_elles_datum(99999) as ut_ell_dat'#13#10'f' +
       'rom termekenyitesek t'#13#10'left join apa on apa.kplsz = t.kplsz'#13#10'lef' +
-      't join kodok vkod on vkod.kodtipusok_tipuskod = ''VEMHKOD'' and tr' +
+      't join kodok vkod on vkod.kodtipusok_tipuskod = '#39'VEMHKOD'#39' and tr' +
       'im(vkod.kod) = trim(t.allapot)'#13#10'left join kodok tkod on tkod.kod' +
-      'tipusok_tipuskod = ''TERMMOD'' and trim(tkod.kod) = trim(t.mod)'#13#10'w' +
+      'tipusok_tipuskod = '#39'TERMMOD'#39' and trim(tkod.kod) = trim(t.mod)'#13#10'w' +
       'here egyed_id = 99999'#13#10'union all'#13#10'select datum_tol as datum1, da' +
-      'tum_ig as datum2, to_char(bika_klsz) as kplsz, ''0'' as allapot, a' +
-      'pa.nev as bikanev, '''' as vemhall, ''H�remszer�'' as termmod, ut_el' +
+      'tum_ig as datum2, to_char(bika_klsz) as kplsz, '#39'0'#39' as allapot, a' +
+      'pa.nev as bikanev, '#39#39' as vemhall, '#39'H'#225'remszer'#369#39' as termmod, ut_el' +
       'les_datum(99999) as ut_ell_dat'#13#10'from termh t'#13#10'left join apa on a' +
       'pa.kplsz = t.bika_klsz'#13#10'where egyed_id = 99999)'#13#10'where datum1 > ' +
       'UT_ELLES_DATUM(99999)'#13#10'order by datum1'
@@ -4487,12 +4489,12 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       ' as kplsz, allapot, apa.nev as bikanev, vkod.kod_nev as vemhall,' +
       ' tkod.kod_nev as termmod, ut_elles_datum(99999) as ut_ell_dat'#13#10'f' +
       'rom termekenyitesek t'#13#10'left join apa on apa.kplsz = t.kplsz'#13#10'lef' +
-      't join kodok vkod on vkod.kodtipusok_tipuskod = ''VEMHKOD'' and tr' +
+      't join kodok vkod on vkod.kodtipusok_tipuskod = '#39'VEMHKOD'#39' and tr' +
       'im(vkod.kod) = trim(t.allapot)'#13#10'left join kodok tkod on tkod.kod' +
-      'tipusok_tipuskod = ''TERMMOD'' and trim(tkod.kod) = trim(t.mod)'#13#10'w' +
+      'tipusok_tipuskod = '#39'TERMMOD'#39' and trim(tkod.kod) = trim(t.mod)'#13#10'w' +
       'here egyed_id = 99999'#13#10'union all'#13#10'select datum_tol as datum1, da' +
-      'tum_ig as datum2, to_char(bika_klsz) as kplsz, ''0'' as allapot, a' +
-      'pa.nev as bikanev, '''' as vemhall, ''H�remszer�'' as termmod, ut_el' +
+      'tum_ig as datum2, to_char(bika_klsz) as kplsz, '#39'0'#39' as allapot, a' +
+      'pa.nev as bikanev, '#39#39' as vemhall, '#39'H'#225'remszer'#369#39' as termmod, ut_el' +
       'les_datum(99999) as ut_ell_dat'#13#10'from termh t'#13#10'left join apa on a' +
       'pa.kplsz = t.bika_klsz'#13#10'where egyed_id = 99999)'#13#10'where datum1 > ' +
       'UT_ELLES_DATUM(99999)'#13#10'order by datum1'
