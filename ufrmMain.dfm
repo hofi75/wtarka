@@ -1,6 +1,6 @@
 object frmMain: TfrmMain
-  Left = 225
-  Top = 153
+  Left = 202
+  Top = 144
   Width = 1215
   Height = 686
   Caption = 'WinTarka - H'#250'shaszn'#250' szarvasmarha nyilv'#225'ntart'#243' program'
