@@ -137,18 +137,18 @@ type
     sdsZarMBIMBO: TBCDField;
     sdsZarMIZOM: TBCDField;
     sdsZarMLAB: TBCDField;
+    frxRepLista: TfrxReport;
     sdsElitListaENAR: TWideStringField;
     sdsElitListaTEHENSZAM: TWideStringField;
     sdsElitListaSZULDAT: TDateTimeField;
     sdsElitListaAPAKLSZ: TWideStringField;
-    sdsElitListaELLESSZ: TBCDField;
-    sdsElitListaBORJU_DB: TBCDField;
+    sdsElitListaELLESSZ: TIntegerField;
+    sdsElitListaBORJU_DB: TIntegerField;
     sdsElitListaVAL_TOM: TIntegerField;
     sdsElitListaATL_TOM: TIntegerField;
     sdsElitListaTOM205: TIntegerField;
     sdsElitListaATL_TOM205: TIntegerField;
     sdsElitListaKIKDAT: TDateTimeField;
-    frxRepLista: TfrxReport;
     procedure actOKExecute(Sender: TObject);
   private
     { Private declarations }
@@ -201,8 +201,6 @@ begin
     ShowModal;
   end;
 end;
-
-
 
 procedure BikaNeveloLista;
 var
