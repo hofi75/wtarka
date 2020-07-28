@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, QfrmNyomtatoOs, ActnList, StdCtrls, Buttons, uTALBitBtn, DateUtils,
   ExtCtrls, Mask, uValidedit, uTALEdit, uTALLabel, frxClass, frxDBSet, DB,
-  DBClient, uTALSimpleDataSet, uTALMaskEdit;
+  DBClient, uTALSimpleDataSet, uTALMaskEdit, ADODB;
 
 type
   TfrmZaras = class(TfrmNyomtatoOs)
@@ -92,15 +92,6 @@ type
     sdsBikNevListaMLEVEL2: TWideStringField;
     sdsBikNevListaMIN: TBCDField;
     sdsBikNevListaVERH: TBCDField;
-    sdsElitListaENAR: TWideStringField;
-    sdsElitListaTEHENSZAM: TWideStringField;
-    sdsElitListaSZULDAT: TDateTimeField;
-    sdsElitListaAPAKLSZ: TWideStringField;
-    sdsElitListaBORJU_DB: TBCDField;
-    sdsElitListaVAL_TOM: TBCDField;
-    sdsElitListaATL_TOM: TBCDField;
-    sdsElitListaTOM205: TBCDField;
-    sdsElitListaATL_TOM205: TBCDField;
     lblDb: TTalLabel;
     edtDb: TTalMaskEdit;
     sdsZarLstUENAR: TWideStringField;
@@ -146,6 +137,17 @@ type
     sdsZarMBIMBO: TBCDField;
     sdsZarMIZOM: TBCDField;
     sdsZarMLAB: TBCDField;
+    sdsElitListaENAR: TWideStringField;
+    sdsElitListaTEHENSZAM: TWideStringField;
+    sdsElitListaSZULDAT: TDateTimeField;
+    sdsElitListaAPAKLSZ: TWideStringField;
+    sdsElitListaELLESSZ: TBCDField;
+    sdsElitListaBORJU_DB: TBCDField;
+    sdsElitListaVAL_TOM: TIntegerField;
+    sdsElitListaATL_TOM: TIntegerField;
+    sdsElitListaTOM205: TIntegerField;
+    sdsElitListaATL_TOM205: TIntegerField;
+    sdsElitListaKIKDAT: TDateTimeField;
     frxRepLista: TfrxReport;
     procedure actOKExecute(Sender: TObject);
   private
@@ -192,8 +194,8 @@ var
 begin
   frmZaras:= TfrmZaras.Create(Application);
   with frmZaras do begin
-    sdsElitLista.Connection := dtmTarka.cnTarka;
-    SQL_ELIT := sdsElitLista.DataSet.CommandText;
+    // sdsElitLista.Connection := dtmTarka.cnTarka;
+    // SQL_ELIT := sdsElitLista.DataSet.CommandText;
     miez := 'ELIT';
     edtEv.Text := IntToStr( yearof(today()) -1);
     ShowModal;
@@ -229,6 +231,8 @@ var
   SQL , SQL0, SQL1, SQLB, SQLB1 : string;
   PlusWhere : string;
   grpElit, OrderElit : string;
+  spElit_tkv: TADOStoredProc;
+
 begin
   if (StrToInt(edtEv.Text) < 1980) or (StrToInt(edtEv.Text) < 1980) then begin
     dtmTarka.MsgDlg('Hibás érték!',mtInformation, [mbOK]);
@@ -426,27 +430,26 @@ begin
   end;
 
   if miez = 'ELIT' then begin
-    PlusWhere := '';
-    PlusWhere := ' and (ANYA.KIKDAT IS NULL OR ANYA.KIKDAT > TO_DATE(' + quotedstr(ZarDat) + ',''YYYY.MM.DD'')) ' ;
-    if dtmTarka.TenyeszetTKOD <> EmptyStr then begin
-      PlusWhere := PlusWhere + ' and ANYA.TENYESZET = '  + quotedstr(dtmTarka.TenyeszetTKOD) ;
-    end;
-    grpElit := ' group by ANYA.ENAR, ANYA.TEHENSZAM, ANYA.SZULDAT, ANYA.APAKLSZ ';
-    OrderElit := ' HAVING SUM(COALESCE( BO.VALTOM , 0)) >= 2000  order by ANYA.ENAR ';
-    SQL := SQL_ELIT + PlusWhere + grpElit + OrderElit;
+     // TADOConnection
+     spElit_tkv := TADOStoredProc.Create(Self);
+     spElit_tkv.Connection := dtmTarka.cnTarka;
+     spElit_tkv.ProcedureName := 'ELIT_TKV';
+     spElit_tkv.Parameters.Clear;
+     spElit_tkv.Parameters.CreateParameter('PTENYESZET',ftString,pdInput,16,dtmTarka.TenyeszetTKOD);
+     spElit_tkv.Parameters.CreateParameter('PDATUM',ftString,pdInput,16,ZarDAt);
+     spElit_tkv.ExecProc;
 
-    if sdsElitLista.Active  then sdsElitLista.Close;
-    sdsElitLista.DataSet.CommandText := SQL;
-    sdsElitLista.Open;
+     if sdsElitLista.Active  then sdsElitLista.Close;
+     sdsElitLista.Open;
 
      If frxRepLista.LoadFromFile(dtmTarka.fr3Path + '\ElitLista.fr3') Then Begin
-       frxRepLista.Variables.Clear;
-       frxRepLista.Script.Variables['TENYESZET'] := 'Tenyészet: ' + trim(dtmTarka.TenyeszetTKOD) + ' ' + trim(dtmTarka.TenyeszetTNEV);
-       frxRepLista.Script.Variables['EV'] := edtEv.Text;
-       frxRepLista.ShowReport();
+        frxRepLista.Variables.Clear;
+        frxRepLista.Script.Variables['TENYESZET'] := 'Tenyészet: ' + trim(dtmTarka.TenyeszetTKOD) + ' ' + trim(dtmTarka.TenyeszetTNEV);
+        frxRepLista.Script.Variables['EV'] := edtEv.Text;
+        frxRepLista.ShowReport();
      End;
 
-     sdsZarLista1.Close;
+     sdsElitLista.Close;
 
   end;
 

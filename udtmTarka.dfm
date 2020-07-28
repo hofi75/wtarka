@@ -2,15 +2,16 @@ object dtmTarka: TdtmTarka
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 391
-  Top = 219
+  Left = 476
+  Top = 152
   Height = 558
   Width = 798
   object cnTarka: TTalConnection
     Connected = True
     ConnectionString = 
-      'Provider=OraOLEDB.Oracle.1;Password=term;Persist Security Info=T' +
-      'rue;User ID=term;Data Source=localhost/xe;Extended Properties=""'
+      'Provider=OraOLEDB.Oracle.1;Password=tarka;Persist Security Info=' +
+      'True;User ID=tarka;Data Source=localhost/xe;Extended Properties=' +
+      '""'
     LoginPrompt = False
     Provider = 'OraOLEDB.Oracle.1'
     Left = 24

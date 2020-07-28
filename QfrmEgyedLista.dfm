@@ -1,6 +1,6 @@
 inherited frmEgyedLista: TfrmEgyedLista
-  Left = 729
-  Top = 271
+  Left = 335
+  Top = 189
   Width = 845
   Height = 624
   Caption = 'Egyedek list'#225'z'#225'sa'
@@ -250,6 +250,13 @@ inherited frmEgyedLista: TfrmEgyedLista
       Width = 3
       Height = 13
       Caption = '-'
+    end
+    object TalLabel19: TTalLabel
+      Left = 248
+      Top = 16
+      Width = 30
+      Height = 13
+      Caption = 'T'#237'pus:'
     end
     object edtEgyedTol: TTalEdit
       Left = 160
@@ -863,6 +870,21 @@ inherited frmEgyedLista: TfrmEgyedLista
         TabStop = True
       end
     end
+    object edtTenyeszetTipus: TTalEdit
+      Left = 288
+      Top = 11
+      Width = 73
+      Height = 22
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = False
+      ReadOnly = False
+      TabOrder = 31
+    end
   end
   inherited ActionList1: TActionList
     Left = 636
@@ -872,9 +894,15 @@ inherited frmEgyedLista: TfrmEgyedLista
     UserName = 'frxDBLista'
     CloseDataSource = False
     FieldAliases.Strings = (
+      'TENYESZET=TENYESZET'
       'ENAR=ENAR'
+      'PS_AZON=PS_AZON'
       'FULSZAM=FULSZAM'
       'SZULDAT=SZULDAT'
+      'ELETKOR_NAP=ELETKOR_NAP'
+      'VALDAT=VALDAT'
+      'VALTOM=VALTOM'
+      'MIN=MIN'
       'ANYA_ENAR=ANYA_ENAR'
       'APAKLSZ=APAKLSZ'
       'FAJTAKOD=FAJTAKOD'
@@ -886,12 +914,7 @@ inherited frmEgyedLista: TfrmEgyedLista
       'KIKDAT=KIKDAT'
       'KIKOD=KIKOD'
       'KIKOK=KIKOK'
-      'TENYESZET=TENYESZET'
-      'PS_AZON=PS_AZON'
-      'VALDAT=VALDAT'
-      'VALTOM=VALTOM'
-      'MIN=MIN'
-      'ELETKOR_NAP=ELETKOR_NAP')
+      'TIPUS=TIPUS')
     DataSet = sdsLista
     Left = 632
     Top = 104
@@ -913,8 +936,9 @@ inherited frmEgyedLista: TfrmEgyedLista
       #10'  round((sysdate -  E.SZULDAT))'#13#10'ELSE round((E.KIKDAT - E.SZULD' +
       'AT)) END as numeric) AS ELETKOR_NAP,'#13#10'E.VALDAT, E.VALTOM,'#13#10'E.MIN' +
       ','#13#10'E.ANYA_ENAR,'#13#10'E.APAKLSZ,'#13#10'E.FAJTAKOD,'#13#10'E.KKOD,'#13#10'E.TKV,'#13#10'E.SV,' +
-      #13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK'#13#10'FROM EGYEDEK' +
-      ' E'#13#10'WHERE 1 = 1'
+      #13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'T.TIPUS'#13#10'FR' +
+      'OM EGYEDEK E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'WHERE 1 ' +
+      '= 1'
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
@@ -924,8 +948,9 @@ inherited frmEgyedLista: TfrmEgyedLista
       #10'  round((sysdate -  E.SZULDAT))'#13#10'ELSE round((E.KIKDAT - E.SZULD' +
       'AT)) END as numeric) AS ELETKOR_NAP,'#13#10'E.VALDAT, E.VALTOM,'#13#10'E.MIN' +
       ','#13#10'E.ANYA_ENAR,'#13#10'E.APAKLSZ,'#13#10'E.FAJTAKOD,'#13#10'E.KKOD,'#13#10'E.TKV,'#13#10'E.SV,' +
-      #13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK'#13#10'FROM EGYEDEK' +
-      ' E'#13#10'WHERE 1 = 1'
+      #13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'T.TIPUS'#13#10'FR' +
+      'OM EGYEDEK E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'WHERE 1 ' +
+      '= 1'
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
@@ -933,22 +958,46 @@ inherited frmEgyedLista: TfrmEgyedLista
     ReadOnly = True
     Left = 627
     Top = 40
+    object sdsListaTENYESZET: TWideStringField
+      FieldName = 'TENYESZET'
+      Size = 7
+    end
     object sdsListaENAR: TWideStringField
       FieldName = 'ENAR'
-      Size = 14
+      ReadOnly = True
+      Size = 15
+    end
+    object sdsListaPS_AZON: TWideStringField
+      FieldName = 'PS_AZON'
+      Size = 4
     end
     object sdsListaFULSZAM: TWideStringField
       FieldName = 'FULSZAM'
-      FixedChar = True
       Size = 15
     end
     object sdsListaSZULDAT: TDateTimeField
       FieldName = 'SZULDAT'
+      ReadOnly = True
+    end
+    object sdsListaELETKOR_NAP: TBCDField
+      FieldName = 'ELETKOR_NAP'
+      Precision = 32
+      Size = 0
+    end
+    object sdsListaVALDAT: TDateTimeField
+      FieldName = 'VALDAT'
+    end
+    object sdsListaVALTOM: TIntegerField
+      FieldName = 'VALTOM'
+    end
+    object sdsListaMIN: TBCDField
+      FieldName = 'MIN'
+      Precision = 6
+      Size = 2
     end
     object sdsListaANYA_ENAR: TWideStringField
       FieldName = 'ANYA_ENAR'
-      FixedChar = True
-      Size = 10
+      Size = 14
     end
     object sdsListaAPAKLSZ: TWideStringField
       FieldName = 'APAKLSZ'
@@ -960,20 +1009,17 @@ inherited frmEgyedLista: TfrmEgyedLista
     end
     object sdsListaKKOD: TWideStringField
       FieldName = 'KKOD'
-      FixedChar = True
       Size = 3
     end
     object sdsListaTKV: TWideStringField
       FieldName = 'TKV'
-      FixedChar = True
       Size = 1
     end
-    object sdsListaSV: TSmallintField
+    object sdsListaSV: TIntegerField
       FieldName = 'SV'
     end
     object sdsListaIVAR: TWideStringField
       FieldName = 'IVAR'
-      FixedChar = True
       Size = 1
     end
     object sdsListaALLDAT: TDateTimeField
@@ -990,31 +1036,9 @@ inherited frmEgyedLista: TfrmEgyedLista
       FieldName = 'KIKOK'
       Size = 10
     end
-    object sdsListaTENYESZET: TWideStringField
-      FieldName = 'TENYESZET'
-      Size = 7
-    end
-    object sdsListaPS_AZON: TWideStringField
-      FieldName = 'PS_AZON'
-      ReadOnly = True
-      Size = 4
-    end
-    object sdsListaVALDAT: TDateTimeField
-      FieldName = 'VALDAT'
-    end
-    object sdsListaVALTOM: TIntegerField
-      FieldName = 'VALTOM'
-    end
-    object sdsListaMIN: TBCDField
-      FieldName = 'MIN'
-      Precision = 6
-      Size = 2
-    end
-    object sdsListaELETKOR_NAP: TBCDField
-      FieldName = 'ELETKOR_NAP'
-      ReadOnly = True
-      Precision = 32
-      Size = 0
+    object sdsListaTIPUS: TWideStringField
+      FieldName = 'TIPUS'
+      Size = 1
     end
   end
   object frxRepList: TfrxReport
@@ -1025,7 +1049,7 @@ inherited frmEgyedLista: TfrmEgyedLista
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 38838.519462187500000000
-    ReportOptions.LastChange = 40525.794517314820000000
+    ReportOptions.LastChange = 44040.420880752320000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -1059,6 +1083,7 @@ inherited frmEgyedLista: TfrmEgyedLista
       'begin'
       ''
       'end.')
+    StoreInDFM = False
     Left = 568
     Top = 96
     Datasets = <
@@ -1088,742 +1113,6 @@ inherited frmEgyedLista: TfrmEgyedLista
         Value = Null
       end>
     Style = <>
-    object Page1: TfrxReportPage
-      Orientation = poLandscape
-      PaperWidth = 297.000000000000000000
-      PaperHeight = 210.000000000000000000
-      PaperSize = 9
-      LeftMargin = 10.000000000000000000
-      RightMargin = 10.000000000000000000
-      TopMargin = 10.000000000000000000
-      BottomMargin = 10.000000000000000000
-      OnBeforePrint = 'Page1OnBeforePrint'
-      object ReportTitle1: TfrxReportTitle
-        Height = 81.590590240000000000
-        Top = 18.897650000000000000
-        Width = 1046.929810000000000000
-        Stretched = True
-        object Memo4: TfrxMemoView
-          Left = 427.976716020000000000
-          Top = 22.800556670000000000
-          Width = 188.976377950000000000
-          Height = 22.677180000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -19
-          Font.Name = 'Arial'
-          Font.Style = [fsBold, fsUnderline]
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'Egyedek list'#258#711'z'#258#711'sa')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-        object Memo5: TfrxMemoView
-          Align = baCenter
-          Left = 349.606566495000100000
-          Top = 3.000000000000000000
-          Width = 347.716677010000000000
-          Height = 15.118110240000000000
-          AutoWidth = True
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -8
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'WinTarka - H'#258#351'shaszn'#258#351' szarvasmarha nyilv'#258#711'ntart'#258#322' program ')
-          ParentFont = False
-          WordWrap = False
-          VAlign = vaCenter
-        end
-        object Memo8: TfrxMemoView
-          Left = 876.850642680000000000
-          Top = 2.333333329999998000
-          Width = 43.464566930000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haRight
-          Memo.UTF8 = (
-            'K'#258#169'sz'#258#317'lt:')
-          ParentFont = False
-        end
-        object SysMemo1: TfrxSysMemoView
-          Left = 925.984850000000000000
-          Top = 2.333333329999998000
-          Width = 62.362204720000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[DATE]')
-          ParentFont = False
-        end
-        object SysMemo2: TfrxSysMemoView
-          Left = 994.015994570000000000
-          Top = 2.333333329999998000
-          Width = 45.354330710000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[TIME]')
-          ParentFont = False
-        end
-        object Memo35: TfrxMemoView
-          Left = 86.929190000000000000
-          Top = 60.472480000000000000
-          Width = 105.826840000000000000
-          Height = 15.118110240000000000
-          StretchMode = smActualHeight
-          AutoWidth = True
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[SzuroFeltetelek]')
-          ParentFont = False
-        end
-        object Line3: TfrxLineView
-          Align = baWidth
-          Top = 19.795251180000000000
-          Width = 1046.929810000000000000
-          Frame.Typ = [ftTop]
-        end
-        object Memo7: TfrxMemoView
-          Left = 3.779530000000000000
-          Top = 42.574830000000000000
-          Width = 75.590600000000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'Rendezetts'#258#169'g:')
-          ParentFont = False
-          WordWrap = False
-        end
-        object Memo36: TfrxMemoView
-          Left = 3.779530000000000000
-          Top = 60.472480000000000000
-          Width = 81.259842520000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'Sz'#313#177'r'#313#8216' felt'#258#169'telek:')
-          ParentFont = False
-          WordWrap = False
-        end
-        object Memo41: TfrxMemoView
-          Left = 83.149660000000000000
-          Top = 41.574830000000000000
-          Width = 311.740260000000000000
-          Height = 18.897650000000000000
-          AutoWidth = True
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[Rendezettseg]')
-          ParentFont = False
-        end
-        object Memo1: TfrxMemoView
-          Left = 12.671923330000000000
-          Top = 1.333333329999999000
-          Width = 56.692950000000000000
-          Height = 15.118120000000000000
-          DataField = 'ATKOD'
-          DataSet = frmTibor.frxDBdtsTiborTenyeszet
-          DataSetName = 'frxDBdtsTiborTenyeszet'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[frxDBdtsTiborTenyeszet."ATKOD"]')
-          ParentFont = False
-        end
-        object Memo6: TfrxMemoView
-          Left = 73.144403330000000000
-          Top = 1.333333329999999000
-          Width = 177.637910000000000000
-          Height = 15.118107800000000000
-          DataField = 'TELEP_NEV'
-          DataSet = frmTibor.frxDBdtsTiborTenyeszet
-          DataSetName = 'frxDBdtsTiborTenyeszet'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[frxDBdtsTiborTenyeszet."TELEP_NEV"]')
-          ParentFont = False
-        end
-        object Memo29: TfrxMemoView
-          Left = 264.567100000000000000
-          Top = 1.333333329999999000
-          Width = 56.692950000000000000
-          Height = 15.118120000000000000
-          DataField = 'ENAR_KOD'
-          DataSet = frmTibor.frxDBdtsTiborTenyeszet
-          DataSetName = 'frxDBdtsTiborTenyeszet'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[frxDBdtsTiborTenyeszet."ENAR_KOD"]')
-          ParentFont = False
-        end
-      end
-      object MasterData1: TfrxMasterData
-        Height = 22.677180000000000000
-        Top = 222.992270000000000000
-        Width = 1046.929810000000000000
-        OnBeforePrint = 'MasterData1OnBeforePrint'
-        DataSet = frxDBLista
-        DataSetName = 'frxDBLista'
-        RowCount = 0
-        object SysMemo3: TfrxSysMemoView
-          Left = -0.000002440000000000
-          Width = 34.015750470000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haCenter
-          Memo.UTF8 = (
-            '[LINE#]')
-          ParentFont = False
-        end
-        object Memo16: TfrxMemoView
-          Left = 41.574830000000000000
-          Width = 117.165430000000000000
-          Height = 18.897650000000000000
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-        end
-        object Memo17: TfrxMemoView
-          Left = 174.078850000000000000
-          Width = 75.590600000000000000
-          Height = 18.897650000000000000
-          DataField = 'SZULDAT'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          Memo.UTF8 = (
-            '[frxDBLista."SZULDAT"]')
-        end
-        object Memo18: TfrxMemoView
-          Left = 389.512060000000000000
-          Width = 109.606304090000000000
-          Height = 18.897650000000000000
-          DataField = 'ANYA_ENAR'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          Memo.UTF8 = (
-            '[frxDBLista."ANYA_ENAR"]')
-        end
-        object Memo19: TfrxMemoView
-          Left = 321.480520000000000000
-          Width = 52.913420000000000000
-          Height = 18.897650000000000000
-          DataField = 'APAKLSZ'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          Memo.UTF8 = (
-            '[frxDBLista."APAKLSZ"]')
-        end
-        object Memo20: TfrxMemoView
-          Left = 547.252320000000000000
-          Width = 30.236240000000000000
-          Height = 18.897650000000000000
-          DataField = 'FAJTAKOD'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          Memo.UTF8 = (
-            '[frxDBLista."FAJTAKOD"]')
-        end
-        object Memo22: TfrxMemoView
-          Left = 585.047620000000000000
-          Width = 30.236240000000000000
-          Height = 18.897650000000000000
-          DataField = 'KKOD'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          Memo.UTF8 = (
-            '[frxDBLista."KKOD"]')
-        end
-        object Memo24: TfrxMemoView
-          Left = 624.732685000000000000
-          Width = 37.795300000000000000
-          Height = 18.897650000000000000
-          DataField = 'MIN'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          DisplayFormat.DecimalSeparator = '.'
-          DisplayFormat.FormatStr = '%2.2f'
-          DisplayFormat.Kind = fkNumeric
-          HAlign = haCenter
-          Memo.UTF8 = (
-            '[frxDBLista."MIN"]')
-        end
-        object Memo10: TfrxMemoView
-          Left = 261.015770000000000000
-          Width = 41.574830000000000000
-          Height = 18.897650000000000000
-          DataField = 'ELETKOR_NAP'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          HAlign = haCenter
-          Memo.UTF8 = (
-            '[frxDBLista."ELETKOR_NAP"]')
-        end
-        object Memo21: TfrxMemoView
-          Left = 514.252010000000100000
-          Width = 18.897650000000000000
-          Height = 18.897650000000000000
-          DataField = 'IVAR'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          Memo.UTF8 = (
-            '[frxDBLista."IVAR"]')
-        end
-        object Memo23: TfrxMemoView
-          Left = 692.385900000000000000
-          Width = 69.622140000000000000
-          Height = 18.897650000000000000
-          DataField = 'VALDAT'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          DisplayFormat.DecimalSeparator = ','
-          DisplayFormat.FormatStr = 'yyyy.mm.dd'
-          DisplayFormat.Kind = fkDateTime
-          Memo.UTF8 = (
-            '[frxDBLista."VALDAT"]')
-          WordBreak = True
-        end
-        object Memo34: TfrxMemoView
-          Left = 769.826840000000000000
-          Width = 60.370130000000000000
-          Height = 18.897650000000000000
-          DataField = 'VALTOM'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          DisplayFormat.DecimalSeparator = ','
-          DisplayFormat.FormatStr = '%g'
-          DisplayFormat.Kind = fkNumeric
-          HAlign = haRight
-          HideZeros = True
-          Memo.UTF8 = (
-            '[frxDBLista."VALTOM"]')
-          WordBreak = True
-        end
-        object Memo44: TfrxMemoView
-          Left = 859.724490000000000000
-          Width = 79.370130000000000000
-          Height = 18.897650000000000000
-          DataField = 'KIKDAT'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          Memo.UTF8 = (
-            '[frxDBLista."KIKDAT"]')
-        end
-        object Memo45: TfrxMemoView
-          Left = 955.616883330000000000
-          Width = 23.370130000000000000
-          Height = 18.897650000000000000
-          DataField = 'KIKOD'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          Memo.UTF8 = (
-            '[frxDBLista."KIKOD"]')
-        end
-        object Memo46: TfrxMemoView
-          Left = 986.616883330000000000
-          Width = 24.703463330000000000
-          Height = 18.897650000000000000
-          DataField = 'KIKOK'
-          DataSet = frxDBLista
-          DataSetName = 'frxDBLista'
-          Memo.UTF8 = (
-            '[frxDBLista."KIKOK"]')
-        end
-      end
-      object PageFooter1: TfrxPageFooter
-        Height = 22.677180000000000000
-        Top = 362.834880000000000000
-        Width = 1046.929810000000000000
-        object Memo38: TfrxMemoView
-          Left = 1024.252630000000000000
-          Width = 15.118110240000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[Page]')
-          ParentFont = False
-        end
-        object Memo39: TfrxMemoView
-          Left = 967.559680000000000000
-          Width = 30.236240000000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'oldal:')
-          ParentFont = False
-        end
-        object Memo40: TfrxMemoView
-          Left = 1012.914040000000000000
-          Width = 11.338590000000000000
-          Height = 15.118110240000000000
-          Memo.UTF8 = (
-            '/')
-        end
-        object Memo9: TfrxMemoView
-          Left = 997.795920000000000000
-          Width = 15.118110240000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[TotalPages#]')
-          ParentFont = False
-        end
-        object Memo2: TfrxMemoView
-          Left = 7.559060000000000000
-          Width = 207.874150000000000000
-          Height = 15.118110240000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'List'#258#711'k - Egyedek lst'#258#711'z'#258#711'sa')
-          ParentFont = False
-          VAlign = vaCenter
-        end
-      end
-      object PageHeader1: TfrxPageHeader
-        Height = 39.456710000000000000
-        Top = 124.724490000000000000
-        Width = 1046.929810000000000000
-        object Memo12: TfrxMemoView
-          Left = 1.000000000000000000
-          Top = 0.779529999999994100
-          Width = 34.015748030000000000
-          Height = 15.874018190000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'ssz.')
-          ParentFont = False
-        end
-        object Line1: TfrxLineView
-          Align = baWidth
-          Top = 36.456692909999990000
-          Width = 1046.929810000000000000
-          Frame.Typ = [ftTop]
-        end
-        object Memo3: TfrxMemoView
-          Left = 46.574830000000000000
-          Top = 0.779529999999994100
-          Width = 75.590580470000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'ENAR')
-          ParentFont = False
-        end
-        object Memo11: TfrxMemoView
-          Left = 175.078850000000000000
-          Top = 0.779529999999994100
-          Width = 69.921274490000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'Sz'#258#317'l.d'#258#711'tum')
-          ParentFont = False
-        end
-        object Memo15: TfrxMemoView
-          Left = 540.472790000000000000
-          Top = 0.779529999999994100
-          Width = 37.795300000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'Fajta')
-          ParentFont = False
-        end
-        object Memo25: TfrxMemoView
-          Left = 390.291590000000000000
-          Top = 0.779529999999994100
-          Width = 96.606304090000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'ANYA ENAR')
-          ParentFont = False
-        end
-        object Memo26: TfrxMemoView
-          Left = 583.937385000000000000
-          Top = 0.779529999999994100
-          Width = 34.015770000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'Kons.')
-          ParentFont = False
-        end
-        object Memo28: TfrxMemoView
-          Left = 623.622450000000000000
-          Top = 1.779529999999994000
-          Width = 34.015770000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'Min.')
-          ParentFont = False
-        end
-        object Memo30: TfrxMemoView
-          Left = 507.287447960000000000
-          Top = 0.779529999999994100
-          Width = 23.047244090000000000
-          Height = 17.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'Ivar')
-          ParentFont = False
-        end
-        object Memo14: TfrxMemoView
-          Left = 322.480520000000000000
-          Top = 0.779529999999994100
-          Width = 48.692950000000000000
-          Height = 27.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'Apa '
-            'KLSZ')
-          ParentFont = False
-        end
-        object Memo27: TfrxMemoView
-          Left = 257.015770000000000000
-          Top = 0.779529999999994100
-          Width = 39.921274490000000000
-          Height = 26.456710000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            #258#8240'letkor'
-            'nap')
-          ParentFont = False
-        end
-        object Memo31: TfrxMemoView
-          Left = 682.826840000000000000
-          Top = 0.779529999999994100
-          Width = 127.015770000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'V'#258#711'laszt'#258#711'si')
-          ParentFont = False
-        end
-        object Memo32: TfrxMemoView
-          Left = 693.826840000000000000
-          Top = 17.055039999999990000
-          Width = 55.015770000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'd'#258#711'tum')
-          ParentFont = False
-        end
-        object Memo33: TfrxMemoView
-          Left = 770.826840000000000000
-          Top = 16.055039999999990000
-          Width = 55.015770000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'T'#258#182'meg')
-          ParentFont = False
-        end
-        object Memo37: TfrxMemoView
-          Left = 881.724490000000000000
-          Top = 1.055040000000005000
-          Width = 105.015770000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'Kiker'#258#317'l'#258#169's')
-          ParentFont = False
-        end
-        object Memo42: TfrxMemoView
-          Left = 868.724490000000000000
-          Top = 17.330549999999990000
-          Width = 55.015770000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'd'#258#711'tum')
-          ParentFont = False
-        end
-        object Memo43: TfrxMemoView
-          Left = 953.283550000000000000
-          Top = 15.330549999999990000
-          Width = 55.015770000000000000
-          Height = 15.118120000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Arial'
-          Font.Style = []
-          HAlign = haCenter
-          Memo.UTF8 = (
-            'K'#258#322'd / ok')
-          ParentFont = False
-        end
-      end
-      object ReportSummary1: TfrxReportSummary
-        Height = 34.015770000000000000
-        Top = 306.141930000000000000
-        Width = 1046.929810000000000000
-        object Memo13: TfrxMemoView
-          Left = 11.338570470000000000
-          Top = 7.559047799999973000
-          Width = 71.811033390000000000
-          Height = 23.433078190000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'T'#258#169'telsz'#258#711'm:')
-          ParentFont = False
-        end
-        object SysMemo4: TfrxSysMemoView
-          Left = 83.149660000000000000
-          Top = 7.559059999999988000
-          Width = 128.504020000000000000
-          Height = 23.433078190000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            '[COUNT(MasterData1)]')
-          ParentFont = False
-        end
-        object Line2: TfrxLineView
-          Align = baWidth
-          Top = 3.779525119999960000
-          Width = 1046.929810000000000000
-          Frame.Typ = [ftTop]
-        end
-      end
-    end
   end
   object frxPDFExport1: TfrxPDFExport
     UseFileCache = True
