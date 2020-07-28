@@ -1,6 +1,6 @@
 inherited frmZaras: TfrmZaras
-  Left = 701
-  Top = 216
+  Left = 527
+  Top = 181
   Width = 692
   Height = 532
   Caption = #201'ves z'#225'r'#225'si lista'
@@ -149,7 +149,7 @@ inherited frmZaras: TfrmZaras
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 39230.840396157400000000
-    ReportOptions.LastChange = 44039.855240254630000000
+    ReportOptions.LastChange = 44039.855240254600000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -1172,10 +1172,10 @@ inherited frmZaras: TfrmZaras
     Aggregates = <>
     Connection = dtmTarka.cnTarka
     DataSet.Connection = dtmTarka.cnTarka
-    DataSet.CommandText = 'select * '#13#10'from elit;'
+    DataSet.CommandText = 'select * from elit;'
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
-    Provider.DataSet.CommandText = 'select * '#13#10'from elit;'
+    Provider.DataSet.CommandText = 'select * from elit;'
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
@@ -1194,13 +1194,11 @@ inherited frmZaras: TfrmZaras
     object sdsElitListaAPAKLSZ: TWideStringField
       FieldName = 'APAKLSZ'
     end
-    object sdsElitListaELLESSZ: TBCDField
+    object sdsElitListaELLESSZ: TIntegerField
       FieldName = 'ELLESSZ'
-      Precision = 38
     end
-    object sdsElitListaBORJU_DB: TBCDField
+    object sdsElitListaBORJU_DB: TIntegerField
       FieldName = 'BORJU_DB'
-      Precision = 38
     end
     object sdsElitListaVAL_TOM: TIntegerField
       FieldName = 'VAL_TOM'
