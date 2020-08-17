@@ -859,7 +859,7 @@ var
   tehenszam: string;
 begin
   if dtmTarka.sdsInfo.FieldByName('ENAR').AsString <> NULL then
-    EgyediLapLista(dtmTarka.sdsInfo.FieldByName('ID').AsInteger);
+    EgyediLapLista(dtmTarka.sdsInfo.FieldByName('ID').AsInteger, '');
 end;
 
 

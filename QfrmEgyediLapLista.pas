@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, QfrmNyomtatoOs, ActnList, StdCtrls, Buttons, uTALBitBtn, StrUtils,
   ExtCtrls, DB, DBClient, uTALSimpleDataSet, frxClass, frxDBSet, Mask,
-  uValidedit, uTALEdit, uTALLabel, ADODB, uTALConnection;
+  uValidedit, uTALEdit, uTALLabel, ADODB, uTALConnection,
+  frxExportPDF;
 
 const
  SQL2 = 'select E.ENAR, E.TENYESZET, TENY.TNEV2, ' +
@@ -324,11 +325,13 @@ type
     sdsEllesekBE2_KIKDAT: TDateTimeField;
     sdsEllesekBE2_KIKOD: TWideStringField;
     sdsEllesekBE2_KIKOK: TWideStringField;
+    frxPDFExport1: TfrxPDFExport;
     procedure actOKExecute(Sender: TObject);
     procedure sdsListaENARGetText(Sender: TField; var Text: String;
       DisplayText: Boolean);
   private
     egyed_id: Integer;
+    report_save_filename: string;
     { Private declarations }
   public
     { Public declarations }
@@ -337,7 +340,7 @@ type
 var
   frmEgyediLapLista: TfrmEgyediLapLista;
 
-procedure EgyediLapLista(pID : Integer);
+procedure EgyediLapLista(pID : Integer; filename : string);
 
 implementation
 
@@ -345,13 +348,12 @@ uses udtmTarka;
 
 {$R *.dfm}
 
-procedure EgyediLapLista( pID : Integer);
+procedure EgyediLapLista( pID : Integer; filename : string);
 var
   ssql : string;
 begin
   frmEgyediLapLista := TfrmEgyediLapLista.Create(Application);
-  // if pID = EmptyStr then pID := NULL;
-
+  frmEgyediLapLista.report_save_filename := filename;
 
   with frmEgyediLapLista do
   begin
@@ -408,7 +410,13 @@ begin
      frxRepLista.Script.Variables['TENYESZET_NEV'] := dtmTarka.sTenyeszetNev;
      frxRepLista.Script.Variables['SzuroFeltetelek'] := '';
      frxRepLista.Script.Variables['IvarNev'] := dtmTarka.getIvarName( egyed_id);
-     frxRepLista.ShowReport();
+     if report_save_filename = '' then
+        frxRepLista.ShowReport()
+     else begin
+        frxRepLista.PrepareReport();
+        frxPDFExport1.FileName := report_save_filename;
+        frxRepLista.Export( frxPDFExport1);
+     end;
   end;
   ModalResult := mrOK;
 end;

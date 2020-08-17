@@ -7,7 +7,9 @@ uses
   Dialogs, QfrmNyomtatoOs, ActnList, StdCtrls, Buttons, uTALBitBtn,
   ExtCtrls, DBClient, uTALSimpleDataSet, DB, ADODB, uTalQuery, frxClass,
   frxDBSet, Mask, uValidedit, uTALEdit, uTALLabel, uTALRadioButton,
-  uTALGroupBox, uTALComboBox, frxExportXLS, frxExportHTML, frxExportPDF;
+  uTALGroupBox, uTALComboBox, frxExportXLS, frxExportHTML, frxExportPDF,
+  QfrmEgyediLapLista, ShellApi,
+  ComCtrls;
 
 type
   TfrmEgyedLista = class(TfrmNyomtatoOs)
@@ -92,6 +94,9 @@ type
     frxXLSExport1: TfrxXLSExport;
     edtTenyeszetTipus: TTalEdit;
     TalLabel19: TTalLabel;
+    frxRepList: TfrxReport;
+    rbEgyediLapok: TRadioButton;
+    sdsListaID: TBCDField;
     sdsListaTENYESZET: TWideStringField;
     sdsListaENAR: TWideStringField;
     sdsListaPS_AZON: TWideStringField;
@@ -113,7 +118,10 @@ type
     sdsListaKIKOD: TWideStringField;
     sdsListaKIKOK: TWideStringField;
     sdsListaTIPUS: TWideStringField;
-    frxRepList: TfrxReport;
+    pbEgyediLapok: TProgressBar;
+    progress: TTalGroupBox;
+    TalLabel29: TTalLabel;
+    lblProgressENAR: TTalLabel;
     procedure rbKiesettClick(Sender: TObject);
     procedure actOKExecute(Sender: TObject);
     procedure cbIvarCloseUp(Sender: TObject);
@@ -270,6 +278,7 @@ procedure TfrmEgyedLista.actOKExecute(Sender: TObject);
 Var
   PlusWhere, Order, sOrder : String;
   feltetelek : String;
+  dirname, filename: string;
 begin
   feltetelek := '';
   PlusWhere := '';
@@ -466,9 +475,31 @@ begin
          frxRepList.Script.Variables['PSION']:= 'IGEN';
        frxRepList.ShowReport;
      End;
-  end else begin
-    dtmTarka.ExcelExport(sdsLista, 'egyedek.xls');
   end;
+  
+  if rbExcel.Checked then begin
+     dtmTarka.ExcelExport(sdsLista, 'egyedek.xls');
+  end;
+
+  if rbEgyediLapok.Checked then begin
+     progress.Visible := true;
+     pbEgyediLapok.Min := 0;
+     pbEgyediLapok.Max := sdsLista.RecordCount;
+     pbEgyediLapok.Position := 0;
+     dirname := 'EgyediLapok' + formatdatetime( '_yyyymmdd_hhnnss', now);
+     CreateDir( dirname);
+     while not sdsLista.Eof do begin
+        pbEgyediLapok.Position := sdsLista.RecNo;
+        lblProgressENAR.Caption := sdsLista.FieldByName('ENAR').AsString;
+        progress.Repaint;
+        filename := dtmTarka.AppPath + '\' + dirname + '\egyedi_lap_' + sdsLista.FieldByName('ENAR').AsString + '.pdf';
+        EgyediLapLista( sdsLista.FieldByName('ID').AsInteger, filename);
+        sdsLista.Next;
+     end;
+     progress.Visible := false;
+     ShowMessage('Egyedi lapok elõállítása befejezõdött.');
+  end;
+
   sdsLista.Close;
 
 end;
