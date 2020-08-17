@@ -1172,10 +1172,10 @@ inherited frmZaras: TfrmZaras
     Aggregates = <>
     Connection = dtmTarka.cnTarka
     DataSet.Connection = dtmTarka.cnTarka
-    DataSet.CommandText = 'select * from elit'#13#10'order by enar;'
+    DataSet.CommandText = 'select * from elit'#13#10'order by enar'
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
-    Provider.DataSet.CommandText = 'select * from elit'#13#10'order by enar;'
+    Provider.DataSet.CommandText = 'select * from elit'#13#10'order by enar'
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
