@@ -1,6 +1,6 @@
 inherited frmEgyediLapLista: TfrmEgyediLapLista
-  Left = 450
-  Top = 220
+  Left = 535
+  Top = 255
   Width = 701
   Height = 389
   Caption = 'Egyedi lap nyomtat'#225'sa'
@@ -4571,5 +4571,19 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     DataSet = sdsTermekenyitesek
     Left = 408
     Top = 240
+  end
+  object frxPDFExport1: TfrxPDFExport
+    ShowDialog = False
+    UseFileCache = True
+    ShowProgress = False
+    PrintOptimized = False
+    Outline = False
+    Author = 'WTarka'
+    Subject = 'Egyedi Lap'
+    Background = False
+    Creator = 'FastReport (http://www.fast-report.com)'
+    HTMLTags = True
+    Left = 584
+    Top = 96
   end
 end

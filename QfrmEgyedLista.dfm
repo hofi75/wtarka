@@ -470,7 +470,7 @@ inherited frmEgyedLista: TfrmEgyedLista
       Caption = 'Lista kimenete '
       TabOrder = 28
       object rbExcel: TRadioButton
-        Left = 90
+        Left = 74
         Top = 19
         Width = 71
         Height = 17
@@ -480,12 +480,20 @@ inherited frmEgyedLista: TfrmEgyedLista
       object rbLista: TRadioButton
         Left = 10
         Top = 19
-        Width = 63
+        Width = 55
         Height = 17
         Caption = 'Lista'
         Checked = True
         TabOrder = 1
         TabStop = True
+      end
+      object rbEgyediLapok: TRadioButton
+        Left = 154
+        Top = 19
+        Width = 95
+        Height = 17
+        Caption = 'Egyedi lapok'
+        TabOrder = 2
       end
     end
     object TalGroupBox2: TTalGroupBox
@@ -885,6 +893,48 @@ inherited frmEgyedLista: TfrmEgyedLista
       ReadOnly = False
       TabOrder = 31
     end
+    object progress: TTalGroupBox
+      Left = 408
+      Top = 400
+      Width = 393
+      Height = 97
+      Caption = 'Egyedi lapok el'#337#225'll'#237't'#225'sa folyamatban'
+      TabOrder = 32
+      Visible = False
+      object TalLabel29: TTalLabel
+        Left = 16
+        Top = 28
+        Width = 55
+        Height = 20
+        Caption = 'ENAR: '
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lblProgressENAR: TTalLabel
+        Left = 83
+        Top = 28
+        Width = 182
+        Height = 20
+        Caption = 'Hello'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object pbEgyediLapok: TProgressBar
+        Left = 16
+        Top = 64
+        Width = 361
+        Height = 25
+        TabOrder = 0
+      end
+    end
   end
   inherited ActionList1: TActionList
     Left = 636
@@ -894,6 +944,7 @@ inherited frmEgyedLista: TfrmEgyedLista
     UserName = 'frxDBLista'
     CloseDataSource = False
     FieldAliases.Strings = (
+      'ID=ID'
       'TENYESZET=TENYESZET'
       'ENAR=ENAR'
       'PS_AZON=PS_AZON'
@@ -930,27 +981,27 @@ inherited frmEgyedLista: TfrmEgyedLista
     Connection = dtmTarka.cnTarka
     DataSet.Connection = dtmTarka.cnTarka
     DataSet.CommandText = 
-      'SELECT'#13#10'E.TENYESZET,'#13#10'case when trim(E.ENAR) is not null then e.' +
-      'enar'#13#10'else e.fulszam end as enar,'#13#10'SUBSTR(e.ENAR,6,4) as PS_AZON' +
-      ','#13#10'E.FULSZAM,'#13#10'E.SZULDAT,'#13#10'cast(CASE WHEN E.KIKDAT IS NULL THEN'#13 +
-      #10'  round((sysdate -  E.SZULDAT))'#13#10'ELSE round((E.KIKDAT - E.SZULD' +
-      'AT)) END as numeric) AS ELETKOR_NAP,'#13#10'E.VALDAT, E.VALTOM,'#13#10'E.MIN' +
-      ','#13#10'E.ANYA_ENAR,'#13#10'E.APAKLSZ,'#13#10'E.FAJTAKOD,'#13#10'E.KKOD,'#13#10'E.TKV,'#13#10'E.SV,' +
-      #13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'T.TIPUS'#13#10'FR' +
-      'OM EGYEDEK E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'WHERE 1 ' +
-      '= 1'
+      'SELECT'#13#10'E.ID,'#13#10'E.TENYESZET,'#13#10'case when trim(E.ENAR) is not null ' +
+      'then e.enar'#13#10'else e.fulszam end as enar,'#13#10'SUBSTR(e.ENAR,6,4) as ' +
+      'PS_AZON,'#13#10'E.FULSZAM,'#13#10'E.SZULDAT,'#13#10'cast(CASE WHEN E.KIKDAT IS NUL' +
+      'L THEN'#13#10'  round((sysdate -  E.SZULDAT))'#13#10'ELSE round((E.KIKDAT - ' +
+      'E.SZULDAT)) END as numeric) AS ELETKOR_NAP,'#13#10'E.VALDAT, E.VALTOM,' +
+      #13#10'E.MIN,'#13#10'E.ANYA_ENAR,'#13#10'E.APAKLSZ,'#13#10'E.FAJTAKOD,'#13#10'E.KKOD,'#13#10'E.TKV,' +
+      #13#10'E.SV,'#13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'T.TI' +
+      'PUS'#13#10'FROM EGYEDEK E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'W' +
+      'HERE 1 = 1'
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
-      'SELECT'#13#10'E.TENYESZET,'#13#10'case when trim(E.ENAR) is not null then e.' +
-      'enar'#13#10'else e.fulszam end as enar,'#13#10'SUBSTR(e.ENAR,6,4) as PS_AZON' +
-      ','#13#10'E.FULSZAM,'#13#10'E.SZULDAT,'#13#10'cast(CASE WHEN E.KIKDAT IS NULL THEN'#13 +
-      #10'  round((sysdate -  E.SZULDAT))'#13#10'ELSE round((E.KIKDAT - E.SZULD' +
-      'AT)) END as numeric) AS ELETKOR_NAP,'#13#10'E.VALDAT, E.VALTOM,'#13#10'E.MIN' +
-      ','#13#10'E.ANYA_ENAR,'#13#10'E.APAKLSZ,'#13#10'E.FAJTAKOD,'#13#10'E.KKOD,'#13#10'E.TKV,'#13#10'E.SV,' +
-      #13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'T.TIPUS'#13#10'FR' +
-      'OM EGYEDEK E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'WHERE 1 ' +
-      '= 1'
+      'SELECT'#13#10'E.ID,'#13#10'E.TENYESZET,'#13#10'case when trim(E.ENAR) is not null ' +
+      'then e.enar'#13#10'else e.fulszam end as enar,'#13#10'SUBSTR(e.ENAR,6,4) as ' +
+      'PS_AZON,'#13#10'E.FULSZAM,'#13#10'E.SZULDAT,'#13#10'cast(CASE WHEN E.KIKDAT IS NUL' +
+      'L THEN'#13#10'  round((sysdate -  E.SZULDAT))'#13#10'ELSE round((E.KIKDAT - ' +
+      'E.SZULDAT)) END as numeric) AS ELETKOR_NAP,'#13#10'E.VALDAT, E.VALTOM,' +
+      #13#10'E.MIN,'#13#10'E.ANYA_ENAR,'#13#10'E.APAKLSZ,'#13#10'E.FAJTAKOD,'#13#10'E.KKOD,'#13#10'E.TKV,' +
+      #13#10'E.SV,'#13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'T.TI' +
+      'PUS'#13#10'FROM EGYEDEK E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'W' +
+      'HERE 1 = 1'
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
@@ -958,6 +1009,11 @@ inherited frmEgyedLista: TfrmEgyedLista
     ReadOnly = True
     Left = 627
     Top = 40
+    object sdsListaID: TBCDField
+      FieldName = 'ID'
+      Precision = 15
+      Size = 0
+    end
     object sdsListaTENYESZET: TWideStringField
       FieldName = 'TENYESZET'
       Size = 7
@@ -981,7 +1037,7 @@ inherited frmEgyedLista: TfrmEgyedLista
     end
     object sdsListaELETKOR_NAP: TBCDField
       FieldName = 'ELETKOR_NAP'
-      Precision = 32
+      Precision = 38
       Size = 0
     end
     object sdsListaVALDAT: TDateTimeField
@@ -1117,7 +1173,7 @@ inherited frmEgyedLista: TfrmEgyedLista
   object frxPDFExport1: TfrxPDFExport
     UseFileCache = True
     ShowProgress = True
-    PrintOptimized = False
+    PrintOptimized = True
     Outline = False
     Author = 'FastReport'
     Subject = 'FastReport PDF export'
