@@ -501,7 +501,7 @@ begin
     sdsTenyeszet.DataSet.CommandText :=
       'SELECT TKOD || ' + QuotedStr(' - ') + ' || TNEV2 AS LISTA, * ' +
       'FROM TENY ' +
-      'ORDER BY TKOD'
+      'ORDER BY TNEV2'
   else
     sdsTenyeszet.DataSet.CommandText :=
       'SELECT TKOD || ' + QuotedStr(' - ') + ' || TNEV2 AS LISTA, * ' +
