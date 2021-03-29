@@ -160,6 +160,7 @@ type
     edtVer3: TTalEdit;
     edtVer2: TTalEdit;
     edtVer4: TTalEdit;
+    procedure VerhanyadUpdate(ID: String);
     procedure btnKilepesClick(Sender: TObject);
     procedure btnKeresesClick(Sender: TObject);
     procedure btnModositClick(Sender: TObject);
@@ -525,6 +526,31 @@ begin
   end;
 end;
 
+procedure TfrminfoPult.VerhanyadUpdate( ID: String);
+var
+   sql : string;
+begin
+   sql := 'update egyedek ' +
+          ' set vsz1 = ' + StringReplace( edtVer1.EditText,',','.',[]) + ', ' +
+          ' vsz2 = ' + StringReplace( edtVer2.EditText,',','.',[]) + ', ' +
+          ' vsz3 = ' + StringReplace( edtVer3.EditText,',','.',[]) + ', ' +
+          ' vsz4 = ' + StringReplace( edtVer4.EditText,',','.',[]) +
+          ' where ID = ' + ID;
+
+   log(sql);
+
+   dtmTarka.cnTarka.BeginTrans;
+   try
+      dtmTarka.cnTarka.Execute(sql);
+      dtmTarka.cnTarka.CommitTrans;
+   except
+      if dtmTarka.cnTarka.InTransaction then begin
+         dtmTarka.cnTarka.RollbackTrans;
+      end;
+      dtmTarka.MsgDlg( 'Az adatok mentése nem sikerült!' + dtmTarka.cnTarka.Errors.Item[0].Description, mtWarning, [mbOK], 0);
+   end;
+end;
+
 
 procedure TfrmInfoPult.btnModositClick(Sender: TObject);
 var
@@ -577,39 +603,23 @@ begin
       else
         RegiOk := '';
     end;
-
+                                            
     // edtVer1_old.EditText := '55.1';
     dtmTarka.sdsInfo.Post;
     EgyedAzon := dtmTarka.sdsInfoENAR.AsString;
     nof_errors := dtmTarka.sdsInfo.ApplyUpdates(0);
     dtmTarka.sdsInfo.Close;
     Self.Caption := 'Egyed adatainak lekérdezése';
-
-    if VerhanyadChanged then begin
-      sql := 'update egyedek ' +
-             ' set vsz1 = ' + StringReplace( edtVer1.EditText,',','.',[]) + ', ' +
-             ' vsz2 = ' + StringReplace( edtVer2.EditText,',','.',[]) + ', ' +
-             ' vsz3 = ' + StringReplace( edtVer3.EditText,',','.',[]) + ', ' +
-             ' vsz4 = ' + StringReplace( edtVer4.EditText,',','.',[]) +
-             ' where ID = ' + IntToStr(CurrentID);
-      log(sql);
-
-      dtmTarka.cnTarka.BeginTrans;
-      try
-         dtmTarka.cnTarka.Execute(SQL);
-         dtmTarka.cnTarka.CommitTrans;
-      except
-         if dtmTarka.cnTarka.InTransaction then begin
-            dtmTarka.cnTarka.RollbackTrans;
-         end;
-         dtmTarka.MsgDlg( 'Az adatok mentése nem sikerült!' + dtmTarka.cnTarka.Errors.Item[0].Description, mtWarning, [mbOK], 0);
-      end;
-    end;
+    ID := IntToStr( CurrentID);
 
     dtmTarka.sdsInfo.Close;
     if EditMode = 'N' then begin
       if dtmTarka.VaneEgyedEnar(EgyedAzon, azon, Id) then
         dtmTarka.sdsInfo.DataSet.Parameters.ParamByName('ID').Value := ID;
+    end;
+
+    if VerhanyadChanged then begin
+        VerhanyadUpdate( ID);
     end;
 
     dtmTarka.sdsInfo.Open;
