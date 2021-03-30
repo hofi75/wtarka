@@ -149,26 +149,38 @@ inherited frmZaras: TfrmZaras
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 39230.840396157400000000
-    ReportOptions.LastChange = 44039.855240254600000000
+    ReportOptions.LastChange = 44285.888091006940000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
-      'procedure Memo7OnAfterData(Sender: TfrxComponent);'
-      '  var'
-      '  s : string;'
+      'procedure Memo21OnAfterPrint(Sender: TfrxComponent);'
       'begin'
-      '    s := <frxDBDElitLista."ENAR">;'
-      '    if ((Copy(s,1,1) = '#39'3'#39') And (Length(s) = 10)) Then'
-      
-        '      memo7.text:=Copy(s,1,5) + '#39'-'#39' + Copy(s,6,4) + '#39'-'#39' + Copy(s' +
-        ',10,1)'
-      '    Else'
-      '     If ((Copy(s,1,3) = '#39'HU3'#39') And (Length(s) = 12)) Then'
-      
-        '       memo7.text:=Copy(s,1,7) + '#39'-'#39' + Copy(s,8,4) + '#39'-'#39' + Copy(' +
-        's,12,1)'
-      '     else'
-      '       memo7.text := <frxDBDElitLista."ENAR">;'
+      ''
+      'end;'
+      ''
+      'procedure Memo21OnAfterData(Sender: TfrxComponent);'
+      'begin'
+      '  if <frxDBZarLista2."BORJU_IVAR"> = '#39'1'#39' then'
+      '    Memo21.text := '#39'Bik'#225'k'#39';'
+      '  if <frxDBZarLista2."BORJU_IVAR"> = '#39'2'#39' then'
+      '    Memo21.text := '#39#220'sz'#337'k'#39';'
+      '  end;'
+      ''
+      'procedure Memo61OnAfterData(Sender: TfrxComponent);'
+      'begin'
+      '  if <frxDBZarLista21."BORJU_IVAR"> = '#39'1'#39' then'
+      '    Memo61.text := '#39'Bik'#225'k'#39';'
+      '  if <frxDBZarLista21."BORJU_IVAR"> = '#39'2'#39' then'
+      '    Memo61.text := '#39#220'sz'#337'k'#39';'
+      'end;'
+      ''
+      ''
+      'procedure Memo123OnAfterData(Sender: TfrxComponent);'
+      'begin'
+      '  if <frxDBBikas."BORJU_IVAR"> = '#39'1'#39' then'
+      '    Memo123.text := '#39'Bik'#225'k'#39';'
+      '  if <frxDBBikas."BORJU_IVAR"> = '#39'2'#39' then'
+      '    Memo123.text := '#39#220'sz'#337'k'#39';'
       'end;'
       ''
       'begin'
@@ -179,12 +191,32 @@ inherited frmZaras: TfrmZaras
     Top = 359
     Datasets = <
       item
-        DataSet = frxDBDElitLista
-        DataSetName = 'frxDBDElitLista'
+        DataSet = frxDBBikas
+        DataSetName = 'frxDBBikas'
       end
       item
         DataSet = frmTibor.frxDBdtsTiborTenyeszet
         DataSetName = 'frxDBdtsTiborTenyeszet'
+      end
+      item
+        DataSet = frxDBZarLista
+        DataSetName = 'frxDBZarLista'
+      end
+      item
+        DataSet = frxDBZarLista2
+        DataSetName = 'frxDBZarLista2'
+      end
+      item
+        DataSet = dtsZarLista21
+        DataSetName = 'frxDBZarLista21'
+      end
+      item
+        DataSet = frxDBZarm
+        DataSetName = 'frxDBZarM'
+      end
+      item
+        DataSet = frxDBZarU
+        DataSetName = 'frxDBZarU'
       end>
     Variables = <
       item
@@ -398,16 +430,16 @@ inherited frmZaras: TfrmZaras
       'T2.DATUM - E.SZULDAT) AS INTEGER) AS T2_ELETNAP, (T2.DATUM - T1.' +
       'DATUM) AS T2_HIZNAP,  CAST(TOMGYAR(0, T2.TOMEG, E.SZULDAT,T2.DAT' +
       'UM) AS INTEGER) AS T2ELET,  '#13#10'CAST(TOMGYAR(T1.TOMEG, T2.TOMEG, T' +
-      '1.DATUM, T2.DATUM) AS INTEGER) AS T2HIZ,  COALESCE(KK.TIPUS,0) A' +
-      'S TIPUS, '#13#10'COALESCE(KK.IZOM,0) AS IZOM , COALESCE(KK.LAB,0) AS L' +
-      'AB  '#13#10'FROM EGYEDEK E  '#13#10'JOIN TOMEGEK T1 ON T1.EGYED_ID = E.ID AN' +
-      'D T1.ID = ELSO_MERES(E.ID,TO_DATE('#39'2010.04.15'#39','#39'yyyy.mm.dd'#39')) AN' +
-      'D T1.DATUM<= TO_DATE('#39'2016.08.18'#39','#39'yyyy.mm.dd'#39') '#13#10'LEFT JOIN TOME' +
-      'GEK T2 ON T2.EGYED_ID = E.ID AND T2.ID = ELSO_MERES(E.ID,  TO_DA' +
-      'TE('#39'2010.04.15'#39','#39'yyyy.mm.dd'#39')) AND T2.DATUM<=  TO_DATE('#39'2016.08.' +
-      '18'#39','#39'yyyy.mm.dd'#39') '#13#10'LEFT JOIN KULLEM KK ON KK.ID = KULLEM_ID(E.E' +
-      'NAR)  '#13#10'WHERE E.IVAR = '#39'1'#39' AND E.TENYESZET = '#39'0515225'#39' '#13#10'Order B' +
-      'y e.enar'
+      '1.DATUM, T2.DATUM) AS INTEGER) AS T2HIZ, '#13#10'CAST(COALESCE(KK.TIPU' +
+      'S,0) AS INTEGER) AS TIPUS, '#13#10'CAST( COALESCE(KK.IZOM,0) AS INTEGE' +
+      'R) AS IZOM , '#13#10'CAST(COALESCE(KK.LAB,0) AS INTEGER) AS LAB  '#13#10'FRO' +
+      'M EGYEDEK E  '#13#10'JOIN TOMEGEK T1 ON T1.EGYED_ID = E.ID AND T1.ID =' +
+      ' ELSO_MERES(E.ID,TO_DATE('#39'2010.04.15'#39','#39'yyyy.mm.dd'#39')) AND T1.DATU' +
+      'M<= TO_DATE('#39'2016.08.18'#39','#39'yyyy.mm.dd'#39') '#13#10'LEFT JOIN TOMEGEK T2 ON' +
+      ' T2.EGYED_ID = E.ID AND T2.ID = ELSO_MERES(E.ID,  TO_DATE('#39'2010.' +
+      '04.15'#39','#39'yyyy.mm.dd'#39')) AND T2.DATUM<=  TO_DATE('#39'2016.08.18'#39','#39'yyyy' +
+      '.mm.dd'#39') '#13#10'LEFT JOIN KULLEM KK ON KK.ID = KULLEM_ID(E.ENAR)  '#13#10'W' +
+      'HERE E.IVAR = '#39'1'#39' AND E.TENYESZET = '#39'0515225'#39' '#13#10'Order By e.enar'
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
@@ -423,16 +455,16 @@ inherited frmZaras: TfrmZaras
       'T2.DATUM - E.SZULDAT) AS INTEGER) AS T2_ELETNAP, (T2.DATUM - T1.' +
       'DATUM) AS T2_HIZNAP,  CAST(TOMGYAR(0, T2.TOMEG, E.SZULDAT,T2.DAT' +
       'UM) AS INTEGER) AS T2ELET,  '#13#10'CAST(TOMGYAR(T1.TOMEG, T2.TOMEG, T' +
-      '1.DATUM, T2.DATUM) AS INTEGER) AS T2HIZ,  COALESCE(KK.TIPUS,0) A' +
-      'S TIPUS, '#13#10'COALESCE(KK.IZOM,0) AS IZOM , COALESCE(KK.LAB,0) AS L' +
-      'AB  '#13#10'FROM EGYEDEK E  '#13#10'JOIN TOMEGEK T1 ON T1.EGYED_ID = E.ID AN' +
-      'D T1.ID = ELSO_MERES(E.ID,TO_DATE('#39'2010.04.15'#39','#39'yyyy.mm.dd'#39')) AN' +
-      'D T1.DATUM<= TO_DATE('#39'2016.08.18'#39','#39'yyyy.mm.dd'#39') '#13#10'LEFT JOIN TOME' +
-      'GEK T2 ON T2.EGYED_ID = E.ID AND T2.ID = ELSO_MERES(E.ID,  TO_DA' +
-      'TE('#39'2010.04.15'#39','#39'yyyy.mm.dd'#39')) AND T2.DATUM<=  TO_DATE('#39'2016.08.' +
-      '18'#39','#39'yyyy.mm.dd'#39') '#13#10'LEFT JOIN KULLEM KK ON KK.ID = KULLEM_ID(E.E' +
-      'NAR)  '#13#10'WHERE E.IVAR = '#39'1'#39' AND E.TENYESZET = '#39'0515225'#39' '#13#10'Order B' +
-      'y e.enar'
+      '1.DATUM, T2.DATUM) AS INTEGER) AS T2HIZ, '#13#10'CAST(COALESCE(KK.TIPU' +
+      'S,0) AS INTEGER) AS TIPUS, '#13#10'CAST( COALESCE(KK.IZOM,0) AS INTEGE' +
+      'R) AS IZOM , '#13#10'CAST(COALESCE(KK.LAB,0) AS INTEGER) AS LAB  '#13#10'FRO' +
+      'M EGYEDEK E  '#13#10'JOIN TOMEGEK T1 ON T1.EGYED_ID = E.ID AND T1.ID =' +
+      ' ELSO_MERES(E.ID,TO_DATE('#39'2010.04.15'#39','#39'yyyy.mm.dd'#39')) AND T1.DATU' +
+      'M<= TO_DATE('#39'2016.08.18'#39','#39'yyyy.mm.dd'#39') '#13#10'LEFT JOIN TOMEGEK T2 ON' +
+      ' T2.EGYED_ID = E.ID AND T2.ID = ELSO_MERES(E.ID,  TO_DATE('#39'2010.' +
+      '04.15'#39','#39'yyyy.mm.dd'#39')) AND T2.DATUM<=  TO_DATE('#39'2016.08.18'#39','#39'yyyy' +
+      '.mm.dd'#39') '#13#10'LEFT JOIN KULLEM KK ON KK.ID = KULLEM_ID(E.ENAR)  '#13#10'W' +
+      'HERE E.IVAR = '#39'1'#39' AND E.TENYESZET = '#39'0515225'#39' '#13#10'Order By e.enar'
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
@@ -445,7 +477,7 @@ inherited frmZaras: TfrmZaras
     end
     object sdsZarLstUANYA_ENAR: TWideStringField
       FieldName = 'ANYA_ENAR'
-      Size = 10
+      Size = 14
     end
     object sdsZarLstUAPAKLSZ: TWideStringField
       FieldName = 'APAKLSZ'
@@ -466,7 +498,7 @@ inherited frmZaras: TfrmZaras
     object sdsZarLstUENAPVAL: TBCDField
       FieldName = 'ENAPVAL'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
       Size = 0
     end
     object sdsZarLstUTOM205: TIntegerField
@@ -478,7 +510,7 @@ inherited frmZaras: TfrmZaras
     object sdsZarLstUTGYVAL: TBCDField
       FieldName = 'TGYVAL'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
       Size = 0
     end
     object sdsZarLstUT1DATUM: TDateTimeField
@@ -490,25 +522,25 @@ inherited frmZaras: TfrmZaras
     object sdsZarLstUT1_ELETNAP: TBCDField
       FieldName = 'T1_ELETNAP'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
       Size = 0
     end
     object sdsZarLstUT1_HIZNAP: TBCDField
       FieldName = 'T1_HIZNAP'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
       Size = 0
     end
     object sdsZarLstUT1ELET: TBCDField
       FieldName = 'T1ELET'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
       Size = 0
     end
     object sdsZarLstUT1HIZ: TBCDField
       FieldName = 'T1HIZ'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
       Size = 0
     end
     object sdsZarLstUT2DATUM: TDateTimeField
@@ -520,40 +552,43 @@ inherited frmZaras: TfrmZaras
     object sdsZarLstUT2_ELETNAP: TBCDField
       FieldName = 'T2_ELETNAP'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
       Size = 0
     end
     object sdsZarLstUT2_HIZNAP: TBCDField
       FieldName = 'T2_HIZNAP'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
     end
     object sdsZarLstUT2ELET: TBCDField
       FieldName = 'T2ELET'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
       Size = 0
     end
     object sdsZarLstUT2HIZ: TBCDField
       FieldName = 'T2HIZ'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
       Size = 0
     end
     object sdsZarLstUTIPUS: TBCDField
       FieldName = 'TIPUS'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
+      Size = 0
     end
     object sdsZarLstUIZOM: TBCDField
       FieldName = 'IZOM'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
+      Size = 0
     end
     object sdsZarLstULAB: TBCDField
       FieldName = 'LAB'
       ReadOnly = True
-      Precision = 32
+      Precision = 38
+      Size = 0
     end
   end
   object frxDBZarU: TfrxDBDataset

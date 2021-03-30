@@ -94,6 +94,34 @@ type
     sdsBikNevListaVERH: TBCDField;
     lblDb: TTalLabel;
     edtDb: TTalMaskEdit;
+    sdsZarMEV: TDateTimeField;
+    sdsZarMDB: TBCDField;
+    sdsZarMFARMAG: TBCDField;
+    sdsZarMFARSZEL: TBCDField;
+    sdsZarMFARLEJT: TBCDField;
+    sdsZarMHATSOLAB: TBCDField;
+    sdsZarMCSUD: TBCDField;
+    sdsZarMTIPUS: TBCDField;
+    sdsZarMCOMBIZOM: TBCDField;
+    sdsZarMLAPIZOM: TBCDField;
+    sdsZarMTORZSHOSSZ: TBCDField;
+    sdsZarMFARHOSSZ: TBCDField;
+    sdsZarMTORZSMELY: TBCDField;
+    sdsZarMTOGYMELY: TBCDField;
+    sdsZarMBIMBO: TBCDField;
+    sdsZarMIZOM: TBCDField;
+    sdsZarMLAB: TBCDField;
+    sdsElitListaENAR: TWideStringField;
+    sdsElitListaTEHENSZAM: TWideStringField;
+    sdsElitListaSZULDAT: TDateTimeField;
+    sdsElitListaAPAKLSZ: TWideStringField;
+    sdsElitListaELLESSZ: TIntegerField;
+    sdsElitListaBORJU_DB: TIntegerField;
+    sdsElitListaVAL_TOM: TIntegerField;
+    sdsElitListaATL_TOM: TIntegerField;
+    sdsElitListaTOM205: TIntegerField;
+    sdsElitListaATL_TOM205: TIntegerField;
+    sdsElitListaKIKDAT: TDateTimeField;
     sdsZarLstUENAR: TWideStringField;
     sdsZarLstUANYA_ENAR: TWideStringField;
     sdsZarLstUAPAKLSZ: TWideStringField;
@@ -120,35 +148,7 @@ type
     sdsZarLstUTIPUS: TBCDField;
     sdsZarLstUIZOM: TBCDField;
     sdsZarLstULAB: TBCDField;
-    sdsZarMEV: TDateTimeField;
-    sdsZarMDB: TBCDField;
-    sdsZarMFARMAG: TBCDField;
-    sdsZarMFARSZEL: TBCDField;
-    sdsZarMFARLEJT: TBCDField;
-    sdsZarMHATSOLAB: TBCDField;
-    sdsZarMCSUD: TBCDField;
-    sdsZarMTIPUS: TBCDField;
-    sdsZarMCOMBIZOM: TBCDField;
-    sdsZarMLAPIZOM: TBCDField;
-    sdsZarMTORZSHOSSZ: TBCDField;
-    sdsZarMFARHOSSZ: TBCDField;
-    sdsZarMTORZSMELY: TBCDField;
-    sdsZarMTOGYMELY: TBCDField;
-    sdsZarMBIMBO: TBCDField;
-    sdsZarMIZOM: TBCDField;
-    sdsZarMLAB: TBCDField;
     frxRepLista: TfrxReport;
-    sdsElitListaENAR: TWideStringField;
-    sdsElitListaTEHENSZAM: TWideStringField;
-    sdsElitListaSZULDAT: TDateTimeField;
-    sdsElitListaAPAKLSZ: TWideStringField;
-    sdsElitListaELLESSZ: TIntegerField;
-    sdsElitListaBORJU_DB: TIntegerField;
-    sdsElitListaVAL_TOM: TIntegerField;
-    sdsElitListaATL_TOM: TIntegerField;
-    sdsElitListaTOM205: TIntegerField;
-    sdsElitListaATL_TOM205: TIntegerField;
-    sdsElitListaKIKDAT: TDateTimeField;
     procedure actOKExecute(Sender: TObject);
   private
     { Private declarations }
@@ -329,8 +329,10 @@ begin
         ' CAST((T1.DATUM - E.VALDAT) AS INTEGER) AS T1_HIZNAP,  CAST(TOMGYAR(0, T1.TOMEG, E.SZULDAT,T1.DATUM) AS INTEGER) AS T1ELET, ' +
         ' CAST(TOMGYAR(E.VALTOM, T1.TOMEG, E.VALDAT, T1.DATUM) AS INTEGER) AS T1HIZ,  T2.DATUM AS T2DATUM, T2.TOMEG AS T2TOMEG, ' +
         ' CAST((T2.DATUM - E.SZULDAT) AS INTEGER) AS T2_ELETNAP, (T2.DATUM - T1.DATUM) AS T2_HIZNAP,  CAST(TOMGYAR(0, T2.TOMEG, E.SZULDAT,T2.DATUM) AS INTEGER) AS T2ELET, ' +
-        ' CAST(TOMGYAR(T1.TOMEG, T2.TOMEG, T1.DATUM, T2.DATUM) AS INTEGER) AS T2HIZ,  COALESCE(KK.TIPUS,0) AS TIPUS , ' +
-        ' COALESCE(KK.IZOM,0) AS IZOM , COALESCE(KK.LAB,0) AS LAB   ' +
+        ' CAST(TOMGYAR(T1.TOMEG, T2.TOMEG, T1.DATUM, T2.DATUM) AS INTEGER) AS T2HIZ, ' +
+        ' CAST(COALESCE(KK.TIPUS,0) AS INTEGER) AS TIPUS , ' +
+        ' CAST(COALESCE(KK.IZOM,0) AS INTEGER) AS IZOM , ' +
+        ' CAST(COALESCE(KK.LAB,0) AS INTEGER) AS LAB ' +
         ' from EGYEDEK E ' +
         ' join TOMEGEK T1 on   T1.id    = USTV_FIRST_MEASUREMENT(E.id,TO_DATE(''' + KezDat + ''',''yyyy.mm.dd'')) ' +
         ' left join TOMEGEK T2 on T2.id = USTV_LAST_MEASUREMENT(E.id,TO_DATE(''' + ZarDat + ''',''yyyy.mm.dd'')) ' +
@@ -339,7 +341,7 @@ begin
         ' LEFT join kullem kk on kk.ID = KULLEM_ID(E.ENAR) ' +
         ' where e.ivar = ''1'' ' +
           'and e.tenyeszet = ' + quotedstr(dtmTarka.TenyeszetTKOD) +
-        'Order By e.enar';
+        ' Order By e.enar';
 
      if sdsZarLstU.Active then sdsZarLstU.Close;
      sdsZarLstU.DataSet.CommandText := SQL1;
