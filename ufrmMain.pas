@@ -231,6 +231,7 @@ type
     sdsTenyeszetCHANGED: TDateTimeField;
     sdsTenyeszetROW_ID: TVarBytesField;
     Atorzskonyves1: TMenuItem;
+    MIVerhanyadLista: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure ShowHint(Sender: TObject);
     procedure HelpContents(Sender: TObject);
@@ -332,10 +333,12 @@ type
     procedure actTermFeladExecute(Sender: TObject);
     procedure actCsaladfaListaExecute(Sender: TObject);
     procedure actSzarmEllCsopExecute(Sender: TObject);
+    procedure actVerhanyadLista(Sender: TObject);
     procedure actSzarmListaExecute(Sender: TObject);
     procedure NETPontReadClick(Sender: TObject);
     procedure cbTenyeszetCloseUp(Sender: TObject);
     procedure Atorzskonyves1Click(Sender: TObject);
+    // procedure VerhanyadListaClick(Sender: TObject);
   end;
 
 var
@@ -359,7 +362,7 @@ uses
   Qfrmsvszamol, QfrmEletLista, QfrmTParLis, QfrmUszoLis,
   QfrmZaras, QfrmValaszt, QfrmEnarBe, QfrmEnarGyujt, QfrmCsaladfa,
   QfrmParVal, QfrmSzarmLista, QfrmNETPontRead,
-  SzarmazasiIgazolas, ATorzskonyves;
+  SzarmazasiIgazolas, ATorzskonyves, VerhanyadLista;
 
 
 {$r *.dfm}
@@ -1099,6 +1102,11 @@ begin
    CsopElemz;
 end;
 
+procedure TfrmMain.actVerhanyadLista(Sender: TObject);
+begin
+   VerhanyadListaShow;
+end;
+
 procedure TfrmMain.actSzarmListaExecute(Sender: TObject);
 begin
   SzarmLista;
@@ -1132,4 +1140,9 @@ begin
   ATorzskonyvesCreate;
 end;
 
+(* procedure TfrmMain.VerhanyadListaClick(Sender: TObject);
+begin
+  ATorzskonyvesCreate;
+end;
+*) 
 end.

@@ -929,6 +929,10 @@ object frmMain: TfrmMain
       object SVszzalkokjraszmolsa1: TMenuItem
         Action = actSvSzamolMind
       end
+      object MIVerhanyadLista: TMenuItem
+        Caption = 'V'#233'rh'#225'nyad Lista'
+        OnClick = actVerhanyadLista
+      end
       object L1: TMenuItem
         Caption = 'List'#225'k'
         object Kdtipusok1: TMenuItem

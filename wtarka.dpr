@@ -91,7 +91,8 @@ uses
   Atkotes in 'Atkotes.pas' {Form1},
   SzarmazasiIgazolas in 'SzarmazasiIgazolas.pas' {frmSzarmazasiIgazolas},
   SzarmazasiIgazolasPrint in 'SzarmazasiIgazolasPrint.pas' {SzarmazasiIgazolasPrint: TSzarmazasiIgazolasPrint},
-  ATorzskonyves in 'ATorzskonyves.pas' {Form2};
+  ATorzskonyves in 'ATorzskonyves.pas' {Form2},
+  VerhanyadLista in 'VerhanyadLista.pas' {frmVerhanyadLista};
 
 {$R *.res}
 
@@ -119,6 +120,7 @@ begin
   Application.CreateForm(TfrmValDat, frmValDat);
   Application.CreateForm(TfrmHivSzarmIg, frmHivSzarmIg);
   Application.CreateForm(TfrmSzarmazasiIgazolas, frmSzarmazasiIgazolas);
+  Application.CreateForm(TfrmVerhanyadLista, frmVerhanyadLista);
   //Application.CreateForm(TAtorzskonyves, ATorzskonyves);
   // Application.CreateForm(TDataModule1, DataModule1);
   // Application.CreateForm(TfrmAtkotes, frmAtkotes);
