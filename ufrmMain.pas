@@ -338,7 +338,6 @@ type
     procedure NETPontReadClick(Sender: TObject);
     procedure cbTenyeszetCloseUp(Sender: TObject);
     procedure Atorzskonyves1Click(Sender: TObject);
-    // procedure VerhanyadListaClick(Sender: TObject);
   end;
 
 var
@@ -1140,9 +1139,4 @@ begin
   ATorzskonyvesCreate;
 end;
 
-(* procedure TfrmMain.VerhanyadListaClick(Sender: TObject);
-begin
-  ATorzskonyvesCreate;
-end;
-*) 
 end.

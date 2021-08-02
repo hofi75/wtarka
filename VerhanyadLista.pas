@@ -17,9 +17,9 @@ type
     sdsVerhanyadLista: TTalSimpleDataSet;
     frxDBVerhanyadLista: TfrxDBDataset;
     sdsVerhanyadListaDATUM: TDateTimeField;
-    sdsVerhanyadListaDB: TBCDField;
+    sdsVerhanyadListaDB: TIntegerField;
     sdsVerhanyadListaVERH: TBCDField;
-    sdsVerhanyadListaMT_DB: TBCDField;
+    sdsVerhanyadListaMT_DB: TIntegerField;
     sdsVerhanyadListaMT_VSZ: TBCDField;
     frxVerhanyadLista: TfrxReport;
     procedure btnPrintClick(Sender: TObject);
@@ -64,5 +64,6 @@ begin
    frmVerhanyadLista.frxVerhanyadLista.ShowReport;
    frmVerhanyadLista.sdsVerhanyadLista.DataSet.Close;
 end;
+
 
 end.

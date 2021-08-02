@@ -1,6 +1,6 @@
 object frmVerhanyadLista: TfrmVerhanyadLista
-  Left = 725
-  Top = 426
+  Left = 1108
+  Top = 393
   Width = 422
   Height = 192
   Caption = 'Verhanyad Lista'
@@ -88,10 +88,10 @@ object frmVerhanyadLista: TfrmVerhanyadLista
     Aggregates = <>
     Connection = dtmTarka.cnTarka
     DataSet.Connection = dtmTarka.cnTarka
-    DataSet.CommandText = 'select m.* from mtverh m order by m.datum'
+    DataSet.CommandText = 'select m.* from mtverh m '#13#10'order by m.datum'
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
-    Provider.DataSet.CommandText = 'select m.* from mtverh m order by m.datum'
+    Provider.DataSet.CommandText = 'select m.* from mtverh m '#13#10'order by m.datum'
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
@@ -102,18 +102,16 @@ object frmVerhanyadLista: TfrmVerhanyadLista
     object sdsVerhanyadListaDATUM: TDateTimeField
       FieldName = 'DATUM'
     end
-    object sdsVerhanyadListaDB: TBCDField
+    object sdsVerhanyadListaDB: TIntegerField
       FieldName = 'DB'
-      Precision = 32
     end
     object sdsVerhanyadListaVERH: TBCDField
       FieldName = 'VERH'
       Precision = 6
       Size = 2
     end
-    object sdsVerhanyadListaMT_DB: TBCDField
+    object sdsVerhanyadListaMT_DB: TIntegerField
       FieldName = 'MT_DB'
-      Precision = 32
     end
     object sdsVerhanyadListaMT_VSZ: TBCDField
       FieldName = 'MT_VSZ'
@@ -142,7 +140,7 @@ object frmVerhanyadLista: TfrmVerhanyadLista
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 40261.918925752300000000
-    ReportOptions.LastChange = 44410.877340034720000000
+    ReportOptions.LastChange = 44410.937903402780000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -182,7 +180,7 @@ object frmVerhanyadLista: TfrmVerhanyadLista
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       object ReportTitle1: TfrxReportTitle
-        Height = 96.370120240000000000
+        Height = 111.488240240000000000
         Top = 18.897650000000000000
         Width = 718.110700000000000000
         Stretched = True
@@ -190,7 +188,7 @@ object frmVerhanyadLista: TfrmVerhanyadLista
           Left = 58.582776020000000000
           Top = 47.236240000000000000
           Width = 600.945147950000000000
-          Height = 22.677180000000000000
+          Height = 37.795300000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -19
@@ -272,15 +270,15 @@ object frmVerhanyadLista: TfrmVerhanyadLista
         end
       end
       object MasterData1: TfrxMasterData
-        Height = 20.889610000000000000
-        Top = 272.126160000000000000
+        Height = 24.669140000000000000
+        Top = 291.023810000000000000
         Width = 718.110700000000000000
         OnBeforePrint = 'MasterData1OnBeforePrint'
         DataSet = frxDBVerhanyadLista
         DataSetName = 'frxDBVerhanyadLista'
         RowCount = 0
         object Memo24: TfrxMemoView
-          Left = 229.653682440000000000
+          Left = 267.448982440000000000
           Top = 1.991960000000000000
           Width = 109.606323620000000000
           Height = 18.897650000000000000
@@ -295,7 +293,7 @@ object frmVerhanyadLista: TfrmVerhanyadLista
           ParentFont = False
         end
         object Memo26: TfrxMemoView
-          Left = 343.039582440000000000
+          Left = 429.968772440000000000
           Top = 1.991960000000000000
           Width = 105.826840000000000000
           Height = 18.897650000000000000
@@ -326,16 +324,18 @@ object frmVerhanyadLista: TfrmVerhanyadLista
           ParentFont = False
         end
         object Memo34: TfrxMemoView
-          Left = 121.937077440000000000
+          Left = 137.055197440000000000
           Top = 1.991960000000000000
           Width = 102.047310000000000000
           Height = 18.897650000000000000
+          DataSet = frxDBVerhanyadLista
+          DataSetName = 'frxDBVerhanyadLista'
           HAlign = haCenter
           Memo.UTF8 = (
             '[frxDBVerhanyadLista."DB"]')
         end
         object Memo5: TfrxMemoView
-          Left = 453.543600000000000000
+          Left = 570.709030000000000000
           Top = 1.991960000000000000
           Width = 109.606370000000000000
           Height = 18.897650000000000000
@@ -348,7 +348,7 @@ object frmVerhanyadLista: TfrmVerhanyadLista
       end
       object PageFooter1: TfrxPageFooter
         Height = 23.118120000000000000
-        Top = 404.409710000000000000
+        Top = 427.086890000000000000
         Width = 718.110700000000000000
         object Memo36: TfrxMemoView
           Left = 702.094937320000000000
@@ -389,22 +389,8 @@ object frmVerhanyadLista: TfrmVerhanyadLista
       end
       object ReportSummary1: TfrxReportSummary
         Height = 26.897650000000000000
-        Top = 355.275820000000000000
+        Top = 377.953000000000000000
         Width = 718.110700000000000000
-        object Memo1: TfrxMemoView
-          Left = 3.559040470000000000
-          Top = 4.180882680000030000
-          Width = 75.590563390000000000
-          Height = 15.874018190000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = []
-          Memo.UTF8 = (
-            'T'#258#169'telsz'#258#711'm:')
-          ParentFont = False
-        end
         object Line3: TfrxLineView
           Align = baWidth
           Top = 0.621830000000000000
@@ -413,19 +399,25 @@ object frmVerhanyadLista: TfrmVerhanyadLista
         end
       end
       object Header1: TfrxHeader
-        Height = 71.811040710000000000
-        Top = 177.637910000000000000
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        Height = 75.590570710000000000
+        ParentFont = False
+        Top = 192.756030000000000000
         Width = 718.110700000000000000
         object Memo12: TfrxMemoView
           Left = 6.220438270000000000
           Top = 9.440940000000000000
           Width = 113.385900000000000000
-          Height = 30.236240000000000000
+          Height = 37.795300000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -15
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             'D'#258#711'tum')
@@ -433,15 +425,15 @@ object frmVerhanyadLista: TfrmVerhanyadLista
           VAlign = vaCenter
         end
         object Memo13: TfrxMemoView
-          Left = 232.992272440000000000
-          Top = 24.559060000000000000
-          Width = 105.826840000000000000
-          Height = 15.118120000000000000
+          Left = 251.889922440000000000
+          Top = 35.897650000000000000
+          Width = 136.063080000000000000
+          Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -15
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             #258#129'tl. MT v'#258#169'rh'#258#711'nyada')
@@ -449,14 +441,14 @@ object frmVerhanyadLista: TfrmVerhanyadLista
         end
         object Memo22: TfrxMemoView
           Left = 123.385900000000000000
-          Top = 24.559060000000000000
-          Width = 105.826840000000000000
-          Height = 15.118120000000000000
+          Top = 35.897650000000000000
+          Width = 120.944960000000000000
+          Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -15
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             'Sz'#258#711'ma')
@@ -464,59 +456,59 @@ object frmVerhanyadLista: TfrmVerhanyadLista
         end
         object Memo4: TfrxMemoView
           Left = 124.724490000000000000
-          Top = 3.779530000000000000
-          Width = 215.433210000000000000
-          Height = 15.118120000000000000
+          Top = 7.559060000000000000
+          Width = 264.567100000000000000
+          Height = 22.677180000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -15
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             #313#144'sszes '#258#169'l'#313#8216' egyed')
           ParentFont = False
         end
         object Memo6: TfrxMemoView
-          Left = 453.543602440000000000
-          Top = 24.559060000000000000
-          Width = 105.826840000000000000
-          Height = 15.118120000000000000
+          Left = 551.811382440000000000
+          Top = 35.897650000000000000
+          Width = 151.181200000000000000
+          Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -15
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             #258#129'tl. MT v'#258#169'rh'#258#711'nyada')
           ParentFont = False
         end
         object Memo7: TfrxMemoView
-          Left = 343.937230000000000000
-          Top = 24.559060000000000000
-          Width = 105.826840000000000000
-          Height = 15.118120000000000000
+          Left = 415.748300000000000000
+          Top = 35.897650000000000000
+          Width = 132.283550000000000000
+          Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -15
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             'Sz'#258#711'ma')
           ParentFont = False
         end
         object Memo8: TfrxMemoView
-          Left = 345.275820000000000000
-          Top = 3.779530000000000000
-          Width = 215.433210000000000000
-          Height = 15.118120000000000000
+          Left = 417.086890000000000000
+          Top = 7.559060000000000000
+          Width = 287.244280000000000000
+          Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
+          Font.Height = -15
           Font.Name = 'Arial'
-          Font.Style = [fsBold]
+          Font.Style = []
           HAlign = haCenter
           Memo.UTF8 = (
             #313#144'sszes '#258#169'l'#313#8216' MT egyed')
@@ -524,7 +516,7 @@ object frmVerhanyadLista: TfrmVerhanyadLista
         end
         object Line2: TfrxLineView
           Align = baWidth
-          Top = 62.354360000000000000
+          Top = 66.133890000000000000
           Width = 718.110700000000000000
           StretchMode = smActualHeight
           Frame.Typ = [ftTop]
