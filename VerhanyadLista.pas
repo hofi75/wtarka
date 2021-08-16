@@ -49,7 +49,9 @@ end;
 
 procedure TfrmVerhanyadLista.btnPrintClick(Sender: TObject);
 begin
-   frmVerhanyadLista.sdsVerhanyadLista.DataSet.Close;
+   if frmVerhanyadLista.sdsVerhanyadLista.Active then
+      frmVerhanyadLista.sdsVerhanyadLista.DataSet.Close;
+
    frmVerhanyadLista.sdsVerhanyadLista.DataSet.CommandText :=
        'select m.* from mtverh m ' +
        'where trunc(m.datum) >= ' +
@@ -57,13 +59,13 @@ begin
        ' and  trunc(m.datum) <= ' +
             'to_date(' + QuotedStr( frmVerhanyadLista.edtEndDate.Text) + ',' + QuotedStr( 'yyyy.mm.dd') + ') ' +
        'order by m.datum';
-   // frmVerhanyadLista.sdsVerhanyadLista.DataSet.Parameters.ParamByName('start').Value := frmVerhanyadLista.edtStartDate.Text;
-   // frmVerhanyadLista.sdsVerhanyadLista.DataSet.Parameters.ParamByName('end').Value := frmVerhanyadLista.edtEndDate.Text;
    frmVerhanyadLista.sdsVerhanyadLista.Dataset.Open;
-   // frmVerhanyadLista.sdsVerhanyadLista.DataSet.Requery;
-   frmVerhanyadLista.frxVerhanyadLista.ShowReport;
-   frmVerhanyadLista.sdsVerhanyadLista.DataSet.Close;
-end;
+   frmVerhanyadLista.frxDBVerhanyadLista.Open;
 
+   frmVerhanyadLista.frxVerhanyadLista.ShowReport;
+
+   frmVerhanyadLista.sdsVerhanyadLista.DataSet.Close;
+   frmVerhanyadLista.frxDBVerhanyadLista.Close;
+end;
 
 end.

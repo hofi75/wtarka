@@ -140,7 +140,7 @@ object frmVerhanyadLista: TfrmVerhanyadLista
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 40261.918925752300000000
-    ReportOptions.LastChange = 44410.937903402780000000
+    ReportOptions.LastChange = 44424.852379895830000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
