@@ -1,8 +1,8 @@
 object frmInfoPult: TfrmInfoPult
-  Left = 324
-  Top = 128
-  Width = 944
-  Height = 722
+  Left = 450
+  Top = 140
+  Width = 946
+  Height = 776
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Egyedek adatai'
   Color = clBtnFace
@@ -21,8 +21,8 @@ object frmInfoPult: TfrmInfoPult
   TextHeight = 13
   object TalPanel2: TTalPanel
     Left = 0
-    Top = 636
-    Width = 928
+    Top = 690
+    Width = 930
     Height = 48
     Align = alBottom
     TabOrder = 1
@@ -94,8 +94,8 @@ object frmInfoPult: TfrmInfoPult
   object TalPanel3: TTalPanel
     Left = 0
     Top = 0
-    Width = 928
-    Height = 594
+    Width = 930
+    Height = 648
     Align = alClient
     ParentColor = True
     TabOrder = 2
@@ -129,21 +129,21 @@ object frmInfoPult: TfrmInfoPult
     end
     object TalLabel10: TTalLabel
       Left = 16
-      Top = 522
+      Top = 578
       Width = 72
       Height = 13
       Caption = 'Kies'#233's d'#225'tuma:'
     end
     object TalLabel11: TTalLabel
       Left = 16
-      Top = 568
+      Top = 624
       Width = 55
       Height = 13
       Caption = 'Kies'#233's oka:'
     end
     object TalLabel12: TTalLabel
       Left = 16
-      Top = 544
+      Top = 600
       Width = 65
       Height = 13
       Caption = 'Kies'#233's m'#243'dja:'
@@ -252,8 +252,8 @@ object frmInfoPult: TfrmInfoPult
       Caption = 'Bikanevel'#337':'
     end
     object TalSpeedButton3: TTalSpeedButton
-      Left = 301
-      Top = 563
+      Left = 325
+      Top = 619
       Width = 23
       Height = 22
       Glyph.Data = {
@@ -294,8 +294,8 @@ object frmInfoPult: TfrmInfoPult
       OnClick = TalSpeedButton3Click
     end
     object TalSpeedButton1: TTalSpeedButton
-      Left = 301
-      Top = 539
+      Left = 325
+      Top = 595
       Width = 23
       Height = 22
       Glyph.Data = {
@@ -336,15 +336,15 @@ object frmInfoPult: TfrmInfoPult
       OnClick = TalSpeedButton1Click
     end
     object TalLabel23: TTalLabel
-      Left = 340
-      Top = 544
+      Left = 436
+      Top = 600
       Width = 70
       Height = 13
       Caption = 'Kiker'#252'l'#233'si hely:'
     end
     object TalSpeedButton2: TTalSpeedButton
-      Left = 618
-      Top = 539
+      Left = 714
+      Top = 595
       Width = 23
       Height = 22
       Glyph.Data = {
@@ -434,8 +434,8 @@ object frmInfoPult: TfrmInfoPult
       Caption = #193'llom'#225'nybaker'#252'l'#233's:'
     end
     object TalLabel29: TTalLabel
-      Left = 340
-      Top = 566
+      Left = 436
+      Top = 622
       Width = 80
       Height = 13
       Caption = 'Kiker'#252'l'#233'si t'#246'meg:'
@@ -651,8 +651,22 @@ object frmInfoPult: TfrmInfoPult
       Height = 13
       Caption = 'Sz'#225'rmaz'#225'si teny'#233'szet k'#243'd:'
     end
+    object TalLabel46: TTalLabel
+      Left = 16
+      Top = 525
+      Width = 108
+      Height = 13
+      Caption = 'DNS vizsg'#225'lat d'#225'tuma:'
+    end
+    object TalLabel52: TTalLabel
+      Left = 16
+      Top = 546
+      Width = 117
+      Height = 13
+      Caption = 'DNS vizsg'#225'lat ikt.sz'#225'ma:'
+    end
     object edtSzulDat: TTalDBEdit
-      Left = 135
+      Left = 136
       Top = 104
       Width = 79
       Height = 22
@@ -671,7 +685,7 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtmTarka.dtsInfo
     end
     object edtAnyaEnar: TTalDBEdit
-      Left = 135
+      Left = 136
       Top = 193
       Width = 121
       Height = 22
@@ -687,7 +701,7 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtmTarka.dtsInfo
     end
     object edtApaKlsz: TTalDBEdit
-      Left = 135
+      Left = 136
       Top = 219
       Width = 122
       Height = 22
@@ -703,8 +717,8 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtmTarka.dtsInfo
     end
     object edtKiesesDatum: TTalDBEdit
-      Left = 109
-      Top = 517
+      Left = 136
+      Top = 573
       Width = 79
       Height = 22
       Alignment = taLeftJustify
@@ -733,8 +747,8 @@ object frmInfoPult: TfrmInfoPult
       TabOrder = 9
     end
     object lucKIOK: TTalDBLookupComboBox
-      Left = 109
-      Top = 564
+      Left = 136
+      Top = 620
       Width = 191
       Height = 21
       DataField = 'KIKOK'
@@ -744,8 +758,8 @@ object frmInfoPult: TfrmInfoPult
       TabOrder = 42
     end
     object lucKiMod: TTalDBLookupComboBox
-      Left = 109
-      Top = 540
+      Left = 136
+      Top = 596
       Width = 191
       Height = 21
       DataField = 'KIKOD'
@@ -758,7 +772,7 @@ object frmInfoPult: TfrmInfoPult
       Left = 336
       Top = 367
       Width = 274
-      Height = 137
+      Height = 178
       TabStop = False
       DisableThemes = True
       Selected.Strings = (
@@ -832,7 +846,7 @@ object frmInfoPult: TfrmInfoPult
     end
     object btnElles: TTalButton
       Left = 381
-      Top = 508
+      Top = 556
       Width = 185
       Height = 25
       Caption = 'R'#233'szletes ell'#233's adatok'
@@ -841,7 +855,7 @@ object frmInfoPult: TfrmInfoPult
     end
     object btnTermekenyites: TTalButton
       Left = 692
-      Top = 508
+      Top = 556
       Width = 185
       Height = 25
       Caption = 'R'#233'szletes term'#233'keny'#237't'#233'si adatok'
@@ -911,7 +925,7 @@ object frmInfoPult: TfrmInfoPult
       OnClick = btnMeresClick
     end
     object edtAzonosito: TTalDBEdit
-      Left = 135
+      Left = 136
       Top = 39
       Width = 162
       Height = 34
@@ -942,7 +956,7 @@ object frmInfoPult: TfrmInfoPult
       Left = 632
       Top = 367
       Width = 273
-      Height = 137
+      Height = 178
       TabStop = False
       Selected.Strings = (
         'DATUM'#9'12'#9'D'#225'tum'#9'F'#9
@@ -985,7 +999,7 @@ object frmInfoPult: TfrmInfoPult
       SaveExportParamsFile = False
     end
     object lucKonstr: TTalDBLookupComboBox
-      Left = 135
+      Left = 136
       Top = 249
       Width = 200
       Height = 21
@@ -1030,7 +1044,7 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtmTarka.dtsInfo
     end
     object lucSzin: TTalDBLookupComboBox
-      Left = 135
+      Left = 136
       Top = 272
       Width = 200
       Height = 21
@@ -1085,16 +1099,16 @@ object frmInfoPult: TfrmInfoPult
       TabOrder = 36
     end
     object edtMegjegyzes: TTalDBMemo
-      Left = 109
+      Left = 136
       Top = 461
-      Width = 226
+      Width = 191
       Height = 52
       DataField = 'MEGJEGYZES'
       DataSource = dtmTarka.dtsInfo
       TabOrder = 39
     end
     object edtMarhalevelszam: TTalDBEdit
-      Left = 134
+      Left = 136
       Top = 435
       Width = 83
       Height = 22
@@ -1112,8 +1126,8 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtmTarka.dtsInfo
     end
     object lucKikhely: TTalDBLookupComboBox
-      Left = 425
-      Top = 540
+      Left = 521
+      Top = 596
       Width = 191
       Height = 21
       DataField = 'KIKHELY'
@@ -1139,7 +1153,7 @@ object frmInfoPult: TfrmInfoPult
       OnExit = edtKeresExit
     end
     object edtBekerDat: TTalDBEdit
-      Left = 135
+      Left = 136
       Top = 165
       Width = 79
       Height = 22
@@ -1157,8 +1171,8 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtmTarka.dtsInfo
     end
     object edtkiesesTomeg: TTalDBEdit
-      Left = 425
-      Top = 561
+      Left = 521
+      Top = 617
       Width = 64
       Height = 22
       Alignment = taLeftJustify
@@ -1258,7 +1272,7 @@ object frmInfoPult: TfrmInfoPult
       TabOrder = 21
     end
     object lucVer1: TTalDBLookupComboBox
-      Left = 135
+      Left = 136
       Top = 296
       Width = 163
       Height = 21
@@ -1302,7 +1316,7 @@ object frmInfoPult: TfrmInfoPult
       Visible = False
     end
     object edtTko: TTalDBEdit
-      Left = 135
+      Left = 136
       Top = 339
       Width = 26
       Height = 22
@@ -1318,7 +1332,7 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtmTarka.dtsInfo
     end
     object edtSzarv: TTalDBEdit
-      Left = 134
+      Left = 136
       Top = 387
       Width = 26
       Height = 22
@@ -1372,7 +1386,7 @@ object frmInfoPult: TfrmInfoPult
       Visible = False
     end
     object lucVer3: TTalDBLookupComboBox
-      Left = 135
+      Left = 136
       Top = 318
       Width = 163
       Height = 21
@@ -1394,7 +1408,7 @@ object frmInfoPult: TfrmInfoPult
       TabOrder = 31
     end
     object edtTenyeszetKod: TTalDBEdit
-      Left = 135
+      Left = 136
       Top = 77
       Width = 74
       Height = 22
@@ -1410,7 +1424,7 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtmTarka.dtsInfo
     end
     object edtValNap: TTalDBEdit
-      Left = 135
+      Left = 136
       Top = 135
       Width = 79
       Height = 22
@@ -1485,7 +1499,7 @@ object frmInfoPult: TfrmInfoPult
       DataSource = dtmTarka.dtsInfo
     end
     object edtMin: TTalDBEdit
-      Left = 135
+      Left = 136
       Top = 363
       Width = 50
       Height = 22
@@ -1610,11 +1624,30 @@ object frmInfoPult: TfrmInfoPult
       TabOrder = 56
       OnChange = edtVerhanyadChanged
     end
+    object edtDNS_DATE: TTalDBEdit
+      Left = 136
+      Top = 520
+      Width = 79
+      Height = 22
+      Alignment = taLeftJustify
+      Required = False
+      RequiredColor = clInfoBk
+      ReadOnlyColor = clActiveBorder
+      Text = ' '
+      Enabled = True
+      SpinVisible = False
+      ButtonVisible = True
+      MaxLength = -1
+      TabOrder = 57
+      OnExit = edtSzulDatExit
+      DataField = 'DNS_DATE'
+      DataSource = dtmTarka.dtsInfo
+    end
   end
   object TalPanel4: TTalPanel
     Left = 0
-    Top = 594
-    Width = 928
+    Top = 648
+    Width = 930
     Height = 42
     Align = alBottom
     TabOrder = 3
@@ -1704,6 +1737,22 @@ object frmInfoPult: TfrmInfoPult
       ShowHint = True
     end
   end
+  object edtDNS_IKTATOSZAM: TTalDBEdit
+    Left = 136
+    Top = 545
+    Width = 193
+    Height = 22
+    Alignment = taLeftJustify
+    Required = False
+    RequiredColor = clInfoBk
+    ReadOnlyColor = clActiveBorder
+    Enabled = True
+    SpinVisible = False
+    ButtonVisible = False
+    TabOrder = 4
+    DataField = 'DNS_IKTATOSZAM'
+    DataSource = dtmTarka.dtsInfo
+  end
   object qryInfElles: TTalSimpleDataSet
     Tag = -1
     Aggregates = <>
@@ -1742,8 +1791,8 @@ object frmInfoPult: TfrmInfoPult
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
     Params = <>
-    Left = 664
-    Top = 544
+    Left = 712
+    Top = 696
     object qryInfEllesELLES_DATUM: TDateTimeField
       Tag = -1
       DisplayLabel = 'Ell'#233's d'#225'tum'
@@ -1771,8 +1820,8 @@ object frmInfoPult: TfrmInfoPult
   end
   object dtsInfElles: TDataSource
     DataSet = qryInfElles
-    Left = 722
-    Top = 544
+    Left = 770
+    Top = 696
   end
   object qryInfTerm: TTalSimpleDataSet
     Tag = -1
@@ -1846,8 +1895,8 @@ object frmInfoPult: TfrmInfoPult
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
     Params = <>
-    Left = 776
-    Top = 544
+    Left = 824
+    Top = 696
     object qryInfTermDATUM: TDateTimeField
       DisplayLabel = 'D'#225'tum'
       DisplayWidth = 12
@@ -1870,8 +1919,8 @@ object frmInfoPult: TfrmInfoPult
   end
   object dtsInfTerm: TDataSource
     DataSet = qryInfTerm
-    Left = 826
-    Top = 544
+    Left = 874
+    Top = 696
   end
   object qryInfMeres: TTalSimpleDataSet
     Aggregates = <>
@@ -1903,8 +1952,8 @@ object frmInfoPult: TfrmInfoPult
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
     Params = <>
-    Left = 16
-    Top = 640
+    Left = 24
+    Top = 704
     object qryInfMeresKOD_NEV: TWideStringField
       FieldName = 'KOD_NEV'
       Size = 30
@@ -1919,6 +1968,6 @@ object frmInfoPult: TfrmInfoPult
   object dtsInfMeres: TDataSource
     DataSet = qryInfMeres
     Left = 74
-    Top = 640
+    Top = 704
   end
 end
