@@ -1972,14 +1972,14 @@ object dtmTarka: TdtmTarka
       #10'  e.KIKDAT,'#13#10'  e.STATUS,'#13#10'  e.ALLAPOT,'#13#10'  e.ALLDAT,'#13#10'  e.IVAR,'#13 +
       #10'  e.SZUL_SULY,'#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  ' +
       'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,  e.SZ' +
-      'ARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'
+      'ARM_TENY, e.DNS_DATE, e.DNS_IKTATOSZAM'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10 +
+      '  e.ID = :ID'
     DataSet.FieldDefs = <
       item
         Name = 'ID'
         Attributes = [faFixed]
         DataType = ftBCD
         Precision = 15
-        Size = 4
       end
       item
         Name = 'ENAR'
@@ -2257,6 +2257,16 @@ object dtmTarka: TdtmTarka
         Name = 'SZARM_TENY'
         DataType = ftWideString
         Size = 7
+      end
+      item
+        Name = 'DNS_DATE'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'DNS_IKTATOSZAM'
+        DataType = ftWideString
+        Size = 30
       end>
     DataSet.Parameters = <
       item
@@ -2279,14 +2289,14 @@ object dtmTarka: TdtmTarka
       #10'  e.KIKDAT,'#13#10'  e.STATUS,'#13#10'  e.ALLAPOT,'#13#10'  e.ALLDAT,'#13#10'  e.IVAR,'#13 +
       #10'  e.SZUL_SULY,'#13#10'  e.MOD_KOD,'#13#10'  e.MOD_DAT,'#13#10'  e.MEGJEGYZES,'#13#10'  ' +
       'e.VALDAT,'#13#10'  e.VALTOM,'#13#10'  e.TOM205,'#13#10'  e.SV,'#13#10'  E.KIKHELY,  e.SZ' +
-      'ARM_TENY'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10'  e.ID = :ID'
+      'ARM_TENY, e.DNS_DATE, e.DNS_IKTATOSZAM'#13#10'FROM EGYEDEK E '#13#10'WHERE'#13#10 +
+      '  e.ID = :ID'
     Provider.DataSet.FieldDefs = <
       item
         Name = 'ID'
         Attributes = [faFixed]
         DataType = ftBCD
         Precision = 15
-        Size = 4
       end
       item
         Name = 'ENAR'
@@ -2564,6 +2574,16 @@ object dtmTarka: TdtmTarka
         Name = 'SZARM_TENY'
         DataType = ftWideString
         Size = 7
+      end
+      item
+        Name = 'DNS_DATE'
+        Attributes = [faFixed]
+        DataType = ftDateTime
+      end
+      item
+        Name = 'DNS_IKTATOSZAM'
+        DataType = ftWideString
+        Size = 30
       end>
     Provider.DataSet.Parameters = <
       item
@@ -2794,6 +2814,13 @@ object dtmTarka: TdtmTarka
     object sdsInfoSZARM_TENY: TWideStringField
       FieldName = 'SZARM_TENY'
       Size = 7
+    end
+    object sdsInfoDNS_DATE: TDateTimeField
+      FieldName = 'DNS_DATE'
+    end
+    object sdsInfoDNS_IKTATOSZAM: TWideStringField
+      FieldName = 'DNS_IKTATOSZAM'
+      Size = 30
     end
   end
   object sdsMeresTip: TTalSimpleDataSet

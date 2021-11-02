@@ -310,6 +310,8 @@ type
     sdsInfoSV: TIntegerField;
     sdsInfoKIKHELY: TWideStringField;
     sdsInfoSZARM_TENY: TWideStringField;
+    sdsInfoDNS_DATE: TDateTimeField;
+    sdsInfoDNS_IKTATOSZAM: TWideStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure sdsInfoENARGetText(Sender: TField; var Text: String;

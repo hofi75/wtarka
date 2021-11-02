@@ -104,6 +104,8 @@ SQL1 = 'SELECT DISTINCT E.ENAR, ' +
       'CAST (SZAPIND(E.ID) AS NUMERIC(10,3)) AS SZAPIND, ' +
       'CAST (KULLEM_IND(E.ENAR) AS NUMERIC(10,3)) AS KULLEM_IND, ' +
       'E.NET_PONT, ' +
+      'E.DNS_DATE AS DNS_DATE, ' +
+      'E.DNS_IKTATOSZAM AS DNS_IKTATOSZAM, ' +
       'E.APAKLSZ AS EAP_KLSZ, ' +
       'EAP.NEV AS EAP_NEV, ' +
       'EAP.FSZ AS EAP_FSZ, ' +
@@ -293,7 +295,6 @@ type
     sdsTermekenyitesekVEMHALL: TWideStringField;
     sdsTermekenyitesekTERMMOD: TWideStringField;
     sdsTermekenyitesekUT_ELL_DAT: TDateTimeField;
-    frxRepLista: TfrxReport;
     sdsEllesekID: TBCDField;
     sdsEllesekELLES_DATUM: TDateTimeField;
     sdsEllesekELLES_LEF: TWideStringField;
@@ -326,6 +327,9 @@ type
     sdsEllesekBE2_KIKOD: TWideStringField;
     sdsEllesekBE2_KIKOK: TWideStringField;
     frxPDFExport1: TfrxPDFExport;
+    sdsListaDNS_DATE: TDateTimeField;
+    sdsListaDNS_IKTATOSZAM: TWideStringField;
+    frxRepLista: TfrxReport;
     procedure actOKExecute(Sender: TObject);
     procedure sdsListaENARGetText(Sender: TField; var Text: String;
       DisplayText: Boolean);
@@ -403,8 +407,9 @@ begin
   inherited;
   if sdsLista.Active = false then begin
   end;
-  if frxRepLista.LoadFromFile('EgyediLap.fr3') then begin
+  // if frxRepLista.LoadFromFile('EgyediLap.fr3') then begin
        // paraméter átadás a lista fejhez
+     // frxRepLista.Clear;
      frxRepLista.Variables.Clear;
      frxRepLista.Script.Variables['ENAR_KOD'] := dtmTarka.sTenyeszetKod;
      frxRepLista.Script.Variables['TENYESZET_NEV'] := dtmTarka.sTenyeszetNev;
@@ -417,7 +422,7 @@ begin
         frxPDFExport1.FileName := report_save_filename;
         frxRepLista.Export( frxPDFExport1);
      end;
-  end;
+  // end;
   ModalResult := mrOK;
 end;
 

@@ -160,6 +160,10 @@ type
     edtVer3: TTalEdit;
     edtVer2: TTalEdit;
     edtVer4: TTalEdit;
+    TalLabel46: TTalLabel;
+    edtDNS_DATE: TTalDBEdit;
+    edtDNS_IKTATOSZAM: TTalDBEdit;
+    TalLabel52: TTalLabel;
     procedure VerhanyadUpdate(ID: String);
     procedure btnKilepesClick(Sender: TObject);
     procedure btnKeresesClick(Sender: TObject);
@@ -355,6 +359,8 @@ begin
   edtValsuly.Enabled := mode;
   edt205suly.Enabled := mode;
   edtSv.Enabled := mode;
+  edtDNS_DATE.Enabled := mode;
+  edtDNS_IKTATOSZAM.Enabled := mode;
   (* if dtmTarka.UserKarb = '0' then
   begin
     btnTorol.Enabled := false;
