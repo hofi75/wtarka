@@ -1,6 +1,6 @@
 inherited frmEgyedLista: TfrmEgyedLista
-  Left = 335
-  Top = 189
+  Left = 592
+  Top = 229
   Width = 845
   Height = 624
   Caption = 'Egyedek list'#225'z'#225'sa'
@@ -917,7 +917,7 @@ inherited frmEgyedLista: TfrmEgyedLista
       object lblProgressENAR: TTalLabel
         Left = 83
         Top = 28
-        Width = 182
+        Width = 39
         Height = 20
         Caption = 'Hello'
         Font.Charset = DEFAULT_CHARSET
@@ -965,6 +965,11 @@ inherited frmEgyedLista: TfrmEgyedLista
       'KIKDAT=KIKDAT'
       'KIKOD=KIKOD'
       'KIKOK=KIKOK'
+      'BN=BN'
+      'SZIN=SZIN'
+      'VSZ1=VSZ1'
+      'TOM205=TOM205'
+      'NET_PONT=NET_PONT'
       'TIPUS=TIPUS')
     DataSet = sdsLista
     Left = 632
@@ -987,9 +992,10 @@ inherited frmEgyedLista: TfrmEgyedLista
       'L THEN'#13#10'  round((sysdate -  E.SZULDAT))'#13#10'ELSE round((E.KIKDAT - ' +
       'E.SZULDAT)) END as numeric) AS ELETKOR_NAP,'#13#10'E.VALDAT, E.VALTOM,' +
       #13#10'E.MIN,'#13#10'E.ANYA_ENAR,'#13#10'E.APAKLSZ,'#13#10'E.FAJTAKOD,'#13#10'E.KKOD,'#13#10'E.TKV,' +
-      #13#10'E.SV,'#13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'T.TI' +
-      'PUS'#13#10'FROM EGYEDEK E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'W' +
-      'HERE 1 = 1'
+      #13#10'E.SV,'#13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'case' +
+      ' e.bikanevelo'#13#10'   when '#39'1'#39' then '#39'BN'#39#13#10'    else '#39' '#39#13#10'end as BN,'#13#10 +
+      'E.SZIN,'#13#10'E.VSZ1,'#13#10'E.TOM205,'#13#10'E.NET_PONT,'#13#10'T.TIPUS'#13#10'FROM EGYEDEK ' +
+      'E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'WHERE 1 = 1'
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
@@ -999,9 +1005,10 @@ inherited frmEgyedLista: TfrmEgyedLista
       'L THEN'#13#10'  round((sysdate -  E.SZULDAT))'#13#10'ELSE round((E.KIKDAT - ' +
       'E.SZULDAT)) END as numeric) AS ELETKOR_NAP,'#13#10'E.VALDAT, E.VALTOM,' +
       #13#10'E.MIN,'#13#10'E.ANYA_ENAR,'#13#10'E.APAKLSZ,'#13#10'E.FAJTAKOD,'#13#10'E.KKOD,'#13#10'E.TKV,' +
-      #13#10'E.SV,'#13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'T.TI' +
-      'PUS'#13#10'FROM EGYEDEK E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'W' +
-      'HERE 1 = 1'
+      #13#10'E.SV,'#13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'case' +
+      ' e.bikanevelo'#13#10'   when '#39'1'#39' then '#39'BN'#39#13#10'    else '#39' '#39#13#10'end as BN,'#13#10 +
+      'E.SZIN,'#13#10'E.VSZ1,'#13#10'E.TOM205,'#13#10'E.NET_PONT,'#13#10'T.TIPUS'#13#10'FROM EGYEDEK ' +
+      'E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'WHERE 1 = 1'
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
@@ -1037,7 +1044,7 @@ inherited frmEgyedLista: TfrmEgyedLista
     end
     object sdsListaELETKOR_NAP: TBCDField
       FieldName = 'ELETKOR_NAP'
-      Precision = 38
+      Precision = 32
       Size = 0
     end
     object sdsListaVALDAT: TDateTimeField
@@ -1092,6 +1099,25 @@ inherited frmEgyedLista: TfrmEgyedLista
       FieldName = 'KIKOK'
       Size = 10
     end
+    object sdsListaBN: TWideStringField
+      FieldName = 'BN'
+      Size = 2
+    end
+    object sdsListaSZIN: TWideStringField
+      FieldName = 'SZIN'
+      Size = 2
+    end
+    object sdsListaVSZ1: TBCDField
+      FieldName = 'VSZ1'
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaTOM205: TIntegerField
+      FieldName = 'TOM205'
+    end
+    object sdsListaNET_PONT: TIntegerField
+      FieldName = 'NET_PONT'
+    end
     object sdsListaTIPUS: TWideStringField
       FieldName = 'TIPUS'
       Size = 1
@@ -1105,7 +1131,7 @@ inherited frmEgyedLista: TfrmEgyedLista
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 38838.519462187500000000
-    ReportOptions.LastChange = 44040.420880752320000000
+    ReportOptions.LastChange = 44426.389499837960000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
