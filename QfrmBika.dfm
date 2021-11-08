@@ -1,8 +1,8 @@
 inherited frmBika: TfrmBika
   Left = 306
   Top = 99
-  Width = 886
-  Height = 685
+  Width = 1012
+  Height = 775
   ActiveControl = edtKeres
   Caption = 'K'#246'zponti bikat'#246'rzs'
   OldCreateOrder = True
@@ -10,28 +10,28 @@ inherited frmBika: TfrmBika
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlGombok: TPanel
-    Top = 608
-    Width = 870
+    Top = 698
+    Width = 996
     inherited btnTorol: TBitBtn
-      Left = 632
+      Left = 758
       TabOrder = 3
       Visible = False
       OnClick = btnTorolClick
     end
     inherited btnOK: TBitBtn
-      Left = 712
+      Left = 838
       TabOrder = 0
     end
     inherited btnCancel: TBitBtn
-      Left = 792
+      Left = 918
     end
     inherited btnModosit: TBitBtn
-      Left = 552
+      Left = 678
       TabOrder = 2
       Visible = False
     end
     inherited btnUj: TBitBtn
-      Left = 472
+      Left = 598
       TabOrder = 1
       Visible = False
     end
@@ -48,10 +48,10 @@ inherited frmBika: TfrmBika
     end
   end
   inherited pnlMod: TTalPanel
-    Left = 360
+    Left = 486
     Top = 33
     Width = 510
-    Height = 575
+    Height = 665
     object TalLabel1: TTalLabel
       Left = 9
       Top = 10
@@ -1113,8 +1113,8 @@ inherited frmBika: TfrmBika
   end
   inherited grdVal: TTalDBGrid
     Top = 33
-    Width = 360
-    Height = 575
+    Width = 486
+    Height = 665
     Selected.Strings = (
       'KLSZ'#9'10'#9'Bika KLSZ'#9'T'
       'NEV'#9'40'#9'N'#233'v'#9'F'#9
@@ -1134,7 +1134,7 @@ inherited frmBika: TfrmBika
   object TalPanel1: TTalPanel [3]
     Left = 0
     Top = 0
-    Width = 870
+    Width = 996
     Height = 33
     Align = alTop
     TabOrder = 3

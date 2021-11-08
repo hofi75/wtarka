@@ -1,20 +1,20 @@
 inherited frmEllesKarb: TfrmEllesKarb
-  Left = 180
-  Top = 136
-  Width = 1020
-  Height = 603
+  Left = 333
+  Top = 126
+  Width = 1211
+  Height = 673
   Caption = 'Ell'#233'sek karbantart'#225'sa'
   OldCreateOrder = True
-  Position = poDesigned
+  Position = poDesktopCenter
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
-    Top = 522
-    Width = 1004
+    Top = 592
+    Width = 1195
     Height = 43
     object btnUj: TBitBtn [0]
-      Left = 581
+      Left = 772
       Top = 11
       Width = 75
       Height = 25
@@ -33,7 +33,7 @@ inherited frmEllesKarb: TfrmEllesKarb
         3300}
     end
     object btnModosit: TBitBtn [1]
-      Left = 661
+      Left = 852
       Top = 11
       Width = 75
       Height = 25
@@ -57,7 +57,7 @@ inherited frmEllesKarb: TfrmEllesKarb
       NumGlyphs = 2
     end
     object btnTorol: TBitBtn [2]
-      Left = 741
+      Left = 932
       Top = 11
       Width = 75
       Height = 25
@@ -81,17 +81,17 @@ inherited frmEllesKarb: TfrmEllesKarb
       NumGlyphs = 2
     end
     inherited BitBtn1: TTalBitBtn
-      Left = 821
+      Left = 1012
       Top = 11
       TabOrder = 4
     end
     inherited BitBtn2: TTalBitBtn
-      Left = 915
+      Left = 1106
       Top = 11
       TabOrder = 3
     end
     object btnXMLExport: TBitBtn
-      Left = 165
+      Left = 356
       Top = 11
       Width = 190
       Height = 25
@@ -103,16 +103,16 @@ inherited frmEllesKarb: TfrmEllesKarb
     end
   end
   inherited Panel2: TPanel
-    Left = 439
+    Left = 630
     Top = 38
     Width = 565
-    Height = 484
+    Height = 554
     Align = alRight
     object TalPanel3: TTalPanel
       Left = 248
       Top = 200
       Width = 313
-      Height = 280
+      Height = 350
       Align = alRight
       TabOrder = 0
       object TalLabel8: TTalLabel
@@ -497,7 +497,7 @@ inherited frmEllesKarb: TfrmEllesKarb
       Left = 0
       Top = 200
       Width = 248
-      Height = 280
+      Height = 350
       TabStop = False
       IniAttributes.Delimiter = ';;'
       TitleColor = clBtnFace
@@ -833,8 +833,8 @@ inherited frmEllesKarb: TfrmEllesKarb
   object grdVal: TTalDBGrid [2]
     Left = 0
     Top = 38
-    Width = 439
-    Height = 484
+    Width = 630
+    Height = 554
     IniAttributes.Delimiter = ';;'
     TitleColor = clBtnFace
     OnRowChanged = grdValRowChanged
@@ -871,7 +871,7 @@ inherited frmEllesKarb: TfrmEllesKarb
   object pnlKeres: TTalPanel [3]
     Left = 0
     Top = 0
-    Width = 1004
+    Width = 1195
     Height = 38
     Align = alTop
     TabOrder = 3
