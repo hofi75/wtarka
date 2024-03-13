@@ -125,9 +125,9 @@ type
     gbKimenet: TTalGroupBox;
     rbExcel: TRadioButton;
     rbLista: TRadioButton;
-    frxRepList: TfrxReport;
     btnPrint: TTalBitBtn;
     btnClose: TTalBitBtn;
+    frxRepList: TfrxReport;
     procedure btnPrintClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
 //    procedure rbKiesettClick(Sender: TObject);
@@ -204,7 +204,8 @@ begin
     'select * from egyedek ' +
     'where tenyeszet = ' + QuotedStr(cbTenyeszet.KeyValue) + ' and ' +
     'szuldat <= TO_DATE(' + QuotedStr(edtDatum2.Text) + ',' + QuotedStr('yyyy.mm.dd') + ') and ' +
-    '(kikdat is null or kikdat >= TO_DATE(' + QuotedStr(edtDatum1.Text) + ',' + QuotedStr('yyyy.mm.dd') + '))';
+    '(kikdat is null or kikdat >= TO_DATE(' + QuotedStr(edtDatum1.Text) + ',' + QuotedStr('yyyy.mm.dd') + ')) ' +
+    'order by enar';
   try
     Screen.Cursor := crHourGlass;
     sdsLista.Open;

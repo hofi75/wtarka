@@ -554,7 +554,7 @@ object frmAllomany: TfrmAllomany
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 38838.519462187500000000
-    ReportOptions.LastChange = 45356.862284583330000000
+    ReportOptions.LastChange = 45364.804423125000000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -590,6 +590,26 @@ object frmAllomany: TfrmAllomany
       '   return '#39#39';'
       'end;'
       '*)'
+      ''
+      'procedure AnyaAzonFill(Sender: TfrxComponent);'
+      'begin'
+      '    if (trim(<frxDBLista."ANYA_ENAR">) <> '#39#39') Then'
+      '      anyaazon.text := <frxDBLista."ANYA_ENAR">'
+      '    Else if (trim(<frxDBLista."ANYA_ELL">) <> '#39#39') Then'
+      '         anyaazon.text := <frxDBLista."ANYA_ELL">'
+      '      Else'
+      '         anyaazon.text := <frxDBLista."ANYA_ID_ENAR">;'
+      'end;'
+      ''
+      'procedure ApaAzonFill(Sender: TfrxComponent);'
+      'begin'
+      '    if (trim(<frxDBLista."APAKLSZ">) <> '#39#39') Then'
+      '      anyaazon.text := <frxDBLista."APAKLSZ">'
+      '    Else if (trim(<frxDBLista."APA_FULSZAM">) <> '#39#39') Then'
+      '         anyaazon.text := <frxDBLista."APA_FULSZAM">'
+      '      Else'
+      '         anyaazon.text := <frxDBLista."ID_APA">;'
+      'end;'
       ''
       'procedure elhullasdatumaOnBeforePrint(Sender: TfrxComponent);'
       'begin'
