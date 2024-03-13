@@ -1,6 +1,6 @@
 inherited frmTibor: TfrmTibor
-  Left = 767
-  Top = 557
+  Left = 1023
+  Top = 743
   Caption = 'frmTibor'
   OldCreateOrder = True
   OnCreate = FormCreate

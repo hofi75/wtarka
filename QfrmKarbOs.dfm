@@ -1,6 +1,6 @@
 object frmKarbOs: TfrmKarbOs
-  Left = 456
-  Top = 412
+  Left = 608
+  Top = 549
   Width = 531
   Height = 349
   Caption = 'T'#246'rzs karbantart'#243':'

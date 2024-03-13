@@ -2,8 +2,8 @@ object dtmTarka: TdtmTarka
   OldCreateOrder = False
   OnCreate = DataModuleCreate
   OnDestroy = DataModuleDestroy
-  Left = 717
-  Top = 374
+  Left = 956
+  Top = 499
   Height = 558
   Width = 798
   object cnTarka: TTalConnection
@@ -1980,6 +1980,7 @@ object dtmTarka: TdtmTarka
         Attributes = [faFixed]
         DataType = ftBCD
         Precision = 15
+        Size = 4
       end
       item
         Name = 'ENAR'
@@ -2297,6 +2298,7 @@ object dtmTarka: TdtmTarka
         Attributes = [faFixed]
         DataType = ftBCD
         Precision = 15
+        Size = 4
       end
       item
         Name = 'ENAR'

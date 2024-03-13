@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 202
-  Top = 144
-  Width = 1215
-  Height = 686
+  Left = 261
+  Top = 397
+  Width = 913
+  Height = 505
   Caption = 'WinTarka - H'#250'shaszn'#250' szarvasmarha nyilv'#225'ntart'#243' program'
   Color = clBtnFace
-  Constraints.MinHeight = 530
-  Constraints.MinWidth = 840
+  Constraints.MinHeight = 452
+  Constraints.MinWidth = 604
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
@@ -27,8 +27,8 @@ object frmMain: TfrmMain
   object TalImage1: TTalImage
     Left = 0
     Top = 33
-    Width = 1199
-    Height = 568
+    Width = 897
+    Height = 387
     Align = alClient
     AutoSize = True
     Center = True
@@ -628,8 +628,8 @@ object frmMain: TfrmMain
   end
   object Panel1: TPanel
     Left = 0
-    Top = 601
-    Width = 1199
+    Top = 420
+    Width = 897
     Height = 27
     Align = alBottom
     TabOrder = 0
@@ -644,7 +644,7 @@ object frmMain: TfrmMain
     object StatusBar2: TStatusBar
       Left = 393
       Top = 1
-      Width = 805
+      Width = 503
       Height = 25
       Align = alClient
       Panels = <>
@@ -654,16 +654,16 @@ object frmMain: TfrmMain
   object TalControlBar1: TTalControlBar
     Left = 0
     Top = 0
-    Width = 1199
+    Width = 897
     Height = 33
     Align = alTop
     Anchors = [akTop, akRight]
     TabOrder = 1
     DesignSize = (
-      1195
+      893
       29)
     object cbTenyeszet: TTalDBLookupComboBox
-      Left = 849
+      Left = 246
       Top = 2
       Width = 336
       Height = 24
@@ -896,6 +896,10 @@ object frmMain: TfrmMain
       object Atorzskonyves1: TMenuItem
         Caption = #39'A'#39' t'#246'rzsk'#246'nyves egyedek sz'#225'ma'
         OnClick = Atorzskonyves1Click
+      end
+      object Allomanynylvntart1: TMenuItem
+        Caption = #193'llom'#225'ny ny'#237'lv'#225'ntart'#243
+        OnClick = Allomanynylvntart1Click
       end
     end
     object Szervzfunkcik1: TMenuItem
