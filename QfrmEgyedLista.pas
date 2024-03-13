@@ -126,6 +126,7 @@ type
     sdsListaTOM205: TIntegerField;
     sdsListaNET_PONT: TIntegerField;
     sdsListaTIPUS: TWideStringField;
+    sdsListaDONOR_ANYA: TWideStringField;
     frxRepList: TfrxReport;
     procedure rbKiesettClick(Sender: TObject);
     procedure actOKExecute(Sender: TObject);
@@ -430,6 +431,7 @@ begin
     feltetelek := feltetelek + 'Csak üszõ' + #10;
     PlusWhere := PlusWhere + ' AND E.IVAR = ''2'' AND NOT EXISTS (SELECT 1 FROM ELLESEK WHERE ELLESEK.EGYED_ID = E.ID) ';
   end;
+  PlusWhere := PlusWhere + ' AND E.HATALYTALAN <> ''I'' ';
   if rbRend1.Checked then begin
     if rbEnar.Checked then
       order := ' ORDER BY E.ENAR '

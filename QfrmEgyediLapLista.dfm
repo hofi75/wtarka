@@ -1,6 +1,6 @@
 inherited frmEgyediLapLista: TfrmEgyediLapLista
-  Left = 962
-  Top = 578
+  Left = 1474
+  Top = 347
   Width = 701
   Height = 389
   Caption = 'Egyedi lap nyomtat'#225'sa'
@@ -98,11 +98,12 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 38838.519462187500000000
-    ReportOptions.LastChange = 44502.889673287030000000
+    ReportOptions.LastChange = 45116.422993229160000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'var'
       '  KonnyuElles : integer;'
+      '  s : string;'
       ''
       'procedure MasterData2OnBeforePrint(Sender: TfrxComponent);'
       'begin'
@@ -128,9 +129,12 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'end;'
       ''
       'procedure MasterData1OnBeforePrint(Sender: TfrxComponent);'
+      'var'
+      '  s : string;'
       'begin'
-      ''
-      ''
+      '    s := Trim(<frxDBLista."DONOR_ANYA">);'
+      '    if s <> '#39#39' then'
+      '       DonorAnyaSubreport.Visible := true;'
       'end;'
       ''
       'procedure Memo149OnBeforePrint(Sender: TfrxComponent);'
@@ -231,8 +235,9 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       '       memo106.text := <frxDBLista."ANA_ANYA_ENAR">;'
       'end;'
       '*)'
-      'begin'
       ''
+      ''
+      'begin'
       'end.')
     Left = 592
     Top = 160
@@ -275,7 +280,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         Value = Null
       end>
     Style = <>
-    object Page1: TfrxReportPage
+    object Main: TfrxReportPage
       PaperWidth = 210.000000000000000000
       PaperHeight = 297.000000000000000000
       PaperSize = 9
@@ -305,7 +310,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
       end
       object MasterData1: TfrxMasterData
-        Height = 464.881889760000000000
+        Height = 514.016050710000000000
         Top = 117.165430000000000000
         Width = 718.110700000000000000
         OnBeforePrint = 'MasterData1OnBeforePrint'
@@ -621,12 +626,12 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
             'Konstrukci'#258#322's k'#258#322'd: [frxDBLista."KKOD"]')
           VAlign = vaCenter
         end
-        object Subreport1: TfrxSubreport
+        object KullemSubreport: TfrxSubreport
           ShiftMode = smWhenOverlapped
           Top = 204.094488190000000000
           Width = 721.890230000000000000
           Height = 26.456680710000000000
-          Page = frxRepLista.Page3
+          Page = frxRepLista.KullemPage
           PrintOnParent = True
         end
         object Line11: TfrxLineView
@@ -789,12 +794,12 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Line18: TfrxLineView
           Align = baWidth
-          Top = 204.094488188976000000
+          Top = 204.094488190000000000
           Width = 718.110700000000000000
           Frame.Typ = [ftTop]
         end
         object Line19: TfrxLineView
-          Height = 457.322834645669000000
+          Height = 457.322834650000000000
           Frame.Typ = [ftLeft]
         end
         object Line20: TfrxLineView
@@ -1302,12 +1307,6 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           Memo.UTF8 = (
             'Anyja:')
         end
-        object Line26: TfrxLineView
-          Align = baWidth
-          Top = 457.322834645669000000
-          Width = 718.110700000000000000
-          Frame.Typ = [ftTop]
-        end
         object Memo85: TfrxMemoView
           Left = 3.779530000000000000
           Top = 434.645669290000000000
@@ -1578,6 +1577,21 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
             'DNS: [frxDBLista."DNS_DATE"]/[frxDBLista."DNS_IKTATOSZAM"]')
           VAlign = vaCenter
         end
+        object Line95: TfrxLineView
+          Align = baWidth
+          Top = 457.323130000000000000
+          Width = 718.110700000000000000
+          Frame.Typ = [ftTop]
+        end
+        object DonorAnyaSubreport: TfrxSubreport
+          ShiftMode = smWhenOverlapped
+          Top = 457.323130000000000000
+          Width = 718.110700000000000000
+          Height = 26.456680710000000000
+          Visible = False
+          Page = frxRepLista.DonorAnya
+          PrintOnParent = True
+        end
       end
       object Memo42: TfrxMemoView
         Left = -3.779530000000000000
@@ -1589,7 +1603,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           '[frxDBLista."SZARVALTSAG"]')
       end
     end
-    object Page3: TfrxReportPage
+    object KullemPage: TfrxReportPage
       PaperWidth = 210.000000000000000000
       PaperHeight = 297.000000000000000000
       PaperSize = 9
@@ -1697,7 +1711,163 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
       end
     end
-    object Page2: TfrxReportPage
+    object DonorAnya: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      object MasterData5: TfrxMasterData
+        Height = 64.252010000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        DataSet = frxDBLista
+        DataSetName = 'frxDBLista'
+        RowCount = 0
+        object Memo173: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 3.779530000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          AutoWidth = True
+          Memo.UTF8 = (
+            'Donor anya:')
+        end
+        object Memo174: TfrxMemoView
+          Left = 90.708720000000000000
+          Top = 3.779530000000000000
+          Width = 120.944960000000000000
+          Height = 18.897650000000000000
+          OnAfterData = 'Memo84OnAfterData'
+          DataField = 'DONOR_ANYA'
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          Memo.UTF8 = (
+            '[frxDBLista."DONOR_ANYA"]')
+        end
+        object Memo175: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 30.236240000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.1f'
+          DisplayFormat.Kind = fkNumeric
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxDBLista."DANYA_VSZ1"] %')
+        end
+        object Memo176: TfrxMemoView
+          Left = 60.472480000000000000
+          Top = 30.236240000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          Memo.UTF8 = (
+            '[frxDBLista."DANYA_V1"]')
+        end
+        object Memo177: TfrxMemoView
+          Left = 177.637910000000000000
+          Top = 30.236240000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.1f'
+          DisplayFormat.Kind = fkNumeric
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxDBLista."DANYA_VSZ2"] %')
+        end
+        object Memo178: TfrxMemoView
+          Left = 234.330860000000000000
+          Top = 30.236240000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          Memo.UTF8 = (
+            '[frxDBLista."DANYA_V2"]')
+        end
+        object Memo179: TfrxMemoView
+          Left = 351.496290000000000000
+          Top = 30.236240000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.1f'
+          DisplayFormat.Kind = fkNumeric
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxDBLista."DANYA_VSZ3"] %')
+        end
+        object Memo180: TfrxMemoView
+          Left = 408.189240000000000000
+          Top = 30.236240000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          Memo.UTF8 = (
+            '[frxDBLista."DANYA_V3"]')
+        end
+        object Memo181: TfrxMemoView
+          Left = 529.134200000000000000
+          Top = 30.236240000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.1f'
+          DisplayFormat.Kind = fkNumeric
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxDBLista."DANYA_VSZ4"] %')
+        end
+        object Memo182: TfrxMemoView
+          Left = 585.827150000000000000
+          Top = 30.236240000000000000
+          Width = 113.385900000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          Memo.UTF8 = (
+            '[frxDBLista."DANYA_V4"]')
+        end
+        object Line26: TfrxLineView
+          Top = 56.692950000000000000
+          Width = 718.110700000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line96: TfrxLineView
+          Width = 718.110700000000000000
+          Frame.Typ = [ftTop]
+        end
+        object Line97: TfrxLineView
+          Height = 56.692950000000000000
+          Frame.Typ = [ftLeft]
+        end
+        object Line98: TfrxLineView
+          Left = 718.110700000000000000
+          Height = 56.692950000000000000
+          Frame.Typ = [ftLeft]
+        end
+      end
+    end
+    object Ellesek: TfrxReportPage
       PaperWidth = 210.000000000000000000
       PaperHeight = 297.000000000000000000
       PaperSize = 9
@@ -3534,7 +3704,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 38838.519462187500000000
-    ReportOptions.LastChange = 43463.634596435190000000
+    ReportOptions.LastChange = 45065.823191226850000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'var'
@@ -4236,7 +4406,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Line20: TfrxLineView
           Left = 718.110700000000000000
-          Height = 457.322834650000000000
+          Height = 464.881894650000000000
           Frame.Typ = [ftLeft]
         end
         object Memo47: TfrxMemoView
@@ -4252,7 +4422,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo48: TfrxMemoView
           Left = 49.133890000000000000
-          Top = 253.228346460000000000
+          Top = 249.448816460000000000
           Width = 120.944960000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4271,13 +4441,13 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Line21: TfrxLineView
           Align = baWidth
-          Top = 340.157480314961000000
+          Top = 328.818890310000000000
           Width = 718.110700000000000000
           Frame.Typ = [ftTop]
         end
         object Memo64: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 321.259842520000000000
+          Top = 306.141722520000000000
           Width = 109.606370000000000000
           Height = 18.897650000000000000
           AutoWidth = True
@@ -4286,7 +4456,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo65: TfrxMemoView
           Left = 117.165430000000000000
-          Top = 321.259842520000000000
+          Top = 306.141722520000000000
           Width = 154.960730000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4297,7 +4467,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo66: TfrxMemoView
           Left = 49.133890000000000000
-          Top = 275.905511810000000000
+          Top = 268.346451810000000000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4307,7 +4477,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo67: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 275.905511810000000000
+          Top = 268.346451810000000000
           Width = 37.795300000000000000
           Height = 18.897650000000000000
           AutoWidth = True
@@ -4316,7 +4486,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo68: TfrxMemoView
           Left = 49.133890000000000000
-          Top = 298.582677170000000000
+          Top = 287.244087170000000000
           Width = 249.448980000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4326,7 +4496,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo69: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 298.582677170000000000
+          Top = 287.244087170000000000
           Width = 37.795300000000000000
           Height = 18.897650000000000000
           AutoWidth = True
@@ -4375,7 +4545,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo73: TfrxMemoView
           Left = 302.362400000000000000
-          Top = 275.905511810000000000
+          Top = 272.125981810000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4390,7 +4560,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo74: TfrxMemoView
           Left = 359.055350000000000000
-          Top = 275.905511810000000000
+          Top = 272.125981810000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4400,7 +4570,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo75: TfrxMemoView
           Left = 302.362400000000000000
-          Top = 298.582677170000000000
+          Top = 291.023617170000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4415,7 +4585,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo76: TfrxMemoView
           Left = 359.055350000000000000
-          Top = 298.582677170000000000
+          Top = 291.023617170000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4425,7 +4595,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo77: TfrxMemoView
           Left = 302.362400000000000000
-          Top = 321.259842520000000000
+          Top = 309.921252520000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4440,7 +4610,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo78: TfrxMemoView
           Left = 359.055350000000000000
-          Top = 321.259842520000000000
+          Top = 309.921252520000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4512,8 +4682,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo84: TfrxMemoView
           Left = 49.133890000000000000
-          Top = 343.937007870000000000
-          Width = 120.944960000000000000
+          Top = 332.598417870000000000
+          Width = 192.756030000000000000
           Height = 18.897650000000000000
           OnAfterData = 'Memo84OnAfterData'
           DataField = 'EAN_ENAR'
@@ -4524,7 +4694,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo86: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 343.937007870000000000
+          Top = 332.598417870000000000
           Width = 37.795300000000000000
           Height = 18.897650000000000000
           AutoWidth = True
@@ -4533,7 +4703,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo87: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 411.968503940000000000
+          Top = 389.291323940000000000
           Width = 109.606370000000000000
           Height = 18.897650000000000000
           AutoWidth = True
@@ -4542,7 +4712,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo88: TfrxMemoView
           Left = 117.165430000000000000
-          Top = 411.968503940000000000
+          Top = 389.291323940000000000
           Width = 94.488250000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4553,7 +4723,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo89: TfrxMemoView
           Left = 49.133890000000000000
-          Top = 366.614173230000000000
+          Top = 351.496053230000000000
           Width = 173.858380000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4563,7 +4733,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo90: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 366.614173230000000000
+          Top = 351.496053230000000000
           Width = 37.795300000000000000
           Height = 18.897650000000000000
           AutoWidth = True
@@ -4572,7 +4742,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo91: TfrxMemoView
           Left = 49.133890000000000000
-          Top = 389.291338580000000000
+          Top = 370.393688580000000000
           Width = 249.448980000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4582,7 +4752,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo92: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 389.291338580000000000
+          Top = 370.393688580000000000
           Width = 37.795300000000000000
           Height = 18.897650000000000000
           AutoWidth = True
@@ -4591,7 +4761,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo93: TfrxMemoView
           Left = 302.362400000000000000
-          Top = 343.937007870000000000
+          Top = 332.598417870000000000
           Width = 86.929190000000000000
           Height = 18.897650000000000000
           AutoWidth = True
@@ -4600,7 +4770,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo94: TfrxMemoView
           Left = 302.362400000000000000
-          Top = 366.614173230000000000
+          Top = 355.275583230000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4615,7 +4785,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo95: TfrxMemoView
           Left = 359.055350000000000000
-          Top = 366.614173230000000000
+          Top = 355.275583230000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4625,7 +4795,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo96: TfrxMemoView
           Left = 302.362400000000000000
-          Top = 389.291338580000000000
+          Top = 374.173218580000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4640,7 +4810,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo97: TfrxMemoView
           Left = 359.055350000000000000
-          Top = 389.291338580000000000
+          Top = 374.173218580000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4650,7 +4820,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo98: TfrxMemoView
           Left = 302.362400000000000000
-          Top = 411.968503940000000000
+          Top = 393.070853940000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4665,7 +4835,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo99: TfrxMemoView
           Left = 359.055350000000000000
-          Top = 411.968503940000000000
+          Top = 393.070853940000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4675,7 +4845,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo100: TfrxMemoView
           Left = 302.362400000000000000
-          Top = 434.645669290000000000
+          Top = 411.968489290000000000
           Width = 52.913420000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4690,7 +4860,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo101: TfrxMemoView
           Left = 359.055350000000000000
-          Top = 434.645669290000000000
+          Top = 411.968489290000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -4700,8 +4870,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Line24: TfrxLineView
           Left = 495.118430000000000000
-          Top = 340.157480314961000000
-          Height = 117.165430000000000000
+          Top = 340.157480310000000000
+          Height = 124.724490000000000000
           Frame.Typ = [ftLeft]
         end
         object Line25: TfrxLineView
@@ -4741,13 +4911,13 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Line26: TfrxLineView
           Align = baWidth
-          Top = 457.322834645669000000
+          Top = 464.881894650000000000
           Width = 718.110700000000000000
           Frame.Typ = [ftTop]
         end
         object Memo85: TfrxMemoView
           Left = 3.779530000000000000
-          Top = 434.645669290000000000
+          Top = 408.188959290000000000
           Width = 162.519790000000000000
           Height = 18.897650000000000000
           AutoWidth = True
@@ -4796,7 +4966,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo151: TfrxMemoView
           Left = 170.078850000000000000
-          Top = 434.645669290000000000
+          Top = 408.188959290000000000
           Width = 56.692950000000000000
           Height = 18.897650000000000000
           DataField = 'EAN_KMI'
@@ -4904,7 +5074,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
         end
         object Memo9: TfrxMemoView
           Left = 498.897960000000000000
-          Top = 317.480314960000000000
+          Top = 306.141724960000000000
           Width = 215.433210000000000000
           Height = 18.897650000000000000
           DataSet = frxDBLista
@@ -5001,6 +5171,187 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
           DataSetName = 'frxDBLista'
           Memo.UTF8 = (
             '[frxDBLista."EANAN_AZON"]')
+        end
+        object Memo113: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 427.086890000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          AutoWidth = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            'Donor anya:')
+          ParentFont = False
+        end
+        object Memo114: TfrxMemoView
+          Left = 90.708720000000000000
+          Top = 427.086890000000000000
+          Width = 192.756030000000000000
+          Height = 18.897650000000000000
+          OnAfterData = 'Memo84OnAfterData'
+          DataField = 'EAN_ENAR'
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBLista."EAN_ENAR"]')
+          ParentFont = False
+        end
+        object Memo115: TfrxMemoView
+          Left = 3.779530000000000000
+          Top = 445.984540000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.1f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxDBLista."EAN_VSZ1"] %')
+          ParentFont = False
+        end
+        object Memo116: TfrxMemoView
+          Left = 56.692950000000000000
+          Top = 445.984540000000000000
+          Width = 86.929190000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBLista."EAN_F1NEV"]')
+          ParentFont = False
+        end
+        object Memo130: TfrxMemoView
+          Left = 143.622140000000000000
+          Top = 445.984540000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.1f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxDBLista."EAN_VSZ2"] %')
+          ParentFont = False
+        end
+        object Memo142: TfrxMemoView
+          Left = 196.535560000000000000
+          Top = 445.984540000000000000
+          Width = 86.929190000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBLista."EAN_F2NEV"]')
+          ParentFont = False
+        end
+        object Memo164: TfrxMemoView
+          Left = 283.464750000000000000
+          Top = 445.984540000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.1f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxDBLista."EAN_VSZ3"] %')
+          ParentFont = False
+        end
+        object Memo165: TfrxMemoView
+          Left = 336.378170000000000000
+          Top = 445.984540000000000000
+          Width = 90.708720000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBLista."EAN_F3NEV"]')
+          ParentFont = False
+        end
+        object Memo170: TfrxMemoView
+          Left = 427.086890000000000000
+          Top = 445.984540000000000000
+          Width = 52.913420000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          DisplayFormat.DecimalSeparator = ','
+          DisplayFormat.FormatStr = '%2.1f'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          HAlign = haRight
+          HideZeros = True
+          Memo.UTF8 = (
+            '[frxDBLista."EAN_VSZ4"] %')
+          ParentFont = False
+        end
+        object Memo171: TfrxMemoView
+          Left = 480.000310000000000000
+          Top = 445.984540000000000000
+          Width = 136.063080000000000000
+          Height = 18.897650000000000000
+          DataSet = frxDBLista
+          DataSetName = 'frxDBLista'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -8
+          Font.Name = 'Arial'
+          Font.Style = []
+          Memo.UTF8 = (
+            '[frxDBLista."EAN_F4NEV"]')
+          ParentFont = False
         end
       end
       object Memo42: TfrxMemoView
@@ -6653,6 +7004,8 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'SZAPIND=SZAPIND'
       'KULLEM_IND=KULLEM_IND'
       'NET_PONT=NET_PONT'
+      'DNS_DATE=DNS_DATE'
+      'DNS_IKTATOSZAM=DNS_IKTATOSZAM'
       'EAP_KLSZ=EAP_KLSZ'
       'EAP_NEV=EAP_NEV'
       'EAP_FSZ=EAP_FSZ'
@@ -6698,8 +7051,15 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'EANAP_AZON=EANAP_AZON'
       'EANAP_NEV=EANAP_NEV'
       'EANAN_NEV=EANAN_NEV'
-      'DNS_DATE=DNS_DATE'
-      'DNS_IKTATOSZAM=DNS_IKTATOSZAM')
+      'DONOR_ANYA=DONOR_ANYA'
+      'DANYA_V1=DANYA_V1'
+      'DANYA_VSZ1=DANYA_VSZ1'
+      'DANYA_V2=DANYA_V2'
+      'DANYA_VSZ2=DANYA_VSZ2'
+      'DANYA_V3=DANYA_V3'
+      'DANYA_VSZ3=DANYA_VSZ3'
+      'DANYA_V4=DANYA_V4'
+      'DANYA_VSZ4=DANYA_VSZ4')
     OpenDataSource = False
     DataSet = sdsLista
     Left = 136
@@ -6713,122 +7073,120 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       'SELECT DISTINCT E.ENAR,'#13#10'E.TENYESZET,'#13#10'TENY.TNEV2,'#13#10'TENY.VAROS a' +
       's VAROS,'#13#10'E.FULSZAM,'#13#10'E.ID_ENAR,'#13#10'E.TEHENSZAM,'#13#10'E.SZULDAT,'#13#10'E.ML' +
       'EVEL1,'#13#10'E.MLEVEL2,'#13#10'E.TKV,'#13#10'E.SZIN, SZIN.NEV AS SZINNEV,'#13#10'E.FAJT' +
-      'AKOD, EF.FNEV,'#13#10'E.VER1, E.VSZ1, E.VER2, E.VSZ2, E.VER3, E.VSZ3, ' +
-      'E.VER4, E.VSZ4,'#13#10'E.KKOD,'#13#10'E.VALDAT, CAST(TRUNC(E.VALDAT - E.SZUL' +
-      'DAT) AS NUMBER (5,0)) AS VALKOR, E.VALTOM, E.TOM205, E.SV,'#13#10'CAST' +
-      '(TOMGYAR(E.SZUL_SULY, E.VALTOM, E.SZULDAT, E.VALDAT) AS INTEGER)' +
-      ' AS TGYVAL,'#13#10'E.SZORSZ, ORSZAG.NEV AS ORSZAGNEV,'#13#10'E.SZARVALTSAG,'#13 +
-      #10'E.BIKANEVELO,'#13#10'E.TENYTOM,'#13#10'E.MIN AS KMI,'#13#10'E.IVAR,'#13#10'CAST (BNI(E.' +
-      'ID) AS NUMERIC(10,3)) AS BNI,'#13#10'CAST (SZAPIND(E.ID) AS NUMERIC(10' +
-      ',3)) AS SZAPIND,'#13#10'CAST (KULLEM_IND(E.ENAR) AS NUMERIC(10,3)) AS ' +
-      'KULLEM_IND,'#13#10'E.NET_PONT,'#13#10'E.DNS_DATE AS DNS_DATE,'#13#10'E.DNS_IKTATOS' +
-      'ZAM AS DNS_IKTATOSZAM,'#13#10'E.APAKLSZ AS EAP_KLSZ,'#13#10'EAP.NEV AS EAP_N' +
-      'EV,'#13#10'EAP.FSZ AS EAP_FSZ,'#13#10'EAP.FKOD AS EAP_FAJTAKOD, EAPF.FNEV AS' +
-      ' EAP_FAJTANEV,'#13#10'EAP.SZULDAT AS EAP_SZULDAT,'#13#10'EAP.VER1 AS EAP_V1,' +
-      ' EAP.VSZ1 AS EAP_VSZ1, EAPF1.FNEV AS EAP_F1NEV,'#13#10'EAP.VER2 AS EAP' +
-      '_V2, EAP.VSZ2 AS EAP_VSZ2, EAPF2.FNEV AS EAP_F2NEV,'#13#10'EAP.VER3 AS' +
-      ' EAP_V3, EAP.VSZ3 AS EAP_VSZ3, EAPF3.FNEV AS EAP_F3NEV,'#13#10'EAP.VER' +
-      '4 AS EAP_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV,'#13#10'E.A' +
-      'NYA_ENAR AS EAN_ENAR,'#13#10'E.ANYA_ELL AS EAN_ELL,'#13#10'EAN.NEV AS EAN_NE' +
-      'V,'#13#10'TRIM(RNOTNULL(TRIM(EANAN.ENAR), TRIM(EANAN.TEHENSZAM), TRIM(' +
-      'EANAN.ID_ENAR),'#39#39')) AS EANAN_AZON,'#13#10'EAN.FAJTAKOD AS EAN_FAJTAKOD' +
-      ', EANF.FNEV AS EAN_FAJTANEV,'#13#10'EAN.SZULDAT AS EAN_SZULDAT,'#13#10'EAN.M' +
-      'IN AS EAN_KMI,'#13#10'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, EANF1.' +
-      'FNEV AS EAN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, EA' +
-      'NF2.FNEV AS EAN_F2NEV,'#13#10'EAN.VER3 AS EAN_V3, EAN.VSZ3 AS EAN_VSZ3' +
-      ', EANF3.FNEV AS EAN_F3NEV,'#13#10'EAN.VER4 AS EAN_V4, EAN.VSZ4 AS EAN_' +
-      'VSZ4, EANF4.FNEV AS EAN_F4NEV,'#13#10'EAP2.AAZON AS EAPAP_AZON,'#13#10'EAP2.' +
-      'ANEVE AS EAPAP_NEV,'#13#10'EAP2.MAZON AS EAPAN_AZON,'#13#10'EAP.ANYANEV AS E' +
-      'APAN_NEV,'#13#10'EANAP.KAZON AS EANAP_AZON,'#13#10'EANAP.NEVEE AS EANAP_NEV,' +
-      #13#10'EANAN.NEV AS EANAN_NEV'#13#10'FROM EGYEDEK E '#13#10'LEFT JOIN TENY ON TEN' +
-      'Y.TKOD = E.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN '#13#10'LEF' +
-      'T JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT JOIN ORSZAG ON OR' +
-      'SZAG.KOD2 = E.SZORSZ '#13#10'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.IV' +
-      'AR AND IVARF.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39' '#13#10'LEFT JOIN APA EAP ON' +
-      ' TRIM(EAP.KPLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL'#13#10'LE' +
-      'FT JOIN FAJTA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NOT ' +
-      'NULL '#13#10'LEFT JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1'#13#10'LEFT JOIN' +
-      ' FAJTA EAPF2 ON EAPF2.FKOD = EAP.VER2'#13#10'LEFT JOIN FAJTA EAPF3 ON ' +
-      'EAPF3.FKOD = EAP.VER3'#13#10'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = EAP' +
-      '.VER4'#13#10'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR))' +
-      ' AND (E.ANYA_ENAR > '#39' '#39') AND EAN.TENYESZET = E.TENYESZET) OR ((E' +
-      'AN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > '#39' '#39'))) '#13#10'LEFT' +
-      ' JOIN FAJTA EANF ON EANF.FKOD = EAN.FAJTAKOD '#13#10'LEFT JOIN FAJTA E' +
-      'ANF1 ON EANF1.FKOD = EAN.VER1'#13#10'LEFT JOIN FAJTA EANF2 ON EANF2.FK' +
-      'OD = EAN.VER2'#13#10'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3'#13#10'L' +
-      'EFT JOIN FAJTA EANF4 ON EANF4.FKOD = EAN.VER4'#13#10'LEFT JOIN BIKTXT ' +
-      'EAP2 ON EAP2.KAZTP = '#39'4'#39' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ)'#13 +
-      #10'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = '#39'4'#39' AND TRIM(EAPAP.KAZO' +
-      'N) = TRIM(EAP.APAKPLSZ)'#13#10'LEFT JOIN BIKTXT EANAP ON (EANAP.KAZTP=' +
-      ' '#39'4'#39' AND (CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT))) OR' +
-      ' (TRIM(EANAP.KAZON)=TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZON)' +
-      '=TRIM(EAN.ID_APA)) AND EANAP.KAZON IS NOT NULL'#13#10'LEFT JOIN EGYEDE' +
-      'K EANAN ON (TRIM(EANAN.ENAR)=TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_EN' +
-      'AR IS NOT NULL) OR (TRIM(EANAN.TEHENSZAM)=TRIM(EAN.ANYA_ELL) AND' +
-      ' EAN.ANYA_ELL IS NOT NULL) OR (TRIM(EANAN.ID_ENAR)=TRIM(EAN.ANYA' +
-      '_ID_ENAR) AND EAN.ID_ENAR IS NOT NULL)'#13#10'where E.ENAR  = '#39'3207476' +
-      '221'#39
+      'AKOD, GET_FAJTA_NAME(E.FAJTAKOD) AS FNEV,'#13#10'E.VER1, E.VSZ1, E.VER' +
+      '2, E.VSZ2, E.VER3, E.VSZ3, E.VER4, E.VSZ4,'#13#10'E.KKOD,'#13#10'E.VALDAT, C' +
+      'AST(TRUNC(E.VALDAT - E.SZULDAT) AS NUMBER (5,0)) AS VALKOR, E.VA' +
+      'LTOM, E.TOM205, E.SV,'#13#10'CAST(TOMGYAR(E.SZUL_SULY, E.VALTOM, E.SZU' +
+      'LDAT, E.VALDAT) AS INTEGER) AS TGYVAL,'#13#10'E.SZORSZ, ORSZAG.NEV AS ' +
+      'ORSZAGNEV,'#13#10'E.SZARVALTSAG,'#13#10'E.BIKANEVELO,'#13#10'E.TENYTOM,'#13#10'E.MIN AS ' +
+      'KMI,'#13#10'E.IVAR,'#13#10'CAST (BNI(E.ID) AS NUMERIC(10,3)) AS BNI,'#13#10'CAST (' +
+      'SZAPIND(E.ID) AS NUMERIC(10,3)) AS SZAPIND,'#13#10'CAST (KULLEM_IND(E.' +
+      'ENAR) AS NUMERIC(10,3)) AS KULLEM_IND,'#13#10'E.NET_PONT,'#13#10'E.DNS_DATE ' +
+      'AS DNS_DATE,'#13#10'E.DNS_IKTATOSZAM AS DNS_IKTATOSZAM,'#13#10'E.APAKLSZ AS ' +
+      'EAP_KLSZ,'#13#10'EAP.NEV AS EAP_NEV,'#13#10'EAP.FSZ AS EAP_FSZ,'#13#10'EAP.FKOD AS' +
+      ' EAP_FAJTAKOD, GET_FAJTA_NAME(EAP.FKOD) EAP_FAJTANEV,'#13#10'EAP.SZULD' +
+      'AT AS EAP_SZULDAT,'#13#10'EAP.VER1 AS EAP_V1, EAP.VSZ1 AS EAP_VSZ1, GE' +
+      'T_FAJTA_NAME(EAP.VER1) AS EAP_F1NEV,'#13#10'EAP.VER2 AS EAP_V2, EAP.VS' +
+      'Z2 AS EAP_VSZ2, GET_FAJTA_NAME(EAP.VER2) AS EAP_F2NEV,'#13#10'EAP.VER3' +
+      ' AS EAP_V3, EAP.VSZ3 AS EAP_VSZ3, GET_FAJTA_NAME(EAP.VER3) AS EA' +
+      'P_F3NEV,'#13#10'EAP.VER4 AS EAP_V4, EAP.VSZ4 AS EAP_VSZ4, GET_FAJTA_NA' +
+      'ME(EAP.VER4) AS EAP_F4NEV,'#13#10'E.ANYA_ENAR AS EAN_ENAR,'#13#10'E.ANYA_ELL' +
+      ' AS EAN_ELL,'#13#10'EAN.NEV AS EAN_NEV,'#13#10'TRIM(RNOTNULL(TRIM(EANAN.ENAR' +
+      '), TRIM(EANAN.TEHENSZAM), TRIM(EANAN.ID_ENAR),'#39#39')) AS EANAN_AZON' +
+      ','#13#10'EAN.FAJTAKOD AS EAN_FAJTAKOD, GET_FAJTA_NAME(EAN.FAJTAKOD) AS' +
+      ' EAN_FAJTANEV,'#13#10'EAN.SZULDAT AS EAN_SZULDAT,'#13#10'EAN.MIN AS EAN_KMI,' +
+      #13#10'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, GET_FAJTA_NAME(EAN.V' +
+      'ER1) AS EAN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, GE' +
+      'T_FAJTA_NAME(EAN.VER2) AS EAN_F2NEV,'#13#10'EAN.VER3 AS EAN_V3, EAN.VS' +
+      'Z3 AS EAN_VSZ3, GET_FAJTA_NAME(EAN.VER3) AS EAN_F3NEV,'#13#10'EAN.VER4' +
+      ' AS EAN_V4, EAN.VSZ4 AS EAN_VSZ4, GET_FAJTA_NAME(EAN.VER4) AS EA' +
+      'N_F4NEV,'#13#10'EAP2.AAZON AS EAPAP_AZON,'#13#10'EAP2.ANEVE AS EAPAP_NEV,'#13#10'E' +
+      'AP2.MAZON AS EAPAN_AZON,'#13#10'EAP.ANYANEV AS EAPAN_NEV,'#13#10'EANAP.KAZON' +
+      ' AS EANAP_AZON,'#13#10'EANAP.NEVEE AS EANAP_NEV,'#13#10'EANAN.NEV AS EANAN_N' +
+      'EV,'#13#10'E.DONOR_ANYA,'#13#10'GET_FAJTA_NAME(DANYA.VER1) AS DANYA_V1, DANY' +
+      'A.VSZ1 AS DANYA_VSZ1,'#13#10'GET_FAJTA_NAME(DANYA.VER2) AS DANYA_V2, D' +
+      'ANYA.VSZ2 AS DANYA_VSZ2,'#13#10'GET_FAJTA_NAME(DANYA.VER3) AS DANYA_V3' +
+      ', DANYA.VSZ3 AS DANYA_VSZ3,'#13#10'GET_FAJTA_NAME(DANYA.VER4) AS DANYA' +
+      '_V4, DANYA.VSZ4 AS DANYA_VSZ4'#13#10'FROM EGYEDEK E '#13#10'LEFT JOIN TENY O' +
+      'N TENY.TKOD = E.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN ' +
+      #13#10'LEFT JOIN ORSZAG ON ORSZAG.KOD2 = E.SZORSZ '#13#10'LEFT JOIN KODOK I' +
+      'VARF ON IVARF.KOD = E.IVAR AND IVARF.KODTIPUSOK_TIPUSKOD = '#39'IVAR' +
+      #39' '#13#10'LEFT JOIN APA EAP ON TRIM(EAP.KPLSZ) = TRIM(E.APAKLSZ) AND E' +
+      '.APAKLSZ IS NOT NULL'#13#10'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR = TRI' +
+      'M(E.ANYA_ENAR)) AND (E.ANYA_ENAR > '#39' '#39') AND EAN.TENYESZET = E.TE' +
+      'NYESZET) OR ((EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL ' +
+      '> '#39' '#39'))) '#13#10'LEFT JOIN BIKTXT EAP2 ON EAP2.KAZTP = '#39'4'#39' AND TRIM(EA' +
+      'P2.KAZON) = TRIM(E.APAKLSZ)'#13#10'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZ' +
+      'TP = '#39'4'#39' AND TRIM(EAPAP.KAZON) = TRIM(EAP.APAKPLSZ)'#13#10'LEFT JOIN B' +
+      'IKTXT EANAP ON (EANAP.KAZTP= '#39'4'#39' AND (CAST(EANAP.KAZON AS INT)=C' +
+      'AST(EAN.APAKLSZ AS INT))) OR (TRIM(EANAP.KAZON)=TRIM(EAN.APA_FUL' +
+      'SZAM)) OR (TRIM(EANAP.KAZON)=TRIM(EAN.ID_APA)) AND EANAP.KAZON I' +
+      'S NOT NULL'#13#10'LEFT JOIN EGYEDEK EANAN ON (TRIM(EANAN.ENAR)=TRIM(EA' +
+      'N.ANYA_ENAR) AND EAN.ANYA_ENAR IS NOT NULL) OR (TRIM(EANAN.TEHEN' +
+      'SZAM)=TRIM(EAN.ANYA_ELL) AND EAN.ANYA_ELL IS NOT NULL) OR (TRIM(' +
+      'EANAN.ID_ENAR)=TRIM(EAN.ANYA_ID_ENAR) AND EAN.ID_ENAR IS NOT NUL' +
+      'L)'#13#10'LEFT JOIN EGYEDEK DANYA ON DANYA.ID = GET_DONOR_ANYA_ID(E.DO' +
+      'NOR_ANYA)'#13#10'where E.ENAR  = '#39'3207476221'#39
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
       'SELECT DISTINCT E.ENAR,'#13#10'E.TENYESZET,'#13#10'TENY.TNEV2,'#13#10'TENY.VAROS a' +
       's VAROS,'#13#10'E.FULSZAM,'#13#10'E.ID_ENAR,'#13#10'E.TEHENSZAM,'#13#10'E.SZULDAT,'#13#10'E.ML' +
       'EVEL1,'#13#10'E.MLEVEL2,'#13#10'E.TKV,'#13#10'E.SZIN, SZIN.NEV AS SZINNEV,'#13#10'E.FAJT' +
-      'AKOD, EF.FNEV,'#13#10'E.VER1, E.VSZ1, E.VER2, E.VSZ2, E.VER3, E.VSZ3, ' +
-      'E.VER4, E.VSZ4,'#13#10'E.KKOD,'#13#10'E.VALDAT, CAST(TRUNC(E.VALDAT - E.SZUL' +
-      'DAT) AS NUMBER (5,0)) AS VALKOR, E.VALTOM, E.TOM205, E.SV,'#13#10'CAST' +
-      '(TOMGYAR(E.SZUL_SULY, E.VALTOM, E.SZULDAT, E.VALDAT) AS INTEGER)' +
-      ' AS TGYVAL,'#13#10'E.SZORSZ, ORSZAG.NEV AS ORSZAGNEV,'#13#10'E.SZARVALTSAG,'#13 +
-      #10'E.BIKANEVELO,'#13#10'E.TENYTOM,'#13#10'E.MIN AS KMI,'#13#10'E.IVAR,'#13#10'CAST (BNI(E.' +
-      'ID) AS NUMERIC(10,3)) AS BNI,'#13#10'CAST (SZAPIND(E.ID) AS NUMERIC(10' +
-      ',3)) AS SZAPIND,'#13#10'CAST (KULLEM_IND(E.ENAR) AS NUMERIC(10,3)) AS ' +
-      'KULLEM_IND,'#13#10'E.NET_PONT,'#13#10'E.DNS_DATE AS DNS_DATE,'#13#10'E.DNS_IKTATOS' +
-      'ZAM AS DNS_IKTATOSZAM,'#13#10'E.APAKLSZ AS EAP_KLSZ,'#13#10'EAP.NEV AS EAP_N' +
-      'EV,'#13#10'EAP.FSZ AS EAP_FSZ,'#13#10'EAP.FKOD AS EAP_FAJTAKOD, EAPF.FNEV AS' +
-      ' EAP_FAJTANEV,'#13#10'EAP.SZULDAT AS EAP_SZULDAT,'#13#10'EAP.VER1 AS EAP_V1,' +
-      ' EAP.VSZ1 AS EAP_VSZ1, EAPF1.FNEV AS EAP_F1NEV,'#13#10'EAP.VER2 AS EAP' +
-      '_V2, EAP.VSZ2 AS EAP_VSZ2, EAPF2.FNEV AS EAP_F2NEV,'#13#10'EAP.VER3 AS' +
-      ' EAP_V3, EAP.VSZ3 AS EAP_VSZ3, EAPF3.FNEV AS EAP_F3NEV,'#13#10'EAP.VER' +
-      '4 AS EAP_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV,'#13#10'E.A' +
-      'NYA_ENAR AS EAN_ENAR,'#13#10'E.ANYA_ELL AS EAN_ELL,'#13#10'EAN.NEV AS EAN_NE' +
-      'V,'#13#10'TRIM(RNOTNULL(TRIM(EANAN.ENAR), TRIM(EANAN.TEHENSZAM), TRIM(' +
-      'EANAN.ID_ENAR),'#39#39')) AS EANAN_AZON,'#13#10'EAN.FAJTAKOD AS EAN_FAJTAKOD' +
-      ', EANF.FNEV AS EAN_FAJTANEV,'#13#10'EAN.SZULDAT AS EAN_SZULDAT,'#13#10'EAN.M' +
-      'IN AS EAN_KMI,'#13#10'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, EANF1.' +
-      'FNEV AS EAN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, EA' +
-      'NF2.FNEV AS EAN_F2NEV,'#13#10'EAN.VER3 AS EAN_V3, EAN.VSZ3 AS EAN_VSZ3' +
-      ', EANF3.FNEV AS EAN_F3NEV,'#13#10'EAN.VER4 AS EAN_V4, EAN.VSZ4 AS EAN_' +
-      'VSZ4, EANF4.FNEV AS EAN_F4NEV,'#13#10'EAP2.AAZON AS EAPAP_AZON,'#13#10'EAP2.' +
-      'ANEVE AS EAPAP_NEV,'#13#10'EAP2.MAZON AS EAPAN_AZON,'#13#10'EAP.ANYANEV AS E' +
-      'APAN_NEV,'#13#10'EANAP.KAZON AS EANAP_AZON,'#13#10'EANAP.NEVEE AS EANAP_NEV,' +
-      #13#10'EANAN.NEV AS EANAN_NEV'#13#10'FROM EGYEDEK E '#13#10'LEFT JOIN TENY ON TEN' +
-      'Y.TKOD = E.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN '#13#10'LEF' +
-      'T JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD '#13#10'LEFT JOIN ORSZAG ON OR' +
-      'SZAG.KOD2 = E.SZORSZ '#13#10'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.IV' +
-      'AR AND IVARF.KODTIPUSOK_TIPUSKOD = '#39'IVAR'#39' '#13#10'LEFT JOIN APA EAP ON' +
-      ' TRIM(EAP.KPLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL'#13#10'LE' +
-      'FT JOIN FAJTA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NOT ' +
-      'NULL '#13#10'LEFT JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1'#13#10'LEFT JOIN' +
-      ' FAJTA EAPF2 ON EAPF2.FKOD = EAP.VER2'#13#10'LEFT JOIN FAJTA EAPF3 ON ' +
-      'EAPF3.FKOD = EAP.VER3'#13#10'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = EAP' +
-      '.VER4'#13#10'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR = TRIM(E.ANYA_ENAR))' +
-      ' AND (E.ANYA_ENAR > '#39' '#39') AND EAN.TENYESZET = E.TENYESZET) OR ((E' +
-      'AN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > '#39' '#39'))) '#13#10'LEFT' +
-      ' JOIN FAJTA EANF ON EANF.FKOD = EAN.FAJTAKOD '#13#10'LEFT JOIN FAJTA E' +
-      'ANF1 ON EANF1.FKOD = EAN.VER1'#13#10'LEFT JOIN FAJTA EANF2 ON EANF2.FK' +
-      'OD = EAN.VER2'#13#10'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3'#13#10'L' +
-      'EFT JOIN FAJTA EANF4 ON EANF4.FKOD = EAN.VER4'#13#10'LEFT JOIN BIKTXT ' +
-      'EAP2 ON EAP2.KAZTP = '#39'4'#39' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ)'#13 +
-      #10'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = '#39'4'#39' AND TRIM(EAPAP.KAZO' +
-      'N) = TRIM(EAP.APAKPLSZ)'#13#10'LEFT JOIN BIKTXT EANAP ON (EANAP.KAZTP=' +
-      ' '#39'4'#39' AND (CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT))) OR' +
-      ' (TRIM(EANAP.KAZON)=TRIM(EAN.APA_FULSZAM)) OR (TRIM(EANAP.KAZON)' +
-      '=TRIM(EAN.ID_APA)) AND EANAP.KAZON IS NOT NULL'#13#10'LEFT JOIN EGYEDE' +
-      'K EANAN ON (TRIM(EANAN.ENAR)=TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_EN' +
-      'AR IS NOT NULL) OR (TRIM(EANAN.TEHENSZAM)=TRIM(EAN.ANYA_ELL) AND' +
-      ' EAN.ANYA_ELL IS NOT NULL) OR (TRIM(EANAN.ID_ENAR)=TRIM(EAN.ANYA' +
-      '_ID_ENAR) AND EAN.ID_ENAR IS NOT NULL)'#13#10'where E.ENAR  = '#39'3207476' +
-      '221'#39
+      'AKOD, GET_FAJTA_NAME(E.FAJTAKOD) AS FNEV,'#13#10'E.VER1, E.VSZ1, E.VER' +
+      '2, E.VSZ2, E.VER3, E.VSZ3, E.VER4, E.VSZ4,'#13#10'E.KKOD,'#13#10'E.VALDAT, C' +
+      'AST(TRUNC(E.VALDAT - E.SZULDAT) AS NUMBER (5,0)) AS VALKOR, E.VA' +
+      'LTOM, E.TOM205, E.SV,'#13#10'CAST(TOMGYAR(E.SZUL_SULY, E.VALTOM, E.SZU' +
+      'LDAT, E.VALDAT) AS INTEGER) AS TGYVAL,'#13#10'E.SZORSZ, ORSZAG.NEV AS ' +
+      'ORSZAGNEV,'#13#10'E.SZARVALTSAG,'#13#10'E.BIKANEVELO,'#13#10'E.TENYTOM,'#13#10'E.MIN AS ' +
+      'KMI,'#13#10'E.IVAR,'#13#10'CAST (BNI(E.ID) AS NUMERIC(10,3)) AS BNI,'#13#10'CAST (' +
+      'SZAPIND(E.ID) AS NUMERIC(10,3)) AS SZAPIND,'#13#10'CAST (KULLEM_IND(E.' +
+      'ENAR) AS NUMERIC(10,3)) AS KULLEM_IND,'#13#10'E.NET_PONT,'#13#10'E.DNS_DATE ' +
+      'AS DNS_DATE,'#13#10'E.DNS_IKTATOSZAM AS DNS_IKTATOSZAM,'#13#10'E.APAKLSZ AS ' +
+      'EAP_KLSZ,'#13#10'EAP.NEV AS EAP_NEV,'#13#10'EAP.FSZ AS EAP_FSZ,'#13#10'EAP.FKOD AS' +
+      ' EAP_FAJTAKOD, GET_FAJTA_NAME(EAP.FKOD) EAP_FAJTANEV,'#13#10'EAP.SZULD' +
+      'AT AS EAP_SZULDAT,'#13#10'EAP.VER1 AS EAP_V1, EAP.VSZ1 AS EAP_VSZ1, GE' +
+      'T_FAJTA_NAME(EAP.VER1) AS EAP_F1NEV,'#13#10'EAP.VER2 AS EAP_V2, EAP.VS' +
+      'Z2 AS EAP_VSZ2, GET_FAJTA_NAME(EAP.VER2) AS EAP_F2NEV,'#13#10'EAP.VER3' +
+      ' AS EAP_V3, EAP.VSZ3 AS EAP_VSZ3, GET_FAJTA_NAME(EAP.VER3) AS EA' +
+      'P_F3NEV,'#13#10'EAP.VER4 AS EAP_V4, EAP.VSZ4 AS EAP_VSZ4, GET_FAJTA_NA' +
+      'ME(EAP.VER4) AS EAP_F4NEV,'#13#10'E.ANYA_ENAR AS EAN_ENAR,'#13#10'E.ANYA_ELL' +
+      ' AS EAN_ELL,'#13#10'EAN.NEV AS EAN_NEV,'#13#10'TRIM(RNOTNULL(TRIM(EANAN.ENAR' +
+      '), TRIM(EANAN.TEHENSZAM), TRIM(EANAN.ID_ENAR),'#39#39')) AS EANAN_AZON' +
+      ','#13#10'EAN.FAJTAKOD AS EAN_FAJTAKOD, GET_FAJTA_NAME(EAN.FAJTAKOD) AS' +
+      ' EAN_FAJTANEV,'#13#10'EAN.SZULDAT AS EAN_SZULDAT,'#13#10'EAN.MIN AS EAN_KMI,' +
+      #13#10'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, GET_FAJTA_NAME(EAN.V' +
+      'ER1) AS EAN_F1NEV,'#13#10'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, GE' +
+      'T_FAJTA_NAME(EAN.VER2) AS EAN_F2NEV,'#13#10'EAN.VER3 AS EAN_V3, EAN.VS' +
+      'Z3 AS EAN_VSZ3, GET_FAJTA_NAME(EAN.VER3) AS EAN_F3NEV,'#13#10'EAN.VER4' +
+      ' AS EAN_V4, EAN.VSZ4 AS EAN_VSZ4, GET_FAJTA_NAME(EAN.VER4) AS EA' +
+      'N_F4NEV,'#13#10'EAP2.AAZON AS EAPAP_AZON,'#13#10'EAP2.ANEVE AS EAPAP_NEV,'#13#10'E' +
+      'AP2.MAZON AS EAPAN_AZON,'#13#10'EAP.ANYANEV AS EAPAN_NEV,'#13#10'EANAP.KAZON' +
+      ' AS EANAP_AZON,'#13#10'EANAP.NEVEE AS EANAP_NEV,'#13#10'EANAN.NEV AS EANAN_N' +
+      'EV,'#13#10'E.DONOR_ANYA,'#13#10'GET_FAJTA_NAME(DANYA.VER1) AS DANYA_V1, DANY' +
+      'A.VSZ1 AS DANYA_VSZ1,'#13#10'GET_FAJTA_NAME(DANYA.VER2) AS DANYA_V2, D' +
+      'ANYA.VSZ2 AS DANYA_VSZ2,'#13#10'GET_FAJTA_NAME(DANYA.VER3) AS DANYA_V3' +
+      ', DANYA.VSZ3 AS DANYA_VSZ3,'#13#10'GET_FAJTA_NAME(DANYA.VER4) AS DANYA' +
+      '_V4, DANYA.VSZ4 AS DANYA_VSZ4'#13#10'FROM EGYEDEK E '#13#10'LEFT JOIN TENY O' +
+      'N TENY.TKOD = E.TENYESZET '#13#10'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN ' +
+      #13#10'LEFT JOIN ORSZAG ON ORSZAG.KOD2 = E.SZORSZ '#13#10'LEFT JOIN KODOK I' +
+      'VARF ON IVARF.KOD = E.IVAR AND IVARF.KODTIPUSOK_TIPUSKOD = '#39'IVAR' +
+      #39' '#13#10'LEFT JOIN APA EAP ON TRIM(EAP.KPLSZ) = TRIM(E.APAKLSZ) AND E' +
+      '.APAKLSZ IS NOT NULL'#13#10'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR = TRI' +
+      'M(E.ANYA_ENAR)) AND (E.ANYA_ENAR > '#39' '#39') AND EAN.TENYESZET = E.TE' +
+      'NYESZET) OR ((EAN.TEHENSZAM = TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL ' +
+      '> '#39' '#39'))) '#13#10'LEFT JOIN BIKTXT EAP2 ON EAP2.KAZTP = '#39'4'#39' AND TRIM(EA' +
+      'P2.KAZON) = TRIM(E.APAKLSZ)'#13#10'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZ' +
+      'TP = '#39'4'#39' AND TRIM(EAPAP.KAZON) = TRIM(EAP.APAKPLSZ)'#13#10'LEFT JOIN B' +
+      'IKTXT EANAP ON (EANAP.KAZTP= '#39'4'#39' AND (CAST(EANAP.KAZON AS INT)=C' +
+      'AST(EAN.APAKLSZ AS INT))) OR (TRIM(EANAP.KAZON)=TRIM(EAN.APA_FUL' +
+      'SZAM)) OR (TRIM(EANAP.KAZON)=TRIM(EAN.ID_APA)) AND EANAP.KAZON I' +
+      'S NOT NULL'#13#10'LEFT JOIN EGYEDEK EANAN ON (TRIM(EANAN.ENAR)=TRIM(EA' +
+      'N.ANYA_ENAR) AND EAN.ANYA_ENAR IS NOT NULL) OR (TRIM(EANAN.TEHEN' +
+      'SZAM)=TRIM(EAN.ANYA_ELL) AND EAN.ANYA_ELL IS NOT NULL) OR (TRIM(' +
+      'EANAN.ID_ENAR)=TRIM(EAN.ANYA_ID_ENAR) AND EAN.ID_ENAR IS NOT NUL' +
+      'L)'#13#10'LEFT JOIN EGYEDEK DANYA ON DANYA.ID = GET_DONOR_ANYA_ID(E.DO' +
+      'NOR_ANYA)'#13#10'where E.ENAR  = '#39'3207476221'#39
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
@@ -6892,7 +7250,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaSZIN: TWideStringField
       FieldName = 'SZIN'
       ReadOnly = True
-      Size = 1
+      Size = 2
     end
     object sdsListaSZINNEV: TWideStringField
       FieldName = 'SZINNEV'
@@ -6907,7 +7265,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaFNEV: TWideStringField
       FieldName = 'FNEV'
       ReadOnly = True
-      Size = 40
+      Size = 4000
     end
     object sdsListaVER1: TWideStringField
       FieldName = 'VER1'
@@ -7041,6 +7399,15 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
       FieldName = 'NET_PONT'
       ReadOnly = True
     end
+    object sdsListaDNS_DATE: TDateTimeField
+      FieldName = 'DNS_DATE'
+      ReadOnly = True
+    end
+    object sdsListaDNS_IKTATOSZAM: TWideStringField
+      FieldName = 'DNS_IKTATOSZAM'
+      ReadOnly = True
+      Size = 30
+    end
     object sdsListaEAP_KLSZ: TWideStringField
       FieldName = 'EAP_KLSZ'
       ReadOnly = True
@@ -7064,7 +7431,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaEAP_FAJTANEV: TWideStringField
       FieldName = 'EAP_FAJTANEV'
       ReadOnly = True
-      Size = 40
+      Size = 4000
     end
     object sdsListaEAP_SZULDAT: TDateTimeField
       FieldName = 'EAP_SZULDAT'
@@ -7084,7 +7451,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaEAP_F1NEV: TWideStringField
       FieldName = 'EAP_F1NEV'
       ReadOnly = True
-      Size = 40
+      Size = 4000
     end
     object sdsListaEAP_V2: TWideStringField
       FieldName = 'EAP_V2'
@@ -7100,7 +7467,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaEAP_F2NEV: TWideStringField
       FieldName = 'EAP_F2NEV'
       ReadOnly = True
-      Size = 40
+      Size = 4000
     end
     object sdsListaEAP_V3: TWideStringField
       FieldName = 'EAP_V3'
@@ -7116,7 +7483,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaEAP_F3NEV: TWideStringField
       FieldName = 'EAP_F3NEV'
       ReadOnly = True
-      Size = 40
+      Size = 4000
     end
     object sdsListaEAP_V4: TWideStringField
       FieldName = 'EAP_V4'
@@ -7132,12 +7499,12 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaEAP_F4NEV: TWideStringField
       FieldName = 'EAP_F4NEV'
       ReadOnly = True
-      Size = 40
+      Size = 4000
     end
     object sdsListaEAN_ENAR: TWideStringField
       FieldName = 'EAN_ENAR'
       ReadOnly = True
-      Size = 10
+      Size = 14
     end
     object sdsListaEAN_ELL: TWideStringField
       FieldName = 'EAN_ELL'
@@ -7162,7 +7529,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaEAN_FAJTANEV: TWideStringField
       FieldName = 'EAN_FAJTANEV'
       ReadOnly = True
-      Size = 40
+      Size = 4000
     end
     object sdsListaEAN_SZULDAT: TDateTimeField
       FieldName = 'EAN_SZULDAT'
@@ -7188,7 +7555,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaEAN_F1NEV: TWideStringField
       FieldName = 'EAN_F1NEV'
       ReadOnly = True
-      Size = 40
+      Size = 4000
     end
     object sdsListaEAN_V2: TWideStringField
       FieldName = 'EAN_V2'
@@ -7204,7 +7571,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaEAN_F2NEV: TWideStringField
       FieldName = 'EAN_F2NEV'
       ReadOnly = True
-      Size = 40
+      Size = 4000
     end
     object sdsListaEAN_V3: TWideStringField
       FieldName = 'EAN_V3'
@@ -7220,7 +7587,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaEAN_F3NEV: TWideStringField
       FieldName = 'EAN_F3NEV'
       ReadOnly = True
-      Size = 40
+      Size = 4000
     end
     object sdsListaEAN_V4: TWideStringField
       FieldName = 'EAN_V4'
@@ -7236,7 +7603,7 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaEAN_F4NEV: TWideStringField
       FieldName = 'EAN_F4NEV'
       ReadOnly = True
-      Size = 40
+      Size = 4000
     end
     object sdsListaEAPAP_AZON: TWideStringField
       FieldName = 'EAPAP_AZON'
@@ -7266,21 +7633,61 @@ inherited frmEgyediLapLista: TfrmEgyediLapLista
     object sdsListaEANAP_NEV: TWideStringField
       FieldName = 'EANAP_NEV'
       ReadOnly = True
-      Size = 60
+      Size = 40
     end
     object sdsListaEANAN_NEV: TWideStringField
       FieldName = 'EANAN_NEV'
       ReadOnly = True
       Size = 30
     end
-    object sdsListaDNS_DATE: TDateTimeField
-      FieldName = 'DNS_DATE'
+    object sdsListaDONOR_ANYA: TWideStringField
+      FieldName = 'DONOR_ANYA'
       ReadOnly = True
+      Size = 15
     end
-    object sdsListaDNS_IKTATOSZAM: TWideStringField
-      FieldName = 'DNS_IKTATOSZAM'
+    object sdsListaDANYA_V1: TWideStringField
+      FieldName = 'DANYA_V1'
       ReadOnly = True
-      Size = 30
+      Size = 4000
+    end
+    object sdsListaDANYA_VSZ1: TBCDField
+      FieldName = 'DANYA_VSZ1'
+      ReadOnly = True
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaDANYA_V2: TWideStringField
+      FieldName = 'DANYA_V2'
+      ReadOnly = True
+      Size = 4000
+    end
+    object sdsListaDANYA_VSZ2: TBCDField
+      FieldName = 'DANYA_VSZ2'
+      ReadOnly = True
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaDANYA_V3: TWideStringField
+      FieldName = 'DANYA_V3'
+      ReadOnly = True
+      Size = 4000
+    end
+    object sdsListaDANYA_VSZ3: TBCDField
+      FieldName = 'DANYA_VSZ3'
+      ReadOnly = True
+      Precision = 6
+      Size = 2
+    end
+    object sdsListaDANYA_V4: TWideStringField
+      FieldName = 'DANYA_V4'
+      ReadOnly = True
+      Size = 4000
+    end
+    object sdsListaDANYA_VSZ4: TBCDField
+      FieldName = 'DANYA_VSZ4'
+      ReadOnly = True
+      Precision = 6
+      Size = 2
     end
   end
   object sdsTermekenyitesek: TTalSimpleDataSet
