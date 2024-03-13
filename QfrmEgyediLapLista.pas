@@ -10,73 +10,6 @@ uses
   frxExportPDF;
 
 const
- SQL2 = 'select E.ENAR, E.TENYESZET, TENY.TNEV2, ' +
-       ' E.FULSZAM, E.ID_ENAR,E.TEHENSZAM, ' +
-       ' E.SZULDAT, ' +
-       ' E.MLEVEL1, E.MLEVEL2, ' +
-       ' E.TKV, ' +
-       ' E.SZIN, SZIN.NEV AS SZINNEV, ' +
-       ' E.FAJTAKOD,EF.FNEV, ' +
-       ' E.VER1,E.VSZ1,E.VER2,E.VSZ2,E.VER3,E.VSZ3,E.VER4,E.VSZ4, ' +
-       ' E.KKOD, ' +
-       ' E.VALDAT, CAST(TRUNC( E.VALDAT - E.SZULDAT) AS NUMBER (5,0)) AS VALKOR, E.VALTOM, E.TOM205, E.SV, ' +
-       ' Cast(tomgyar(e.szul_suly, e.valtom, e.szuldat,e.valdat) as Integer) as tgyval, ' +
-       ' E.SZORSZ,ORSZAG.NEV AS ORSZAGNEV, ' +
-       ' E.SZARVALTSAG, ' +
-       ' E.BIKANEVELO, ' +
-       ' E.TENYTOM, ' +
-       ' E.MIN as KMI, ' +
-       ' E.IVAR, ' +
-       ' E.APAKLSZ, ' +
-       ' EAPA.NEV AS APANEV, ' +
-       ' EAPA.FSZ AS APA_FSZ, EAPA.APAKPLSZ AS APA_APAKLSZ, ' +
-       ' EAPA.FKOD AS APA_FAJTAKOD, AF.FNEV AS APA_FAJTANEV, ' +
-       ' EAPA.SZULDAT AS APA_SZULDAT, ' +
-       ' EAPA.APAENAR AS APA_APAENAR, EAPA.APAFSZ AS APA_APAFSZ, ' +
-       ' EAPA.VER1 AS APA_V1, EAPA.VSZ1 AS APA_VSZ1 ,AF1.FNEV AS APA_V1NEV, ' +
-       ' EAPA.VER2 AS APA_V2, EAPA.VSZ2 AS APA_VSZ2 ,AF2.FNEV AS APA_V2NEV, ' +
-       ' EAPA.VER3 AS APA_V3, EAPA.VSZ3 AS APA_VSZ3 ,AF3.FNEV AS APA_V3NEV, ' +
-       ' EAPA.VER4 AS APA_V4, EAPA.VSZ4 AS APA_VSZ4 ,AF4.FNEV AS APA_V4NEV, ' +
-       ' EAPA.ANAN as APA_ANYA, ' +
-       ' E.ANYA_ENAR, E.ANYA_ELL, ANA.NEV AS ANYA_NEV, ' +
-       ' ANA.FAJTAKOD AS ANYA_FAJTAKOD, ANF.FNEV AS ANYA_FAJTANEV, ' +
-       ' ANA.SZULDAT AS ANYA_SZULDAT, ' +
-       ' ANA.APAKLSZ AS ANYA_APAKLSZ, ' +
-       ' ANA.VER1 AS ANYA_V1, ANA.VSZ1 AS ANYA_VSZ1 ,ANF1.FNEV AS ANYA_V1NEV, ' +
-       ' ANA.VER2 AS ANYA_V2, ANA.VSZ2 AS ANYA_VSZ2 ,ANF2.FNEV AS ANYA_V2NEV, ' +
-       ' ANA.VER3 AS ANYA_V3, ANA.VSZ3 AS ANYA_VSZ3 ,ANF3.FNEV AS ANYA_V3NEV, ' +
-       ' ANA.VER4 AS ANYA_V4, ANA.VSZ4 AS ANYA_VSZ4 ,ANF4.FNEV AS ANYA_V4NEV, ' +
-       ' E.ALLDAT, ' +
-       ' E.KIKDAT, ' +
-       ' E.KIKOD, ' +
-       ' E.KIKOK, ' +
-       ' AAPA.FSZ AS ANA_APAFSZ, ' +
-       ' ANA.ANYA_ENAR AS ANA_ANYA_ENAR, ' +
-       ' ANA.ANYA_ELL as ANA_ANYA_FULSZAM, ANA.min as ANYA_MIN, ' +
-       ' cast(BNI(E.id) as numeric(10,3)) as BNI, ' +
-       ' cast(SZAPIND(E.id) as numeric(10,3)) as SZAPIND, ' +
-       ' cast(KULLEM_IND(E.ENAR) as numeric(10,3)) as KULLEM_IND ' +
-       ' FROM EGYEDEK E ' +
-       ' LEFT JOIN TENY ON TENY.TKOD = E.TENYESZET ' +
-       ' LEFT JOIN SZIN ON SZIN.KOD = E.SZIN ' +
-       ' LEFT JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD ' +
-       ' LEFT JOIN ORSZAG ON ORSZAG.KOD1 = E.SZORSZ ' +
-       ' left join KODOK IVARF on IVARF.KOD = E.IVAR and IVARF.KODTIPUSOK_TIPUSKOD = ''IVAR'' ' +
-       ' left join APA EAPA on EAPA.KPLSZ = E.APAKLSZ and E.APAKLSZ is not null  ' +
-       ' LEFT JOIN FAJTA AF ON AF.FKOD = EAPA.FKOD ' +
-       ' LEFT JOIN FAJTA AF1 ON AF1.FKOD = EAPA.VER1 ' +
-       ' LEFT JOIN FAJTA AF2 ON AF2.FKOD = EAPA.VER2 ' +
-       ' LEFT JOIN FAJTA AF3 ON AF3.FKOD = EAPA.VER3 ' +
-       ' left join FAJTA AF4 on AF4.FKOD = EAPA.VER4 ' +
-       ' left join EGYEDEK ANA on (((ANA.ENAR = trim(E.ANYA_ENAR)) and (E.ANYA_ENAR > '' '')) or ((ANA.TEHENSZAM=trim(E.ANYA_ELL)) and (E.ANYA_ELL > '' '') )) ' +
-       ' LEFT JOIN FAJTA ANF ON ANF.FKOD = ANA.FAJTAKOD ' +
-       ' LEFT JOIN FAJTA ANF1 ON ANF1.FKOD = ANA.VER1 ' +
-       ' LEFT JOIN FAJTA ANF2 ON ANF2.FKOD = ANA.VER2 ' +
-       ' LEFT JOIN FAJTA ANF3 ON ANF3.FKOD = ANA.VER3 ' +
-       ' left join FAJTA ANF4 on ANF4.FKOD = ANA.VER4 ' +
-       ' LEFT JOIN APA AAPA ON AAPA.KPLSZ = ANA.APAKLSZ AND ANA.APAKLSZ IS NOT NULL ' +
-       // ' left join EGYEDEK ANA_ANYA on (((ANA_ANYA.ENAR = trim(ANA.ANYA_ENAR)) and (ANA.ANYA_ENAR > '' '')) or ((ANA_ANYA.TEHENSZAM=TRIM(ANA.ANYA_ELL)) and (ANA.ANYA_ELL > '' ''))) ' +
-       ' where E.ID  = :ID ';
 SQL1 = 'SELECT DISTINCT E.ENAR, ' +
       'E.TENYESZET, ' +
       'TENY.TNEV2, ' +
@@ -89,7 +22,7 @@ SQL1 = 'SELECT DISTINCT E.ENAR, ' +
       'E.MLEVEL2, ' +
       'E.TKV, ' +
       'E.SZIN, SZIN.NEV AS SZINNEV, ' +
-      'E.FAJTAKOD, EF.FNEV, ' +
+      'E.FAJTAKOD, GET_FAJTA_NAME(E.FAJTAKOD) AS FNEV, ' +
       'E.VER1, E.VSZ1, E.VER2, E.VSZ2, E.VER3, E.VSZ3, E.VER4, E.VSZ4, ' +
       'E.KKOD, ' +
       'E.VALDAT, CAST(TRUNC(E.VALDAT - E.SZULDAT) AS NUMBER (5,0)) AS VALKOR, E.VALTOM, E.TOM205, E.SV, ' +
@@ -109,22 +42,22 @@ SQL1 = 'SELECT DISTINCT E.ENAR, ' +
       'E.APAKLSZ AS EAP_KLSZ, ' +
       'EAP.NEV AS EAP_NEV, ' +
       'EAP.FSZ AS EAP_FSZ, ' +
-      'EAP.FKOD AS EAP_FAJTAKOD, EAPF.FNEV AS EAP_FAJTANEV, ' +
+      'EAP.FKOD AS EAP_FAJTAKOD, GET_FAJTA_NAME(EAP.FKOD) EAP_FAJTANEV, ' +
       'EAP.SZULDAT AS EAP_SZULDAT, ' +
-      'EAP.VER1 AS EAP_V1, EAP.VSZ1 AS EAP_VSZ1, EAPF1.FNEV AS EAP_F1NEV, ' +
-      'EAP.VER2 AS EAP_V2, EAP.VSZ2 AS EAP_VSZ2, EAPF2.FNEV AS EAP_F2NEV, ' +
-      'EAP.VER3 AS EAP_V3, EAP.VSZ3 AS EAP_VSZ3, EAPF3.FNEV AS EAP_F3NEV, ' +
-      'EAP.VER4 AS EAP_V4, EAP.VSZ4 AS EAP_VSZ4, EAPF4.FNEV AS EAP_F4NEV, ' +
+      'EAP.VER1 AS EAP_V1, EAP.VSZ1 AS EAP_VSZ1, GET_FAJTA_NAME(EAP.VER1) AS EAP_F1NEV, ' +
+      'EAP.VER2 AS EAP_V2, EAP.VSZ2 AS EAP_VSZ2, GET_FAJTA_NAME(EAP.VER2) AS EAP_F2NEV, ' +
+      'EAP.VER3 AS EAP_V3, EAP.VSZ3 AS EAP_VSZ3, GET_FAJTA_NAME(EAP.VER3) AS EAP_F3NEV, ' +
+      'EAP.VER4 AS EAP_V4, EAP.VSZ4 AS EAP_VSZ4, GET_FAJTA_NAME(EAP.VER4) AS EAP_F4NEV, ' +
       'E.ANYA_ENAR AS EAN_ENAR, ' +
       'E.ANYA_ELL AS EAN_ELL, ' +
       'EAN.NEV AS EAN_NEV, ' +
-      'EAN.FAJTAKOD AS EAN_FAJTAKOD, EANF.FNEV AS EAN_FAJTANEV, ' +
+      'EAN.FAJTAKOD AS EAN_FAJTAKOD, GET_FAJTA_NAME(EAN.FAJTAKOD) AS EAN_FAJTANEV, ' +
       'EAN.SZULDAT AS EAN_SZULDAT, ' +
       'EAN.MIN AS EAN_KMI, ' +
-      'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, EANF1.FNEV AS EAN_F1NEV, ' +
-      'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, EANF2.FNEV AS EAN_F2NEV, ' +
-      'EAN.VER3 AS EAN_V3, EAN.VSZ3 AS EAN_VSZ3, EANF3.FNEV AS EAN_F3NEV, ' +
-      'EAN.VER4 AS EAN_V4, EAN.VSZ4 AS EAN_VSZ4, EANF4.FNEV AS EAN_F4NEV, ' +
+      'EAN.VER1 AS EAN_V1, EAN.VSZ1 AS EAN_VSZ1, GET_FAJTA_NAME(EAN.VER1) AS EAN_F1NEV, ' +
+      'EAN.VER2 AS EAN_V2, EAN.VSZ2 AS EAN_VSZ2, GET_FAJTA_NAME(EAN.VER2) AS EAN_F2NEV, ' +
+      'EAN.VER3 AS EAN_V3, EAN.VSZ3 AS EAN_VSZ3, GET_FAJTA_NAME(EAN.VER3) AS EAN_F3NEV, ' +
+      'EAN.VER4 AS EAN_V4, EAN.VSZ4 AS EAN_VSZ4, GET_FAJTA_NAME(EAN.VER4) AS EAN_F4NEV, ' +
       'EAP2.AAZON AS EAPAP_AZON, ' +
       'EAP2.ANEVE AS EAPAP_NEV, ' +
       'EAP2.MAZON AS EAPAN_AZON, ' +
@@ -132,30 +65,25 @@ SQL1 = 'SELECT DISTINCT E.ENAR, ' +
       'EANAP.KAZON AS EANAP_AZON, ' +
       'EANAP.NEVEE AS EANAP_NEV, ' +
       'TRIM(RNOTNULL(TRIM(EANAN.ENAR), TRIM(EANAN.TEHENSZAM), TRIM(EANAN.ID_ENAR),'' '')) AS EANAN_AZON, ' +
-      'EANAN.NEV AS EANAN_NEV ' +
+      'EANAN.NEV AS EANAN_NEV, ' +
+      'E.DONOR_ANYA, ' +
+      'GET_FAJTA_NAME(DANYA.VER1) AS DANYA_V1, DANYA.VSZ1 AS DANYA_VSZ1, ' +
+      'GET_FAJTA_NAME(DANYA.VER2) AS DANYA_V2, DANYA.VSZ2 AS DANYA_VSZ2, ' +
+      'GET_FAJTA_NAME(DANYA.VER3) AS DANYA_V3, DANYA.VSZ3 AS DANYA_VSZ3, ' +
+      'GET_FAJTA_NAME(DANYA.VER4) AS DANYA_V4, DANYA.VSZ4 AS DANYA_VSZ4  ' +
       'FROM EGYEDEK E  ' +
       'LEFT JOIN TENY ON TENY.TKOD = E.TENYESZET  ' +
       'LEFT JOIN SZIN ON SZIN.KOD = E.SZIN  ' +
-      'LEFT JOIN FAJTA EF ON EF.FKOD = E.FAJTAKOD  ' +
       'LEFT JOIN ORSZAG ON ORSZAG.KOD2 = E.SZORSZ  ' +
       'LEFT JOIN KODOK IVARF ON IVARF.KOD = E.IVAR AND IVARF.KODTIPUSOK_TIPUSKOD = ' + '''IVAR'''  +
       'LEFT JOIN APA EAP ON TRIM(EAP.KPLSZ) = TRIM(E.APAKLSZ) AND E.APAKLSZ IS NOT NULL ' +
-      'LEFT JOIN FAJTA EAPF ON EAPF.FKOD = EAP.FKOD AND EAP.KPLSZ IS NOT NULL  ' +
-      'LEFT JOIN FAJTA EAPF1 ON EAPF1.FKOD = EAP.VER1 ' +
-      'LEFT JOIN FAJTA EAPF2 ON EAPF2.FKOD = EAP.VER2 ' +
-      'LEFT JOIN FAJTA EAPF3 ON EAPF3.FKOD = EAP.VER3 ' +
-      'LEFT JOIN FAJTA EAPF4 ON EAPF4.FKOD = EAP.VER4 ' +
       'LEFT JOIN EGYEDEK EAN ON (((EAN.ENAR=TRIM(E.ANYA_ENAR)) AND (E.ANYA_ENAR > ' + ''' ''' + ') AND EAN.TENYESZET = E.TENYESZET) OR ((EAN.TEHENSZAM=TRIM(E.ANYA_ELL)) AND (E.ANYA_ELL > ' + ''' ''' + '))) ' +
-      'LEFT JOIN FAJTA EANF ON EANF.FKOD = EAN.FAJTAKOD  ' +
-      'LEFT JOIN FAJTA EANF1 ON EANF1.FKOD = EAN.VER1 ' +
-      'LEFT JOIN FAJTA EANF2 ON EANF2.FKOD = EAN.VER2 ' +
-      'LEFT JOIN FAJTA EANF3 ON EANF3.FKOD = EAN.VER3 ' +
-      'LEFT JOIN FAJTA EANF4 ON EANF4.FKOD = EAN.VER4 ' +
       'LEFT JOIN BIKTXT EAP2 ON EAP2.KAZTP = ' + '''4''' + ' AND TRIM(EAP2.KAZON) = TRIM(E.APAKLSZ) ' +
       'LEFT JOIN BIKTXT EAPAP ON EAPAP.KAZTP = ' + '''4''' + ' AND TRIM(EAPAP.KAZON) = TRIM(EAP.APAKPLSZ) ' +
       'LEFT JOIN BIKTXT EANAP ON (EANAP.KAZTP= ''4'' AND CAST(EANAP.KAZON AS INT)=CAST(EAN.APAKLSZ AS INT)) ' +
       'LEFT JOIN EGYEDEK EANAN ON (TRIM(EANAN.ENAR)=TRIM(EAN.ANYA_ENAR) AND EAN.ANYA_ENAR IS NOT NULL) OR (TRIM(EANAN.TEHENSZAM)=TRIM(EAN.ANYA_ELL) AND EAN.ANYA_ELL IS NOT NULL) ' +
       'OR (TRIM(EANAN.ID_ENAR)=TRIM(EAN.ANYA_ID_ENAR) AND EAN.ID_ENAR IS NOT NULL) ' +
+      'LEFT JOIN EGYEDEK DANYA ON DANYA.ID = GET_DONOR_ANYA_ID(E.DONOR_ANYA) ' +
       'where E.ID  = :ID ';
 
 type
@@ -200,6 +128,47 @@ type
     sdsLista: TTalSimpleDataSet;
     sdsTermekenyitesek: TTalSimpleDataSet;
     frxDBTermekenyitesek: TfrxDBDataset;
+    sdsTermekenyitesekDATUM1: TDateTimeField;
+    sdsTermekenyitesekDATUM2: TDateTimeField;
+    sdsTermekenyitesekKPLSZ: TWideStringField;
+    sdsTermekenyitesekALLAPOT: TWideStringField;
+    sdsTermekenyitesekBIKANEV: TWideStringField;
+    sdsTermekenyitesekVEMHALL: TWideStringField;
+    sdsTermekenyitesekTERMMOD: TWideStringField;
+    sdsTermekenyitesekUT_ELL_DAT: TDateTimeField;
+    sdsEllesekID: TBCDField;
+    sdsEllesekELLES_DATUM: TDateTimeField;
+    sdsEllesekELLES_LEF: TWideStringField;
+    sdsEllesekE_TERM_DAT: TDateTimeField;
+    sdsEllesekAPA_KPLSZ: TWideStringField;
+    sdsEllesekAPA_NEV: TWideStringField;
+    sdsEllesekKEK: TIntegerField;
+    sdsEllesekB1_ENAR: TWideStringField;
+    sdsEllesekB1_IVAR: TWideStringField;
+    sdsEllesekB1_SULY: TBCDField;
+    sdsEllesekB1_SZARVALTSAG: TWideStringField;
+    sdsEllesekBE1_VALDAT: TDateTimeField;
+    sdsEllesekBE1_VALTOM: TIntegerField;
+    sdsEllesekBE1_TOM205: TIntegerField;
+    sdsEllesekBE1_SV: TIntegerField;
+    sdsEllesekB1_TGY: TIntegerField;
+    sdsEllesekBE1_KIKDAT: TDateTimeField;
+    sdsEllesekBE1_KIKOD: TWideStringField;
+    sdsEllesekBE1_KIKOK: TWideStringField;
+    sdsEllesekB2_ENAR: TWideStringField;
+    sdsEllesekB2_IVAR: TWideStringField;
+    sdsEllesekB2_SULY: TBCDField;
+    sdsEllesekB2_SZARVALTSAG: TWideStringField;
+    sdsEllesekBE2_VALDAT: TDateTimeField;
+    sdsEllesekBE2_VALTOM: TIntegerField;
+    sdsEllesekBE2_TOM205: TIntegerField;
+    sdsEllesekBE2_SV: TIntegerField;
+    sdsEllesekB2_TGY: TIntegerField;
+    sdsEllesekBE2_KIKDAT: TDateTimeField;
+    sdsEllesekBE2_KIKOD: TWideStringField;
+    sdsEllesekBE2_KIKOK: TWideStringField;
+    frxPDFExport1: TfrxPDFExport;
+    frxEgyedLista: TfrxReport;
     sdsListaENAR: TWideStringField;
     sdsListaTENYESZET: TWideStringField;
     sdsListaTNEV2: TWideStringField;
@@ -241,6 +210,8 @@ type
     sdsListaSZAPIND: TBCDField;
     sdsListaKULLEM_IND: TBCDField;
     sdsListaNET_PONT: TIntegerField;
+    sdsListaDNS_DATE: TDateTimeField;
+    sdsListaDNS_IKTATOSZAM: TWideStringField;
     sdsListaEAP_KLSZ: TWideStringField;
     sdsListaEAP_NEV: TWideStringField;
     sdsListaEAP_FSZ: TWideStringField;
@@ -286,49 +257,15 @@ type
     sdsListaEANAP_AZON: TWideStringField;
     sdsListaEANAP_NEV: TWideStringField;
     sdsListaEANAN_NEV: TWideStringField;
-    frxEgyedLista: TfrxReport;
-    sdsTermekenyitesekDATUM1: TDateTimeField;
-    sdsTermekenyitesekDATUM2: TDateTimeField;
-    sdsTermekenyitesekKPLSZ: TWideStringField;
-    sdsTermekenyitesekALLAPOT: TWideStringField;
-    sdsTermekenyitesekBIKANEV: TWideStringField;
-    sdsTermekenyitesekVEMHALL: TWideStringField;
-    sdsTermekenyitesekTERMMOD: TWideStringField;
-    sdsTermekenyitesekUT_ELL_DAT: TDateTimeField;
-    sdsEllesekID: TBCDField;
-    sdsEllesekELLES_DATUM: TDateTimeField;
-    sdsEllesekELLES_LEF: TWideStringField;
-    sdsEllesekE_TERM_DAT: TDateTimeField;
-    sdsEllesekAPA_KPLSZ: TWideStringField;
-    sdsEllesekAPA_NEV: TWideStringField;
-    sdsEllesekKEK: TIntegerField;
-    sdsEllesekB1_ENAR: TWideStringField;
-    sdsEllesekB1_IVAR: TWideStringField;
-    sdsEllesekB1_SULY: TBCDField;
-    sdsEllesekB1_SZARVALTSAG: TWideStringField;
-    sdsEllesekBE1_VALDAT: TDateTimeField;
-    sdsEllesekBE1_VALTOM: TIntegerField;
-    sdsEllesekBE1_TOM205: TIntegerField;
-    sdsEllesekBE1_SV: TIntegerField;
-    sdsEllesekB1_TGY: TIntegerField;
-    sdsEllesekBE1_KIKDAT: TDateTimeField;
-    sdsEllesekBE1_KIKOD: TWideStringField;
-    sdsEllesekBE1_KIKOK: TWideStringField;
-    sdsEllesekB2_ENAR: TWideStringField;
-    sdsEllesekB2_IVAR: TWideStringField;
-    sdsEllesekB2_SULY: TBCDField;
-    sdsEllesekB2_SZARVALTSAG: TWideStringField;
-    sdsEllesekBE2_VALDAT: TDateTimeField;
-    sdsEllesekBE2_VALTOM: TIntegerField;
-    sdsEllesekBE2_TOM205: TIntegerField;
-    sdsEllesekBE2_SV: TIntegerField;
-    sdsEllesekB2_TGY: TIntegerField;
-    sdsEllesekBE2_KIKDAT: TDateTimeField;
-    sdsEllesekBE2_KIKOD: TWideStringField;
-    sdsEllesekBE2_KIKOK: TWideStringField;
-    frxPDFExport1: TfrxPDFExport;
-    sdsListaDNS_DATE: TDateTimeField;
-    sdsListaDNS_IKTATOSZAM: TWideStringField;
+    sdsListaDONOR_ANYA: TWideStringField;
+    sdsListaDANYA_V1: TWideStringField;
+    sdsListaDANYA_VSZ1: TBCDField;
+    sdsListaDANYA_V2: TWideStringField;
+    sdsListaDANYA_VSZ2: TBCDField;
+    sdsListaDANYA_V3: TWideStringField;
+    sdsListaDANYA_VSZ3: TBCDField;
+    sdsListaDANYA_V4: TWideStringField;
+    sdsListaDANYA_VSZ4: TBCDField;
     frxRepLista: TfrxReport;
     procedure actOKExecute(Sender: TObject);
     procedure sdsListaENARGetText(Sender: TField; var Text: String;

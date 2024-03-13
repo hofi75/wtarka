@@ -1,6 +1,6 @@
 inherited frmEgyedLista: TfrmEgyedLista
-  Left = 592
-  Top = 229
+  Left = 789
+  Top = 305
   Width = 845
   Height = 624
   Caption = 'Egyedek list'#225'z'#225'sa'
@@ -970,7 +970,8 @@ inherited frmEgyedLista: TfrmEgyedLista
       'VSZ1=VSZ1'
       'TOM205=TOM205'
       'NET_PONT=NET_PONT'
-      'TIPUS=TIPUS')
+      'TIPUS=TIPUS'
+      'DONOR_ANYA=DONOR_ANYA')
     DataSet = sdsLista
     Left = 632
     Top = 104
@@ -994,8 +995,9 @@ inherited frmEgyedLista: TfrmEgyedLista
       #13#10'E.MIN,'#13#10'E.ANYA_ENAR,'#13#10'E.APAKLSZ,'#13#10'E.FAJTAKOD,'#13#10'E.KKOD,'#13#10'E.TKV,' +
       #13#10'E.SV,'#13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'case' +
       ' e.bikanevelo'#13#10'   when '#39'1'#39' then '#39'BN'#39#13#10'    else '#39' '#39#13#10'end as BN,'#13#10 +
-      'E.SZIN,'#13#10'E.VSZ1,'#13#10'E.TOM205,'#13#10'E.NET_PONT,'#13#10'T.TIPUS'#13#10'FROM EGYEDEK ' +
-      'E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'WHERE 1 = 1'
+      'E.SZIN,'#13#10'E.VSZ1,'#13#10'E.TOM205,'#13#10'E.NET_PONT,'#13#10'T.TIPUS,'#13#10'E.DONOR_ANYA' +
+      #13#10'FROM EGYEDEK E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'WHER' +
+      'E 1 = 1'
     DataSet.Parameters = <>
     Provider.DataSet.Connection = dtmTarka.cnTarka
     Provider.DataSet.CommandText = 
@@ -1007,8 +1009,9 @@ inherited frmEgyedLista: TfrmEgyedLista
       #13#10'E.MIN,'#13#10'E.ANYA_ENAR,'#13#10'E.APAKLSZ,'#13#10'E.FAJTAKOD,'#13#10'E.KKOD,'#13#10'E.TKV,' +
       #13#10'E.SV,'#13#10'E.IVAR,'#13#10'E.ALLDAT,'#13#10'E.KIKDAT,'#13#10'E.KIKOD,'#13#10'E.KIKOK,'#13#10'case' +
       ' e.bikanevelo'#13#10'   when '#39'1'#39' then '#39'BN'#39#13#10'    else '#39' '#39#13#10'end as BN,'#13#10 +
-      'E.SZIN,'#13#10'E.VSZ1,'#13#10'E.TOM205,'#13#10'E.NET_PONT,'#13#10'T.TIPUS'#13#10'FROM EGYEDEK ' +
-      'E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'WHERE 1 = 1'
+      'E.SZIN,'#13#10'E.VSZ1,'#13#10'E.TOM205,'#13#10'E.NET_PONT,'#13#10'T.TIPUS,'#13#10'E.DONOR_ANYA' +
+      #13#10'FROM EGYEDEK E'#13#10'left join teny t on t.tkod = E.TENYESZET'#13#10'WHER' +
+      'E 1 = 1'
     Provider.DataSet.Parameters = <>
     Provider.ResolveToDataSet = True
     Provider.Options = [poPropogateChanges]
@@ -1122,6 +1125,10 @@ inherited frmEgyedLista: TfrmEgyedLista
       FieldName = 'TIPUS'
       Size = 1
     end
+    object sdsListaDONOR_ANYA: TWideStringField
+      FieldName = 'DONOR_ANYA'
+      Size = 15
+    end
   end
   object frxRepList: TfrxReport
     Version = '3.19'
@@ -1131,7 +1138,7 @@ inherited frmEgyedLista: TfrmEgyedLista
     PreviewOptions.Zoom = 1.000000000000000000
     PrintOptions.Printer = 'Alap'#233'rtelmezett'
     ReportOptions.CreateDate = 38838.519462187500000000
-    ReportOptions.LastChange = 44426.389499837960000000
+    ReportOptions.LastChange = 45065.825763680560000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
