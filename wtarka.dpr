@@ -1,7 +1,7 @@
 program wtarka;
 
 uses
-  Forms,
+  Forms,
   ufrmMain in 'ufrmMain.pas' {frmMain},
   udtmTarka in 'udtmTarka.pas' {dtmTarka: TDataModule},
   about in 'about.pas' {AboutBox},
@@ -59,7 +59,6 @@ uses
   QfrmValRogz in 'QfrmValRogz.pas' {frmValRogz},
   QfrmKonvNez in 'QfrmKonvNez.pas' {frmKonvNez},
   QfrmTenyKarb in 'QfrmTenyKarb.pas' {frmTenyKarb},
-  QfrmEgyedLista in 'QfrmEgyedLista.pas' {frmEgyedLista},
   QfrmTermLista in 'QfrmTermLista.pas' {frmTermLista},
   qfrmEllesLista in 'qfrmEllesLista.pas' {frmEllesLista},
   QfrmCsopSor in 'QfrmCsopSor.pas' {frmCsopSor},
@@ -92,7 +91,9 @@ uses
   SzarmazasiIgazolas in 'SzarmazasiIgazolas.pas' {frmSzarmazasiIgazolas},
   SzarmazasiIgazolasPrint in 'SzarmazasiIgazolasPrint.pas' {SzarmazasiIgazolasPrint: TSzarmazasiIgazolasPrint},
   ATorzskonyves in 'ATorzskonyves.pas' {Form2},
-  VerhanyadLista in 'VerhanyadLista.pas' {frmVerhanyadLista};
+  VerhanyadLista in 'VerhanyadLista.pas' {frmVerhanyadLista},
+  QfrmEgyedLista in 'QfrmEgyedLista.pas' {frmEgyedLista},
+  Allomany in 'Allomany.pas' {frmAllomany};
 
 {$R *.res}
 
@@ -121,7 +122,7 @@ begin
   Application.CreateForm(TfrmHivSzarmIg, frmHivSzarmIg);
   Application.CreateForm(TfrmSzarmazasiIgazolas, frmSzarmazasiIgazolas);
   Application.CreateForm(TfrmVerhanyadLista, frmVerhanyadLista);
-  //Application.CreateForm(TAtorzskonyves, ATorzskonyves);
+  // Application.CreateForm(TAtorzskonyves, ATorzskonyves);
   // Application.CreateForm(TDataModule1, DataModule1);
   // Application.CreateForm(TfrmAtkotes, frmAtkotes);
   // Application.CreateForm(TfrmKarbOs1, frmKarbOs1);

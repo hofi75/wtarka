@@ -1,6 +1,6 @@
 object frmNyomtatoOs: TfrmNyomtatoOs
-  Left = 286
-  Top = 296
+  Left = 381
+  Top = 395
   Width = 533
   Height = 351
   Caption = 'Nyomtat'#225's'
